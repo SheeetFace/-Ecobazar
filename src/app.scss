@@ -1,0 +1,8 @@
+@import './styles/colors.scss';
+@import './styles/typography.scss';
+
+.App{
+    background-color:$grey-8;
+    font-size: $heading-01;
+    font-weight: $medium;
+}
