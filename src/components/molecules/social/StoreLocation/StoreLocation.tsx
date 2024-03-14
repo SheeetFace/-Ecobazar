@@ -1,4 +1,4 @@
-import MapPinIcon from "../../../atoms/icons/social/MapPinIcon";
+import MapPinIcon from "../../../atoms/icon/social/MapPinIcon";
 
 import  styles from '../StoreLocation/StoreLocation.module.scss'
 

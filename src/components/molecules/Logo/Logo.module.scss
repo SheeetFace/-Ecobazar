@@ -1,0 +1,9 @@
+@import '../../../styles/typography.scss';
+
+.Logo{
+    display: flex;
+    align-items: center;
+    gap:.4rem;
+    font-size:$heading-05;
+    font-weight: $semiBold;
+}

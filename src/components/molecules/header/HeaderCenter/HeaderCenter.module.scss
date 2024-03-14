@@ -1,0 +1,16 @@
+@import '../../../../styles/colors.scss';
+
+.HeaderCenter{
+    width: 100%;
+    padding-top:.7rem;
+    padding-bottom: .7rem; 
+
+    ._container{
+        display: flex;
+        justify-content: space-between;
+
+        ._logo{
+            color:$green-9;
+        }
+    }
+}

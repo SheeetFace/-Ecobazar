@@ -1,5 +1,5 @@
-import StoreLocation from "../../novigations/StoreLocation/StoreLocation";
-import SingInOut from "../../../atoms/buttons/SingInOut/SingInOut";
+import StoreLocation from "../../social/StoreLocation/StoreLocation";
+import SingInOut from "../../../atoms/button/SingInOut/SingInOut";
 
 import styles from "../HeaderTop/HeaderTop.module.scss"
 
