@@ -1,0 +1,18 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/typography.scss';
+
+.StoreLocation{
+    display: flex;
+    gap:.2rem;
+
+    ._map_pin_icon{
+        width: 15px;
+        height: 18px;
+        stroke:$grey-3;
+    }
+    span{
+        font-size: $body-tiny;
+        font-weight: $regular;
+        color:$grey-3;
+    }
+}

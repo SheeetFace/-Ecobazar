@@ -1,0 +1,9 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/typography.scss';
+
+
+span{
+    font-size: $body-tiny;
+    font-weight: $regular;
+    color:$grey-3;
+}

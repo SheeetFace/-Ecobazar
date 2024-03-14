@@ -1,0 +1,15 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/typography.scss';
+
+.HeaderTop{
+    width: 100%;
+
+    background-color:$grey-8;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    ._container{
+        display: flex;
+        justify-content: space-between;
+    }
+}
