@@ -6,8 +6,8 @@ const StoreLocation:React.FC = ()=>{
 
     return(
         <div className={styles.StoreLocation}>
-            <MapPinIcon className={styles._map_pin_icon}/>
-            <span>Store Location: Lincoln - 344, Illinois, Chicago, USA</span>
+            <MapPinIcon className={styles._MapPinIcon}/>
+            <span className={styles.span}>Store Location: Lincoln - 344, Illinois, Chicago, USA</span>
         </div>
     )
 }

@@ -5,7 +5,7 @@ const SingInOut:React.FC = ()=>{
 
     return(
         <button className='resetButton'>
-            <span className={styles.span}>Sing In / Sing Out</span>
+            <span className={styles.text}>Sing in / Sing out</span>
         </button>
     )
 }
