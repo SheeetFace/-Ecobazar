@@ -1,5 +1,5 @@
 import Logo from '../../Logo/Logo';
-import Devider from '../../../atoms/Devider/Devider';
+import ShoppingActions from '../../ShoppingActions/ShoppingActions';
 
 import styles from '../HeaderCenter/HeaderCenter.module.scss'
 
@@ -9,7 +9,7 @@ const HeaderCenter:React.FC = ()=>{
             <div className='center'>
                 <div className={styles._container}>
                     <Logo className={styles._logo}/>
-                    <Devider type='vertical'/>
+                    <ShoppingActions/>
                 </div>
 
             </div>

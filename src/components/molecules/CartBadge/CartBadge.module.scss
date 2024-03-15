@@ -1,0 +1,18 @@
+@import '../../../styles/colors.scss';
+
+.CartBadge{
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+  
+    &:hover ._iconHover{
+      stroke: $hard-primary-color;
+    }
+  
+    ._count{
+      position: absolute;
+      top: -7px;
+      right: -7px;
+    }
+}

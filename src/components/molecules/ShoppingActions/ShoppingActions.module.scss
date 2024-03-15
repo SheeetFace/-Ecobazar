@@ -1,0 +1,17 @@
+@import '../../../styles/colors.scss';
+
+.ShoppingActions{
+    display: flex;
+    align-items: center;
+    gap:1rem;
+
+    ._wishlistIcon{
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        &:hover ._iconHover{
+            stroke: $hard-primary-color;
+        }
+    }
+}

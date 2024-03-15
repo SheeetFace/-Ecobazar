@@ -1,0 +1,14 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/typography.scss';
+
+.CartSummary{
+    display: flex;
+    flex-direction: column;
+
+    ._shoppingCart{
+        font-size: $body-tiny;
+    }
+    ._summary{
+        font-weight: $medium;
+    }
+}
