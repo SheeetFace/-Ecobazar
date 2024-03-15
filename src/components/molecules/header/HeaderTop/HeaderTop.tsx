@@ -1,5 +1,5 @@
 import StoreLocation from "../../social/StoreLocation/StoreLocation";
-import SingInOut from "../../../atoms/button/SingInOut/SingInOut";
+import Button from "../../../atoms/Button/Button";
 
 import styles from "../HeaderTop/HeaderTop.module.scss"
 
@@ -10,7 +10,9 @@ const HeaderTop:React.FC =()=>{
             <div className="center">
                 <div className={styles._container}>
                     <StoreLocation/>
-                    <SingInOut/>
+                    <Button className="SingInSingOut"
+                            text="Sing in / Sing out"
+                    />
                 </div>
             </div>
 
