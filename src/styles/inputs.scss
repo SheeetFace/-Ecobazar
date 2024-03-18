@@ -1,0 +1,43 @@
+@import '../styles/typography.scss';
+@import '../styles/colors.scss';
+
+
+input{
+    padding-left: 5%;
+    margin: 1%;
+    width: 100%;
+    height: 80%;
+    border: none;
+    outline: none;
+    font-family: inherit;
+    font-size: $body-medium;
+}
+
+.DefaultBorderStyle{
+    width: 100%;
+    border:1px solid $grey-2;
+
+    &:hover{
+        border:1px solid $primary-color;
+    }
+}
+
+._searchInput{
+    border-right: none !important;
+    border-top-left-radius:6px;
+    border-bottom-left-radius:6px;
+}
+._isInvalidSearchInput{
+    @extend ._searchInput;
+    border:1px solid $danger-color;
+}
+
+
+._warningInput{
+    border-radius:6px;
+    border:1px solid $warning-color;
+}
+._errorInput{
+    border-radius:6px;
+    border:1px solid $danger-color;
+}

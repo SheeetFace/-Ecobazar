@@ -1,11 +1,21 @@
 import styles from '../Input/Input.module.scss'
 
-const Input =()=>{
+interface InputProps{
+    placeholder:string
+    forwardRef: React.RefObject<HTMLInputElement>
+    className:string
+    type:string
+}
+
+const Input:React.FC<InputProps> =({placeholder, forwardRef, className,type})=>{
 
     return(
-        <input 
-            style={{width:'100%'}}
-            placeholder='123'/>
+        <div className={`DefaultBorderStyle ${className}`}>
+            <input className={styles.input}
+                ref={forwardRef}
+                type={type}
+                placeholder={placeholder}/>
+        </div>
     )
 }
 export default Input;

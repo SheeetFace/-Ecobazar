@@ -12,6 +12,7 @@ const HeaderTop:React.FC =()=>{
                     <StoreLocation/>
                     <Button className="SingInSingOut"
                             text="Sing in / Sing out"
+                            type='button'
                     />
                 </div>
             </div>
