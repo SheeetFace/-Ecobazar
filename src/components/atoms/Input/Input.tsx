@@ -1,4 +1,3 @@
-import styles from '../Input/Input.module.scss'
 
 interface InputProps{
     placeholder:string
@@ -11,10 +10,9 @@ const Input:React.FC<InputProps> =({placeholder, forwardRef, className,type})=>{
 
     return(
         <div className={`DefaultBorderStyle ${className}`}>
-            <input className={styles.input}
-                ref={forwardRef}
-                type={type}
-                placeholder={placeholder}/>
+            <input ref={forwardRef}
+                   type={type}
+                   placeholder={placeholder}/>
         </div>
     )
 }

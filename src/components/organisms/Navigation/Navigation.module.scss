@@ -1,0 +1,19 @@
+@import '../../../styles/typography.scss';
+@import '../../../styles/colors.scss';
+
+.stylesColor{
+   color:$grey-6;
+   font-weight: $medium;
+}
+
+.Navigation{
+   @extend .stylesColor;
+
+   padding-top: 1rem;
+   padding-bottom: 1rem; 
+
+   ._container{
+      display: flex;
+      justify-content: space-between;
+   }
+}
