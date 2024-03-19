@@ -2,5 +2,6 @@
 @import '../../../styles//typography.scss';
 
 .Footer{
-
+    display: flex;
+    flex-direction: column;
 }

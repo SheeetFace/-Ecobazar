@@ -1,0 +1,33 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles//typography.scss';
+
+.Newsletter{
+    
+    background-color:$grey-1;
+
+    ._conatiner{
+        display: flex;
+        justify-content: space-between;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+
+        ._SubcribeOurNewsletter{
+            display: flex;
+            flex-direction: column;
+
+            ._title{
+                font-size: $body-xxl;
+                font-weight: $semiBold;
+                color:$grey-9;
+            }
+            ._description{
+                font-size: $body-small;
+                font-weight: $regular;
+                color:$grey-4;
+            }
+        }
+    }
+
+
+
+}

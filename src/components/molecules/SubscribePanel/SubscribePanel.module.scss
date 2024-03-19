@@ -1,0 +1,16 @@
+
+.SubscribePanel{
+    display: flex;
+    width: 480px;
+    min-width: 240px;
+    height: 50px;
+    position: relative;
+
+    ._input{
+        width: 95%;
+    }
+    ._button{
+        position: absolute;
+        right: 0;
+    }
+}
