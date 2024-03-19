@@ -1,0 +1,9 @@
+@import '../../../styles/colors.scss';
+
+.BreadcrumbItem{
+    cursor: pointer;
+
+    &:hover{
+        color:$primary-color;
+    }
+}

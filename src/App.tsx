@@ -1,6 +1,11 @@
 import Divider from './components/atoms/Divider/Divider';
 import Header from './components/organisms/Header/Header';
 import Navigation from './components/organisms/Navigation/Navigation';
+import Breadcrumb from './components/molecules/Breadcrumb/Breadcrumb';
+
+
+import Footer from './components/organisms/Footer/Footer';
+
 
 import './styles/common.scss'
 import './styles/buttons.scss'
@@ -14,6 +19,14 @@ function App() {
       <Header/>
       <Divider type='horizontal'/>
       <Navigation/>
+      <Breadcrumb/>
+
+      <div style={{height:'90lvh', backgroundColor:'grey'}}>
+        content
+      </div>
+
+      <Footer/>
+
     </div>
   )
 }

@@ -1,0 +1,27 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/typography.scss';
+
+.Breadcrumb{
+    width: 100%;
+    height: 80px;
+    position: relative;
+    background-image: url('../../../assets/banner/breedcrumb.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    ._container{
+        height: 100%;
+        display: flex;
+        align-items:center;
+
+        color:$grey-3;
+        font-size:$body-large;
+        font-weight:$regular;
+
+        ._arrow{
+            margin-left: .55rem;
+            margin-right: .55rem;
+        }
+    }
+}
