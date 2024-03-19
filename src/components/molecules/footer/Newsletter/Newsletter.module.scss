@@ -8,12 +8,15 @@
     ._conatiner{
         display: flex;
         justify-content: space-between;
+        align-items:center;
         padding-top: 2rem;
         padding-bottom: 2rem;
+        gap:2rem;
 
         ._SubcribeOurNewsletter{
             display: flex;
             flex-direction: column;
+            max-width: 30%;
 
             ._title{
                 font-size: $body-xxl;

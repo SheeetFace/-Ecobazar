@@ -1,0 +1,21 @@
+@import '../../../styles/colors.scss';
+
+.SocialMediaIcons{
+    display: flex;
+    gap:1.5rem;
+    align-items:center;
+
+    ._icon{
+        display: flex;
+        align-items:center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius:50%;
+        cursor: pointer;
+
+        &:hover{
+            background-color:$primary-color;
+        }
+    }
+}

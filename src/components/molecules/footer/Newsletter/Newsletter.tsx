@@ -1,4 +1,5 @@
 import SubscribePanel from '../../SubscribePanel/SubscribePanel';
+import SocialMediaIcons from '../../SocialMediaIcons/SocialMediaIcons';
 
 import styles from '../Newsletter/Newsletter.module.scss';
 
@@ -19,6 +20,8 @@ const Newsletter:React.FC =()=>{
                     </div>
 
                     <SubscribePanel/>
+
+                    <SocialMediaIcons/>
 
                 </div>
             </div>

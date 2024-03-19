@@ -10,17 +10,17 @@ const SubscribePanel = () =>{
 
     return(
         <form className={styles.SubscribePanel}>
-            <span className={styles._input}>
+            <div className={styles._input}>
                 <Input forwardRef={ref} 
                     className='_subscribeInput' 
                     placeholder='Your email address'
                     type='text'/>
-            </span>
-            <span className={styles._button}>
+            </div>
+            <div className={styles._button}>
                 <Button className='Subscribe'
                         text='Subscribe'
                         type='submit'/>
-            </span>
+            </div>
         </form>
     )
 }
