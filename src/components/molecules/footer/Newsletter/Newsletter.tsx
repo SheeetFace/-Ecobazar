@@ -20,7 +20,7 @@ const Newsletter:React.FC =()=>{
                     </div>
 
                     <SubscribePanel/>
-
+                    
                     <SocialMediaIcons/>
 
                 </div>

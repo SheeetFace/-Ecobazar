@@ -30,7 +30,7 @@ input{
     border-top-left-radius:6px;
     border-bottom-left-radius:6px;
 }
-._isInvalidSearchInput{
+._invalidSearchInput{
     @extend ._searchInput;
     border:1px solid $danger-color;
 }
@@ -40,6 +40,10 @@ input{
     height: 100%;
     border-radius:30px;
     border:1px solid $grey-2;
+}
+._invalidSubscribeInput{
+    @extend ._subscribeInput;
+    border:1px solid $danger-color;
 }
 
 
