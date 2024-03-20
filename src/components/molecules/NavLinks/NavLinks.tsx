@@ -1,6 +1,6 @@
 import NavLinkItem from "../../atoms/NavLinkItem/NavLinkItem";
 
-import { navigation } from "../../../data/navigation";
+import { headerNavigation } from "../../../data/headerNavigation";
 
 import styles from '../NavLinks/NavLinks.module.scss'
 
@@ -12,7 +12,7 @@ interface NavigationLink{
 const NavLinks =()=>{
 
     const renderNavLinks = ():JSX.Element[] =>{
-        return navigation.map((item:NavigationLink,i)=>{
+        return headerNavigation.map((item:NavigationLink,i)=>{
             return(
                 <NavLinkItem name={item.name}
                              path={item.path}

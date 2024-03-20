@@ -1,0 +1,30 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/typography.scss';
+
+.BrandInfo{
+    display: flex;
+    flex-direction: column;
+    max-width: 25%;
+    color:$grey-5;
+    gap:1rem;
+
+    ._logo{
+        color:$white-color;
+    }
+
+    ._text{
+        font-size:$body-small;
+        font-weight:$regular;
+    }
+
+    ._contacts{
+        display: flex;
+        justify-content: space-between;
+
+        ._phoneAndEmail{
+            color:$white-color;
+            border-bottom: 1px solid $primary-color;
+        }
+    }
+
+}

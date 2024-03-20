@@ -1,5 +1,5 @@
 
-export const navigation = [
+export const headerNavigation = [
     {
       name: 'Shop',
       path: '/shop',

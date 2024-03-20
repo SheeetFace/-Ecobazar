@@ -1,12 +1,15 @@
-import styles from '../Footer/Footer.module.scss';
+import FooterTop from '../../molecules/footer/FooterTop/FooterTop';
 
-import Newsletter from '../../molecules/footer/Newsletter/Newsletter';
+import styles from '../Footer/Footer.module.scss';
 
 const Footer:React.FC = ()=>{
 
     return (
         <footer className={styles.Footer}>
-            <Newsletter/>
+            <div className='center'>
+                <FooterTop/>
+            </div>
+            
         </footer>
     )
 }

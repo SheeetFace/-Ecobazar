@@ -4,6 +4,7 @@ import Navigation from './components/organisms/Navigation/Navigation';
 import Breadcrumb from './components/molecules/Breadcrumb/Breadcrumb';
 
 
+import Newsletter from './components/molecules/Newsletter/Newsletter';
 import Footer from './components/organisms/Footer/Footer';
 
 
@@ -25,6 +26,7 @@ function App() {
         content
       </div>
 
+      <Newsletter/>
       <Footer/>
 
     </div>
