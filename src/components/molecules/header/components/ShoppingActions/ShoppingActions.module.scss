@@ -1,4 +1,4 @@
-@import '../../../styles/colors.scss';
+@import '../../../../../styles/colors.scss';
 
 .ShoppingActions{
     display: flex;
@@ -13,5 +13,9 @@
         &:hover ._iconHover{
             stroke: $hard-primary-color;
         }
+    }
+
+    ._divider{
+        background-color: $grey-1;
     }
 }

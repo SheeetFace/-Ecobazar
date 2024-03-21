@@ -22,13 +22,13 @@ const Breadcrumb:React.FC = ()=>{
     }
 
     return(
-        <div className={styles.Breadcrumb}>
+        <section className={styles.Breadcrumb}>
             <div className={styles._container}>
                 <div className='center'>
                     {renderBreadcrumbItem()}
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 export default Breadcrumb;

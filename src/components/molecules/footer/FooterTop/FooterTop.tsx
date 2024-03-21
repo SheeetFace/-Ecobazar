@@ -1,34 +1,18 @@
-import BrandInfo from '../../BrandInfo/BrandInfo';
+import BrandInfo from '../components/BrandInfo/BrandInfo';
+import NavigationList from '../components/NavigationList/NavigationList';
 
-import {MyAccountData} from '../../../../data/footerNavigation';
+import {MyAccountData, HelpsData} from '../../../../data/footerNavigation';
 
 import styles from '../FooterTop/FooterTop.module.scss';
 
-interface NavigationDataItem{
-    name: string,
-    path: string,
-}
 
 const FooterTop:React.FC = ()=>{
-
-    const renderNavigationList = (data:NavigationDataItem[])=>{
-        return data.map((item,i)=>{
-            return(
-                <span className={i===0 ? styles._title:styles._name}>
-                    {item.name}
-                </span>
-            )
-        })
-
-    }
 
     return(
         <div className={styles.FooterTop}>
             <BrandInfo/>
-
-            <div className={styles._list}>
-                {renderNavigationList(MyAccountData)}
-            </div>
+            <NavigationList data={MyAccountData} title='My Account'/>
+            <NavigationList data={HelpsData} title='Helps'/>
         </div>
     )
 }

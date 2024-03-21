@@ -1,10 +1,6 @@
 
 export const MyAccountData=[
     {
-        name:'My Account',
-        path:''
-    },
-    {
         name:'Order History',
         path:'/dashboard'
     },
@@ -21,3 +17,24 @@ export const MyAccountData=[
         path:'/dashboard'
     },
 ]
+
+export const HelpsData=[
+    {
+        name:'Contacts',
+        path:'/dashboard'
+    },
+    {
+        name:'Faqs',
+        path:'/dashboard'
+    },
+    {
+        name:'Terms & Condition',
+        path:'/dashboard'
+    },
+    {
+        name:'Privacy Policy',
+        path:'/dashboard'
+    },
+]
+
+

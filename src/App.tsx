@@ -18,7 +18,7 @@ function App() {
   return (
     <div className={styles.App}>
       <Header/>
-      <Divider type='horizontal'/>
+      <Divider type='horizontal' className={styles._divider}/>
       <Navigation/>
       <Breadcrumb/>
 

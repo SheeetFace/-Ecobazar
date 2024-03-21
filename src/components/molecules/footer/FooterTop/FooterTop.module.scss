@@ -1,29 +1,8 @@
-@import '../../../../styles/colors.scss';
-
 
 .FooterTop{
     display: flex;
     padding-top: 2rem;
     padding-bottom: 2rem;
     justify-content: space-between;
-
-    ._list{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
-        ._title{
-            color:$white-color;
-        }
-        ._name{
-            color:$grey-5;
-            cursor:pointer;
-
-            &:hover{
-                color:$white-color;
-            }
-        }
-    }
-
-
+    align-items:center;
 }

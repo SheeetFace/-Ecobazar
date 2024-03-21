@@ -1,4 +1,7 @@
+@import '../src/styles/colors.scss';
 
 .App{
-    
+    ._divider{
+        background-color:$grey-1;
     }
+}

@@ -1,5 +1,5 @@
-import CartIcon from '../../atoms/icon/navigate/CartIcon';
-import ItemCountBadge from '../../atoms/ItemCountBadge/ItemCountBadge';
+import CartIcon from '../../../../atoms/icon/navigate/CartIcon';
+import ItemCountBadge from '../../../../atoms/header/ItemCountBadge/ItemCountBadge';
 
 import styles from '../CartBadge/CartBadge.module.scss'
 

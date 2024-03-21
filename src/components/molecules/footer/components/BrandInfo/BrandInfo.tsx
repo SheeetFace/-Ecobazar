@@ -1,5 +1,5 @@
-import Logo from '../Logo/Logo';
-import PhoneCall from '../contact/PhoneCall/PhoneCall';
+import Logo from '../../../Logo/Logo';
+import PhoneCall from '../../../contact/PhoneCall/PhoneCall';
 
 import styles from '../BrandInfo/BrandInfo.module.scss'
 
