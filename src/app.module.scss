@@ -1,6 +1,9 @@
 @import '../src/styles/colors.scss';
 
 .App{
+
+    background-color:$grey-05;
+
     ._divider{
         background-color:$grey-1;
     }
