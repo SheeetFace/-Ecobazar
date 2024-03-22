@@ -1,13 +1,13 @@
 import { useRef } from 'react';
 
-import useValidation from '../../../hooks/useValidation';
+import useValidation from '../../../../../hooks/useValidation';
 
-import Input from '../../atoms/Input/Input';
-import Button from '../../atoms/Button/Button';
+import Input from '../../../../atoms/Input/Input';
+import Button from '../../../../atoms/Button/Button';
 
 import styles from '../SubscribePanel/SubscribePanel.module.scss';
 
-import { ValidateSearchOrSubscribeTypes } from '../../../types/validateSearchOrSubscribeTypes';
+import { ValidateSearchOrSubscribeTypes } from '../../../../../types/validateSearchOrSubscribeTypes';
 
 import type {FormEvent} from 'react';
 
@@ -47,7 +47,7 @@ const SubscribePanel = () =>{
                         type='text'/>
             </div>
             <div className={styles._button}>
-                <Button className='Subscribe'
+                <Button className='ButtonFilledOval fillGreen colorTextGrey1'
                         text='Subscribe'
                         type='submit'/>
             </div>

@@ -1,5 +1,5 @@
-import SubscribePanel from '../SubscribePanel/SubscribePanel';
-import SocialMediaIcons from '../SocialMediaIcons/SocialMediaIcons';
+import SubscribePanel from '../components/SubscribePanel/SubscribePanel';
+import SocialMediaIcons from '../../SocialMediaIcons/SocialMediaIcons';
 
 import styles from '../Newsletter/Newsletter.module.scss';
 

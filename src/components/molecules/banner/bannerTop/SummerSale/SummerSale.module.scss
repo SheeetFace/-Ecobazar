@@ -1,0 +1,54 @@
+@import '../../../../../styles/colors.scss';
+@import '../../../../../styles/typography.scss';
+
+.SummerSale{
+    width: 100%;
+    position: relative;
+    height: 50%;
+    background-image: url('../../../../../assets/banner/banner-sm-05.webp');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius:10px;
+
+    &:before {
+        content: ""; 
+        position: absolute; 
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgb(0,0,0);
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.349) 0%, rgba(0,0,0,0.09007352941176472) 60%);
+        border-radius:10px;
+        z-index: 1;
+    }
+
+    ._container{
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+        gap: .5rem;
+
+        ._title{
+            font-size: $body-medium;
+            font-weight: $medium;
+        }
+        ._discount{
+            font-size: $heading-05;
+            font-weight: $semiBold;
+        }
+        ._description{
+            font-size: $body-small;
+            font-weight: $regular;
+            color:$grey-7;
+        }
+
+        ._button{
+            margin-top: 3%;
+            position: relative;
+            z-index: 2;
+            width: max-content;
+        }
+    }
+}

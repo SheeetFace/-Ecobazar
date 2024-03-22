@@ -5,7 +5,7 @@ import Breadcrumb from './components/molecules/Breadcrumb/Breadcrumb';
 
 import MainPage from './components/pages/MainPage/MainPage';
 
-import Newsletter from './components/molecules/Newsletter/Newsletter';
+import Newsletter from './components/molecules/newsletter/Newsletter/Newsletter';
 import Footer from './components/organisms/Footer/Footer';
 
 import './styles/common.scss'

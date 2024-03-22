@@ -1,10 +1,15 @@
 import styles from '../LabelBadge/LabelBadge.module.scss';
 
-const LabelBadge:React.FC = () => {
+interface LabelBadgeProps{
+  className:string;
+  label:string
+}
+
+const LabelBadge:React.FC<LabelBadgeProps> = ({className,label}) => {
 
   return (
-    <div className={styles.LabelBadge}>
-
+    <div className={`${styles.LabelBadge} ${className}`}>
+      <span>{label}</span>
     </div>
   )
 }
