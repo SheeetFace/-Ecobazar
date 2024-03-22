@@ -1,0 +1,30 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/typography.scss';
+
+.PopularCategoriesCard{
+    width: 190px;
+    background-color:$white-color;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid $grey-3;
+    padding: 1rem;
+    border-radius:5px;
+    cursor: pointer;
+    color:$grey-9;
+
+    &:hover{
+        border: 1px solid $primary-color;
+        color: $primary-color; 
+        -webkit-box-shadow: 0px 0px 3px 1px $soft-primary-color;
+        -moz-box-shadow: 0px 0px 3px 1px $soft-primary-color;
+        box-shadow: 0px 0px 3px 1px $soft-primary-color; 
+    }
+
+    span{
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+        text-align: center;
+
+        font-weight:$semiBold;
+    }
+}

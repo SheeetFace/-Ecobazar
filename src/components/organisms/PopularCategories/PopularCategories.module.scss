@@ -1,0 +1,20 @@
+
+.PopularCategories{
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    
+    ._center{
+        display: flex;
+        align-items:center;
+        justify-content: center;
+
+        ._cards{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 2rem;
+        }
+    }
+
+}
