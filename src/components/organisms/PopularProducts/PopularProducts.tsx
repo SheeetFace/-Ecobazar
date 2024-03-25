@@ -1,5 +1,5 @@
 import TitleWithViewAll from '../../molecules/TitleWithViewAll/TitleWithViewAll';
-import PopularProductsCard from '../../molecules/card/PopularProductsCard/PopularProductsCard';
+import ProductsCard from '../../molecules/card/ProductCard/ProductCard';
 
 import { popularProductsData } from '../../../data/temp/popularProductsData';
 
@@ -28,7 +28,7 @@ const PopularProducts:React.FC = () => {
   const renderPopularProducts = ()=>{
     return popularProductsData.map((item:popularProductsDataItem)=>{
       return(
-        <PopularProductsCard  key={item.id}
+        <ProductsCard  key={item.id}
                                 id={item.id}
                                 name={item.name}
                                 src={item.src}

@@ -1,0 +1,138 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/typography.scss';
+
+
+._button{
+    width: 40px;
+    height: 40px;
+    background-color:$grey-1;
+    border-radius:50%;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    transition: background-color 0.4s ease;
+}
+._buttonIcon{
+    width: 20px;
+    height: 20px;
+}
+
+.ProductsCard{
+    position: relative;
+    width: 20%;
+    min-width: 200px;
+    background-color:$white-color;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid $grey-1;
+    padding: 1rem;
+    border-radius:2px;
+    cursor: pointer;
+    color:$grey-9;
+    transition:border .4s ease;
+
+    &:hover{
+        border: 1px solid $primary-color;
+        -webkit-box-shadow: 0px 0px 3px 1px $soft-primary-color;
+        -moz-box-shadow: 0px 0px 3px 1px $soft-primary-color;
+        box-shadow: 0px 0px 3px 1px $soft-primary-color; 
+
+        ._topButtonsContainer{
+            opacity: 1;
+        }
+
+        ._name{
+            color:$primary-color;
+        }
+
+        ._container ._buttonCart{ 
+            background-color:$primary-color;
+        }
+
+    }
+
+    ._label{
+        position: absolute;
+        left: 10px;
+        background-color: $danger-color;
+        color:$white-color;
+    }
+
+    ._topButtonsContainer{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        right: 20px;
+        gap:15px;
+        opacity: 0;
+        transition: opacity .4s ease;
+
+        ._buttonWishlist{
+            @extend ._button;
+
+            &:hover{
+                background-color:$primary-color;
+            }
+
+            ._buttonWishlistIcon{
+                @extend._buttonIcon;
+            }
+        }
+
+        ._buttonQuickView{
+            @extend ._button;
+
+            
+            &:hover{
+                background-color:$primary-color;
+            }
+
+            ._buttonQuickViewIcon{
+                @extend._buttonIcon;
+            }
+        }
+    }
+
+    ._name{
+        font-size: $body-small;
+        font-weight: $regular;
+        color:$grey-4;
+    }
+
+    ._container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        ._containerCostAndRating{
+            display: flex;
+            flex-direction: column;
+    
+            ._costWrapper{
+                display: flex;
+                gap:7px;
+                font-size: $body-medium;
+                font-weight: $medium;
+                
+                ._currentConst{
+                    color:$grey-9;
+                }
+                ._oldCost{
+                    color:$grey-4;
+                    text-decoration: line-through;
+                }
+            }
+        }
+
+        ._buttonCart{
+            @extend._button;
+
+            ._buttonCartIcon{
+                @extend ._buttonIcon;
+            }
+        }
+
+    }
+
+
+}

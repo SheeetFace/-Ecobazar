@@ -11,6 +11,7 @@
     border-radius:5px;
     cursor: pointer;
     color:$grey-9;
+    transition: color .4s ease , border .4s ease;
 
     &:hover{
         border: 1px solid $primary-color;
