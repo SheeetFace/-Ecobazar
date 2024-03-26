@@ -1,0 +1,19 @@
+@import '../../../../styles/typography.scss';
+@import '../../../../styles/colors.scss';
+
+.TimerOne{
+    display: flex;
+    flex-direction: column;
+    
+    ._time{
+        font-weight: $regular;
+        font-size: $body-xxl;
+    }
+
+    ._label{
+        font-weight: $tiny;
+        font-size: $body-tiny;
+        color:$grey-05 !important;
+    }
+
+}
