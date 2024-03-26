@@ -1,11 +1,11 @@
 
 .BannerCenter{
     padding-top: 3rem;
-
-
+    height: 100%;  
     ._container{
-        height: 530px;
+        min-height: 530px;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
     }
 }

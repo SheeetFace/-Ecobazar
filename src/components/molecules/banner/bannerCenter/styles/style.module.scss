@@ -1,0 +1,39 @@
+
+._primaryBackground{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    width: 31%;
+    min-width: 250px;
+    height: inherit;
+    min-height: 300px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+
+    ._primaryContainer{
+        padding-top: 2rem;
+        width: 100%;
+        height: 48%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        color:$grey-05;
+        text-align: center;
+
+        ._preTitle{
+            font-weight:$medium;
+        }
+
+        ._title{
+            font-weight:$semiBold;
+            font-size: $heading-03;
+        }
+        ._wrapperButton{
+            margin-top: .6rem;
+            min-height: 40px;
+        }
+    }
+}

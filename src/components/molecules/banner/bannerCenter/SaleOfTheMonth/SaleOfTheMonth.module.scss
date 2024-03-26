@@ -1,39 +1,14 @@
 @import '../../../../../styles/colors.scss';
 @import '../../../../../styles/typography.scss';
+@import '../styles/style.module.scss';
 
 .SaleOfTheMonth{
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
-    width: 31%;
-    min-width: 250px;
-    height: inherit;
+    @extend ._primaryBackground;
+
     background-image: url('../../../../../assets/banner/banner-sm-03.webp');
-    border-radius: 10px;
 
     ._container{
-        padding-top: 2rem;
-        width: 100%;
-        height: 48%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        color:$grey-05;
-        text-align: center;
+        @extend ._primaryContainer;
 
-        ._preTitle{
-            font-weight:$medium;
-        }
-
-        ._title{
-            font-weight:$semiBold;
-            font-size: $heading-03;
-        }
-
-        ._wrapperButton{
-            height: 40px;
-
-        }
     }
 }
