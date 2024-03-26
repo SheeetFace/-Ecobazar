@@ -4,6 +4,7 @@
 .TimerOne{
     display: flex;
     flex-direction: column;
+    width: 40px;
     
     ._time{
         font-weight: $regular;

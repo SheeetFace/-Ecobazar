@@ -1,4 +1,4 @@
-import SaleOfTheMonth from '../../../molecules/banner/bannerCenter/SaleOfTheMonth';
+import SaleOfTheMonth from '../../../molecules/banner/bannerCenter/SaleOfTheMonth/SaleOfTheMonth';
 
 import styles from '../BannerCenter/BannerCenter.module.scss';
 

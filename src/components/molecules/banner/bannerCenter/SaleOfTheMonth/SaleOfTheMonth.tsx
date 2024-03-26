@@ -1,6 +1,7 @@
-import Timer from '../../Timer/Timer';
+import Timer from '../../../Timer/Timer';
+import Button from '../../../../atoms/Button/Button';
 
-import styles from '../bannerCenter/SaleOfTheMonth.module.scss';
+import styles from '../SaleOfTheMonth/SaleOfTheMonth.module.scss';
 
 const SaleOfTheMonth:React.FC = () => {
 
@@ -14,6 +15,9 @@ const SaleOfTheMonth:React.FC = () => {
 
                 <div className='center'><Timer color='white'/></div>
                 
+                <div className={styles._wrapperButton}>
+                    <Button className='ButtonFilledOval fillWhite colorTextGreenPrimary' type='button' text='Shop now &#10132;'/>
+                </div>
 
             </div>
         </div>
