@@ -1,21 +1,7 @@
 @import '../../../../styles/colors.scss';
 @import '../../../../styles/typography.scss';
+@import '../styles/styles.module.scss';
 
-
-._button{
-    width: 40px;
-    height: 40px;
-    background-color:$grey-1;
-    border-radius:50%;
-    display: flex;
-    align-items:center;
-    justify-content: center;
-    transition: background-color 0.4s ease;
-}
-._buttonIcon{
-    width: 20px;
-    height: 20px;
-}
 
 .ProductsCard{
     position: relative;
@@ -67,22 +53,10 @@
         opacity: 0;
         transition: opacity .4s ease;
 
-        ._buttonWishlist{
-            @extend ._button;
-
-            &:hover{
-                background-color:$primary-color;
-            }
-
-            ._buttonWishlistIcon{
-                @extend._buttonIcon;
-            }
-        }
-
         ._buttonQuickView{
             @extend ._button;
+            background-color:$grey-1;
 
-            
             &:hover{
                 background-color:$primary-color;
             }
@@ -126,6 +100,7 @@
 
         ._buttonCart{
             @extend._button;
+            background-color:$grey-1;
 
             ._buttonCartIcon{
                 @extend ._buttonIcon;

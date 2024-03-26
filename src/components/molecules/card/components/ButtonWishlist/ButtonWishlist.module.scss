@@ -1,0 +1,36 @@
+@import '../../../../../styles/colors.scss';
+@import '../../styles/styles.module.scss';
+
+.primary-background {
+    background-color: $primary-color;
+  }
+
+.ButtonWishlist{
+    @extend ._button;
+
+    &._cardNotInWishList{
+        background-color:$grey-1;
+
+        &:hover{
+            @extend .primary-background;
+        }
+    }
+    &._detailNotInWishList{
+        background-color:rgba($soft-primary-color, 0.3);
+
+        &:hover{
+            @extend .primary-background;
+        }
+    }
+
+    &._cardInWishList{
+        @extend .primary-background;
+    }
+    &._detailInWishList{
+        @extend .primary-background;
+    }
+
+    ._buttonWishlistIcon{
+        @extend._buttonIcon;
+    }
+}

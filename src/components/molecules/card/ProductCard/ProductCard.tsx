@@ -1,8 +1,8 @@
 import LabelBadge from '../../../atoms/LabelBadge/LabelBadge';
 import RatingStars from '../../RatingStars/RatingStars';
 import Button from '../../../atoms/Button/Button';
+import ButtonWishlist from '../components/ButtonWishlist/ButtonWishlist';
 
-import WishlistIcon from '../../../atoms/icon/navigate/WishlistIcon';
 import EyeIcon from '../../../atoms/icon/navigate/EyeIcon';
 import CartIcon from '../../../atoms/icon/navigate/CartIcon';
 
@@ -26,18 +26,13 @@ const ProductsCard:React.FC<ProductsCardProps> = ({name,id,src,currentCost,oldCo
         console.log(`${id} added to cart`)
     }
 
-    const addToWishlist =(id:string)=>{
-        console.log(`${id} added to wishlist`)
-    }
-
     const openQuickView =(id:string)=>{
         console.log(`${id} opened quick view`)
     }
 
-    //придётся _buttonQuickView выносить в другой компонент, 
-    //чтобы отслеживать нажата ли уже кнопка или нет, 
-    //дабы избежать перерендера компонента всего
-    //или нет
+
+    //!quickView will use a modal window that depends on the zustand state, 
+    //!and this component will be imorted in the MainPage
 
     return (
         <div className={styles.ProductsCard}>
@@ -45,12 +40,9 @@ const ProductsCard:React.FC<ProductsCardProps> = ({name,id,src,currentCost,oldCo
             {sale ?  <LabelBadge className={styles._label} label={`Sale ${sale}`}/> :null}
             
             <div className={styles._topButtonsContainer}>
-                <div className={styles._buttonWishlist}>
-                        <Button className='ButtonTransparent' 
-                                icon={<WishlistIcon className={styles._buttonWishlistIcon}/>}
-                                onClick={()=>addToWishlist(id)} 
-                                type='button'/>
-                </div>
+
+                <ButtonWishlist type='card' id={id}/>
+
                 <div className={styles._buttonQuickView}>
                         <Button className='ButtonTransparent' 
                                 icon={<EyeIcon className={styles._buttonQuickViewIcon}/>}
