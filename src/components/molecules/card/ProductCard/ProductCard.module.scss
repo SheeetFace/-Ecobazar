@@ -6,7 +6,10 @@
 .ProductsCard{
     position: relative;
     width: 20%;
-    min-width: 200px;
+    // width: 100%;
+    min-width: 260px;
+    // min-width: 200px;
+    max-height: 310px;
     background-color:$white-color;
     display: flex;
     flex-direction: column;
@@ -52,19 +55,6 @@
         gap:15px;
         opacity: 0;
         transition: opacity .4s ease;
-
-        ._buttonQuickView{
-            @extend ._button;
-            background-color:$grey-1;
-
-            &:hover{
-                background-color:$primary-color;
-            }
-
-            ._buttonQuickViewIcon{
-                @extend._buttonIcon;
-            }
-        }
     }
 
     ._name{

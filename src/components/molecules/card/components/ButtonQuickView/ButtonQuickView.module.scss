@@ -1,0 +1,15 @@
+@import '../../styles/styles.module.scss';
+@import '../../../../../styles/colors.scss';
+
+.ButtonQuickView{
+    @extend ._button;
+    background-color:$grey-1;
+
+    &:hover{
+        background-color:$primary-color;
+    }
+
+    ._buttonQuickViewIcon{
+        @extend._buttonIcon;
+    }
+}

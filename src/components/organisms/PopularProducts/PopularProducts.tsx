@@ -6,7 +6,7 @@ import { popularProductsData } from '../../../data/temp/popularProductsData';
 import styles from '../PopularProducts/PopularProducts.module.scss';
 
 
-interface popularProductsDataItem{
+interface PopularProductsDataItem{
     name:string,
     id:string,
     src:string,
@@ -26,17 +26,17 @@ interface popularProductsDataItem{
 const PopularProducts:React.FC = () => {
 
   const renderPopularProducts = ()=>{
-    return popularProductsData.map((item:popularProductsDataItem)=>{
+    return popularProductsData.map((item:PopularProductsDataItem)=>{
       return(
-        <ProductsCard  key={item.id}
-                                id={item.id}
-                                name={item.name}
-                                src={item.src}
-                                currentCost={item.currentCost}
-                                oldCost={item.oldCost}
-                                sale={item.sale}
-                                rating={item.rating}
-                                />
+          <ProductsCard  key={item.id}
+                                  id={item.id}
+                                  name={item.name}
+                                  src={item.src}
+                                  currentCost={item.currentCost}
+                                  oldCost={item.oldCost}
+                                  sale={item.sale}
+                                  rating={item.rating}
+                                  />
       )
     })
   }

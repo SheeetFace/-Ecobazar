@@ -3,6 +3,7 @@ import Feature from '../../organisms/Feature/Feature';
 import PopularCategories from '../../organisms/PopularCategories/PopularCategories';
 import PopularProducts from '../../organisms/PopularProducts/PopularProducts';
 import BannerCenter from '../../organisms/banner/BannerCenter/BannerCenter';
+import HotDeals from '../../organisms/HotDeals/HotDeals';
 
 import styles from '../MainPage/MainPage.module.scss';
 
@@ -22,6 +23,8 @@ const MainPage:React.FC = () =>{
             <PopularProducts/>
 
             <BannerCenter/>
+
+            <HotDeals/>
 
         </section>
     )

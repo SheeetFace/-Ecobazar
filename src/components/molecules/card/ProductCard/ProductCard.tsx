@@ -2,8 +2,8 @@ import LabelBadge from '../../../atoms/LabelBadge/LabelBadge';
 import RatingStars from '../../RatingStars/RatingStars';
 import Button from '../../../atoms/Button/Button';
 import ButtonWishlist from '../components/ButtonWishlist/ButtonWishlist';
+import ButtonQuickView from '../components/ButtonQuickView/ButtonQuickView';
 
-import EyeIcon from '../../../atoms/icon/navigate/EyeIcon';
 import CartIcon from '../../../atoms/icon/navigate/CartIcon';
 
 import styles from '../ProductCard/ProductCard.module.scss';
@@ -26,11 +26,6 @@ const ProductsCard:React.FC<ProductsCardProps> = ({name,id,src,currentCost,oldCo
         console.log(`${id} added to cart`)
     }
 
-    const openQuickView =(id:string)=>{
-        console.log(`${id} opened quick view`)
-    }
-
-
     //!quickView will use a modal window that depends on the zustand state, 
     //!and this component will be imorted in the MainPage
 
@@ -43,12 +38,7 @@ const ProductsCard:React.FC<ProductsCardProps> = ({name,id,src,currentCost,oldCo
 
                 <ButtonWishlist type='card' id={id}/>
 
-                <div className={styles._buttonQuickView}>
-                        <Button className='ButtonTransparent' 
-                                icon={<EyeIcon className={styles._buttonQuickViewIcon}/>}
-                                onClick={()=>openQuickView(id)} 
-                                type='button'/>
-                </div>
+                <ButtonQuickView id={id}/>
             </div>
 
             <img src={src} alt={name}/>
