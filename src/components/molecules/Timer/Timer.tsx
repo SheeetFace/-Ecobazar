@@ -1,7 +1,5 @@
 import TimerDays from '../../atoms/timer/TimerDays/TimerDays';
-import TimerHours from '../../atoms/timer/TimerHours/TimerHours';
-import TimerMins from '../../atoms/timer/TimerMins/TimerMins';
-import TimerSecs from '../../atoms/timer/TimerSecs/TimerSecs';
+import TimerGeneric from '../../atoms/timer/TimerGeneric/TimerGeneric';
 
 import styles from '../Timer/Timer.module.scss';
 
@@ -17,13 +15,12 @@ const Timer:React.FC<TimerProps> = ({color}) => {
         <div className={`${styles.Timer} ${colorStyle}`}>
             <TimerDays/>
             <span className={styles._points}>:</span>
-            <TimerHours/>
+            <TimerGeneric  delay={3600000} initialValue={23} label='HOURS'/>
             <span className={styles._points}>:</span>
-            <TimerMins/>
+            <TimerGeneric  delay={60000} initialValue={59} label='MINS'/>
             <span className={styles._points}>:</span>
-            <TimerSecs/>
+            <TimerGeneric  delay={1000} initialValue={59} label='SECS'/>
         </div>
     )
 }
-
 export default Timer;
