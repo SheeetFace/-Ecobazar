@@ -1,0 +1,18 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/typography.scss';
+
+.LatestNews{
+    padding-top: 3rem;
+    background-color:$white-color;
+
+
+    ._title{
+        width: 100%;
+        display: flex;
+        align-items:center;
+        justify-content: center;
+        font-size: $heading-05;
+        font-weight: $semiBold;
+        color:$grey-9;
+    }
+}

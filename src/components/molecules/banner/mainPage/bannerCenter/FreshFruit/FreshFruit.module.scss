@@ -1,0 +1,25 @@
+@import '../../../../../../styles/colors.scss';
+@import '../../../../../../styles/typography.scss';
+@import '../styles/style.module.scss';
+
+.FreshFruit{
+    @extend ._primaryBackground;
+
+    background-image: url('../../../../../../assets/banner/banner-sm-02.webp');
+
+    ._container{
+        @extend ._primaryContainer;
+
+        ._upTo{
+            display: flex;
+            gap:5px;
+            font-weight:$semiBold;
+            align-items:center;
+
+            ._label{  
+                background-color: $grey-9;
+                color:#feca01;
+            }   
+        }
+    }
+}

@@ -1,0 +1,14 @@
+@import '../../../../../../styles/colors.scss';
+@import '../../../../../../styles/typography.scss';
+@import '../styles/style.module.scss';
+
+.SaleOfTheMonth{
+    @extend ._primaryBackground;
+
+    background-image: url('../../../../../../assets/banner/banner-sm-03.webp');
+
+    ._container{
+        @extend ._primaryContainer;
+
+    }
+}

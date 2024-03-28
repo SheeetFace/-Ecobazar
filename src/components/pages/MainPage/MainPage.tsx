@@ -1,11 +1,12 @@
-import BannerTop from '../../organisms/banner/BannerTop/BannerTop';
+import BannerTop from '../../organisms/banner/mainPage/BannerTop/BannerTop';
 import Feature from '../../organisms/Feature/Feature';
 import PopularCategories from '../../organisms/PopularCategories/PopularCategories';
 import PopularProducts from '../../organisms/PopularProducts/PopularProducts';
-import BannerCenter from '../../organisms/banner/BannerCenter/BannerCenter';
+import BannerCenter from '../../organisms/banner/mainPage/BannerCenter/BannerCenter';
 import HotDeals from '../../organisms/HotDeals/HotDeals';
-import BannerBottom from '../../organisms/banner/BannerBottom/BannerBottom';
+import BannerBottom from '../../organisms/banner/mainPage/BannerBottom/BannerBottom';
 import FeaturedProducts from '../../organisms/FeaturedProducts/FeaturedProducts';
+import LatestNews from '../../organisms/LatestNews/LatestNews';
 
 import styles from '../MainPage/MainPage.module.scss';
 
@@ -32,6 +33,7 @@ const MainPage:React.FC = () =>{
 
             <FeaturedProducts/>
 
+            <LatestNews/>
         </section>
     )
 }
