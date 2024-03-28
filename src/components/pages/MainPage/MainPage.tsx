@@ -4,6 +4,7 @@ import PopularCategories from '../../organisms/PopularCategories/PopularCategori
 import PopularProducts from '../../organisms/PopularProducts/PopularProducts';
 import BannerCenter from '../../organisms/banner/BannerCenter/BannerCenter';
 import HotDeals from '../../organisms/HotDeals/HotDeals';
+import BannerBottom from '../../organisms/banner/BannerBottom/BannerBottom';
 
 import styles from '../MainPage/MainPage.module.scss';
 
@@ -25,6 +26,8 @@ const MainPage:React.FC = () =>{
             <BannerCenter/>
 
             <HotDeals/>
+
+            <BannerBottom/>
 
         </section>
     )
