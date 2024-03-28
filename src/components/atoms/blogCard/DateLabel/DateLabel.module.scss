@@ -1,0 +1,24 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/typography.scss';
+
+.DateLabel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    
+    border-radius:4px;
+    background-color: rgb($white-color, .75);
+
+    ._day{
+        font-size: $body-xl;
+        color:$grey-9;
+        font-weight: $medium;
+    }
+    ._month{
+        color:$grey-6;
+        font-size:$body-small;
+    }
+}
