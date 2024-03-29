@@ -7,6 +7,7 @@ import HotDeals from '../../organisms/HotDeals/HotDeals';
 import BannerBottom from '../../organisms/banner/mainPage/BannerBottom/BannerBottom';
 import FeaturedProducts from '../../organisms/FeaturedProducts/FeaturedProducts';
 import LatestNews from '../../organisms/LatestNews/LatestNews';
+import ClientTestimonials from '../../organisms/ClientTestimonials/ClientTestimonials';
 
 import styles from '../MainPage/MainPage.module.scss';
 
@@ -34,6 +35,8 @@ const MainPage:React.FC = () =>{
             <FeaturedProducts/>
 
             <LatestNews/>
+
+            <ClientTestimonials/>
         </section>
     )
 }

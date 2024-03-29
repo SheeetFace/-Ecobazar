@@ -1,0 +1,49 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/typography.scss';
+
+.TestimonialCard{
+    display: flex;
+    flex-direction: column;
+    gap:.7rem;
+    background-color:$white-color;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 10px;
+
+    ._testimonial{
+        color:$grey-7;
+    }
+
+    ._container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        ._customerInfo{
+            display: flex;
+            gap:.5rem;
+
+            img{
+                width: 50px;
+                height: 50px;
+                border-radius:50%;
+            }
+
+            ._wrapper{
+                display: flex;
+                flex-direction: column;
+
+                ._name{
+                    font-size:$body-large;
+                    font-weight:$semiBold;
+                    color:$grey-9;
+                }
+                ._customer{
+                    font-size:$body-small;
+                    font-weight:$regular;
+                    color:$grey-4;
+                }
+            }
+        }
+    }
+}
