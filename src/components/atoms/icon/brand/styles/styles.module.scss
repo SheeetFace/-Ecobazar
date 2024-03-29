@@ -1,0 +1,10 @@
+@import '../../../../../styles/colors.scss';
+
+.BrandIcon{
+    display: flex;
+    align-items:center;
+
+    &:hover ._path {
+        fill:$primary-color;
+    }
+}

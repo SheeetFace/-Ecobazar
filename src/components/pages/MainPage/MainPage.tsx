@@ -8,6 +8,7 @@ import BannerBottom from '../../organisms/banner/mainPage/BannerBottom/BannerBot
 import FeaturedProducts from '../../organisms/FeaturedProducts/FeaturedProducts';
 import LatestNews from '../../organisms/LatestNews/LatestNews';
 import ClientTestimonials from '../../organisms/ClientTestimonials/ClientTestimonials';
+import Brand from '../../molecules/Brand/Brand';
 
 import styles from '../MainPage/MainPage.module.scss';
 
@@ -37,6 +38,8 @@ const MainPage:React.FC = () =>{
             <LatestNews/>
 
             <ClientTestimonials/>
+
+            <Brand/>
         </section>
     )
 }

@@ -1,9 +1,8 @@
-import { useState, useRef } from "react";
-
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
 
 import TestimonialCard from '../../molecules/card/TestimonialCard/TestimonialCard';
 
@@ -33,9 +32,6 @@ const ClientTestimonials:React.FC = () => {
         autoplaySpeed: 3000,
         cssEase: "linear",
         arrows:false,
-        // centerMode:true,
-        // dotsClass:styles._dotsClass,
-
         responsive: [
             {
               breakpoint: 1024,
@@ -89,10 +85,11 @@ const ClientTestimonials:React.FC = () => {
                 <div>
                     <span className={styles._title}>Client Testimonials</span>
                 </div>
-      <Slider {...settings}>
 
-                     {renderTestimonials()} 
-      </Slider>
+                <Slider {...settings}>
+                    {renderTestimonials()} 
+                </Slider>
+
             </div>
         </section>
     )
