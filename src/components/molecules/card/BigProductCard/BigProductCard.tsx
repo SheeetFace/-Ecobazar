@@ -3,7 +3,7 @@ import ButtonWishlist from '../components/ButtonWishlist/ButtonWishlist';
 import Button from '../../../atoms/Button/Button';
 import ButtonQuickView from '../components/ButtonQuickView/ButtonQuickView';
 import RatingStars from '../../RatingStars/RatingStars';
-import Timer from '../../Timer/Timer';
+import Timer from '../../mainPage/Timer/Timer';
 
 import CartIcon from '../../../atoms/icon/navigate/CartIcon';
 

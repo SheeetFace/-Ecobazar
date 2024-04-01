@@ -1,4 +1,4 @@
-import Timer from '../../../../Timer/Timer';
+import Timer from '../../../../mainPage/Timer/Timer';
 import Button from '../../../../../atoms/Button/Button';
 
 import styles from '../SaleOfTheMonth/SaleOfTheMonth.module.scss';

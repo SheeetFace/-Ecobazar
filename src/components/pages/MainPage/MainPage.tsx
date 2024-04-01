@@ -1,14 +1,16 @@
 import BannerTop from '../../organisms/banner/mainPage/BannerTop/BannerTop';
 import Feature from '../../organisms/Feature/Feature';
-import PopularCategories from '../../organisms/PopularCategories/PopularCategories';
-import PopularProducts from '../../organisms/PopularProducts/PopularProducts';
+import PopularCategories from '../../organisms/mainPage/PopularCategories/PopularCategories';
+import PopularProducts from '../../organisms/mainPage/PopularProducts/PopularProducts';
 import BannerCenter from '../../organisms/banner/mainPage/BannerCenter/BannerCenter';
-import HotDeals from '../../organisms/HotDeals/HotDeals';
+import HotDeals from '../../organisms/mainPage/HotDeals/HotDeals';
 import BannerBottom from '../../organisms/banner/mainPage/BannerBottom/BannerBottom';
-import FeaturedProducts from '../../organisms/FeaturedProducts/FeaturedProducts';
-import LatestNews from '../../organisms/LatestNews/LatestNews';
+import FeaturedProducts from '../../organisms/mainPage/FeaturedProducts/FeaturedProducts';
+import LatestNews from '../../organisms/mainPage/LatestNews/LatestNews';
 import ClientTestimonials from '../../organisms/ClientTestimonials/ClientTestimonials';
-import Brand from '../../molecules/Brand/Brand';
+import Brand from '../../molecules/mainPage/Brand/Brand';
+
+import { featureMainPageData} from '../../../data/feature';
 
 import styles from '../MainPage/MainPage.module.scss';
 
@@ -20,7 +22,7 @@ const MainPage:React.FC = () =>{
             
             <div className='center'>
                 <div className={styles._feature}>
-                    <Feature countFeatures={4}/>
+                    <Feature data={featureMainPageData}/>
                 </div>
             </div>
 

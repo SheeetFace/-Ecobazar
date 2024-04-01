@@ -1,0 +1,15 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/typography.scss';
+
+.TitleWithViewAll{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    padding-bottom: 1.3rem;
+
+    span{
+        font-size: $heading-05;
+        font-weight: $semiBold;
+        color:$grey-9;
+    }
+}

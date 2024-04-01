@@ -1,0 +1,11 @@
+@import '../../../../styles/colors.scss';
+
+.FeaturedProducts{
+    background-color:$white-color;
+    padding-top: 3rem;
+
+    ._cards{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}

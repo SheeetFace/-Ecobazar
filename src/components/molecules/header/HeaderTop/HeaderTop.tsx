@@ -1,4 +1,4 @@
-import StoreLocation from "../../contact/StoreLocation/StoreLocation";
+import StoreLocation from "../StoreLocation/StoreLocation";
 import Button from "../../../atoms/Button/Button";
 
 import styles from "../HeaderTop/HeaderTop.module.scss"

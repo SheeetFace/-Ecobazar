@@ -1,5 +1,5 @@
 import Logo from '../../Logo/Logo';
-import SearchPanel from '../../SearchPanel/SearchPanel';
+import SearchPanel from '../SearchPanel/SearchPanel';
 import ShoppingActions from '../components/ShoppingActions/ShoppingActions';
 
 import styles from '../HeaderBottom/HeaderBottom.module.scss'

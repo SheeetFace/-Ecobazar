@@ -1,5 +1,5 @@
 import NavLinks from '../../molecules/NavLinks/NavLinks';
-import PhoneCall from '../../molecules/contact/PhoneCall/PhoneCall';
+import PhoneCall from '../../molecules/PhoneCall/PhoneCall';
 
 import styles from '../Navigation/Navigation.module.scss';
 

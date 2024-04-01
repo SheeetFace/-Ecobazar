@@ -1,0 +1,30 @@
+@import '../../../../styles/colors.scss';
+
+.Timer{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    ._points{
+        margin-top: 5px;
+        animation: blink 2s infinite;
+    }
+    @keyframes blink {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+    &._white{
+        color:$grey-05;
+    }
+    &._black{
+        color:$grey-9;
+    }
+}
