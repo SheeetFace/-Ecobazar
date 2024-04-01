@@ -9,6 +9,7 @@ import FeaturedProducts from '../../organisms/mainPage/FeaturedProducts/Featured
 import LatestNews from '../../organisms/mainPage/LatestNews/LatestNews';
 import ClientTestimonials from '../../organisms/ClientTestimonials/ClientTestimonials';
 import Brand from '../../molecules/mainPage/Brand/Brand';
+import FollowUsOnInstagram from '../../organisms/mainPage/FollowUsOnInstagram/FollowUsOnInstagram';
 
 import { featureMainPageData} from '../../../data/feature';
 
@@ -19,29 +20,21 @@ const MainPage:React.FC = () =>{
     return(
         <section className={styles.MainPage}>
             <BannerTop/>
-            
             <div className='center'>
                 <div className={styles._feature}>
                     <Feature data={featureMainPageData}/>
                 </div>
             </div>
-
             <PopularCategories/>
             <PopularProducts/>
-
             <BannerCenter/>
-
             <HotDeals/>
-
             <BannerBottom/>
-
             <FeaturedProducts/>
-
             <LatestNews/>
-
             <ClientTestimonials/>
-
             <Brand/>
+            <FollowUsOnInstagram/>
         </section>
     )
 }

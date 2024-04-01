@@ -19,7 +19,7 @@ const BlogCard:React.FC<BlogCardProps> = ({id,category, owner,commentsCount,titl
     return (
         <div className={styles.BlogCard}>
             <div className={styles._imgWrapper}>
-                <img alt={title} src={src}/>
+                <img loading='lazy' alt={title} src={src}/>
 
                 <div className={styles._date}>
                     <DateLabel date={date}/>

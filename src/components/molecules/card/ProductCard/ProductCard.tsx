@@ -41,7 +41,7 @@ const ProductsCard:React.FC<ProductsCardProps> = ({name,id,src,currentCost,oldCo
                 <ButtonQuickView id={id}/>
             </div>
 
-            <img src={src} alt={name}/>
+            <img loading='lazy' src={src} alt={name}/>
 
             <span className={styles._name}>{name}</span>
 

@@ -1,0 +1,22 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/typography.scss';
+
+.FollowUsOnInstagram{
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+
+    ._title{
+        display: flex;
+        justify-content: center;
+        font-size: $heading-05;
+        font-weight: $semiBold;
+        color:$grey-9;
+    }
+
+    ._container{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap:1rem;
+    }
+}
