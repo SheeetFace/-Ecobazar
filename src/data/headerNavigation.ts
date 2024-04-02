@@ -1,19 +1,23 @@
 
 export const headerNavigation = [
     {
+      name: 'Home',
+      path: '/',
+    },
+    {
       name: 'Shop',
-      path: '/shop',
+      path: 'shop',
     },
     {
       name: 'Blog',
-      path: '/blog',
+      path: 'blog',
     },
     {
       name: 'About Us',
-      path: '/about',
+      path: 'about',
     },
     {
       name: 'Contacts',
-      path: '/contacts',
+      path: 'contacts',
     }
   ];

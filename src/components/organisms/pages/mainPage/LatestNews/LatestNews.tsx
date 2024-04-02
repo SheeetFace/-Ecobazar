@@ -1,6 +1,6 @@
-import BlogCard from '../../../molecules/card/BlogCard/BlogCard';
+import BlogCard from '../../../../molecules/card/BlogCard/BlogCard';
 
-import { latestNews } from '../../../../data/temp/latestNews';
+import { latestNews } from '../../../../../data/temp/latestNews';
 
 import styles from '../LatestNews/LatestNews.module.scss';
 

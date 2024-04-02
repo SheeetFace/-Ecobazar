@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import styles from '../NavLinkItem/NavLinkItem.module.scss'
 
 interface NavLinkItemProps{
@@ -7,9 +8,11 @@ interface NavLinkItemProps{
 const NavLinkItem:React.FC<NavLinkItemProps> = ({name,path})=>{
     
     return(
-        <span className={styles.NavLinkItem}>
-            {name}
-        </span>
+        <NavLink className={styles.navLink} to={path}>
+            <span className={styles.NavLinkItem}>
+                {name}
+            </span>
+        </NavLink>
     )
 }
 export default NavLinkItem;

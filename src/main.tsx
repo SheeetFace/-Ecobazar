@@ -4,6 +4,8 @@ import App from './App.tsx'
 import MainPage from './components/pages/MainPage/MainPage.tsx';
 import LoginPage from './components/pages/LoginPage/LoginPage.tsx';
 
+import AboutPage from './components/pages/AboutPage/AboutPage.tsx';
+
 import ErrorBoundary from './components/pages/ErrorBoundary/ErrorBoundary.tsx';
 
 import {
@@ -17,7 +19,6 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App/>,
-    // errorElement: <ErrorPage />,
     errorElement: <ErrorBoundary />,
     children: [
       {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "registration",
         element: <LoginPage />,
+      },
+      {
+        path: "about",
+        element: <AboutPage />,
       },
     ],
   }

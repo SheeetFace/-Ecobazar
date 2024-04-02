@@ -1,7 +1,7 @@
-import TitleWithViewAll from '../../../molecules/mainPage/TitleWithViewAll/TitleWithViewAll';
-import ProductsCard from '../../../molecules/card/ProductCard/ProductCard';
+import TitleWithViewAll from '../../../../molecules/pages/mainPage/TitleWithViewAll/TitleWithViewAll';
+import ProductsCard from '../../../../molecules/card/ProductCard/ProductCard';
 
-import { featuredProductsData } from '../../../../data/temp/featuredProductsData';
+import { featuredProductsData } from '../../../../../data/temp/featuredProductsData';
 
 import styles from '../FeaturedProducts/FeaturedProducts.module.scss';
 

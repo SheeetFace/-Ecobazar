@@ -1,7 +1,7 @@
-import TitleWithViewAll from '../../../molecules/mainPage/TitleWithViewAll/TitleWithViewAll';
-import PopularCategoriesCard from '../../../molecules/card/PopularCategoriesCard/PopularCategoriesCard';
+import TitleWithViewAll from '../../../../molecules/pages/mainPage/TitleWithViewAll/TitleWithViewAll';
+import PopularCategoriesCard from '../../../../molecules/card/PopularCategoriesCard/PopularCategoriesCard';
 
-import { categories } from '../../../../data/categories';
+import { categories } from '../../../../../data/categories';
 
 import styles from '../PopularCategories/PopularCategories.module.scss';
 

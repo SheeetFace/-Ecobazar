@@ -1,15 +1,15 @@
 import BannerTop from '../../organisms/banner/mainPage/BannerTop/BannerTop';
 import Feature from '../../organisms/Feature/Feature';
-import PopularCategories from '../../organisms/mainPage/PopularCategories/PopularCategories';
-import PopularProducts from '../../organisms/mainPage/PopularProducts/PopularProducts';
+import PopularCategories from '../../organisms/pages/mainPage/PopularCategories/PopularCategories';
+import PopularProducts from '../../organisms/pages/mainPage/PopularProducts/PopularProducts';
 import BannerCenter from '../../organisms/banner/mainPage/BannerCenter/BannerCenter';
-import HotDeals from '../../organisms/mainPage/HotDeals/HotDeals';
+import HotDeals from '../../organisms/pages/mainPage/HotDeals/HotDeals';
 import BannerBottom from '../../organisms/banner/mainPage/BannerBottom/BannerBottom';
-import FeaturedProducts from '../../organisms/mainPage/FeaturedProducts/FeaturedProducts';
-import LatestNews from '../../organisms/mainPage/LatestNews/LatestNews';
+import FeaturedProducts from '../../organisms/pages/mainPage/FeaturedProducts/FeaturedProducts';
+import LatestNews from '../../organisms/pages/mainPage/LatestNews/LatestNews';
 import ClientTestimonials from '../../organisms/ClientTestimonials/ClientTestimonials';
-import Brand from '../../molecules/mainPage/Brand/Brand';
-import FollowUsOnInstagram from '../../organisms/mainPage/FollowUsOnInstagram/FollowUsOnInstagram';
+import Brand from '../../molecules/pages/mainPage/Brand/Brand';
+import FollowUsOnInstagram from '../../organisms/pages/mainPage/FollowUsOnInstagram/FollowUsOnInstagram';
 
 import { featureMainPageData} from '../../../data/feature';
 

@@ -1,6 +1,6 @@
-import InstagramCard from '../../../molecules/card/InstagramCard/InstagramCard';
+import InstagramCard from '../../../../molecules/card/InstagramCard/InstagramCard';
 
-import { instagramPostData } from '../../../../data/instagramPost';
+import { instagramPostData } from '../../../../../data/instagramPost';
 
 import styles from '../FollowUsOnInstagram/FollowUsOnInstagram.module.scss';
 

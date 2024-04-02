@@ -1,11 +1,11 @@
-import StepsIcon from '../../../atoms/icon/brand/StepsIcon';
-import MangoIcon from '../../../atoms/icon/brand/MangoIcon';
-import FoodNetIcon from '../../../atoms/icon/brand/FoodNetIcon';
-import FoodCoIcon from '../../../atoms/icon/brand/FoodCoIcon';
-import BookOffIcon from '../../../atoms/icon/brand/BookOffIcon';
-import GSeriesIcon from '../../../atoms/icon/brand/GSeriesIcon';
+import StepsIcon from '../../../../atoms/icon/brand/StepsIcon';
+import MangoIcon from '../../../../atoms/icon/brand/MangoIcon';
+import FoodNetIcon from '../../../../atoms/icon/brand/FoodNetIcon';
+import FoodCoIcon from '../../../../atoms/icon/brand/FoodCoIcon';
+import BookOffIcon from '../../../../atoms/icon/brand/BookOffIcon';
+import GSeriesIcon from '../../../../atoms/icon/brand/GSeriesIcon';
 
-import Divider from '../../../atoms/Divider/Divider';
+import Divider from '../../../../atoms/Divider/Divider';
 
 import styles from '../Brand/Brand.module.scss';
 

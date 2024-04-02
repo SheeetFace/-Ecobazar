@@ -1,8 +1,8 @@
-import TitleWithViewAll from '../../../molecules/mainPage/TitleWithViewAll/TitleWithViewAll';
-import BigProductCard from '../../../molecules/card/BigProductCard/BigProductCard';
-import ProductsCard from '../../../molecules/card/ProductCard/ProductCard';
+import TitleWithViewAll from '../../../../molecules/pages/mainPage/TitleWithViewAll/TitleWithViewAll';
+import BigProductCard from '../../../../molecules/card/BigProductCard/BigProductCard';
+import ProductsCard from '../../../../molecules/card/ProductCard/ProductCard';
 
-import { hotDealsData } from '../../../../data/temp/hotDealsData';
+import { hotDealsData } from '../../../../../data/temp/hotDealsData';
 
 import styles from '../HotDeals/HotDeals.module.scss';
 

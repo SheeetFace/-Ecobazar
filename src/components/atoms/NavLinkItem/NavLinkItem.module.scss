@@ -2,8 +2,14 @@
 
 .NavLinkItem{
     cursor: pointer;
+    color:$grey-9;
+    transition: color .3s ease;
 
     &:hover{
         color:$primary-color
     }
+}
+
+.navLink{
+    text-decoration: none;
 }

@@ -1,5 +1,5 @@
-import TimerDays from '../../../atoms/timer/TimerDays/TimerDays';
-import TimerGeneric from '../../../atoms/timer/TimerGeneric/TimerGeneric';
+import TimerDays from '../../../../atoms/timer/TimerDays/TimerDays';
+import TimerGeneric from '../../../../atoms/timer/TimerGeneric/TimerGeneric';
 
 import styles from '../Timer/Timer.module.scss';
 
