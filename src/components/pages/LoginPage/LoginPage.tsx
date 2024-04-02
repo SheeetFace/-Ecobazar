@@ -1,11 +1,13 @@
+import Login from '../../organisms/auth/Login/Login';
+
 import styles from '../LoginPage/LoginPage.module.scss';
 
 const LoginPage:React.FC = () => {
 
     return (
-        <div className={styles.LoginPage}>
-            <h1>LOGIN PAGE</h1>
-        </div>
+        <section className={styles.LoginPage}>
+            <Login/>
+        </section>
     )
 }
 

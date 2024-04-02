@@ -1,8 +1,18 @@
+import { useEffect } from 'react';
+
+import { useLocation} from 'react-router-dom';
+
 import BreadcrumbItem from '../../atoms/BreadcrumbItem/BreadcrumbItem';
 
 import styles from '../Breadcrumb/Breadcrumb.module.scss';
 
 const Breadcrumb:React.FC = ()=>{
+
+    const location = useLocation()
+
+    useEffect(()=>{
+      console.log(location)
+    },[location])//breadcrumb
 
     const renderBreadcrumbItem = ():JSX.Element[]=>{
         return tempBreadcrumbData.map((item,i)=>{

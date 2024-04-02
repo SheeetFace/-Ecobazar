@@ -13,8 +13,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition:background-color .3s ease;
 
-  &::-moz-focus-inner {
+  &::-moz-focus-inner{
     border: 0;
     padding: 0;
   }
@@ -93,6 +94,26 @@
     background-color:$grey-1;
   }
 }
+.fillGoogle{
+  background-color:#4889f4;
+  &:hover{
+    background-color:#2c62b9;
+  }
+}
+.fillApple{
+  background-color:#080808;
+  &:hover{
+    background-color:#252525;
+  }
+}
+.fillGithub{
+  background-color: #0d1117;
+  &:hover{
+    background-color: #1a222e;
+  }
+}
+
+
 
 
 .colorTextGrey1{
@@ -104,4 +125,7 @@
 
 .buttonMaxWidth{
   width: 100%;
+}
+.buttonMaxHeight{
+  height: 40px;
 }
