@@ -18,7 +18,7 @@ import { Outlet } from 'react-router-dom';
 function App() {
 
   return (
-    <div className={styles.App}>
+    <main className={styles.App}>
 
         <Header/>
         <Divider type='horizontal' className={styles._divider}/>
@@ -30,7 +30,7 @@ function App() {
         <Newsletter/>
         <Footer/>
 
-    </div>
+    </main>
   )
 }
 

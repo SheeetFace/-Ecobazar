@@ -13,6 +13,9 @@
     background-color:$white-color;
     color:$grey-4;
     font-size:$body-small;
+    -webkit-box-shadow: 0px 12px 31px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 12px 31px -10px rgba(0,0,0,0.75);
+    box-shadow: 0px 12px 31px -10px rgba(0,0,0,0.75);
 
     h1{
         color:$grey-9;
