@@ -1,0 +1,66 @@
+@import '../../../../../styles/colors.scss';
+@import '../../../../../styles/typography.scss';
+
+.AccordionItem{
+    display: flex;
+    flex-direction: column;
+    padding: .3rem;
+
+    ._header{
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid $grey-6;
+        border-radius:3px;
+        background-color:$grey-1;
+
+        ._arrow{
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            border: 1px solid $grey-6;
+            border-radius: 50%;
+            display: flex;
+            align-items:center;
+            justify-content: center;
+            cursor: pointer;
+            background-color: $grey-2;
+            font-weight: $semiBold;
+
+            span{
+                transition: transform 0.2s ease;
+            }
+            ._rotate{
+                transform: rotate(90deg);
+            }
+            ._default{
+                transform: rotate(0deg);
+            }
+        
+        }
+    }
+    ._appear {
+        visibility: visible; 
+        opacity: 1; 
+        max-height: 200px; 
+        // transition: visibility .3s linear .3s, opacity .3s ease, max-height 1s ease;
+        // transition: visibility 0s linear .5s, opacity 1s ease, max-height 1s ease;
+        // transition: all .9s linear;
+        transition: visibility 0s linear, opacity 2s ease, max-height 1s linear;
+    }
+    ._disappear {
+        visibility: hidden; 
+        opacity: 0; 
+        max-height: 0; 
+        overflow: hidden;
+        // transition: visibility 0s linear .5s, opacity 1s ease, max-height 1s ease;
+        transition: all .7s linear;
+    }
+    ._body{
+        padding: 1rem;
+        border-bottom: 1px solid $grey-6;
+        border-right: 1px solid $grey-6;
+        border-left:1px solid $grey-6;
+    }
+
+}

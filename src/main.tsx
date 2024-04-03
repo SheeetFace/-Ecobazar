@@ -5,6 +5,7 @@ import MainPage from './components/pages/MainPage/MainPage.tsx';
 import LoginPage from './components/pages/LoginPage/LoginPage.tsx';
 import RegistrationPage from './components/pages/RegistrationPage/RegistrationPage.tsx';
 import AboutPage from './components/pages/AboutPage/AboutPage.tsx';
+import FaqPage from './components/pages/FaqPage/FaqPage.tsx';
 
 import ErrorBoundary from './components/pages/ErrorBoundary/ErrorBoundary.tsx';
 
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "about",
         element: <AboutPage />,
+      },
+      {
+        path: "faqs",
+        element: <FaqPage />,
       },
     ],
   }

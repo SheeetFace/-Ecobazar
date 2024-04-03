@@ -19,5 +19,9 @@ export const headerNavigation = [
     {
       name: 'Contacts',
       path: 'contacts',
-    }
+    },
+    {
+      name: 'Faqs',
+      path: 'faqs',
+    },
   ];
