@@ -7,9 +7,10 @@ import styles from '../PasswordInputAction/PasswordInputAction.module.scss';
 
 interface PasswordInputActionProps{
     forwardRef: React.RefObject<HTMLInputElement>
-    classNameWrapperInput?:string
+    classNameWrapperInput?:string,
+    placeholder:string
 }
-const PasswordInputAction:React.FC<PasswordInputActionProps> = ({forwardRef,classNameWrapperInput}) => {
+const PasswordInputAction:React.FC<PasswordInputActionProps> = ({forwardRef,classNameWrapperInput, placeholder}) => {
 
     const [showPass, setShowPass] = useState<boolean>(false)
 
@@ -29,7 +30,7 @@ const PasswordInputAction:React.FC<PasswordInputActionProps> = ({forwardRef,clas
 
     return (
         <div className={styles.PasswordInputAction}>
-             <Input className={classNameWrapperInput||''} placeholder='Password' type={type} forwardRef={forwardRef} icon={ActionEyeIcon()} />
+             <Input className={classNameWrapperInput||''} placeholder={placeholder} type={type} forwardRef={forwardRef} icon={ActionEyeIcon()} />
         </div>
     )
 }

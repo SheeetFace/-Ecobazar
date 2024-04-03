@@ -1,0 +1,17 @@
+@import '../../../../../styles/colors.scss';
+
+.SocialAuth{
+    display: flex;
+    flex-direction: column;
+    gap:.5rem;
+
+    ._or{
+        display: flex;
+        align-items:center;
+        gap:.6rem;
+
+        ._divider{
+            background-color:$grey-3;
+        }
+    }
+}

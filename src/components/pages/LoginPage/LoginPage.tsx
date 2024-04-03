@@ -1,4 +1,4 @@
-import Login from '../../organisms/auth/Login/Login';
+import Login from '../../organisms/pages/loginAndRegistrationPage/Login/Login';
 
 import styles from '../LoginPage/LoginPage.module.scss';
 

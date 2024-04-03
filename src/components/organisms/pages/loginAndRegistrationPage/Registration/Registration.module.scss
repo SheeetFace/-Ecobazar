@@ -1,0 +1,7 @@
+@import '../../../../../styles/colors.scss';
+@import '../../../../../styles/typography.scss';
+@import '../styles/style.module.scss';
+
+.Registration{
+    @extend .PrimaryLoginAndRegistration;
+}
