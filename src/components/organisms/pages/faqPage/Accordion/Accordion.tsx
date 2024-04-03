@@ -13,7 +13,6 @@ const Accordion:React.FC = () => {
                                 answer={item.answer}
                                 key={i}/>
             )
-
         })
     }
 

@@ -12,10 +12,7 @@ const FaqPage:React.FC = () => {
                 <div className={styles._container}>
                     <div className={styles._accordion}>
                         <span className={styles._title}>Welcome, Let’s Talk About Our Faq</span>
-
-                        {/* <div className={styles._content}> */}
-                            <Accordion/>
-                        {/* </div> */}
+                        <Accordion/>
                     </div>
 
                     <div className={styles._imgWrapper}>

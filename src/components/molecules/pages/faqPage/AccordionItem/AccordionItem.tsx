@@ -17,10 +17,11 @@ const AccordionItem:React.FC<AccordionItemProps> = ({question,answer}) => {
 
     const arrowClass = isClick ? styles._rotate : styles._default;
     const bodyClass = isClick ? styles._appear : styles._disappear;
+    const headerColorClass = isClick ? styles._green : styles._grey;
 
     return (
         <div className={styles.AccordionItem}>
-            <div className={styles._header}>
+            <div className={`${styles._header} ${headerColorClass}`}>
                 <span>{question}</span>
                 <div className={styles._arrow} onClick={handleClick}>
                     <span className={arrowClass}>&#10217;</span>
