@@ -1,6 +1,7 @@
 import AboutTop from '../../../../molecules/pages/aboutPage/AboutTop/AboutTop';
 import AboutCenter from './components/AboutCenter/AboutCenter';
 import AboutBottom from '../../../../molecules/pages/aboutPage/AboutBottom/AboutBottom';
+import OurTeam from '../OurTeam/OurTeam';
 
 import styles from '../AboutContent/AboutContent.module.scss';
 
@@ -16,6 +17,8 @@ const AboutContent:React.FC = () => {
             <AboutCenter/>
 
             <AboutBottom/>
+
+            <OurTeam/>
 
         </section>
     )

@@ -5,7 +5,11 @@ import FacebookIcon from '../../atoms/icon/contact/FacebookIcon';
 
 import styles from '../SocialMediaIcons/SocialMediaIcons.module.scss'
 
-const SocialMediaIcons =()=>{
+interface SocialMediaIconsProps{
+    className?:string
+}
+
+const SocialMediaIcons:React.FC<SocialMediaIconsProps> =({className=''})=>{
 
     return(
         <div className={styles.SocialMediaIcons}>
@@ -13,25 +17,25 @@ const SocialMediaIcons =()=>{
             <a className={styles._icon}
                target='_blank'
                href='https://www.pinterest.com/'>
-                    <PinterestIcon className=''/>
+                    <PinterestIcon className={className}/>
             </a>
 
             <a className={styles._icon}
                target='_blank'
                href='https://www.instagram.com/'>
-                    <InstagramIcon className=''/>
+                    <InstagramIcon className={className}/>
             </a>
 
             <a className={styles._icon}
                target='_blank'
                href='https://twitter.com/'>
-                    <XIcon className=''/>
+                    <XIcon className={className}/>
             </a>
 
             <a className={styles._icon}
                target='_blank'
                href='https://www.facebook.com/'>
-                    <FacebookIcon className=''/>
+                    <FacebookIcon className={className}/>
             </a> 
 
         </div>

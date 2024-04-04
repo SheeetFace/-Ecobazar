@@ -1,0 +1,26 @@
+@import '../../../../../styles/colors.scss';
+@import '../../../../../styles/typography.scss';
+
+.OurTeam{
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    background-color: $grey-05;
+    
+    ._header{
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        justify-content: center;
+
+        ._title{
+            font-size: $heading-01;
+            font-weight: $semiBold;
+        }
+        ._description{
+            width: 50%;
+            text-align: center;
+            color:$grey-5;
+        }
+    }
+
+}
