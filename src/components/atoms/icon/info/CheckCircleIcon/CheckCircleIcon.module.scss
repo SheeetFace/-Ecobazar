@@ -1,0 +1,13 @@
+@import '../../../../../styles/colors.scss';
+
+
+.CheckCircleIcon{
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    background-color: rgb($soft-primary-color, .4);
+    color:$primary-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

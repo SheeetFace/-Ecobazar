@@ -1,0 +1,9 @@
+@import '../../../../../styles/colors.scss';
+
+.AboutContent{
+    padding-top: 5rem;
+    background-color: $white-color;
+    display: flex;
+    flex-direction: column;
+    gap:5rem;
+}

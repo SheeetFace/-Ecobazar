@@ -1,0 +1,41 @@
+@import '../../../../../../../styles/colors.scss';
+@import '../../../../../../../styles/typography.scss';
+
+.AboutCenter{
+    display: flex;
+    height: 650px;
+    position: relative;
+
+    ._background{
+        display: flex;
+        justify-content: end;
+        width: 55%;
+        height: inherit;
+        background-image: url('../../../../../../../assets/persons/person1WithBackground.webp');
+        background-size: cover;
+        background-position: center;
+    }
+
+    ._container{
+        width: 100%;
+        height: inherit;
+        position: absolute;
+        padding-top: 2rem;
+        display: flex;
+        justify-content: end;
+
+        ._content{
+            width: 40%;
+            min-width: 670px;
+            display: flex;
+            flex-direction: column;
+            margin-right: 14%;
+
+            ._title{
+                color:$hard-primary-color;
+                font-size: $heading-01;
+                font-weight: $semiBold;
+            }
+        }
+    }
+}

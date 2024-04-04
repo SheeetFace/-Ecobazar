@@ -1,0 +1,33 @@
+@import '../../../../../styles/colors.scss';
+@import '../../../../../styles/typography.scss';
+
+.AboutTop{
+    display: flex;
+    gap: 2rem;
+
+    ._containerText{
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap:2rem;
+
+        ._title{
+            font-size: $heading-01;
+            font-weight: $semiBold;
+        }
+        ._description{
+            color: $grey-6;
+        }
+
+    }
+    ._containerImg{
+        display: flex;
+        align-items: center;
+
+        img{
+            width: 100%;
+        }
+    }
+
+}
