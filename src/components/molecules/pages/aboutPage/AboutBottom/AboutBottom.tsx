@@ -1,4 +1,7 @@
+import { NavLink } from 'react-router-dom';
+
 import CheckCircleIcon from '../../../../atoms/icon/info/CheckCircleIcon/CheckCircleIcon';
+import Button from '../../../../atoms/Button/Button';
 import person3 from '../../../.././../assets/persons/person3.webp'
 
 import styles from '../AboutBottom/AboutBottom.module.scss';
@@ -28,11 +31,17 @@ const AboutBottom:React.FC = () => {
                                 <span>Maecenas ut nunc fringilla erat varius.</span>
                             </div>
                         </div>
+
+                        <NavLink to='/shop' className={styles._navLink}>
+                            <Button className='ButtonFilledOval fillGreen colorTextGrey1' type='button' text='Shop now &#10132;'/>
+                        </NavLink>
+
                     </div>
 
                     <div className={styles._img}>
                         <img src={person3} alt='Grocery delivery person'/>
                     </div>
+
                 </div>
             </div>
 
