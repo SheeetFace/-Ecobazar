@@ -4,7 +4,7 @@ import useValidation from '../../../../hooks/useValidation';
 
 import Button from '../../../atoms/Button/Button';
 import SearchIcon from '../../../atoms/icon/navigate/SearchIcon';
-import Input from '../../../atoms/Input/Input';
+import Input from '../../../atoms/form/Input/Input';
 
 import styles from '../SearchPanel/SearchPanel.module.scss'
 

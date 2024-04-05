@@ -1,0 +1,34 @@
+@import '../../../../../styles/colors.scss';
+@import '../../../../../styles/typography.scss';
+
+.ContactInfo{
+    display: flex;
+    width: 20%;
+    min-width: 240px;
+    flex-direction: column;
+    padding: 2rem;
+    gap:1rem;
+    background-color: $white-color;
+    border-radius: .4rem;
+
+    ._container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap:.7rem;
+
+        ._icons{
+            stroke:$hard-primary-color;
+            width: 35px;
+            height: 45px;
+        }
+    }
+
+
+    ._divider{
+        background-color:$grey-2;
+    }
+
+}

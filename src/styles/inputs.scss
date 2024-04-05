@@ -3,8 +3,8 @@
 
 
 input{
-    padding-left: 5%;
-    margin: 1%;
+    padding-left: 18px;
+    margin: 6px;
     width: 97%;
     height: 80%;
     border: none;
@@ -12,6 +12,15 @@ input{
     font-family: inherit;
     font-size: $body-medium;
     background-color:transparent;
+}
+
+textarea{
+    @extend input;
+    @extend .DefaultBorderStyle;
+    margin: 0px;
+    padding: 12px 12px 12px 24px;
+    height: 100px;
+    resize: none;
 }
 
 .DefaultBorderStyle{
@@ -25,6 +34,8 @@ input{
         border:1px solid $primary-color;
     }
 }
+
+
 
 ._searchInput{
     border-right: none !important;

@@ -2,7 +2,7 @@ import { useRef } from 'react';
 
 import { NavLink } from 'react-router-dom';
 
-import Input from '../../../../atoms/Input/Input';
+import Input from '../../../../atoms/form/Input/Input';
 import PasswordInputAction from '../../../../molecules/PasswordInputAction/PasswordInputAction';
 import Button from '../../../../atoms/Button/Button';
 import SocialAuth from '../../../../molecules/pages/loginAndRegistrationPage/SocialAuth/SocialAuth';

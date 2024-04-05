@@ -2,7 +2,7 @@ import { useRef } from 'react';
 
 import useValidation from '../../../../../hooks/useValidation';
 
-import Input from '../../../../atoms/Input/Input';
+import Input from '../../../../atoms/form/Input/Input';
 import Button from '../../../../atoms/Button/Button';
 
 import styles from '../SubscribePanel/SubscribePanel.module.scss';

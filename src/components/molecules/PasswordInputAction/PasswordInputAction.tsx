@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import Input from '../../atoms/Input/Input';
+import Input from '../../atoms/form/Input/Input';
 import EyeIcon from '../../atoms/icon/navigate/EyeIcon';
 
 import styles from '../PasswordInputAction/PasswordInputAction.module.scss';

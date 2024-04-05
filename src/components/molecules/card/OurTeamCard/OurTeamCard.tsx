@@ -10,6 +10,9 @@ interface OurTeamCardProps{
 
 const OurTeamCard:React.FC<OurTeamCardProps> = ({name,src,personnel}) => {
     
+    //! <SocialMediaIcons className={styles._icons}/> too long while adapt scaling
+    //! need to change adaptObject in useSlider
+
     return (
         <div className={styles.OurTeamCard}>
 

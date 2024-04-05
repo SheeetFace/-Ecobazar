@@ -20,7 +20,7 @@ export const validateSearchOrSubscribe = (value:string, type:ValidateSearchOrSub
         validation.result = false;
         validation.reason = 'inputEmpty'; 
 
-      }else if(!trimmedValue.includes('@')){
+      }else if(!trimmedValue.match(/\S+@\S+\.\S+/)){
         validation.result = false;
         validation.reason = 'invalidEmailFormat';
       }

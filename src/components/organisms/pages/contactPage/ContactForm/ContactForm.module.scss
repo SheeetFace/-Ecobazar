@@ -1,0 +1,45 @@
+@import '../../../../../styles/colors.scss';
+@import '../../../../../styles/typography.scss';
+
+.ContactForm{
+    background-color: $white-color;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 400px;
+    border-radius: .4rem;
+    padding: 1.5rem;
+
+    ._message{
+        h1{
+            font-weight:$semiBold;
+            font-size: $body-xxl;
+        }
+        span{
+            color:$grey-5;
+            font-size: $body-small;
+        }
+    }
+
+    ._form{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding-top: 1rem;
+
+        ._border{
+            border-radius:5px;
+        }
+
+        ._top{
+            display: flex;
+            gap:1rem;
+            width: 100%;
+            ._width{
+                width: 50%;
+            }
+        }
+
+    }
+}

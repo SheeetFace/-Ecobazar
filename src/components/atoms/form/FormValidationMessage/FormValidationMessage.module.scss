@@ -1,0 +1,16 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/typography.scss';
+
+.FormValidationMessage{
+    height: 20px;
+    color:$danger-color;
+    font-size: $body-tiny;
+    padding: 3px;
+    transition: all 0.3s ease;
+    opacity: 0; 
+
+    &._visible {
+        opacity: 1; 
+      }
+  }
+  
