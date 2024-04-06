@@ -1,5 +1,6 @@
-import { useCallback } from 'react';
 import {useForm} from 'react-hook-form'
+
+import { getValidationOptions } from '../../../../../utils/getValidationOptions';
 
 import Input from '../../../../atoms/form/Input/Input';
 import Button from '../../../../atoms/Button/Button';
@@ -23,20 +24,7 @@ const ContactForm:React.FC = () => {
     const onSubmit: SubmitHandler<FormValues> =(data)=>{
         alert(JSON.stringify(data))
         reset()
-
     }
-    console.log('render')
-
-    const getValidationOptions =useCallback((patterValue:RegExp,message:string)=>{
-        const options ={   
-            required:"This Field is Required",
-            pattern: {
-                value: patterValue,
-                message: message
-            }
-        }
-        return options
-    },[]) 
 
     return (
         <section className={styles.ContactForm}>
@@ -52,7 +40,8 @@ const ContactForm:React.FC = () => {
                         <Input  className={styles._border}
                                 type='text'
                                 placeholder='Your Name'
-                                register={{...register('name', getValidationOptions( /^[\p{L}]{2,}$/u, "Please enter a valid name (2 characters minimum and no spaces)"))}}
+                                isErrorValidation={!!errors?.name}
+                                register={{...register('name', getValidationOptions( /^[\p{L}]{2,}$/u, "name (2 characters minimum and no spaces)"))}}
                         />
                         <FormValidationMessage error={errors?.name &&`${errors.name.message}`}/>
                     </div>
@@ -61,7 +50,8 @@ const ContactForm:React.FC = () => {
                         <Input  className={styles._border}
                                 type='text'
                                 placeholder='Your Email'
-                                register={{...register('email',  getValidationOptions(/\S+@\S+\.\S+/, "Please enter a valid email"))}}  
+                                isErrorValidation={!!errors?.email}
+                                register={{...register('email',  getValidationOptions(/^\S+@\S+\.\S+$/, "email"))}}  
                         />
                         <FormValidationMessage error={errors?.email &&`${errors.email.message}`}/>
                      </div>
@@ -71,15 +61,16 @@ const ContactForm:React.FC = () => {
                     <Input  className={styles._border} 
                             type='text'
                             placeholder='Title'
-                            register={{...register('title', getValidationOptions(/^(?!\s*$)\S.*\s*$/, "Please enter a valid title (minimum 2 characters and not an empty string)"))}}
+                            isErrorValidation={!!errors?.title}
+                            register={{...register('title', getValidationOptions(/^(?!\s*$)\S.*\s*$/, "title (minimum 2 characters and not an empty string)"))}}
                     />
                     <FormValidationMessage error={errors?.title &&`${errors.title.message}`}/>
                 </div>
 
-                <textarea   className={styles._border}
+                <textarea   className={`${styles._border} ${errors?.subject ? '_errorInput' : ''}`}
                             maxLength={500}
                             placeholder='Subjects'
-                            {...register('subject', getValidationOptions( /^(?!\s*$\r?\n?)\S(?:[\s\S])*$/, "Please enter a valid subject (minimum 2 characters and not an empty string)"))}
+                            {...register('subject', getValidationOptions( /^(?!\s*$\r?\n?)\S(?:[\s\S])*$/, "subject (minimum 2 characters and not an empty string)"))}
                 />
                 <FormValidationMessage error={errors?.subject &&`${errors.subject.message}`}/>
 
