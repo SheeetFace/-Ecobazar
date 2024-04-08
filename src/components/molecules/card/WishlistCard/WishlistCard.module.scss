@@ -1,0 +1,62 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/typography.scss';
+
+.WishlistCard{
+    display: flex;
+    padding: .5rem .5rem .5rem 1.5rem;
+
+    ._product{
+        display: flex;
+        align-items:center;
+        gap: 1rem;
+        width: 33%;
+
+        ._imgContainer{
+            width: 100px;
+
+            img{
+                width: 100%;
+            }
+        }
+    }
+    ._costContainer{
+        width: 30%;
+        display: flex;
+        align-items:center;
+        gap:.7rem;
+        font-weight:$medium;
+        ._old{
+            text-decoration:line-through;
+            color:$grey-3;
+        }
+    }
+    ._status{
+        width: 15%;
+        display: flex;
+        align-items:center;
+        font-size: $body-small;
+
+        ._inStock{
+            background-color:rgb($soft-primary-color, .5);
+            color:$primary-color;
+        }
+        ._outOfStock{
+            background-color:rgb($danger-color, .5);
+            color:$danger-color;
+        }
+    }
+    ._buttonsContainer{
+        width: 22%;
+        display: flex;
+        align-items:center;
+        justify-content: space-around;
+    }
+}
+
+._dividerContainer{
+    padding-left: 2rem ;
+    padding-right: 2rem;
+}
+._divider{
+    background-color:$grey-1;
+}

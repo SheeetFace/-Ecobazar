@@ -1,0 +1,23 @@
+@import '../../../../../styles/colors.scss';
+
+.CrossIcon{
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    border:1px solid $grey-3;
+    border-radius:50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:$grey-3;
+    transition: border .4s ease, color .4s ease;
+
+    span{
+        font-size: .9rem;
+    }
+
+    &:hover{
+        border:1px solid $grey-8;
+        color:$grey-8;
+    }
+}

@@ -7,6 +7,7 @@ import RegistrationPage from './components/pages/RegistrationPage/RegistrationPa
 import AboutPage from './components/pages/AboutPage/AboutPage.tsx';
 import ContactPage from './components/pages/ContactPage/ContactPage.tsx';
 import FaqPage from './components/pages/FaqPage/FaqPage.tsx';
+import WishlistPage from './components/pages/WishlistPage/WishlistPage.tsx';
 
 import ErrorBoundary from './components/pages/ErrorBoundary/ErrorBoundary.tsx';
 
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: "faq",
         element: <FaqPage />,
+      },
+      {
+        path: "wishlist",
+        element: <WishlistPage />,
       },
     ],
   }
