@@ -1,10 +1,10 @@
 import {useForm} from 'react-hook-form'
 
-import { getValidationOptions } from '../../../../../utils/getValidationOptions';
-
-import Input from '../../../../atoms/form/Input/Input';
+import InputFormField from '../../../formField/InputFormField/InputFormField';
+import TextAreaFormField from '../../../formField/TextAreaFormField/TextAreaFormField';
 import Button from '../../../../atoms/Button/Button';
-import FormValidationMessage from '../../../../atoms/form/FormValidationMessage/FormValidationMessage';
+
+import { getValidationOptions } from '../../../../../utils/getValidationOptions';
 
 import styles from '../ContactForm/ContactForm.module.scss';
 
@@ -36,44 +36,41 @@ const ContactForm:React.FC = () => {
             <form className={styles._form} onSubmit={handleSubmit(onSubmit)}>
 
                 <div className={styles._top}>
-                    <div className={styles._width}>
-                        <Input  className={styles._border}
-                                type='text'
-                                placeholder='Your Name'
-                                isErrorValidation={!!errors?.name}
-                                register={{...register('name', getValidationOptions( /^[\p{L}]{2,}$/u, "name (2 characters minimum and no spaces)"))}}
-                        />
-                        <FormValidationMessage error={errors?.name &&`${errors.name.message}`}/>
-                    </div>
-
-                    <div className={styles._width}>
-                        <Input  className={styles._border}
-                                type='text'
-                                placeholder='Your Email'
-                                isErrorValidation={!!errors?.email}
-                                register={{...register('email',  getValidationOptions(/^\S+@\S+\.\S+$/, "email"))}}  
-                        />
-                        <FormValidationMessage error={errors?.email &&`${errors.email.message}`}/>
-                     </div>
+                    <InputFormField 
+                        className={styles._width}
+                        inputType='text'
+                        placeholder='Your Name'
+                        isErrors={!!errors?.name}
+                        register={{...register('name', getValidationOptions( /^[\p{L}]{2,}$/u, "name (2 characters minimum and no spaces)"))}}
+                        errorMessage={errors.name?.message}
+                    />
+                    <InputFormField 
+                        className={styles._width}
+                        inputType='text'
+                        placeholder='Your Email'
+                        isErrors={!!errors?.email}
+                        register={{...register('email',  getValidationOptions(/^\S+@\S+\.\S+$/, "email"))}}  
+                        errorMessage={errors.email?.message}
+                    />
                 </div>
                 
-                <div>
-                    <Input  className={styles._border} 
-                            type='text'
-                            placeholder='Title'
-                            isErrorValidation={!!errors?.title}
-                            register={{...register('title', getValidationOptions(/^(?!\s*$)\S.*\s*$/, "title (minimum 2 characters and not an empty string)"))}}
-                    />
-                    <FormValidationMessage error={errors?.title &&`${errors.title.message}`}/>
-                </div>
-
-                <textarea   className={`${styles._border} ${errors?.subject ? '_errorInput' : ''}`}
-                            maxLength={500}
-                            placeholder='Subjects'
-                            {...register('subject', getValidationOptions( /^(?!\s*$\r?\n?)\S(?:[\s\S])*$/, "subject (minimum 2 characters and not an empty string)"))}
+                <InputFormField 
+                        className=''
+                        inputType='text'
+                        placeholder='Title'
+                        isErrors={!!errors?.title}
+                        register={{...register('title', getValidationOptions(/^(?!\s*$)\S.*\s*$/, "title (minimum 2 characters and not an empty string)"))}}
+                        errorMessage={errors.title?.message}
                 />
-                <FormValidationMessage error={errors?.subject &&`${errors.subject.message}`}/>
 
+                <TextAreaFormField
+                  maxLength={500}
+                  placeholder='Subjects'
+                  isErrors={!!errors?.subject}
+                  register={{...register('subject', getValidationOptions( /^(?!\s*$\r?\n?)\S(?:[\s\S])*$/, "subject (minimum 2 characters and not an empty string)"))}}
+                  errorMessage={errors.subject?.message}
+                />
+            
                 <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight' type='submit' text='Send Message'/>
             </form>
         </section>

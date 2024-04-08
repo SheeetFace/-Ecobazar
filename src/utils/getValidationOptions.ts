@@ -1,5 +1,4 @@
 
-
 export  const getValidationOptions =(patterValue:RegExp,message:string)=>{
 
     return{   
