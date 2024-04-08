@@ -1,5 +1,6 @@
+import { NavLink } from "react-router-dom";
 
-import WishlistIcon from "../../../../atoms/icon/navigate/WishlistIcon";
+import WishListBadge from "../WishListBadge/WishListBadge";
 import Divider from "../../../../atoms/Divider/Divider";
 import CartBadge from "../CartBadge/CartBadge";
 import CartSummary from "../../../../atoms/header/CartSummary/CartSummary";
@@ -9,9 +10,9 @@ import styles from '../ShoppingActions/ShoppingActions.module.scss'
 const ShoppingActions:React.FC = () =>{
     return(
         <div className={styles.ShoppingActions}>
-            <div className={styles._wishlistIcon}>
-                <WishlistIcon className={styles._iconHover}/>
-            </div>
+            <NavLink to='wishlist' className={styles._wishlistIcon}>
+                <WishListBadge/>
+            </NavLink>
             <Divider type='vertical' className={styles._divider}/>
             <CartBadge/>
             <CartSummary/>

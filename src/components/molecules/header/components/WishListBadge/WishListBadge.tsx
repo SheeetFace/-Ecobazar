@@ -1,17 +1,18 @@
-import CartIcon from '../../../../atoms/icon/navigate/CartIcon';
+import WishlistIcon from '../../../../atoms/icon/navigate/WishlistIcon';
 import ItemCountBadge from '../../../../atoms/header/ItemCountBadge/ItemCountBadge';
 
 import styles from '../styles/styles.module.scss'
 
-const CartBadge:React.FC = () =>{
+const WishListBadge:React.FC = () => {
 
-     return(
+    return (
         <div className={styles.ComponentBadge}>
-            <CartIcon className={styles._iconHover} />
+            <WishlistIcon className={styles._iconHover} />
             <div className={styles._count}>
                 <ItemCountBadge />
             </div>
         </div>
-     )
+    )
 }
-export default CartBadge;
+
+export default WishListBadge;
