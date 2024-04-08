@@ -13,8 +13,13 @@ const ShoppingActions:React.FC = () =>{
             <NavLink to='wishlist' className={styles._wishlistIcon}>
                 <WishListBadge/>
             </NavLink>
+            
             <Divider type='vertical' className={styles._divider}/>
-            <CartBadge/>
+
+            <NavLink to='shoppingcart'>
+                <CartBadge/>
+            </NavLink>
+
             <CartSummary/>
         </div>
     )

@@ -8,6 +8,7 @@ import AboutPage from './components/pages/AboutPage/AboutPage.tsx';
 import ContactPage from './components/pages/ContactPage/ContactPage.tsx';
 import FaqPage from './components/pages/FaqPage/FaqPage.tsx';
 import WishlistPage from './components/pages/WishlistPage/WishlistPage.tsx';
+import ShoppingCartPage from './components/pages/ShoppingCartPage/ShoppingCartPage.tsx';
 
 import ErrorBoundary from './components/pages/ErrorBoundary/ErrorBoundary.tsx';
 
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: "wishlist",
         element: <WishlistPage />,
+      },
+      {
+        path: "shoppingcart",
+        element: <ShoppingCartPage />,
       },
     ],
   }
