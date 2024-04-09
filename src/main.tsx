@@ -9,6 +9,7 @@ import ContactPage from './components/pages/ContactPage/ContactPage.tsx';
 import FaqPage from './components/pages/FaqPage/FaqPage.tsx';
 import WishlistPage from './components/pages/WishlistPage/WishlistPage.tsx';
 import ShoppingCartPage from './components/pages/ShoppingCartPage/ShoppingCartPage.tsx';
+import CheckoutPage from './components/pages/CheckoutPage/CheckoutPage.tsx';
 
 import ErrorBoundary from './components/pages/ErrorBoundary/ErrorBoundary.tsx';
 
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
       {
         path: "shoppingcart",
         element: <ShoppingCartPage />,
+      },
+      {
+        path: "checkout",
+        element: <CheckoutPage />,
       },
     ],
   }

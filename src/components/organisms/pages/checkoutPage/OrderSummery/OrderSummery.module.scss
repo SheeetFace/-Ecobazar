@@ -1,7 +1,7 @@
 @import '../../../../../styles/colors.scss';
 @import '../../../../../styles/typography.scss';
 
-.ShoppingCartTotal{
+.OrderSummery{
     display: flex;
     flex-direction: column;
     border: 1px solid $grey-1;
@@ -47,8 +47,5 @@
         ._divider{
             background-color:$grey-2;
         }
-    }
-    ._navLink{
-        text-decoration: none;
     }
 }

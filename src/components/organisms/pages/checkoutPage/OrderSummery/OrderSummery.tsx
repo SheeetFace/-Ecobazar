@@ -1,15 +1,14 @@
-import { NavLink } from 'react-router-dom';
-
 import Divider from '../../../../atoms/Divider/Divider';
+import PaymentMethodForm from './components/PaymentMethodForm/PaymentMethodForm';
 import Button from '../../../../atoms/Button/Button';
 
-import styles from '../ShoppingCartTotal/ShoppingCartTotal.module.scss';
+import styles from '../OrderSummery/OrderSummery.module.scss';
 
-const ShoppingCartTotal:React.FC = () => {
+const OrderSummery:React.FC = () => {
 
     return (
-        <section className={styles.ShoppingCartTotal}>
-            <h3>Cart Total</h3>
+        <section className={styles.OrderSummery}>
+            <h3>Order Summary</h3>
 
             <div className={styles._container}>
                 <div className={styles._subTotal}>
@@ -28,13 +27,16 @@ const ShoppingCartTotal:React.FC = () => {
                 </div>
             </div>
 
-            <NavLink to='/checkout' className={styles._navLink}>
+            <PaymentMethodForm/>
+
+            <div>
                 <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight buttonMaxWidth'
                         text='Proceed to checkout'
                         type='button'/>
-            </NavLink>
+            </div>
+
         </section>
     )
 }
 
-export default ShoppingCartTotal;
+export default OrderSummery;

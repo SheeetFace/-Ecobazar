@@ -16,7 +16,10 @@ const ShoppingCartPage:React.FC = () => {
                         <ShoppingCart/>
                         <CouponCodeField/>
                     </div>
+                    
+                    <div className={styles._shoppingCartTotalContainer}>
                         <ShoppingCartTotal/>
+                    </div>
                 </div>
             </div>
 

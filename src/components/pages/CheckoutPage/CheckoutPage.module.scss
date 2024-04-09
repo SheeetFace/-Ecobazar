@@ -1,0 +1,20 @@
+
+
+.CheckoutPage{
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+
+    ._container{
+        display: flex;
+
+        
+        ._billingInfo{
+            width: 73%;
+            background-color:rgba(255, 0, 0, 0.24);
+        }
+        ._orderSummery{
+            width: 27%;
+
+        }
+    }
+}
