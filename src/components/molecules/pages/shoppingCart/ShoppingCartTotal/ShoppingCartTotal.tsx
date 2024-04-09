@@ -3,12 +3,12 @@ import { NavLink } from 'react-router-dom';
 import Divider from '../../../../atoms/Divider/Divider';
 import Button from '../../../../atoms/Button/Button';
 
-import styles from '../ShoppingCardTotal/ShoppingCardTotal.module.scss';
+import styles from '../ShoppingCartTotal/ShoppingCartTotal.module.scss';
 
-const ShoppingCardTotal:React.FC = () => {
+const ShoppingCartTotal:React.FC = () => {
 
     return (
-        <section className={styles.ShoppingCardTotal}>
+        <section className={styles.ShoppingCartTotal}>
             <h3>Cart Total</h3>
 
             <div className={styles._container}>
@@ -29,7 +29,7 @@ const ShoppingCardTotal:React.FC = () => {
             </div>
 
             <NavLink to='checkout' className={styles._navLink}>
-                <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight'
+                <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight buttonMaxWidth'
                         text='Proceed to checkout'
                         type='button'/>
             </NavLink>
@@ -37,4 +37,4 @@ const ShoppingCardTotal:React.FC = () => {
     )
 }
 
-export default ShoppingCardTotal;
+export default ShoppingCartTotal;

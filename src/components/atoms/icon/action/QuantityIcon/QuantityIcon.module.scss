@@ -1,0 +1,23 @@
+@import '../../../../../styles/colors.scss';
+@import '../../../../../styles/typography.scss';
+
+.QuantityIcon{
+    width: 33px;
+    height: 33px;
+    border-radius:50%;
+    background-color: $grey-05;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    cursor: pointer;
+
+    span{
+        font-size: $body-large;
+        font-weight: $medium;
+    }
+
+    &:active span{
+        color:$grey-6;
+        font-size: $body-xxl;
+    }
+}

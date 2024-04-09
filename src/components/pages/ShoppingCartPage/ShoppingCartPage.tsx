@@ -1,5 +1,6 @@
-import ShoppingCard from '../../organisms/pages/shoppingCard/ShoppingCard/ShoppingCard';
-import ShoppingCardTotal from '../../molecules/pages/shoppingCard/ShoppingCardTotal/ShoppingCardTotal';
+import ShoppingCart from '../../organisms/pages/shoppingCart/ShoppingCart/ShoppingCart';
+import ShoppingCartTotal from '../../molecules/pages/shoppingCart/ShoppingCartTotal/ShoppingCartTotal';
+import CouponCodeField from '../../molecules/pages/shoppingCart/CouponCodeField/CouponCodeField';
 
 import styles from '../ShoppingCartPage/ShoppingCartPage.module.scss';
 
@@ -11,10 +12,12 @@ const ShoppingCartPage:React.FC = () => {
                 <h1>My Shopping Cart</h1>
 
                 <div className={styles._container}>
-                    <ShoppingCard/>
-                    <ShoppingCardTotal/>
+                    <div className={styles._contentRight}>
+                        <ShoppingCart/>
+                        <CouponCodeField/>
+                    </div>
+                        <ShoppingCartTotal/>
                 </div>
-
             </div>
 
         </section>

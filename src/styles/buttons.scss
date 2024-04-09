@@ -94,6 +94,21 @@
     background-color:$grey-1;
   }
 }
+.fillGrey1{
+  background-color:$grey-1;
+
+  &:hover{
+    background-color:$grey-2;
+  }
+}
+.fillGrey7{
+  background-color:$grey-7;
+
+  &:hover{
+    background-color:$grey-8;
+  }
+}
+
 .fillGoogle{
   background-color:#4889f4;
   &:hover{
@@ -118,6 +133,9 @@
 
 .colorTextGrey1{
   color:$grey-1;
+}
+.colorTextGrey7{
+  color:$grey-7;
 }
 .colorTextGreenPrimary{
   color:$primary-color;

@@ -58,6 +58,14 @@ textarea{
     border:1px solid $danger-color;
 }
 
+._couponCodeFieldInput{
+    @extend ._subscribeInput;
+}
+._invalidCouponCodeFieldInput{
+    @extend ._subscribeInput;
+    border:1px solid $danger-color;
+}
+
 
 ._warningInput{
     border-radius:6px;

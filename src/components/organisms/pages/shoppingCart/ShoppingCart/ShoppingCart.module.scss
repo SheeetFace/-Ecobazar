@@ -1,12 +1,12 @@
 @import '../../../../../styles/colors.scss';
 
-.ShoppingCard{
+.ShoppingCart{
     display: flex;
     flex-direction: column;
     border: 1px solid $grey-1;
     border-radius:.3rem;
     background-color:$white-color;
-    width: 70%;
+    min-width: 450px;
 
     ._header{
         display: flex;
@@ -27,13 +27,20 @@
         ._subtotal{
             width: 22%;
         }
-
     }
+
+    ._navLink{
+        padding: 1rem;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+    }
+
     ._divider{
         background-color:  $grey-1;
     }
     ._cardContainer{
-        height: 570px;
+        height: 470px;
         overflow-y: auto;
     }
 }

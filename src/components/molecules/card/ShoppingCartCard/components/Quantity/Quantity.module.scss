@@ -1,0 +1,16 @@
+@import '../../../../../../styles/colors.scss';
+
+.Quantity{
+    display: flex;
+    align-items:center;
+    gap:.4rem;
+    border: 1px solid  $grey-1;
+    border-radius:2rem;
+    padding: .3rem;
+
+    ._count{
+        width: 20px;
+        display: flex;
+        justify-content: center;
+    }
+}

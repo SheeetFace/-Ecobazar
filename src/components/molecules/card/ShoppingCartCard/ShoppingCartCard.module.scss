@@ -1,0 +1,19 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/typography.scss';
+@import '../styles/styles.module.scss';
+
+.ShoppingCartCard{
+    @extend ._shoppingAndWishlist;
+
+    ._costContainer{
+        @extend ._costContainer;
+        width: 20%;
+    }
+    ._quantity{
+        width: 25%;
+        display: flex;
+    }
+    ._subtotal{
+        width: 17%;
+    }
+}

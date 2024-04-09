@@ -1,7 +1,7 @@
 @import '../../../../../styles/colors.scss';
 @import '../../../../../styles/typography.scss';
 
-.ShoppingCardTotal{
+.ShoppingCartTotal{
     display: flex;
     flex-direction: column;
     border: 1px solid $grey-1;
@@ -9,6 +9,7 @@
     background-color:$white-color;
     padding: 1.5rem;
     width: 30%;
+    height: max-content ;
 
     ._container{
         display: flex;

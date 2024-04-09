@@ -1,7 +1,7 @@
 import Button from '../../../atoms/Button/Button';
 import Divider from '../../../atoms/Divider/Divider';
 import LabelBadge from '../../../atoms/LabelBadge/LabelBadge';
-import CrossIcon from '../../../atoms/icon/navigate/CrossIcon/CrossIcon';
+import CrossIcon from '../../../atoms/icon/action/CrossIcon/CrossIcon';
 
 import styles from '../WishlistCard/WishlistCard.module.scss';
 
@@ -50,8 +50,8 @@ const WishlistCard:React.FC<WishlistCardProps> = ({name,id,src,currentCost,oldCo
         </div>
 
         {!isLast ? 
-            <div className={styles._dividerContainer}>
-                <Divider type='horizontal' className={styles._divider}/>
+            <div className={styles._shoppingAndWishlist_dividerContainer}>
+                <Divider type='horizontal' className={styles._shoppingAndWishlist_divider}/>
             </div>
         :null}
         </>

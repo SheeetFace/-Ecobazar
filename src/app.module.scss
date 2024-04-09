@@ -1,5 +1,8 @@
 @import '../src/styles/colors.scss';
 
+::selection{
+    background-color:  rgb($soft-primary-color, .5);
+}
 
 ::-webkit-scrollbar {
     width: 9px; 
@@ -11,6 +14,7 @@
 ::-webkit-scrollbar-thumb {
     background: linear-gradient(to bottom, $soft-primary-color, $primary-color, $hard-primary-color); 
 }
+
 
 .App{
 
