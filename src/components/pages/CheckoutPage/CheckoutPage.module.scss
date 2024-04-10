@@ -6,11 +6,11 @@
 
     ._container{
         display: flex;
+        gap:1rem;
 
         
         ._billingInfo{
             width: 73%;
-            background-color:rgba(255, 0, 0, 0.24);
         }
         ._orderSummery{
             width: 27%;

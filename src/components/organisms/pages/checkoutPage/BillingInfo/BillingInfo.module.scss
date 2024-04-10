@@ -1,0 +1,17 @@
+@import '../../../../../styles/colors.scss';
+@import '../../../../../styles/typography.scss';
+
+.BillingInfo{
+    background-color: $white-color;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 400px;
+    border-radius: .3rem;
+    padding: 1.5rem;
+    border: 1px solid $grey-1;
+
+    ._form{
+    }
+
+}

@@ -1,0 +1,34 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/typography.scss';
+
+.BillingAddressInfo{
+    display: flex;
+    flex-direction: column;
+    font-size: $body-small;
+
+    ._header{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        ._container{
+            width: 30%;
+        
+            label{
+                span{
+                    color:$grey-3;
+                }
+            }
+        }
+    }
+
+    ._selects{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        gap:1rem;
+
+        ._item{
+            width: 30%;
+        }
+    }
+}

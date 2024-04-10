@@ -1,3 +1,4 @@
+import BillingInfo from '../../organisms/pages/checkoutPage/BillingInfo/BillingInfo';
 import OrderSummery from '../../organisms/pages/checkoutPage/OrderSummery/OrderSummery';
 
 import styles from '../CheckoutPage/CheckoutPage.module.scss';
@@ -10,7 +11,7 @@ const CheckoutPage:React.FC = () => {
                 <div className={styles._container}>
 
                     <div className={styles._billingInfo}>
-                        <h1>Billing Information</h1>
+                       <BillingInfo/>
                     </div>
 
                     <div className={styles._orderSummery}>
