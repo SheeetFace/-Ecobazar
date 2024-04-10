@@ -8,46 +8,8 @@
     border-radius:.3rem;
     background-color:$white-color;
     padding: 1.5rem;
-    height: max-content ;
+    height: max-content;
 
-    ._container{
-        display: flex;
-        flex-direction: column;
-        padding-bottom: 2rem;
-
-        ._between{
-            padding-top: 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            color:$grey-6;
-        }
-
-        ._cost{
-            color: $grey-9;
-            font-weight: $medium;
-        }
-
-        ._subTotal{
-            @extend ._between;
-            font-size: $body-small;
-        }
-        ._shipping{
-            @extend ._between;
-            font-size: $body-small;
-        }
-        ._total{
-            @extend ._between;
-
-            ._totalCost{
-                @extend ._cost;
-                font-weight: $semiBold;
-            }
-        }
-
-        ._divider{
-            background-color:$grey-2;
-        }
-    }
     ._navLink{
         text-decoration: none;
     }
