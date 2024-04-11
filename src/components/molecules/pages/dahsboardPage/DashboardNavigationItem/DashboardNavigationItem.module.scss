@@ -1,0 +1,35 @@
+@import '../../../../../styles/colors.scss';
+@import '../../../../../styles/typography.scss';
+
+.DashboardNavigationItem{
+    display: flex;
+    padding: .7rem;
+    color:$grey-5;
+    letter-spacing: 0rem;
+    border-left: 3px solid transparent;
+    background-color:transparent;
+    transition:  letter-spacing .5s ease, color .3s ease,border-left .3s ease,background-color .5s ease ;
+    cursor: pointer;
+
+
+    ._icon{
+        width: 20px;
+        margin-right: .5rem;
+        stroke:$grey-5;
+        stroke-width: 1px;
+        transition: stroke .3s ease, stroke-width .3s ease;
+    }
+
+    &:hover{
+        color:$grey-8;
+        letter-spacing: .1rem;
+        border-left: 3px solid $primary-color;
+        background-color:rgb($soft-primary-color, .2);
+
+        ._icon{
+            stroke:$grey-8;
+            stroke-width: 2px;
+        }
+    }
+
+}

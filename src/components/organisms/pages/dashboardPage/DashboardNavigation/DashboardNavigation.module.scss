@@ -1,0 +1,21 @@
+@import '../../../../../styles/colors.scss';
+@import '../../../../../styles/typography.scss';
+
+.DashboardNavigation{
+    display: flex;
+    flex-direction: column;
+    border:1px solid $grey-2;
+    background-color:$white-color;
+    border-radius:.3rem;
+    padding: 1rem;
+
+    h1{
+        text-align: center;
+    }
+
+    ._divider{
+        margin-top: .5rem;
+        background-color:$grey-2;
+        margin-bottom: 1rem;
+    }
+}

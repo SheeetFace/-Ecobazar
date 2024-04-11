@@ -19,6 +19,14 @@ const HeaderTop:React.FC =()=>{
                                 type='button'
                         />
                     </NavLink>
+
+                    <NavLink to="/dashboard">
+                        <Button className=""
+                                text="/dashboard"
+                                type='button'
+                        />
+                    </NavLink>
+
                 </div>
             </div>
 
