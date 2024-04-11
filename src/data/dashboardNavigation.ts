@@ -1,34 +1,26 @@
-import WishlistIcon from "../components/atoms/icon/navigate/WishlistIcon"
-import CartIcon from "../components/atoms/icon/navigate/CartIcon"
+import DashboardIcon from "../components/atoms/icon/navigate/DashboardIcon"
+import OrderHistoryIcon from "../components/atoms/icon/navigate/OrderHistoryIcon"
+import SettingsIcon from "../components/atoms/icon/navigate/SettingsIcon"
+import LogOutIcon from "../components/atoms/icon/navigate/LogOutIcon"
 
 export const dashboardNavigationData= [
     {
-        icon: WishlistIcon,
+        icon: DashboardIcon,
         name: 'Dashboard',
-        to:'dashboard'
+        to:'user'
     },
     {
-        icon:WishlistIcon,
+        icon:OrderHistoryIcon,
         name: 'Order History',
         to:'orderHistory'
     },
     {
-        icon:WishlistIcon,
-        name: 'Wishlist',
-        to:'/wishlist'
-    },
-    {
-        icon:CartIcon,
-        name: 'Shopping Cart',
-        to:'/shoppingcart'
-    },
-    {
-        icon:WishlistIcon,
+        icon:SettingsIcon,
         name: 'Settings',
         to:'settings'
     },
     {
-        icon:WishlistIcon,
+        icon:LogOutIcon,
         name: 'Log out',
         to:'logout'
     },

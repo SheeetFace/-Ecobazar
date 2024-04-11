@@ -1,6 +1,9 @@
 @import '../../../../../styles/colors.scss';
 @import '../../../../../styles/typography.scss';
 
+._navLink{
+    text-decoration: none;
+}
 .DashboardNavigationItem{
     display: flex;
     padding: .7rem;
@@ -11,13 +14,11 @@
     transition:  letter-spacing .5s ease, color .3s ease,border-left .3s ease,background-color .5s ease ;
     cursor: pointer;
 
-
     ._icon{
         width: 20px;
         margin-right: .5rem;
-        stroke:$grey-5;
-        stroke-width: 1px;
-        transition: stroke .3s ease, stroke-width .3s ease;
+        fill:$grey-3;
+        transition: fill .3s ease;
     }
 
     &:hover{
@@ -27,8 +28,7 @@
         background-color:rgb($soft-primary-color, .2);
 
         ._icon{
-            stroke:$grey-8;
-            stroke-width: 2px;
+            fill:$grey-8;
         }
     }
 

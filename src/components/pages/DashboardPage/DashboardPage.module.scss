@@ -5,8 +5,14 @@
     padding-bottom: 2rem;
     background-color: $grey-05;
 
-    ._navigation{
-        width: 18%;
-        min-width: 230px;
+    ._container{
+        display: flex;
+        gap:1.5rem;
+        
+        ._navigation{
+            width: 18%;
+            min-width: 230px;
+        }
     }
+
 }

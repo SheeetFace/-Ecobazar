@@ -25,7 +25,7 @@ const DashboardNavigation:React.FC = () => {
             <Divider type='horizontal' className={styles._divider}/>
 
             <ul>
-            {renderDashboardNavigationItem()}
+                {renderDashboardNavigationItem()}
             </ul>
         </nav>      
     )
