@@ -11,9 +11,10 @@ interface InputFormFieldProps{
     /* eslint-disable @typescript-eslint/no-explicit-any */
     register:any
     errorMessage:string|undefined
+    maxLength?:number
 }
 
-const InputFormField:React.FC<InputFormFieldProps> = ({className,inputType,placeholder,isErrors,register,errorMessage}) => {
+const InputFormField:React.FC<InputFormFieldProps> = ({className,inputType,placeholder,isErrors,register,errorMessage,maxLength=40}) => {
 
     return (
             <div className={className}>
@@ -22,6 +23,7 @@ const InputFormField:React.FC<InputFormFieldProps> = ({className,inputType,place
                         placeholder={placeholder}
                         isErrorValidation={isErrors}
                         register={register}
+                        maxLength={maxLength}
                 />
                 <FormValidationMessage error={errorMessage}/>
             </div>

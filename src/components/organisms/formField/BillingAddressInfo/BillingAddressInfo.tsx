@@ -20,14 +20,15 @@ interface BillingAddressInfo{
     streetAddress:FieldOptions
     countryOrRegion:FieldOptions
     state:FieldOptions
+    zipCode:FieldOptions
+    email:FieldOptions
+    phone:FieldOptions
 
     watchCountryOrRegionValue: TypeWatchCountryOrRegionValue
 }
 interface BillingAddressInfoProps{
     options:BillingAddressInfo
 }
-
-
 
 
 const BillingAddressInfo:React.FC<BillingAddressInfoProps> = ({options}) => {
@@ -86,6 +87,7 @@ const BillingAddressInfo:React.FC<BillingAddressInfoProps> = ({options}) => {
                         isErrors={options.streetAddress.isErrors}
                         register={options.streetAddress.register}
                         errorMessage={options.streetAddress.errorMessage}
+                        maxLength={150}
                 />
             </div>
 
@@ -108,17 +110,45 @@ const BillingAddressInfo:React.FC<BillingAddressInfoProps> = ({options}) => {
                     />
                 </div>
                 
-            {/* <div>
-                <label>Street Address</label>
-                <InputFormField 
-                        className=''
-                        inputType='text'
-                        placeholder='Street Address'
-                        isErrors={options.streetAddress.isErrors}
-                        register={options.streetAddress.register}
-                        errorMessage={options.streetAddress.errorMessage}
-                />
-            </div> */}
+                <div className={styles._width30}>
+                    <label>Zip Code</label>
+                    <InputFormField 
+                            className={styles._zipCode}
+                            inputType='text'
+                            placeholder='Zip Code'
+                            isErrors={options.zipCode.isErrors}
+                            register={options.zipCode.register}
+                            errorMessage={options.zipCode.errorMessage}
+                            maxLength={10}
+                    />
+                </div>
+            </div>
+
+            <div className={styles._footer}>
+
+                <div className={styles._footerInput}>
+                    <label>Email</label>
+                    <InputFormField 
+                            className=''
+                            inputType='text'
+                            placeholder='Email Address'
+                            isErrors={options.email.isErrors}
+                            register={options.email.register}
+                            errorMessage={options.email.errorMessage}
+                    />
+                </div>
+
+                <div className={styles._footerInput}>
+                    <label>Phone</label>
+                    <InputFormField 
+                            className=''
+                            inputType='text'
+                            placeholder='Phone Number'
+                            isErrors={options.phone.isErrors}
+                            register={options.phone.register}
+                            errorMessage={options.phone.errorMessage}
+                    />
+                </div>
             </div>
         </div>
     )

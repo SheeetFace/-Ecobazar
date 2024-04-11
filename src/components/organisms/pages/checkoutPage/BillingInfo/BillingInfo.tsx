@@ -1,8 +1,9 @@
 import {useForm} from 'react-hook-form'
 
 import BillingAddressInfo from '../../../formField/BillingAddressInfo/BillingAddressInfo';
-// import TextAreaFormField from '../../../formField/TextAreaFormField/TextAreaFormField';
+import TextAreaFormField from '../../../formField/TextAreaFormField/TextAreaFormField';
 import Button from '../../../../atoms/Button/Button';
+import Divider from '../../../../atoms/Divider/Divider';
 
 import { getValidationOptions } from '../../../../../utils/getValidationOptions';
 
@@ -21,7 +22,7 @@ interface FormValues{
     email:string
     phone:number
     differentAddress:string
-    notes:string
+    orderNotes:string
 }
 type TypeWatchCountryOrRegionValue ="United States"|"Canada"|"United Kingdom"
 
@@ -65,11 +66,26 @@ const BillingInfo:React.FC = () => {
         },
         state:{
             isErrors:!!errors?.state,
-            register:{...register('state', getValidationOptions(/^\S.*\S$/, ""))},
+            register:{...register('state',getValidationOptions(/^\S.*\S$/, ""))},
             errorMessage:errors.state?.message
         },
-
+        zipCode:{
+            isErrors:!!errors?.zipCode,
+            register:{...register('zipCode',getValidationOptions(/^(?!\s*$)[a-zA-Z0-9\s]+$/, ""))},
+            errorMessage:errors.zipCode?.message
+        },
+        email:{
+            isErrors:!!errors?.email,
+            register:{...register('email',getValidationOptions(/^\S+@\S+\.\S+$/, "email"))},
+            errorMessage:errors.email?.message
+        },
+        phone:{
+            isErrors:!!errors?.phone,
+            register:{...register('phone',getValidationOptions(/^(?!\s*$)[+\s()\d]+$/, "phone"))},
+            errorMessage:errors.phone?.message
+        },
         watchCountryOrRegionValue: countryOrRegionValue
+
     }
 
 
@@ -81,16 +97,24 @@ const BillingInfo:React.FC = () => {
 
                 <BillingAddressInfo options={billingAddressInfoOptions}/>
             
+                <Divider type='horizontal' className={styles._divider}/>
 
-                {/* <TextAreaFormField
-                  maxLength={500}
-                  placeholder='Subjects'
-                  isErrors={!!errors?.subject}
-                  register={{...register('subject', getValidationOptions( /^(?!\s*$\r?\n?)\S(?:[\s\S])*$/, "subject (minimum 2 characters and not an empty string)"))}}
-                  errorMessage={errors.subject?.message}
-                /> */}
+                <h1>Additional Information</h1>
+
+                <div className={styles._textAreaField}>
+                    <label>Order Notes
+                        <span>(optional)</span>
+                    </label>
+                    <TextAreaFormField
+                        maxLength={500}
+                        placeholder='Notes about your order, e.g. special notes for delivery'
+                        isErrors={!!errors?.orderNotes}
+                        register={{...register('orderNotes')}}
+                        errorMessage={errors.orderNotes?.message}
+                    />
+                </div>
             
-                <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight' type='submit' text='Send Message'/>
+                <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight buttonMaxWidth' type='submit' text='Confirm Billing Information'/>
             </form>
 
         </section>

@@ -7,9 +7,10 @@ interface InputProps{
     /* eslint-disable @typescript-eslint/no-explicit-any */
     register?: any 
     isErrorValidation?:boolean  //! rewrite later on req prop
+    maxLength?:number
 }
 
-const Input:React.FC<InputProps> =({placeholder, forwardRef, className,type, icon,register=null,isErrorValidation})=>{
+const Input:React.FC<InputProps> =({placeholder, forwardRef, className,type, icon,register=null,isErrorValidation,maxLength=40})=>{
 
     const isError = isErrorValidation ? '_errorInput' : ''; 
     const classs = type==='checkbox' ?  className : `DefaultBorderStyle ${className} ${isError}`;
@@ -19,6 +20,7 @@ const Input:React.FC<InputProps> =({placeholder, forwardRef, className,type, ico
             <input ref={forwardRef}
                    type={type}
                    placeholder={placeholder}
+                   maxLength={maxLength}
                    {...register}
                   />
             {icon ? icon: null}

@@ -6,12 +6,16 @@
     flex-direction: column;
     font-size: $body-small;
 
+    ._width30{
+        width: 30%;
+    }
+
     ._header{
         display: flex;
         justify-content: space-between;
-        width: 100%;
+        // width: 100%;
         ._container{
-            width: 30%;
+            @extend ._width30;
         
             label{
                 span{
@@ -24,11 +28,26 @@
     ._selects{
         display: flex;
         justify-content: space-between;
-        width: 100%;
+        // width: 100%;
         gap:1rem;
 
         ._item{
-            width: 30%;
+            @extend ._width30;
+        }
+    }
+
+    ._zipCode{
+        input{
+            text-transform: uppercase
+        }
+    }
+
+    ._footer{
+        display: flex;
+        gap:1rem;
+        justify-content: space-between;
+        ._footerInput{
+            width: 50%;
         }
     }
 }
