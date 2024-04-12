@@ -1,0 +1,68 @@
+import styles from '../PaginationButtons/PaginationButtons.module.scss';
+
+import usePagination from '../../../hooks/usePagination';
+
+interface PaginationButtonsProps {
+    totalItems: number;
+    itemsPerPage: number;
+    valueCurrentPage: number;
+    onNextPage: () => void;
+    onPrevPage: () => void;
+    onGoToPage: (page: number) => void;
+}
+
+
+const PaginationButtons: React.FC<PaginationButtonsProps> = ({ totalItems, itemsPerPage, valueCurrentPage, onNextPage, onPrevPage, onGoToPage }) => {
+
+    const { totalPages } = usePagination(totalItems, itemsPerPage);
+
+    const startPage = Math.max(1, valueCurrentPage - 1);
+    const endPage = Math.min(totalPages, valueCurrentPage + 1);
+
+    return (
+        <div className={styles.PaginationButtons}>
+            <button className={`${styles._arrow} defaultButtonStyle`} onClick={onPrevPage} disabled={valueCurrentPage === 1}>
+                <span>&#11164;</span>
+            </button>
+
+            {valueCurrentPage > 2 && (
+                <button className={`${styles._item} defaultButtonStyle`} onClick={() => onGoToPage(1)}>
+                    1
+                </button>
+            )}
+
+            {valueCurrentPage > 3 && (
+                <span className={styles._dots}>...</span>
+            )}
+
+            <div className={styles._container}>
+                {Array.from({ length: endPage - startPage + 1 },(_, i)=>{
+                    const pageNumber = startPage + i;
+                    const classs = valueCurrentPage === pageNumber ? styles._currentPage :null;
+
+                    return(
+                        <button className={`${styles._item} ${classs} defaultButtonStyle`}  key={pageNumber} onClick={() => onGoToPage(pageNumber)} disabled={valueCurrentPage === pageNumber}>
+                            {pageNumber}
+                        </button>
+                    )
+                })}
+            </div>
+
+            {endPage < totalPages - 1 && (
+                <span className={styles._dots}>...</span>
+            )}
+
+            {endPage < totalPages && (
+                <button className={`${styles._item} defaultButtonStyle`} onClick={() => onGoToPage(totalPages)}>
+                    {totalPages}
+                </button>
+            )}
+
+            <button className={`${styles._arrow} defaultButtonStyle`} onClick={onNextPage} disabled={valueCurrentPage === totalPages}>
+                <span>&#11166;</span>
+            </button>
+        </div>
+    );
+}
+
+export default PaginationButtons;

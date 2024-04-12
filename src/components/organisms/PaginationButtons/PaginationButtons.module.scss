@@ -1,0 +1,47 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/typography.scss';
+
+.PaginationButtons{
+    display: flex;
+    // gap: 1rem;
+    width: 300px;
+    justify-content: space-between;
+
+    ._container{
+        display: flex;
+        // width: 100px;
+        // justify-content: space-between;
+        // background-color:red;
+    }
+    ._button{
+        width: 33px;
+        height: 33px;
+        border-radius:50%;
+        border:none;
+        color:$grey-7;
+        transition:background-color .3s ease,color .3s ease ;
+
+        &:hover{
+            background-color: $primary-color;
+            color:$white-color; 
+        }
+    }
+
+    ._arrow{
+        @extend ._button;
+        background-color: $grey-1;
+        font-size: $body-xl;
+    }
+
+    ._item{
+        @extend ._button;
+        background-color: transparent;
+        font-size: $body-small;
+    }
+
+    ._currentPage{
+        @extend ._button;
+        background-color: $primary-color;
+        color:$white-color; 
+    }
+}

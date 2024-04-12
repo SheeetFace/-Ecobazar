@@ -1,0 +1,28 @@
+
+.OrderHistoryTable{
+    display: flex;
+    flex-direction: column;
+    height: 728px;
+    position: relative;
+
+    table{
+        width: 100%;
+        border-collapse: collapse;
+        height: max-content;
+    
+        td{
+            padding: .3rem;
+        }
+    }
+
+    ._pagButtons{
+        position: absolute;
+        width: 100%;
+        bottom:0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+}

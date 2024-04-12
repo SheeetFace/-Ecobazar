@@ -12,6 +12,7 @@ import ShoppingCartPage from './components/pages/ShoppingCartPage/ShoppingCartPa
 import CheckoutPage from './components/pages/CheckoutPage/CheckoutPage.tsx';
 import DashboardPage from './components/pages/DashboardPage/DashboardPage.tsx';
 import UserDashboardPage from './components/pages/UserDashboardPage/UserDashboardPage.tsx';
+import OrderHistoryDashboardPage from './components/pages/OrderHistoryDashboardPage/OrderHistoryDashboardPage.tsx';
 
 import ErrorBoundary from './components/pages/ErrorBoundary/ErrorBoundary.tsx';
 
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
           {
             element: <UserDashboardPage/>,
             index: true,
+          },
+          {
+            element: <OrderHistoryDashboardPage/>,
+            path: "orderHistory",
           },
         ]
       },

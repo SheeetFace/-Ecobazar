@@ -1,0 +1,17 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/typography.scss';
+
+.OrderHistoryDashboardPage{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: .3rem;
+    border: 1px solid $grey-2;
+    background-color:$white-color;
+    color:$grey-8;
+
+    h1{
+        margin-bottom: 1rem;
+    }
+}

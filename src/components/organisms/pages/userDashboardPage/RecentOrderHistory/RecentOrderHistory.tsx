@@ -10,7 +10,10 @@ import styles from '../RecentOrderHistory/RecentOrderHistory.module.scss';
 const RecentOrderHistory:React.FC = () => {
 
     const renderOrderHistoryItemTable =()=>{
-        return orderHistoryData.map((item,i)=>{
+        
+        const data = orderHistoryData.length <=10 ?orderHistoryData : orderHistoryData.slice(0,10)
+
+        return data.map((item,i)=>{
             return(
                 <OrderHistoryItemTable  key={i}
                                         id={item.id}
