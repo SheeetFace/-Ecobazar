@@ -14,9 +14,11 @@ const BillingAddress:React.FC = () => {
             <span>dainne.ressell@gmail.com</span>
             <span>(671) 555-0110</span>
 
-            <NavLink to='settings' className={styles._navLink}>
-                <span>Edit Address</span>
-            </NavLink>
+            <div className={styles._navLinkMargin}>
+                <NavLink to='settings' className='_navLinkGreenPrimaryLetterSpacing _sizeLarge'>
+                    <span>Edit Address</span>
+                </NavLink>
+            </div>
         </section>
     )
 }

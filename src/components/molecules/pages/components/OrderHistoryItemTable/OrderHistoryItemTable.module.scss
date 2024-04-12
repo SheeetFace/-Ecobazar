@@ -1,0 +1,17 @@
+@import '../../../../../styles/colors.scss';
+
+.OrderHistoryItemTable{
+    background-color:transparent;
+    transition:background-color .3s ease ;
+    color:$grey-7;
+    cursor: default;
+
+    &:hover{
+        background-color:rgb($soft-primary-color, .3)
+    }
+
+    ._tdNavlink{
+        display: flex;
+        justify-content: center;
+    }
+}

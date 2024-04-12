@@ -14,9 +14,11 @@ const Profile:React.FC = () => {
             <span className={styles._name}>Dianne Russell</span>
             <span className={styles._customer}>Customer</span>
 
-            <NavLink to='settings' className={styles._navLink}>
-                <span>Edit Profile</span>
-            </NavLink>
+            <div className={styles._navLinkMargin}>
+                <NavLink to='settings' className='_navLinkGreenPrimaryLetterSpacing _sizeLarge'>
+                    <span>Edit Profile</span>
+                </NavLink>
+            </div>
 
         </section>
     )

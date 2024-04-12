@@ -7,7 +7,7 @@ export const dashboardNavigationData= [
     {
         icon: DashboardIcon,
         name: 'Dashboard',
-        to:'user'
+        to:'/dashboard'
     },
     {
         icon:OrderHistoryIcon,

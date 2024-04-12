@@ -1,0 +1,29 @@
+@import '../../../../../styles/colors.scss';
+@import '../../../../../styles/typography.scss';
+
+.RecentOrderHistory{
+    width: inherit;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border-radius: .3rem;
+    border: 1px solid $grey-3;
+    background-color:$white-color;
+
+    ._header{
+        display: flex;
+        justify-content: space-between;
+
+        h1{
+            color:$grey-8;
+        }
+    }
+
+    table{
+        width: 100%;
+        border-collapse: collapse;
+        td{
+            padding:.3rem;
+        }
+    }
+}

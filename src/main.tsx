@@ -11,7 +11,7 @@ import WishlistPage from './components/pages/WishlistPage/WishlistPage.tsx';
 import ShoppingCartPage from './components/pages/ShoppingCartPage/ShoppingCartPage.tsx';
 import CheckoutPage from './components/pages/CheckoutPage/CheckoutPage.tsx';
 import DashboardPage from './components/pages/DashboardPage/DashboardPage.tsx';
-import UserPage from './components/pages/UserPage/UserPage.tsx';
+import UserDashboardPage from './components/pages/UserDashboardPage/UserDashboardPage.tsx';
 
 import ErrorBoundary from './components/pages/ErrorBoundary/ErrorBoundary.tsx';
 
@@ -69,9 +69,8 @@ const router = createBrowserRouter([
         element: <DashboardPage />,
         children: [
           {
-            element: <UserPage/>,
+            element: <UserDashboardPage/>,
             index: true,
-            path: "user",
           },
         ]
       },

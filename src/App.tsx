@@ -9,6 +9,7 @@ import Footer from './components/organisms/Footer/Footer';
 import './styles/common.scss'
 import './styles/buttons.scss'
 import './styles/inputs.scss'
+import './styles/navLink.scss'
 
 import styles from '../src/app.module.scss'
 

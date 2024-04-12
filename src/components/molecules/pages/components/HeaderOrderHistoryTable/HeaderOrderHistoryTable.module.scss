@@ -1,0 +1,8 @@
+@import '../../../../../styles/colors.scss';
+@import '../../../../../styles/typography.scss';
+
+.HeaderOrderHistoryTable{
+    background-color:$grey-1;
+    font-size: $body-small;
+    color:$grey-5;
+}

@@ -35,20 +35,9 @@
         color:$grey-4;
         font-size: $body-small;
     }
-
-    ._navLink{
+    
+    ._navLinkMargin{
         margin-top: 1rem;
-        text-decoration: none;
-        font-size: $body-large;
-        font-weight: $medium;
-        color:$primary-color;
-        letter-spacing: 0rem;
-        cursor: pointer;
-        transition: color .3s ease,letter-spacing .3s ease;
-
-        &:hover{
-            color:$hard-primary-color;
-            letter-spacing: .1rem;
-        }
     }
+
 }
