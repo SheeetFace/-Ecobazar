@@ -1,0 +1,18 @@
+@import '../../../styles/colors.scss';
+
+.ProgressTrackerPoint{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: space-between;
+    height: 70px;
+
+    ._point{
+        position: relative;
+        width: 40px;
+        height: 40px;
+        background-color:$primary-color;
+        border-radius:50%;
+    }
+
+}

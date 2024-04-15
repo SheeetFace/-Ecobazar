@@ -32,4 +32,25 @@
         background-color:$grey-2;
         margin-bottom: .9rem;
     }
+
+    ._container{
+        height: max-content;
+        display: flex;
+        gap:1rem;
+
+        ._billingAndShipping{
+            width: 70%;
+        }
+        ._summerPaid{
+            width:30%
+        }
+    }
+
+    ._tracker{
+        padding: 2.5rem;
+        width: 100%;
+        display: flex;
+        align-items:center;
+        justify-content: center;
+    }
 }

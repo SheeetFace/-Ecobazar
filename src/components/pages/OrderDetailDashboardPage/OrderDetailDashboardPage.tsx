@@ -2,6 +2,8 @@ import { useLocation,NavLink } from 'react-router-dom';
 
 import Divider from '../../atoms/Divider/Divider';
 import BillingAndShipping from '../../molecules/pages/orderDetailDashboardPage/BillingAndShipping/BillingAndShipping';
+import SummaryPaid from '../../molecules/pages/orderDetailDashboardPage/SummaryPaid/SummaryPaid';
+import ProgressTracker from '../../molecules/pages/orderDetailDashboardPage/ProgressTracker/ProgressTracker';
 
 import styles from '../OrderDetailDashboardPage/OrderDetailDashboardPage.module.scss';
 
@@ -34,7 +36,18 @@ const OrderDetailDashboardPage:React.FC = () => {
             </div>
 
             <Divider type='horizontal' className={styles._divider}/>
-            <BillingAndShipping/>
+            
+            <div className={styles._container}>
+                <div className={styles._billingAndShipping}>
+                    <BillingAndShipping/>
+                </div>
+                <div className={styles._summerPaid}>
+                    <SummaryPaid id={data.state.id}/>
+                </div>
+            </div>
+            <div className={styles._tracker}>
+                <ProgressTracker status={data.state.status}/>
+            </div>
         </section>
     )
 }
