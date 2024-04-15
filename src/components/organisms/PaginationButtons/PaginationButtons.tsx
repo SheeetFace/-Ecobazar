@@ -3,12 +3,12 @@ import styles from '../PaginationButtons/PaginationButtons.module.scss';
 import usePagination from '../../../hooks/usePagination';
 
 interface PaginationButtonsProps {
-    totalItems: number;
-    itemsPerPage: number;
-    valueCurrentPage: number;
-    onNextPage: () => void;
-    onPrevPage: () => void;
-    onGoToPage: (page: number) => void;
+    totalItems: number
+    itemsPerPage: number
+    valueCurrentPage: number
+    onNextPage: () => void
+    onPrevPage: () => void
+    onGoToPage: (page: number) => void
 }
 
 
@@ -25,38 +25,38 @@ const PaginationButtons: React.FC<PaginationButtonsProps> = ({ totalItems, items
                 <span>&#11164;</span>
             </button>
 
-            {valueCurrentPage > 2 && (
-                <button className={`${styles._item} defaultButtonStyle`} onClick={() => onGoToPage(1)}>
-                    1
-                </button>
-            )}
+            <div className={styles._wrapper}>
 
-            {valueCurrentPage > 3 && (
-                <span className={styles._dots}>...</span>
-            )}
+                {valueCurrentPage > 2 && (
+                    <button className={`${styles._item} defaultButtonStyle`} onClick={() => onGoToPage(1)}>
+                        1
+                    </button>
+                )}
 
-            <div className={styles._container}>
-                {Array.from({ length: endPage - startPage + 1 },(_, i)=>{
-                    const pageNumber = startPage + i;
-                    const classs = valueCurrentPage === pageNumber ? styles._currentPage :null;
+                {valueCurrentPage > 3 && <span className={styles._dots}>...</span>}
 
-                    return(
-                        <button className={`${styles._item} ${classs} defaultButtonStyle`}  key={pageNumber} onClick={() => onGoToPage(pageNumber)} disabled={valueCurrentPage === pageNumber}>
-                            {pageNumber}
-                        </button>
-                    )
-                })}
+                    {Array.from({ length: endPage - startPage + 1 },(_, i)=>{
+                        const pageNumber = startPage + i;
+                        const classs = valueCurrentPage === pageNumber ? styles._currentPage :null;
+
+                        return(
+                                <button className={`${styles._item} ${classs} defaultButtonStyle`}  
+                                        key={pageNumber}
+                                        onClick={() => onGoToPage(pageNumber)}>
+                                    {pageNumber}
+                                </button>
+                        )
+                    })}
+
+                {endPage < totalPages - 1 && <span className={styles._dots}>...</span>}
+
+                {endPage < totalPages && (
+                    <button className={`${styles._item} defaultButtonStyle`} onClick={() => onGoToPage(totalPages)}>
+                        {totalPages}
+                    </button>
+                )}
+
             </div>
-
-            {endPage < totalPages - 1 && (
-                <span className={styles._dots}>...</span>
-            )}
-
-            {endPage < totalPages && (
-                <button className={`${styles._item} defaultButtonStyle`} onClick={() => onGoToPage(totalPages)}>
-                    {totalPages}
-                </button>
-            )}
 
             <button className={`${styles._arrow} defaultButtonStyle`} onClick={onNextPage} disabled={valueCurrentPage === totalPages}>
                 <span>&#11166;</span>

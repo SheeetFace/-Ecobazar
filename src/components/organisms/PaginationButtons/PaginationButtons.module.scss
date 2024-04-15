@@ -3,45 +3,65 @@
 
 .PaginationButtons{
     display: flex;
-    // gap: 1rem;
-    width: 300px;
+    width: max-content;
     justify-content: space-between;
+    align-items:center;
 
-    ._container{
+    ._wrapper{
+        max-width: 290px;
+        width: 240px;
         display: flex;
-        // width: 100px;
-        // justify-content: space-between;
-        // background-color:red;
-    }
-    ._button{
-        width: 33px;
-        height: 33px;
-        border-radius:50%;
-        border:none;
-        color:$grey-7;
-        transition:background-color .3s ease,color .3s ease ;
+        justify-content: center;
+        align-items:center;
 
-        &:hover{
+        ._dots{
+            min-width: 33px;
+            height: 33px;
+            display: flex;
+            align-items:center;
+            justify-content: center
+        }
+
+        ._item{
+            @extend ._button; 
+            background-color: transparent;
+            font-size: $body-small;
+        }
+
+        ._currentPage{
+            @extend ._button; 
             background-color: $primary-color;
-            color:$white-color; 
+            color:$white-color !important; 
         }
     }
 
     ._arrow{
-        @extend ._button;
+        width: 33px;
+        height: 33px;
+        margin: 10px;
+        border-radius:50%;
+        border:none;
         background-color: $grey-1;
         font-size: $body-xl;
-    }
 
-    ._item{
-        @extend ._button;
-        background-color: transparent;
-        font-size: $body-small;
+        &:hover{
+            background-color: $grey-7;
+            color:$grey-1; 
+        }
     }
+}
 
-    ._currentPage{
-        @extend ._button;
-        background-color: $primary-color;
+._button{
+    min-width: 33px;
+    height: 33px;
+    border-radius:50%;
+    border:none;
+    color:$grey-7;
+    transition:background-color .3s ease,color .3s ease ;
+
+    &:hover{
+        background-color: $soft-primary-color;
         color:$white-color; 
     }
 }
+

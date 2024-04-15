@@ -12,7 +12,7 @@ import usePagination from '../../../../../hooks/usePagination';
 
 const OrderHistoryTable: React.FC = () => {
 
-    const itemsPerPage= 3;
+    const itemsPerPage= 18;
     const totalItems = orderHistoryData.length;
   
     const {currentPage,goToNextPage,goToPrevPage,goToPage,startIndex,endIndex} = usePagination(
@@ -37,23 +37,26 @@ const OrderHistoryTable: React.FC = () => {
     };
   
     return (
+      <>
       <div className={styles.OrderHistoryTable}>
         <table >
           <HeaderOrderHistoryTable />
           {renderOrderHistoryItemTable()}
         </table>
         
-        <div className={styles._pagButtons}>
-            <PaginationButtons
-                totalItems={totalItems}
-                itemsPerPage={itemsPerPage}
-                valueCurrentPage={currentPage}
-                onNextPage={goToNextPage}
-                onPrevPage={goToPrevPage}
-                onGoToPage={goToPage}
-            />
-        </div>
       </div>
+
+      <div className={styles._pagButtons}>
+          <PaginationButtons
+              totalItems={totalItems}
+              itemsPerPage={itemsPerPage}
+              valueCurrentPage={currentPage}
+              onNextPage={goToNextPage}
+              onPrevPage={goToPrevPage}
+              onGoToPage={goToPage}
+          />
+        </div>
+      </>
     );
   };
   
