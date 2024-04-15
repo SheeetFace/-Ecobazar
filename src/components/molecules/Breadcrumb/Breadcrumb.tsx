@@ -6,9 +6,11 @@ import BreadcrumbItem from '../../atoms/BreadcrumbItem/BreadcrumbItem';
 
 import styles from '../Breadcrumb/Breadcrumb.module.scss';
 
+import type { ILocation } from '../../../types/locationTypes';
+
 const Breadcrumb:React.FC = ()=>{
 
-    const location = useLocation()
+    const location:ILocation = useLocation()
 
     useEffect(()=>{
       console.log(location)
