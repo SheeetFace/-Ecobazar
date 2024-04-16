@@ -4,6 +4,7 @@ import Divider from '../../atoms/Divider/Divider';
 import BillingAndShipping from '../../molecules/pages/orderDetailDashboardPage/BillingAndShipping/BillingAndShipping';
 import SummaryPaid from '../../molecules/pages/orderDetailDashboardPage/SummaryPaid/SummaryPaid';
 import ProgressTracker from '../../molecules/pages/orderDetailDashboardPage/ProgressTracker/ProgressTracker';
+import PaidProductsTable from '../../organisms/pages/orderDetailDashboardPage/PaidProductsTable/PaidProductsTable';
 
 import styles from '../OrderDetailDashboardPage/OrderDetailDashboardPage.module.scss';
 
@@ -47,6 +48,10 @@ const OrderDetailDashboardPage:React.FC = () => {
             </div>
             <div className={styles._tracker}>
                 <ProgressTracker status={data.state.status}/>
+            </div>
+
+            <div className={styles._table}>
+                <PaidProductsTable/>
             </div>
         </section>
     )

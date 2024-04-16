@@ -1,0 +1,43 @@
+
+export const paidProductsData = [
+    {
+        id:'1',
+        name:'Orange',
+        category:'Fruit',
+        currentCost:'2,95',
+        quantity:'1',
+        subtotal:'2,95'
+    },
+    {
+        id:'2',
+        name:'Apple',
+        category:'Fruit',
+        currentCost:'3,62',
+        quantity:'2',
+        subtotal:'7,24'
+    },
+    {
+        id:'3',
+        name:'Cabbage Chinese',
+        category:'Vegetables',
+        currentCost:'6,50',
+        quantity:'3',
+        subtotal:'19,5'
+    },
+    {
+        id:'4',
+        name:'Lettuce',
+        category:'Vegetables',
+        currentCost:'2,99',
+        quantity:'4',
+        subtotal:'11,96'
+    },
+    {
+        id:'5',
+        name:'Eggplant',
+        category:'Vegetables',
+        currentCost:'3,15',
+        quantity:'5',
+        subtotal:'15,75'
+    },
+]

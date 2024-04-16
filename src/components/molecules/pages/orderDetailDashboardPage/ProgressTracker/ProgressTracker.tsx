@@ -10,10 +10,9 @@ interface ProgressTrackerProps{
 
 const ProgressTracker:React.FC<ProgressTrackerProps> = ({status}) => {
 
+    const localStatus = status && status === "Completed" ? completedData : inProcessData;
 
-    const localStatus = status && status === "Completed" ? completedData : inProcessData
-
-    const lineTrackerClass = status && status === "Completed" ? styles._lineFull : styles._lineHalf
+    const lineTrackerClass = status && status === "Completed" ? styles._lineFull : styles._lineHalf;
 
     const renderPoints = localStatus.map(({label,status},i)=>(
         <ProgressTrackerPoint key={i} label={label} status={status}/>

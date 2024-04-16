@@ -1,0 +1,18 @@
+@import '../../../../../styles/colors.scss';
+@import '../../../../../styles/typography.scss';
+
+.PaidProductsTableItem{
+    background-color:rgb(238, 248, 235);
+    padding:.5rem;
+    transition:background-color .3s ease, color .3s ease;
+    
+    ._subtotal{
+        font-weight: $medium;
+    }
+
+    &:hover{
+        background-color:rgb($soft-primary-color, .4);
+        color:$grey-9;
+    }
+
+}
