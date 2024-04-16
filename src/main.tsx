@@ -14,6 +14,7 @@ import DashboardPage from './components/pages/DashboardPage/DashboardPage.tsx';
 import UserDashboardPage from './components/pages/UserDashboardPage/UserDashboardPage.tsx';
 import OrderHistoryDashboardPage from './components/pages/OrderHistoryDashboardPage/OrderHistoryDashboardPage.tsx';
 import OrderDetailDashboardPage from './components/pages/OrderDetailDashboardPage/OrderDetailDashboardPage.tsx';
+import SettingsDashboardPage from './components/pages/SettingsDashboardPage/SettingsDashboardPage.tsx';
 
 import ErrorBoundary from './components/pages/ErrorBoundary/ErrorBoundary.tsx';
 
@@ -82,6 +83,10 @@ const router = createBrowserRouter([
           {
             element: <OrderDetailDashboardPage/>,
             path: "orderDetail",
+          },
+          {
+            element: <SettingsDashboardPage/>,
+            path: "settings",
           },
         ]
       },
