@@ -19,6 +19,7 @@ const RecentOrderHistory:React.FC = () => {
                                         id={item.id}
                                         date={item.date}
                                         price={item.price}
+                                        productCount={item.productCount}
                                         status={item.status}
                 />
             )

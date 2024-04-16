@@ -8,7 +8,6 @@
     min-width: 500px;
 
     ._greyLine{
-        // margin-left: 5%;
         position: absolute;
         top:15px;
         width: 100%;
@@ -16,19 +15,24 @@
         align-items:center;
         justify-content: center;
 
-
         ._line{
             width: 88%;
             height: 10px;
-            background-color:$grey-1;
+            z-index: 1;
+        }
+
+        ._lineFull{
+            @extend ._line;
+            background-color: $primary-color;
+        }
+        ._lineHalf{
+            @extend ._line;
+            background: linear-gradient(to right, $primary-color 50%, $grey-1 50% );
         }
     }
-
+    
     ._points{
         display: flex;
         justify-content: space-between;
-        // ._orderReceived{
-        //     left: 0%;
-        // }
     }
 }

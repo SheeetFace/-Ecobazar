@@ -1,18 +1,41 @@
 @import '../../../styles/colors.scss';
+@import '../../../styles/typography.scss';
 
 .ProgressTrackerPoint{
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items:center;
     justify-content: space-between;
     height: 70px;
+    z-index: 3;
 
     ._point{
         position: relative;
-        width: 40px;
-        height: 40px;
-        background-color:$primary-color;
+        width: 42px;
+        height: 42px;
         border-radius:50%;
+        display: flex;
+        justify-content: center;
+        align-items:center;
     }
 
+    ._pointCompleted{
+        @extend ._point;
+
+        background-color:$primary-color;
+        color:$white-color;
+    }
+    ._pointNonCompleted{
+        @extend ._point;
+
+        border: 2px dashed $primary-color;
+        background-color:$white-color;
+        color:$primary-color;
+    }
+
+    ._label{
+        font-weight: $medium;
+        color:$hard-primary-color;
+    }
 }
