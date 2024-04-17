@@ -21,11 +21,12 @@ const ChangePasswordSettings:React.FC = () => {
 
     const {register, formState:{errors},handleSubmit} = useForm<FormValues>();
 
+    const ErrorMessage = 'password (minimum 5 characters and not an empty string or spaces)';
+
     //!mb need to use watch to check NEWPASSWORD AND CONFIRM PASSWORD and some check CURRENTPASSWORD
 
     const onSubmit: SubmitHandler<FormValues> =(data)=>{
         alert(JSON.stringify(data))
-
     }
 
     return (
@@ -42,38 +43,38 @@ const ChangePasswordSettings:React.FC = () => {
                                     placeholder='Current Password'
                                     inputType='string'
                                     isErrors={!!errors?.currentPassword}
-                                    register={{...register('currentPassword', getValidationOptions(/^(?!\s*$).+$/, "password (minimum 2 characters and not an empty string)"))}}
+                                    register={{...register('currentPassword', getValidationOptions(/^[^\s]{5,}$/,ErrorMessage))}}
                                     errorMessage={errors.currentPassword?.message}
                                     isPassword={true}/>
                 </div>
 
-                <div>
-                    <div>
+                <div className={styles._container}>
+                    <div className={styles._new}>
                         <label>New Password</label>
                         <InputFormField className=''
                                     placeholder='New Password'
                                     inputType='string'
                                     isErrors={!!errors?.newPassword}
-                                    register={{...register('newPassword', getValidationOptions(/^(?!\s*$).+$/, "password (minimum 2 characters and not an empty string)"))}}
+                                    register={{...register('newPassword', getValidationOptions(/^[^\s]{5,}$/,ErrorMessage))}}
                                     errorMessage={errors.newPassword?.message}
                                     isPassword={true}/>
                     </div>
-                    <div>
+                    <div className={styles._confirm}>
                         <label>Confirm Password</label>
                         <InputFormField className=''
                                     placeholder='Confirm Password'
                                     inputType='string'
                                     isErrors={!!errors?.confirmPassword}
-                                    register={{...register('confirmPassword', getValidationOptions(/^(?!\s*$).+$/, "password (minimum 2 characters and not an empty string)"))}}
+                                    register={{...register('confirmPassword', getValidationOptions(/^[^\s]{5,}$/,ErrorMessage))}}
                                     errorMessage={errors.confirmPassword?.message}
                                     isPassword={true}/>
                     </div>
                 </div>
                 
-
                 <div className={styles._buttonSubmit}>
                     <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight' type='submit' text='Save Changes'/>
                 </div>
+                
             </form>
         </div>
     )

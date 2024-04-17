@@ -20,8 +20,8 @@ const SelectFormField:React.FC<SelectFormFieldProps> = ({label,regions,register,
    
     const renderOptions=useMemo(()=>{
         return regions.map((item,i)=>{
-            if(i===0 && item ==='') return <option value="" selected disabled hidden> -- Select -- </option>
-            return  <option value={item}>{item}</option>
+            if(i===0 && item ==='') return <option value="" selected disabled hidden key={i}> -- Select -- </option>
+            return  <option value={item} key={i}>{item}</option>
         })
     },[regions])
 
@@ -37,3 +37,4 @@ const SelectFormField:React.FC<SelectFormFieldProps> = ({label,regions,register,
 }
 
 export default SelectFormField;
+

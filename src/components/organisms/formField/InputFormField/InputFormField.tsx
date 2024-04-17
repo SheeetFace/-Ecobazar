@@ -18,24 +18,25 @@ interface InputFormFieldProps{
 
 const InputFormField:React.FC<InputFormFieldProps> = ({className,inputType,placeholder,isErrors,register,errorMessage,maxLength=40,isPassword=false}) => {
 
-    
+    const props ={
+        placeholder,
+        isErrorValidation:isErrors,
+        register,
+        maxLength,
+    }
+
     return (
             <div className={className}>
 
                 {!isPassword ?
                     <Input  className={styles.InputFormField_border}
                             type={inputType}
-                            placeholder={placeholder}
-                            isErrorValidation={isErrors}
-                            register={register}
-                            maxLength={maxLength}
+                            {...props}
                     />
                 :
                     <PasswordInputAction    classNameWrapperInput={styles.InputFormField_border}
-                                            placeholder={placeholder}
-                                            isErrorValidation={isErrors}
-                                            register={register}
-                                            maxLength={maxLength}
+                                            type='password'
+                                            {...props}
                     />
                 }
 
