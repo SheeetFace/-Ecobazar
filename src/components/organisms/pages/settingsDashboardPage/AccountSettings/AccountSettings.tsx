@@ -1,6 +1,7 @@
-import { useState,useRef } from 'react';
+// import { useState,useRef } from 'react';
 import {useForm} from 'react-hook-form'
 
+import ProfilePictureWithChangeButton from '../components/ProfilePictureWithChangeButton/ProfilePictureWithChangeButton';
 import InputFormField from '../../../formField/InputFormField/InputFormField';
 import Divider from '../../../../atoms/Divider/Divider';
 import Button from '../../../../atoms/Button/Button';
@@ -16,23 +17,12 @@ interface FormValues{
     lastName:string
     email:string
     phone:number
+    picture:string
 }
 
 const AccountSettings:React.FC = () => {
-    const [file, setFile] = useState(null);
-    const fileInputRef = useRef<HTMLInputElement>(null);
-  
-    const handleFileSelect = () => {
-      fileInputRef.current?.click();
-    };
-  
-    //!NEER THIS CODE MOVE
-    const handleFileChange = (e) => {
-      const file = e.target.files[0];
-      setFile(file);
-    console.log(file)
-    };
-    const {register, formState:{errors},handleSubmit} = useForm<FormValues>();
+
+    const {register, formState:{errors},handleSubmit, setValue} = useForm<FormValues>();
 
     const onSubmit: SubmitHandler<FormValues> =(data)=>{
         alert(JSON.stringify(data))
@@ -98,29 +88,8 @@ const AccountSettings:React.FC = () => {
                             />
                         </div>
                     </div>
-                    
-                    <div className={styles._chooseIMG}>
-                        <div className={styles._profileIMG}>
-                            <img alt='profile photo' 
-                            // src='https://cdn.discordapp.com/attachments/872343092500504628/1227957231207845938/image.png?ex=662a4b4a&is=6617d64a&hm=7192a45990350c4b175becc97d5efd6174b56583f05fd7075688aafcfec4b44d&'
-                            src={
-                                file
-                                  ? URL.createObjectURL(file)
-                                  : 'https://cdn.discordapp.com/attachments/872343092500504628/1227957231207845938/image.png?ex=662a4b4a&is=6617d64a&hm=7192a45990350c4b175becc97d5efd6174b56583f05fd7075688aafcfec4b44d&'
-                                }
-                            />
-                        </div>
 
-                        <div className={styles._file}>
-                            <input
-                                type="file"
-                                accept="image/*"
-                                onChange={handleFileChange}
-                                ref={fileInputRef}
-                            />
-                            <Button onClick={handleFileSelect} className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight' type='button' text='Chose Image'/>
-                        </div>
-                    </div>
+                    <ProfilePictureWithChangeButton register={{...register('picture')}} setValue={setValue}/>
 
                 </div>
 
@@ -132,3 +101,4 @@ const AccountSettings:React.FC = () => {
 }
 
 export default AccountSettings;
+

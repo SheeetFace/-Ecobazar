@@ -28,36 +28,34 @@
                 width: 60%;
             }
 
-            ._chooseIMG{
-                display: flex;
-                flex-direction: column;
-                align-items:center;
-                width: 40%;
-                padding-top: 1rem;
-                gap:2rem;
+            // ._chooseIMG{
+            //     display: flex;
+            //     flex-direction: column;
+            //     align-items:center;
+            //     width: 40%;
+            //     padding-top: 1rem;
+            //     gap:1rem;
 
-                ._profileIMG{
-                    width: 120px;
-                    height: 120px;
-                    border-radius: 50%;
+            //     ._profileIMG{
+            //         width: 180px;
+            //         height: 180px;
 
-                    img{
-                        width: 100%;
-                        object-fit: cover;
-                    }
-                }
-                ._file{
+            //         img{
+            //             border-radius: 100%;
+            //             width: 100%;
+            //             object-fit: cover;
+            //         }
+            //     }
+            //     ._file{
                     
-                    input{
-                        display: none;
-                    }
-                    ._fileButton{
-                        margin-top: 1rem;
-                    }
-                }
-
-               
-            }
+            //         input{
+            //             display: none;
+            //         }
+            //         ._fileButton{
+            //             margin-top: 1rem;
+            //         }
+            //     } 
+            // }
     
             label{
                 font-size: $body-small;

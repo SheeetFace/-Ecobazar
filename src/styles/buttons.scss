@@ -129,8 +129,6 @@
 }
 
 
-
-
 .colorTextGrey1{
   color:$grey-1;
 }
@@ -141,9 +139,14 @@
   color:$primary-color;
 }
 
+
 .buttonMaxWidth{
   width: 100%;
 }
 .buttonMaxHeight{
   height: 40px;
+}
+
+.buttonBorderGreenPrimary{
+  border: 2px solid $primary-color;
 }
