@@ -1,0 +1,27 @@
+@import '../../../../../styles/colors.scss';
+
+.SettingsStyles{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: .3rem;
+    border: 1px solid $grey-2;
+    background-color:$white-color;
+
+    h2{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        color:$grey-6;
+    }
+
+    ._divider{
+        background-color: $grey-2;
+    }
+
+    ._buttonSubmit{
+        padding-top: 1rem;
+    }
+
+}

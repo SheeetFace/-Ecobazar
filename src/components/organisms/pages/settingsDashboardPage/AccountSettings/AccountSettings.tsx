@@ -93,7 +93,10 @@ const AccountSettings:React.FC = () => {
 
                 </div>
 
-                <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight' type='submit' text='Save Changes'/>
+                <div className={styles._buttonSubmit}>
+                    <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight' type='submit' text='Save Changes'/>
+                </div>
+                
             </form>
 
         </section>

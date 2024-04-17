@@ -1,0 +1,11 @@
+@import '../../../../../styles/colors.scss';
+@import '../styles/styles.module.scss';
+
+.BillingAddressSettings{
+
+    @extend .SettingsStyles;
+
+    ._form{
+        padding: 1rem;
+    }
+}

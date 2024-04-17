@@ -1,16 +1,24 @@
 import { useState } from 'react';
 
+// import FormValidationMessage from '../../atoms/form/FormValidationMessage/FormValidationMessage';
+
 import Input from '../../atoms/form/Input/Input';
 import EyeIcon from '../../atoms/icon/navigate/EyeIcon';
+
 
 import styles from '../PasswordInputAction/PasswordInputAction.module.scss';
 
 interface PasswordInputActionProps{
-    forwardRef: React.RefObject<HTMLInputElement>
+    forwardRef?: React.RefObject<HTMLInputElement>
     classNameWrapperInput?:string,
     placeholder:string
+    type?:string
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    register?: any 
+    maxLength?:number
+    isErrorValidation?:boolean 
 }
-const PasswordInputAction:React.FC<PasswordInputActionProps> = ({forwardRef,classNameWrapperInput, placeholder}) => {
+const PasswordInputAction:React.FC<PasswordInputActionProps> = ({forwardRef,classNameWrapperInput, placeholder,register=null,isErrorValidation,maxLength=40}) => {
 
     const [showPass, setShowPass] = useState<boolean>(false)
 
@@ -30,7 +38,15 @@ const PasswordInputAction:React.FC<PasswordInputActionProps> = ({forwardRef,clas
 
     return (
         <div className={styles.PasswordInputAction}>
-             <Input className={classNameWrapperInput||''} placeholder={placeholder} type={type} forwardRef={forwardRef} icon={ActionEyeIcon()} />
+            <Input  className={classNameWrapperInput||''} 
+                    placeholder={placeholder}
+                    type={type}
+                    forwardRef={forwardRef}
+                    register={register}
+                    isErrorValidation={isErrorValidation}
+                    maxLength={maxLength}
+                    icon={ActionEyeIcon()}
+            />
         </div>
     )
 }
