@@ -4,6 +4,7 @@ import App from './App.tsx'
 import MainPage from './components/pages/MainPage/MainPage.tsx';
 import LoginPage from './components/pages/LoginPage/LoginPage.tsx';
 import RegistrationPage from './components/pages/RegistrationPage/RegistrationPage.tsx';
+import ShopPage from './components/pages/ShopPage/ShopPage.tsx';
 import AboutPage from './components/pages/AboutPage/AboutPage.tsx';
 import ContactPage from './components/pages/ContactPage/ContactPage.tsx';
 import FaqPage from './components/pages/FaqPage/FaqPage.tsx';
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: "registration",
         element: <RegistrationPage />,
+      },
+      {
+        path: "shop",
+        element: <ShopPage />,
       },
       {
         path: "about",

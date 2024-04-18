@@ -1,0 +1,43 @@
+@import '../../../../../styles/colors.scss';
+
+._arrow{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    color:$grey-5;
+    cursor: pointer;
+}
+h1{
+    transition: transform 0.4s ease, color 0.3s ease;
+}
+._defaultArrow{
+    @extend ._arrow;
+    transform: rotate(0deg);
+}
+._rotateArrow{
+    @extend ._arrow;
+    color:$grey-9;
+    transform: rotate(180deg);
+}
+
+._appear {
+    visibility: visible; 
+    opacity: 1; 
+    max-height: 300px; 
+    transition: visibility 1s linear, opacity 1.5s ease, max-height .5s linear;
+}
+._disappear {
+    visibility: hidden; 
+    opacity: 0; 
+    max-height: 0; 
+    overflow: hidden;
+    transition: all .5s linear;
+}
+
+._divider{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color:$grey-2;
+}

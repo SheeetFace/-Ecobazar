@@ -1,0 +1,25 @@
+@import '../../styles/styles.module.scss';
+
+.AllCategories{
+    display: flex;
+    flex-direction: column;
+
+    ._header{
+        display: flex;
+        justify-content: space-between;
+        align-items:center;
+        padding-bottom: 1rem;
+    }
+    &._form{
+        padding-top: 1rem;
+        padding-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap:.7rem;
+
+        // ._divider{
+        //     background-color:red;
+
+        // }
+    }
+}

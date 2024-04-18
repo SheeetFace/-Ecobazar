@@ -1,0 +1,16 @@
+
+.ShopPage{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    ._container{
+        display: flex;
+        gap:1rem;
+
+        ._filters{
+            width: 23%;
+            min-width: 200px;
+            height: max-content;
+        }
+    }
+}

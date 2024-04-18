@@ -1,0 +1,15 @@
+@import '../../../../../styles/colors.scss';
+
+.FilterProducts{
+    display: flex;
+    flex-direction: column;
+    gap:.4rem;
+
+    ._button{
+        width: 50%;
+    }
+    ._divider{
+        background-color:$grey-2;
+    }
+
+}
