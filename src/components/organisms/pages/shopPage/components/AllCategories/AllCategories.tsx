@@ -1,13 +1,15 @@
-import { useMemo } from 'react';
+import { useMemo, memo } from 'react';
 
 import CategoryItem from '../../../../../molecules/pages/shopPage/CategoryItem/CategoryItem';
 import Divider from '../../../../../atoms/Divider/Divider';
 
 import useToggleFilter from '../../../../../../hooks/useToggleFilter';
+import useFilter from '../../../../../../hooks/useFilter';
 
 import { allCategoriesData } from '../../../../../../data/AllCategories';
 
 import styles from '../AllCategories/AllCategories.module.scss';
+
 
 interface AllCategoriesProps{
     isLoading:boolean
@@ -17,9 +19,11 @@ interface AllCategoriesProps{
 const AllCategories:React.FC<AllCategoriesProps> = ({isLoading=false}) => {
 
     const [arrowClass, bodyClass,toggle] =useToggleFilter(styles._form)
+    const [, changeNewFilter] =useFilter()
 
-    const changeFilter = (value:string)=>{
-        console.log(value)
+    const handleFilter =(value:string)=>{
+        console.log(isLoading)
+        changeNewFilter('categoryValue',value)
     }
 
     const renderCategories=useMemo(()=>{
@@ -28,7 +32,7 @@ const AllCategories:React.FC<AllCategoriesProps> = ({isLoading=false}) => {
                 <CategoryItem   key={i}
                                 value={item.value}
                                 name={item.name}
-                                fn={()=>changeFilter(item.value)}
+                                fn={()=>handleFilter(item.value)}
                 />
             )
         })
@@ -53,4 +57,4 @@ const AllCategories:React.FC<AllCategoriesProps> = ({isLoading=false}) => {
     )
 }
 
-export default AllCategories;
+export default memo(AllCategories);

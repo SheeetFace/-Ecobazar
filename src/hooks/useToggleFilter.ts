@@ -2,7 +2,9 @@ import { useState } from "react";
 
 import styles from '../components/organisms/pages/shopPage/styles/styles.module.scss'
 
-const useToggleFilter = (initStyles:string) => {
+type UseToggleFilterReturnType = [string, string, ()=> void];
+
+const useToggleFilter = (initStyles:string):UseToggleFilterReturnType => {
 
     const [isClick, setIsClick] =useState<boolean>(true);
 
@@ -13,7 +15,7 @@ const useToggleFilter = (initStyles:string) => {
     const arrowClass = isClick ? styles._defaultArrow :  styles._rotateArrow;
     const bodyClass = `${initStyles} ${ isClick ? styles._appear : styles._disappear}`;
 
-    return [arrowClass, bodyClass, toggle] as const;
+    return [arrowClass, bodyClass, toggle];
 
 }
 
