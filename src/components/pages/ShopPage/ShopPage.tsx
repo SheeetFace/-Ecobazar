@@ -1,3 +1,4 @@
+
 import FilterProducts from '../../organisms/pages/shopPage/FilterProducts/FilterProducts';
 
 import styles from '../ShopPage/ShopPage.module.scss';
