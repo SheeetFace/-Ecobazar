@@ -1,28 +1,25 @@
-import { useMemo, memo } from 'react';
+import { memo, useContext } from 'react';
+
+import useToggleFilter from '../../../../../../hooks/useToggleFilter';
+import { FilterContext } from '../../../../../../contexts/FilterContext';
 
 import ReactSlider from 'react-slider'
 import Divider from '../../../../../atoms/Divider/Divider';
-
-import useToggleFilter from '../../../../../../hooks/useToggleFilter';
-import useFilter from '../../../../../../hooks/useFilter';
-
-
 
 import styles from '../PriceFilter/PriceFilter.module.scss';
 
 const PriceFilter:React.FC = () => {
 
     const [arrowClass, bodyClass,toggle] =useToggleFilter(styles._container)
-    const [filter, changeNewFilter] =useFilter()
+    const {filter, changeFilter } = useContext(FilterContext);
 
     const handleFilter =(value:number[])=>{
-        // console.log(value)
         const newPrice = {  
                             min:value[0].toString(),
                             max:value[1].toString()
                          }
 
-        changeNewFilter('price',newPrice)
+        changeFilter('price',newPrice)
     }
 
     return (
@@ -58,4 +55,4 @@ const PriceFilter:React.FC = () => {
     )
 }
 
-export default PriceFilter;
+export default memo(PriceFilter);

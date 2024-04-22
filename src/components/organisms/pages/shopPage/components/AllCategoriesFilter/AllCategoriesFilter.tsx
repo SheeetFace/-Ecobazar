@@ -1,30 +1,22 @@
-import { useMemo, memo, useEffect } from 'react';
+import { useMemo,useContext, memo} from 'react';
 
 import CategoryItem from '../../../../../molecules/pages/shopPage/CategoryItem/CategoryItem';
 import Divider from '../../../../../atoms/Divider/Divider';
 
 import useToggleFilter from '../../../../../../hooks/useToggleFilter';
-import useFilter from '../../../../../../hooks/useFilter';
+import { FilterContext } from '../../../../../../contexts/FilterContext';
 
 import { allCategoriesData } from '../../../../../../data/AllCategories';
 
 import styles from '../AllCategoriesFilter/AllCategoriesFilter.module.scss';
 
+const AllCategoriesFilter:React.FC = () => {
 
-interface AllCategoriesFilterProps{
-    isLoading:boolean
-
-}
-
-const AllCategoriesFilter:React.FC<AllCategoriesFilterProps> = ({isLoading=false}) => {
-
+    const { changeFilter } = useContext(FilterContext);
     const [arrowClass, bodyClass,toggle] =useToggleFilter(styles._form)
-    const [, changeNewFilter] =useFilter()
 
     const handleFilter =(value:string)=>{
-        console.log(isLoading)
-        // console.log(value)
-        changeNewFilter('categoryValue',value)
+        changeFilter('categoryValue',value)
     }
 
     const renderCategories=useMemo(()=>{
@@ -38,25 +30,23 @@ const AllCategoriesFilter:React.FC<AllCategoriesFilterProps> = ({isLoading=false
             )
         })
     },[])
-
-    return (
-        <section className={styles.AllCategoriesFilter}>
-            <div className={styles._header}>
-                <h2>All Categories</h2>
-                <h1 className={arrowClass} onClick={toggle}>
-                    &#11165;
-                </h1>
-            </div>
-            <form className={bodyClass}>
-            
-                {renderCategories}
-
-                <Divider type='horizontal' className={styles._divider}/>
-            </form>
-            
-           
-        </section>
-    )
-}
-
-export default AllCategoriesFilter;
+    
+        return (
+            <section className={styles.AllCategoriesFilter}>
+                <div className={styles._header}>
+                    <h2>All Categories</h2>
+                    <h1 className={arrowClass} onClick={toggle}>
+                        &#11165;
+                    </h1>
+                </div>
+                <form className={bodyClass}>
+                
+                    {renderCategories}
+    
+                    <Divider type='horizontal' className={styles._divider}/>
+                </form>
+            </section>
+        )
+    }
+    
+export default memo(AllCategoriesFilter);

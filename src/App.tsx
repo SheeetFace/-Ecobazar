@@ -14,6 +14,7 @@ import './styles/navLink.scss'
 import styles from '../src/app.module.scss'
 
 import { Outlet } from 'react-router-dom';
+import { FilterProvider } from './contexts/FilterContext';
 
 
 function App() {
@@ -26,7 +27,9 @@ function App() {
         <Navigation/>
         <Breadcrumb/>
 
-        <Outlet></Outlet>
+        <FilterProvider>
+          <Outlet></Outlet>
+        </FilterProvider>
 
         <Newsletter/>
         <Footer/>
