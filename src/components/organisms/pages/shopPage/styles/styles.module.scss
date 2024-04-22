@@ -35,7 +35,7 @@
     ._appear {
         visibility: visible; 
         opacity: 1; 
-        max-height: 300px; 
+        max-height: 400px; 
         transition: visibility 1s linear, opacity 1.5s ease, max-height .5s linear;
     }
     ._disappear {

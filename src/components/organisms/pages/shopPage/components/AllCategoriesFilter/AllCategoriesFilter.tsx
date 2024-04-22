@@ -6,7 +6,7 @@ import Divider from '../../../../../atoms/Divider/Divider';
 import useToggleFilter from '../../../../../../hooks/useToggleFilter';
 import { FilterContext } from '../../../../../../contexts/FilterContext';
 
-import { allCategoriesData } from '../../../../../../data/AllCategories';
+import { allCategoriesData } from '../../../../../../data/filter/allCategories';
 
 import styles from '../AllCategoriesFilter/AllCategoriesFilter.module.scss';
 

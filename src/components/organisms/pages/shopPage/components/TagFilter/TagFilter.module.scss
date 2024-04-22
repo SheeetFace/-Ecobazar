@@ -1,0 +1,9 @@
+@import '../../styles/styles.module.scss';
+
+.TagFilter{
+    ._container{
+        display: flex;
+        flex-wrap: wrap;
+        gap:.3rem;
+    }
+}

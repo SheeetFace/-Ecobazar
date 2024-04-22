@@ -1,0 +1,30 @@
+@import '../../../../../styles/colors.scss';
+
+    ._radio{
+        position: relative;
+        width: 20px !important;
+        height: 20px !important;
+        margin: 0px !important;
+        appearance: none;
+        border: 1px solid $grey-2;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    
+    ._radio:checked{
+        background-color: $primary-color;
+        border: 1px solid $primary-color;
+    }
+    
+    ._radio:checked::after{
+        content: "";
+        display: block;
+        width: 8px;
+        height: 8px;
+        background-color: $white-color;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }

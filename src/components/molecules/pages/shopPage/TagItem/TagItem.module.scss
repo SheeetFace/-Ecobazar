@@ -1,0 +1,29 @@
+@import '../../../../../styles/colors.scss';
+@import '../../../../../styles/typography.scss';
+
+
+._tag{
+    padding: 0.5rem 0.8rem;
+    font-size: $body-small;
+    border-radius: 2rem;
+    cursor: pointer;
+}
+
+.TagItem{
+    @extend ._tag;
+    background-color: $grey-1;
+    color:$grey-9;
+    transition:color .3s ease,background-color .3s ease;
+
+    &:hover{
+        color:$white-color;
+        background-color: $primary-color;
+    }
+
+}
+
+.TagItemChoose{
+    @extend ._tag;
+    color:$white-color;
+    background-color: $primary-color;
+}

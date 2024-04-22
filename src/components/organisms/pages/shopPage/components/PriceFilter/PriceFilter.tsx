@@ -55,9 +55,11 @@ const PriceFilter:React.FC = () => {
                 <div>
                     <span>Price: {filter.price.min} - {filter.price.max} </span>
                 </div>
+
+                <Divider type='horizontal' className={styles._divider}/>
             </div>
 
-            <Divider type='horizontal' className={styles._divider}/>
+
         </section>
     )
 }

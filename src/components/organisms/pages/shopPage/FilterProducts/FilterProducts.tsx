@@ -1,6 +1,8 @@
 import Button from '../../../../atoms/Button/Button';
 import AllCategoriesFilter from '../components/AllCategoriesFilter/AllCategoriesFilter';
 import PriceFilter from '../components/PriceFilter/PriceFilter';
+import RatingFilter from '../components/RatingFilter/RatingFilter';
+import TagFilter from '../components/TagFilter/TagFilter';
 
 import FilterIcon from '../../../../atoms/icon/navigate/FilterIcon';
 
@@ -29,6 +31,14 @@ const FilterProducts: React.FC = () => {
   
         <div className={bodyClass}>
           <PriceFilter />
+        </div>
+
+        <div className={bodyClass}>
+          <RatingFilter />
+        </div>
+
+        <div className={bodyClass}>
+          <TagFilter />
         </div>
 
       </section>

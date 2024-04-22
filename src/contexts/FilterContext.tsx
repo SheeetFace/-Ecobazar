@@ -42,10 +42,11 @@ export const FilterProvider:React.FC<FilterProviderProps> = ({ children }) => {
   const [filter, setFilter] = useState<InitFilter>(initFilter);
 
   const changeFilter: ChangeFilterFn =(key, newFilter)=>{
-      setFilter((prevFilter)=>({
-          ...prevFilter,
-          [key]:newFilter
-      }))
+    //need to do something with the comparison and don't call the function with the same value
+      setFilter((prevFilter) => ({
+        ...prevFilter,
+        [key]: newFilter,
+      }));
   }
 
   return(
