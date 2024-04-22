@@ -6,7 +6,6 @@
     display: flex;
     flex-direction: column;
 
-
     ._container{
         display: flex;
         flex-direction: column;
@@ -21,17 +20,29 @@
         justify-content: center;
 
         ._thumb{
-            border:none !important;
-            width: 15px;
-            height: 15px;
+            width: 23px;
+            height: 23px;
+            outline: none;
             background-color:$primary-color;
             border-radius: 50%;
+            display: flex;
+            align-items:center;
+            justify-content: center;
+            font-size: $body-tiny;
+            cursor: grab;
         }
 
         ._track{
             background-color:$grey-2;
             height: 8px;
-            border-radius:.3rem
+            border-radius:.3rem;
+        }
+
+        ._activeTrack{
+            background-color:$soft-primary-color;
+            margin-left: 5px;
+            margin-right: 5px;
+            height: 9px;
         }
     }
 

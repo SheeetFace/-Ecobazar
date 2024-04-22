@@ -33,18 +33,25 @@ const PriceFilter:React.FC = () => {
 
             <div className={bodyClass}>
 
-                <ReactSlider
+            <ReactSlider
                     className={styles._horizontalSlider}
                     thumbClassName={styles._thumb}
                     trackClassName={styles._track}
                     defaultValue={[0, 100]}
                     ariaLabel={['Lower thumb', 'Upper thumb']}
                     ariaValuetext={state => `Thumb value ${state.valueNow}`}
-                    renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
+                    renderThumb={(props, state) => <div  {...props}>{state.valueNow}</div>}
                     pearling
-                    minDistance={10}
+                    renderTrack={(props, state) => (
+                        <div
+                          {...props}
+                          className={state.index === 1 ?  styles._activeTrack :  styles._track}
+                        ></div>
+                      )}
+                    minDistance={5}
                     onAfterChange={(value)=>handleFilter(value)}
                 />
+
                 <div>
                     <span>Price: {filter.price.min} - {filter.price.max} </span>
                 </div>
