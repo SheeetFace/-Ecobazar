@@ -6,7 +6,7 @@ interface InitFilter{
         min:string
         max:string
     },
-    rating:number|null
+    rating:number[]
     tag:string
 }
 
@@ -29,7 +29,7 @@ const initFilter:InitFilter={
         min:'',
         max:''
     },
-    rating:null,
+    rating:[],
     tag:''
 }
 

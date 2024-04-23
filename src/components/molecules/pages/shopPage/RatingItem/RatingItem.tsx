@@ -14,7 +14,7 @@ const RatingItem:React.FC<RatingItemProps> = ({rating,fn}) => {
 
             <input className={styles._radio} 
                     name="ratings"
-                    type='radio'
+                    type='checkbox'
                     onClick={()=>fn()}
             />
             <div className={styles._rating}>

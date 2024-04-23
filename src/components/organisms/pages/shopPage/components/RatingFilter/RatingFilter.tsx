@@ -12,10 +12,16 @@ import styles from '../RatingFilter/RatingFilter.module.scss';
 const RatingFilter:React.FC = () => {
 
     const [arrowClass, bodyClass,toggle] =useToggleFilter('')
-    const {changeFilter } = useContext(FilterContext);
+    const {filter,changeFilter } = useContext(FilterContext);
 
     const handleFilter =(value:number)=>{
-        changeFilter('rating',value)
+        const rating = filter.rating
+        const index = rating.findIndex((el)=> el===value)
+        
+        if(index != -1) rating.splice(index,1)
+        else rating.push(value)
+
+        changeFilter('rating',rating)
     }
 
     const renderRating = useMemo(()=>{
