@@ -7,10 +7,18 @@
         display: flex;
         gap:1rem;
 
-        ._filters{
-            width: 23%;
-            min-width: 200px;
-            height: max-content;
+        ._wrapper{
+            width: 20%;
+            min-width: 220px;
+
+
+            ._filters{
+                margin-bottom: 2rem;
+                width: 100%;
+                height: max-content;
+            }
         }
+
+
     }
 }
