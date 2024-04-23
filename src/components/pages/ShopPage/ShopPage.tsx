@@ -2,6 +2,7 @@
 import FilterProducts from '../../organisms/pages/shopPage/FilterProducts/FilterProducts';
 import DiscountBanner from '../../molecules/banner/shopPage/DiscountBanner/DiscountBanner';
 import SaleProducts from '../../organisms/pages/shopPage/SaleProducts/SaleProducts';
+import HeaderShop from '../../organisms/pages/shopPage/HeaderShop/HeaderShop';
 import Products from '../../organisms/pages/shopPage/Products/Products';
 
 
@@ -18,13 +19,11 @@ const ShopPage:React.FC = () => {
                             <FilterProducts/>
                         </div>
                         <DiscountBanner/>
-
                         <SaleProducts/>
-
                     </div>
 
-
-                    <div>
+                    <div className={styles._content}>
+                        <HeaderShop/>
                         <Products/>
                     </div>
 

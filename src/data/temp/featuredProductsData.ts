@@ -36,7 +36,6 @@ export const featuredProductsData =[
         category:'Fruit',
         stockStatus:'133',
         description:"Valencia Oranges is one of the largest varieties in Australia. They are deliciously sweet and juicy with the perfect ratio of sweet-tart flavour. Eat on there own or they are great as juicing oranges and can be stored for a long time. Oranges are an awesome source of Vitamin C, Thiamine and Folate. "
-
     },
     {
         name:'Cabbage Chinese',
@@ -53,7 +52,6 @@ export const featuredProductsData =[
         category:'Vegetables',
         stockStatus:'93',
         description:"This oblong, white to pale green cabbage is cultivated worldwide, and is a popular ingredient in authentic Asian cuisines, from stir-fry and noodle dishes to dumplings, rolls, and salads. It's easy to prepare and offers a mild flavour that gets sweeter with cooking. It provides a good source of vitamin C and dietary fibre."
-
     },
     {
         name:'Lettuce',
@@ -70,7 +68,6 @@ export const featuredProductsData =[
         category:'Vegetables',
         stockStatus:'103',
         description:"Green Oak lettuce is firm and crisp, and a source of Vitamin A, Vitamin C and Vitamin K. A great addition to salads, sandwiches and wraps. "
-
     },
     {
         name:'Eggplant',
@@ -89,6 +86,5 @@ export const featuredProductsData =[
         description:" A smooth-skinned vegetable, eggplants are a great alternative for animal protein foods in terms of taste and texture. Eggplants can be baked, roasted, or grilled and are a source of potassium, magnesium and Vitamin E. "
 
     },
-
 ]
     

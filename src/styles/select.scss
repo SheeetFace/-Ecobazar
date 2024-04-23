@@ -1,0 +1,22 @@
+@import '../styles/colors.scss';
+@import '../styles/typography.scss';
+
+select{
+    height: 40px;
+    min-width: 100px;
+    width: inherit;
+    border:1px solid $grey-2;
+    border-radius:.3rem;
+    display: flex;
+    align-items:center;
+    font-size: $body-medium;
+    color:$grey-6;
+    outline: none;
+    padding-left: 1rem;
+
+    transition:border .3s ease;
+
+    &:hover{
+        border:1px solid $primary-color;
+    }
+}

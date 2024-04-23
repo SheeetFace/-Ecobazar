@@ -1,5 +1,7 @@
 import { createContext, useState} from 'react';
 
+type TDate = 'latest'|'newest'|'oldest'
+
 interface InitFilter{
     categoryValue:string
     price:{
@@ -8,14 +10,15 @@ interface InitFilter{
     },
     rating:number[]
     tag:string
+    date:TDate
 }
 
 type TKey=  keyof InitFilter;
-type ChangeFilterFn = <K extends TKey>(key: K, newFilter: InitFilter[K]) => void;
+type TChangeFilterFn = <K extends TKey>(key: K, newFilter: InitFilter[K]) => void;
 
 interface FilterContextType {
   filter: InitFilter;
-  changeFilter: ChangeFilterFn
+  changeFilter: TChangeFilterFn
 }
 
 interface FilterProviderProps {
@@ -30,7 +33,8 @@ const initFilter:InitFilter={
         max:''
     },
     rating:[],
-    tag:''
+    tag:'',
+    date:'latest'
 }
 
 export const FilterContext = createContext<FilterContextType>({
@@ -41,7 +45,7 @@ export const FilterContext = createContext<FilterContextType>({
 export const FilterProvider:React.FC<FilterProviderProps> = ({ children }) => {
   const [filter, setFilter] = useState<InitFilter>(initFilter);
 
-  const changeFilter: ChangeFilterFn =(key, newFilter)=>{
+  const changeFilter: TChangeFilterFn =(key, newFilter)=>{
     //need to do something with the comparison and don't call the function with the same value
       setFilter((prevFilter) => ({
         ...prevFilter,

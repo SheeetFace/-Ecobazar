@@ -12,8 +12,7 @@
             min-width: 220px;
             display: flex;
             flex-direction: column;
-            gap:1rem;
-            
+            gap:1rem; 
 
             ._filters{
                 margin-bottom: 2rem;
@@ -22,6 +21,8 @@
             }
         }
 
-
+        ._content{
+            width: 80%;
+        }
     }
 }
