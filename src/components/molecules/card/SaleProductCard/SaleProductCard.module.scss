@@ -1,0 +1,47 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/typography.scss';
+
+.SaleProductCard{
+
+    display: flex;
+    padding: .3rem;
+    border: 1px solid $grey-2;
+    border-radius: 6px;
+    background-color: $white-color;
+    transition: border .3s ease;
+    cursor:pointer;
+
+    img{
+        width: 100px;
+        height: 100%;
+    }
+
+    ._container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        ._name{
+            color:$grey-7;
+            transition: color .3s ease;
+        }
+        ._costs{
+            display: flex;
+            gap:.3rem;
+            font-weight: $medium;
+
+            ._old{
+                color:$grey-4;
+                text-decoration: line-through;
+            }
+        }
+    }
+
+    &:hover{
+        border: 1px solid $primary-color;
+
+        ._container ._name{
+            color:$hard-primary-color;
+        }
+    }    
+}

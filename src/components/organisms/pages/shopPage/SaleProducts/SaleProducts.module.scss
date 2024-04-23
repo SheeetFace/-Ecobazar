@@ -1,0 +1,12 @@
+
+
+.SaleProducts{
+    display: flex;
+    flex-direction: column;
+
+    ._container{
+        display: flex;
+        flex-direction: column;
+        gap:.6rem;
+    }
+}

@@ -4,6 +4,9 @@
 
 ._navLink{
     text-decoration: none;
+    :visited {
+        text-decoration-color: initial;
+    }
 }
 
 ._navLinkGreenPrimary{
