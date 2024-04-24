@@ -21,7 +21,6 @@ interface ProductsCardProps{
 const ProductsCard:React.FC<ProductsCardProps> = ({name,id,src,currentCost,oldCost,sale,rating}) => {
 
     //href - vegetable/id---
-    
     const addToCart = (id:string)=>{
         console.log(`${id} added to cart`)
     }
@@ -39,33 +38,38 @@ const ProductsCard:React.FC<ProductsCardProps> = ({name,id,src,currentCost,oldCo
                 <ButtonWishlist type='card' id={id}/>
 
                 <ButtonQuickView id={id}/>
+                
             </div>
+            
 
             <img loading='lazy' src={src} alt={name}/>
 
             <span className={styles._name}>{name}</span>
-
+            
 
             <div className={styles._container}>
                 <div className={styles._containerCostAndRating}>
                     <div className={styles._costWrapper}>
                         <span className={styles._currentConst}>
-                            {currentCost}
+                            ${currentCost}
                         </span>
-
-                        <span className={styles._oldCost}>
-                            {oldCost}
-                        </span>
+                        
+                        {oldCost ? 
+                            <span className={styles._oldCost}>
+                                ${oldCost}
+                            </span>
+                        :null}
                     </div>
                     <RatingStars rating={+rating} type='small'/>
                 </div>
-
+                
                 <div className={styles._buttonCart}>
                     <Button className='ButtonTransparent' 
                             icon={<CartIcon className={styles._buttonCartIcon}/>}
                             onClick={()=>addToCart(id)} 
                             type='button'/>
                 </div>
+                
             </div>
         </div>
     )

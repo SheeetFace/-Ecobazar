@@ -27,10 +27,14 @@ const RatingFilter:React.FC = () => {
     const renderRating = useMemo(()=>{
         return [5,4,3,2,1].map((item,i)=>{
             return(
-                <RatingItem rating={item} fn={()=>handleFilter(item)} key={i}/>
+                <RatingItem rating={item}
+                            fn={()=>handleFilter(item)}
+                            key={i}
+                            isChecked={filter.rating.includes(item)}
+                />
             )
         })
-    },[])
+    },[filter])
 
 
     return (

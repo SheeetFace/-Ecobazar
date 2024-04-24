@@ -1,38 +1,34 @@
-import { memo, useContext, useMemo, useState } from 'react';
+import { memo, useContext, useMemo } from 'react';
 
 import TagItem from '../../../../../molecules/pages/shopPage/TagItem/TagItem';
 
 import useToggleFilter from '../../../../../../hooks/useToggleFilter';
 import { FilterContext } from '../../../../../../contexts/FilterContext';
 
-import { tags } from '../../../../../../data/filter/tags';
+import { tagsData } from '../../../../../../data/filter/tagsData';
 
 import styles from '../TagFilter/TagFilter.module.scss';
 
 const TagFilter:React.FC = () => {
 
-    const [chooseItem, setChoose] = useState<number|null>(null)
-
     const [arrowClass, bodyClass,toggle] =useToggleFilter(styles._container)
-    const {changeFilter } = useContext(FilterContext);
+    const {filter,changeFilter } = useContext(FilterContext);
 
-    const handleFilter =(value:string,i:number)=>{
-        setChoose(i)
+    const handleFilter =(value:string)=>{
         changeFilter('tag',value)
     }
     
     const renderTags = useMemo(()=>{
-        return tags.map((item,i)=>{
+        return tagsData.map((item,i)=>{
             return(
                 <TagItem tag={item} 
-                        fn={()=>handleFilter(item,i)} 
-                        chooseItem={chooseItem}
-                        i={i}
+                        fn={()=>handleFilter(item)} 
+                        chooseItem={filter.tag}
                         key={i}
                 />
             )
         })
-    },[chooseItem])
+    },[filter.tag])
 
     return (
         <section className={styles.TagFilter}>

@@ -2,14 +2,13 @@ import styles from '../TagItem/TagItem.module.scss';
 
 interface TagItemProps{
     tag:string,
-    chooseItem:number|null
-    i:number
+    chooseItem:string
     fn:()=>void
 }
 
-const TagItem:React.FC<TagItemProps> = ({tag,chooseItem,fn,i}) => {
+const TagItem:React.FC<TagItemProps> = ({tag,chooseItem,fn}) => {
 
-    const classs = chooseItem ===i ? styles.TagItemChoose: styles.TagItem
+    const classs = chooseItem ===tag ? styles.TagItemChoose: styles.TagItem
 
     return (
         <div className={classs} onClick={()=>fn()}>

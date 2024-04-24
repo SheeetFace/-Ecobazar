@@ -12,11 +12,19 @@ import styles from '../AllCategoriesFilter/AllCategoriesFilter.module.scss';
 
 const AllCategoriesFilter:React.FC = () => {
 
-    const { changeFilter } = useContext(FilterContext);
+    const {filter, changeFilter } = useContext(FilterContext);
     const [arrowClass, bodyClass,toggle] =useToggleFilter(styles._form)
 
     const handleFilter =(value:string)=>{
-        changeFilter('categoryValue',value)
+
+        const category = filter.categoryValue;
+
+        const index = category.findIndex((el)=> el===value)
+
+        if(index !== -1) category.splice(index,1)
+        else category.push(value)
+
+        changeFilter('categoryValue',category)
     }
 
     const renderCategories=useMemo(()=>{
@@ -26,10 +34,11 @@ const AllCategoriesFilter:React.FC = () => {
                                 value={item.value}
                                 name={item.name}
                                 fn={()=>handleFilter(item.value)}
+                                isChecked={filter.categoryValue.includes(item.value)}
                 />
             )
         })
-    },[])
+    },[filter])
     
         return (
             <section className={styles.AllCategoriesFilter}>

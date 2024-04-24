@@ -1,0 +1,17 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/typography.scss';
+
+.NothingFound{
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 3rem;
+
+    font-size:$heading-03;
+    color:$soft-primary-color;
+
+}

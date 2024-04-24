@@ -1,9 +1,9 @@
 import { createContext, useState} from 'react';
 
-type TDate = 'latest'|'newest'|'oldest'
+type TDate = 'newest'|'oldest'
 
 interface InitFilter{
-    categoryValue:string
+    categoryValue:string[]
     price:{
         min:string
         max:string
@@ -19,31 +19,38 @@ type TChangeFilterFn = <K extends TKey>(key: K, newFilter: InitFilter[K]) => voi
 interface FilterContextType {
   filter: InitFilter;
   changeFilter: TChangeFilterFn
+  clearFilter:() => void
 }
 
 interface FilterProviderProps {
     children: React.ReactNode;
 }
 
+type TCreateInitFilter = ()=> InitFilter;
 
-const initFilter:InitFilter={
-    categoryValue:'',
+const createInitFilter:TCreateInitFilter =()=>{
+  const initFilter:InitFilter={
+    categoryValue:[],
     price:{
         min:'',
         max:''
     },
     rating:[],
     tag:'',
-    date:'latest'
-}
+    date:'newest'
+  }
+
+  return initFilter;
+};
 
 export const FilterContext = createContext<FilterContextType>({
-  filter: initFilter,
-  changeFilter: () => {},
+  filter: createInitFilter(),
+  changeFilter:() => {},
+  clearFilter:() => {}
 });
 
 export const FilterProvider:React.FC<FilterProviderProps> = ({ children }) => {
-  const [filter, setFilter] = useState<InitFilter>(initFilter);
+  const [filter, setFilter] = useState<InitFilter>(createInitFilter());
 
   const changeFilter: TChangeFilterFn =(key, newFilter)=>{
     //need to do something with the comparison and don't call the function with the same value
@@ -53,8 +60,10 @@ export const FilterProvider:React.FC<FilterProviderProps> = ({ children }) => {
       }));
   }
 
+  const clearFilter =()=>{setFilter(createInitFilter())}
+
   return(
-    <FilterContext.Provider value={{ filter, changeFilter }}>
+    <FilterContext.Provider value={{ filter, changeFilter,clearFilter }}>
       {children}
     </FilterContext.Provider>
   )

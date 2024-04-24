@@ -5,17 +5,19 @@ import styles from '../RatingItem/RatingItem.module.scss';
 interface RatingItemProps{
     rating:number
     fn:()=>void
+    isChecked:boolean
 }
 
-const RatingItem:React.FC<RatingItemProps> = ({rating,fn}) => {
+const RatingItem:React.FC<RatingItemProps> = ({rating,fn, isChecked}) => {
 
     return (
         <div className={styles.RatingItem}>
 
-            <input className={styles._radio} 
+            <input className={styles._checkbox} 
                     name="ratings"
                     type='checkbox'
                     onClick={()=>fn()}
+                    checked={isChecked}
             />
             <div className={styles._rating}>
                     <RatingStars rating={rating} type='big' />

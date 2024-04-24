@@ -4,11 +4,11 @@ import { FilterContext } from '../../../../../../contexts/FilterContext';
 import styles from '../DateFilter/DateFilter.module.scss';
 
 import type { ChangeEvent } from 'react';
-type TDate = 'latest'|'newest'|'oldest'
+type TDate = 'newest'|'oldest'
 
 const DateFilter:React.FC = () => {
 
-    const {changeFilter} = useContext(FilterContext)
+    const {filter,changeFilter} = useContext(FilterContext)
 
     const handleFilter = (event: ChangeEvent<HTMLSelectElement>)=>{
         changeFilter('date', event.target.value as TDate)
@@ -18,8 +18,7 @@ const DateFilter:React.FC = () => {
         <div className={styles.DateFilter}>
             <label>Sort by:</label>
             <select onChange={handleFilter}>
-                <option value="latest" defaultValue="latest "> Latest </option>
-                <option value="newest" > Newest </option>
+                <option value="newest" selected={filter.date === 'newest'} defaultValue='newest'> Newest </option>
                 <option value="oldest" > Oldest </option>
             </select>
         </div>

@@ -34,26 +34,32 @@ const PriceFilter:React.FC = () => {
             <div className={bodyClass}>
 
             <ReactSlider
-                    className={styles._horizontalSlider}
-                    thumbClassName={styles._thumb}
-                    trackClassName={styles._track}
-                    defaultValue={[0, 100]}
-                    ariaLabel={['Lower thumb', 'Upper thumb']}
-                    ariaValuetext={state => `Thumb value ${state.valueNow}`}
-                    renderThumb={(props, state) => <div  {...props}>{state.valueNow}</div>}
-                    pearling
-                    renderTrack={(props, state) => (
-                        <div
-                          {...props}
-                          className={state.index === 1 ?  styles._activeTrack :  styles._track}
-                        ></div>
-                      )}
-                    minDistance={5}
-                    onAfterChange={(value)=>handleFilter(value)}
-                />
-
+                className={styles._horizontalSlider}
+                thumbClassName={styles._thumb}
+                trackClassName={styles._track}
+                min={0}
+                max={100}
+                defaultValue={filter.price.min ? [+filter.price.min, +filter.price.max] : [0, 100]}
+                value={filter.price.min ? [+filter.price.min, +filter.price.max] : [0, 100]}
+                ariaLabel={['Lower thumb', 'Upper thumb']}
+                ariaValuetext={state => `Thumb value ${state.valueNow}`}
+                pearling
+                renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
+                renderTrack={(props, state) => (
+                    <div
+                        {...props}
+                        className={state.index === 1 ? styles._activeTrack : styles._track}
+                    ></div>
+                )}
+                minDistance={5}
+                onAfterChange={(value) => handleFilter(value)}
+            />
                 <div>
-                    <span>Price: {filter.price.min} - {filter.price.max} </span>
+                    <span>Price:&nbsp;
+                        {filter.price.min ? filter.price.min :0} 
+                        &nbsp;-&nbsp; 
+                        {filter.price.max ? filter.price.max :100}
+                    </span>
                 </div>
 
                 <Divider type='horizontal' className={styles._divider}/>

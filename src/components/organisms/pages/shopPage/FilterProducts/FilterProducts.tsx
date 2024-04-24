@@ -3,6 +3,7 @@ import AllCategoriesFilter from '../components/AllCategoriesFilter/AllCategories
 import PriceFilter from '../components/PriceFilter/PriceFilter';
 import RatingFilter from '../components/RatingFilter/RatingFilter';
 import TagFilter from '../components/TagFilter/TagFilter';
+import ClearFilter from '../components/ClearFilter/ClearFilter';
 
 import FilterIcon from '../../../../atoms/icon/navigate/FilterIcon';
 
@@ -40,6 +41,11 @@ const FilterProducts: React.FC = () => {
         <div className={bodyClass}>
           <TagFilter />
         </div>
+
+        <div className={bodyClass}>
+          <ClearFilter />
+        </div>
+        
 
       </section>
     );

@@ -1,5 +1,5 @@
 
-export const tags =[
+export const tagsData =[
     'Healthy',
     'Low fat',
     'Vegetarian',

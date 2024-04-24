@@ -4,18 +4,20 @@ interface CategoryItemProps{
     value:string
     name:string
     fn:()=>void
+    isChecked:boolean
 }
 
-const CategoryItem:React.FC<CategoryItemProps> = ({value,name,fn}) => {
-
+const CategoryItem:React.FC<CategoryItemProps> = ({value,name,fn,isChecked}) => {
     return (
         <div className={styles.CategoryItem}>
 
-            <input  className={styles._radio}
+            <input  
+                    className={styles._checkbox}
                     name="categories"
-                    type="radio"
+                    type="checkbox"
                     value={value}
                     onClick={()=>fn()}
+                    checked={isChecked}
             />
 
             <span>{name}</span>
