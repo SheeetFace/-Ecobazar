@@ -15,12 +15,11 @@ const OrderHistoryTable: React.FC = () => {
     const itemsPerPage= 18;
     const totalItems = orderHistoryData.length;
   
-    const {currentPage,goToNextPage,goToPrevPage,goToPage,startIndex,endIndex} = usePagination(
+    const {displayedData,currentPage,goToNextPage,goToPrevPage,goToPage} = usePagination(
         totalItems,
-        itemsPerPage
+        itemsPerPage,
+        orderHistoryData
     );
-
-    const displayedData = orderHistoryData.slice(startIndex, endIndex);
   
     const renderOrderHistoryItemTable = () => {
       return displayedData.map((item, i) => {

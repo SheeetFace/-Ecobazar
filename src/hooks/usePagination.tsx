@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-
-
 interface UsePagination<T> {
   totalItems:number
   currentPage:number
@@ -11,17 +9,11 @@ interface UsePagination<T> {
   goToPage:(page:number)=>void
   startIndex:number
   endIndex:number
-  displayedData: T[]
+  displayedData: T[]|[]
 }
 
-type UsePaginationFunction = <T>(
-  totalItems: number,
-  itemsPerPage: number,
-  data?: T[]
-) => UsePagination<T>;
+type UsePaginationFunction= <T>(totalItems: number,itemsPerPage: number,data?: T[])=>UsePagination<T>;
 
-
-// const usePagination = (totalItems:number,itemsPerPage:number, data?:any[]) => {
   const usePagination: UsePaginationFunction = (totalItems, itemsPerPage, data) => {
 
     const [currentPage, setCurrentPage] = useState<number>(1);
@@ -31,10 +23,7 @@ type UsePaginationFunction = <T>(
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
 
-    let displayedData =[];
-    // const displayedData: T extends null | undefined ? T[] : T = data ? data.slice(startIndex, endIndex) : [];
-
-    if(data && totalPages) displayedData = data.slice(startIndex, endIndex);
+    const displayedData = data ? data.slice(startIndex, endIndex):[]
   
     const goToNextPage = () => {
       setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));

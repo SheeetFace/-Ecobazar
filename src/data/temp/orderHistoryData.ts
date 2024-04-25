@@ -1,7 +1,13 @@
 
+interface OrderHistoryData{
+    id:string
+    date:string
+    price:string
+    productCount:string
+    status:string
+}
 
-export const orderHistoryData =[
-
+export const orderHistoryData : OrderHistoryData[] =[
     {
         id:'1',
         date:'7 Sep, 2024',

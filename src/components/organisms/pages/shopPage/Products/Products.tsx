@@ -25,7 +25,7 @@ const Products:React.FC = () => {
       totalItems,
       itemsPerPage,
       filteredProducts
-  );
+    );
 
     const productsRef = useRef<HTMLDivElement>(null);
 
@@ -59,8 +59,6 @@ const Products:React.FC = () => {
     const renderProductCard = useMemo(() => {
 
       if(filteredProducts.length===0) return <NotingFound/>
-
-      console.log(displayedData)
        
       return displayedData.map((item, i) => (
           <ProductsCard

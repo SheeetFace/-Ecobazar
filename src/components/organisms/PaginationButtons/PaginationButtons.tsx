@@ -15,7 +15,6 @@ interface PaginationButtonsProps {
 const PaginationButtons: React.FC<PaginationButtonsProps> = ({ totalItems, itemsPerPage, valueCurrentPage, onNextPage, onPrevPage, onGoToPage }) => {
 
     const { totalPages } = usePagination(totalItems, itemsPerPage);
-    // const { totalPages } = usePagination(itemsPerPage);
 
     const startPage = Math.max(1, valueCurrentPage - 1);
     const endPage = Math.min(totalPages, valueCurrentPage + 1);

@@ -4,7 +4,26 @@ import cabbage from '../../assets/temp/popularProducts/cabbage.webp';
 import lettuce from '../../assets/temp/popularProducts/lettuce.webp';
 import eggplant from '../../assets/temp/popularProducts/eggplant.webp';
 
-export const shopProductData =[
+interface ShopProductData{
+    name:string
+    id:string
+    src:string
+    currentCost:string
+    oldCost:string
+    sale:string
+    rating:string
+    promotedCategories:string[]
+    weight:string
+    color:string
+    type:string
+    category:string
+    stockStatus:string
+    date:string
+    tag:string
+    description:string
+}
+
+export const shopProductData:ShopProductData[] =[
     {
         name:'Orange',
         id:'1',
