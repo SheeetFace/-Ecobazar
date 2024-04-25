@@ -1,7 +1,10 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useMemo, useRef } from 'react';
+
+import usePagination from '../../../../../hooks/usePagination';
 
 import ProductsCard from '../../../../molecules/card/ProductCard/ProductCard';
 import NotingFound from '../../../../atoms/NothingFound/NothingFound';
+import PaginationButtons from '../../../PaginationButtons/PaginationButtons';
 
 import { FilterContext } from '../../../../../contexts/FilterContext';
 import { filterProducts } from '../../../../../utils/filterProducts';
@@ -13,14 +16,53 @@ import styles from '../Products/Products.module.scss';
 const Products:React.FC = () => {
 
     const { filter } = useContext(FilterContext);
+    const filteredProducts = filterProducts(shopProductData, filter);
 
-    const renderProductCard = () => {
+    const itemsPerPage= 24;
+    const totalItems = filteredProducts.length;
+  
+    const{displayedData,currentPage,goToNextPage,goToPrevPage,goToPage}=usePagination(
+      totalItems,
+      itemsPerPage,
+      filteredProducts
+  );
 
-      const filteredProducts = filterProducts(shopProductData, filter);
+    const productsRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    },[currentPage]);
+
+    useEffect(()=>{
+      if(filteredProducts.length<(currentPage*itemsPerPage)) goToPage(1)
+
+    },[JSON.stringify(filteredProducts)])
+
+
+    useEffect(()=>{
+      if(productsRef.current){
+        productsRef.current.classList.add(styles.productsFadeInOut);
+
+        const timer = setTimeout(()=>{
+          productsRef.current?.classList.remove(styles.productsFadeInOut);
+        },600);
+
+        return ()=>clearTimeout(timer);
+      }
+    }, [filter,currentPage]);
+
+    
+
+    const renderProductCard = useMemo(() => {
 
       if(filteredProducts.length===0) return <NotingFound/>
+
+      console.log(displayedData)
        
-      return filteredProducts.map((item, i) => (
+      return displayedData.map((item, i) => (
           <ProductsCard
             key={i}
             name={item.name}
@@ -32,15 +74,26 @@ const Products:React.FC = () => {
             rating={item.rating}
           />
       ));
-    };
-
-    useEffect(() => {
-      console.log('Updated filter:', filter);
-    }, [filter]);
+    },[JSON.stringify(displayedData)])
 
     return (
             <section className={styles.Products}>
-                {renderProductCard()}
+
+                <div className={styles._container}>
+                  <div className={styles._cards} ref={productsRef}>
+                    {renderProductCard}
+                  </div>
+                </div>
+          
+                <div className={styles._pagButtons}>
+                  <PaginationButtons  totalItems={totalItems}
+                                      itemsPerPage={itemsPerPage}
+                                      valueCurrentPage={currentPage}
+                                      onNextPage={goToNextPage}
+                                      onPrevPage={goToPrevPage}
+                                      onGoToPage={goToPage}
+                  />
+                </div>
             </section>
     )
 }

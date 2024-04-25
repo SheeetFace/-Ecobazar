@@ -15,6 +15,7 @@ interface PaginationButtonsProps {
 const PaginationButtons: React.FC<PaginationButtonsProps> = ({ totalItems, itemsPerPage, valueCurrentPage, onNextPage, onPrevPage, onGoToPage }) => {
 
     const { totalPages } = usePagination(totalItems, itemsPerPage);
+    // const { totalPages } = usePagination(itemsPerPage);
 
     const startPage = Math.max(1, valueCurrentPage - 1);
     const endPage = Math.min(totalPages, valueCurrentPage + 1);
@@ -27,7 +28,14 @@ const PaginationButtons: React.FC<PaginationButtonsProps> = ({ totalItems, items
 
             <div className={styles._wrapper}>
 
-                {valueCurrentPage > 2 && (
+
+                {( totalItems < 1) && (
+                    <button className={`${styles._currentPage} defaultButtonStyle`}>
+                        1
+                    </button>
+                )}
+
+                {valueCurrentPage  > 2  && (
                     <button className={`${styles._item} defaultButtonStyle`} onClick={() => onGoToPage(1)}>
                         1
                     </button>
@@ -58,7 +66,7 @@ const PaginationButtons: React.FC<PaginationButtonsProps> = ({ totalItems, items
 
             </div>
 
-            <button className={`${styles._arrow} defaultButtonStyle`} onClick={onNextPage} disabled={valueCurrentPage === totalPages}>
+            <button className={`${styles._arrow} defaultButtonStyle`} onClick={onNextPage} disabled={valueCurrentPage === totalPages || totalPages < 2}>
                 <span>&#11166;</span>
             </button>
         </div>

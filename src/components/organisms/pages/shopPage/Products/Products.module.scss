@@ -1,8 +1,46 @@
 
-
 .Products{
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     padding-top: 1rem;
+
+    ._container{
+        min-height: 1860px;
+
+        ._cards{
+            display: flex;
+            flex-wrap: wrap;
+            overflow: hidden;
+
+            ._card{
+                display: flex;
+                padding:.5rem;
+            }
+
+        }
+    }
+
+    
+    ._pagButtons{
+        width: 100%;
+        padding-top: 2rem;
+        display: flex;
+        justify-content: center;
+    }
+}
+  
+.productsFadeInOut{
+    animation: ProductsFadeInOut .6s;
+}
+  
+@keyframes ProductsFadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
 }
