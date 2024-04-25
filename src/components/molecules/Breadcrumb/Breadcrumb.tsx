@@ -1,35 +1,55 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useLocation} from 'react-router-dom';
+
+import { parsePathToBreadcrumb } from '../../../utils/parsePathToBreadcrumb';
 
 import BreadcrumbItem from '../../atoms/BreadcrumbItem/BreadcrumbItem';
 
 import styles from '../Breadcrumb/Breadcrumb.module.scss';
 
 import type { ILocation } from '../../../types/locationTypes';
+interface BreadcrumbItem{
+    name:string
+    pathBack:string
+}
+
+type Breadcrumb = BreadcrumbItem[]|[]
+
+
 
 const Breadcrumb:React.FC = ()=>{
+
+    const [breadcrumb, setBreadcrumb] = useState<Breadcrumb>([])
 
     const location:ILocation = useLocation()
 
     useEffect(()=>{
-      console.log(location)
-    },[location])//breadcrumb
+        // setBreadcrumb(parsePathToBreadcrumb(location.pathname))
+        if(location) setBreadcrumb(parsePathToBreadcrumb(location.pathname))
+        
+    },[location])
+
 
     const renderBreadcrumbItem = ():JSX.Element[]=>{
-        return tempBreadcrumbData.map((item,i)=>{
-            return(
-                <>
-                    <BreadcrumbItem name={item.name} 
-                                    pathBack={item.pathBack}
-                                    key={i}/>
+            return breadcrumb.map((item,i)=>{
 
-                    {tempBreadcrumbData.length-1 !== i 
-                        ? 
-                            <span className={styles._arrow}>&gt;</span>
-                        :null}  
-                </>              
-            ) 
+                const isLast =breadcrumb.length-1 !== i;
+
+                return(
+                    <>
+                        <BreadcrumbItem name={item.name} 
+                                        pathBack={item.pathBack}
+                                        key={i}
+                                        isLast={isLast}
+                                        />
+
+                        {isLast 
+                            ? 
+                                <span className={styles._arrow}>&gt;</span>
+                            :null}  
+                    </>              
+                ) 
         })
     }
 
@@ -44,20 +64,3 @@ const Breadcrumb:React.FC = ()=>{
     )
 }
 export default Breadcrumb;
-
-
-const tempBreadcrumbData  = [
-    {
-        name:'Home',
-        pathBack:'/'
-    },
-    {
-        name:'Vegetables',
-        pathBack:'/shop'
-    },
-    {
-        name:'Chinese Cabbage',
-        pathBack:'/vegetables'
-    },
-
-]

@@ -2,8 +2,9 @@
 
 .BreadcrumbItem{
     cursor: pointer;
+    color:$grey-3 !important;
 
     &:hover{
-        color:$primary-color;
+        color:$primary-color !important;
     }
 }
