@@ -50,7 +50,7 @@ export const FilterContext = createContext<FilterContextType>({
 });
 
 export const FilterProvider:React.FC<FilterProviderProps> = ({ children }) => {
-  const [filter, setFilter] = useState<InitFilter>(createInitFilter());
+  const [filter, setFilter] = useState<InitFilter>(()=>createInitFilter());
 
   const changeFilter: TChangeFilterFn =(key, newFilter)=>{
     //need to do something with the comparison and don't call the function with the same value
@@ -60,7 +60,7 @@ export const FilterProvider:React.FC<FilterProviderProps> = ({ children }) => {
       }));
   }
 
-  const clearFilter =()=>{setFilter(createInitFilter())}
+  const clearFilter =()=>{setFilter(()=>createInitFilter())}
 
   return(
     <FilterContext.Provider value={{ filter, changeFilter,clearFilter }}>
