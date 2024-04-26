@@ -8,3 +8,18 @@
         color:$primary-color !important;
     }
 }
+
+._lastItem{
+    animation: fadeIn .5s ease;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        letter-spacing: 10px;
+    }
+    100% {
+        opacity: 1;
+        letter-spacing: 0px;
+    }
+  }

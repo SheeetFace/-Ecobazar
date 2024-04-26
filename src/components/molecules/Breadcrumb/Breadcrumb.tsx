@@ -25,29 +25,27 @@ const Breadcrumb:React.FC = ()=>{
     const location:ILocation = useLocation()
 
     useEffect(()=>{
-        // setBreadcrumb(parsePathToBreadcrumb(location.pathname))
-        if(location) setBreadcrumb(parsePathToBreadcrumb(location.pathname))
-        
+        if(location) setBreadcrumb(parsePathToBreadcrumb(location.pathname)) 
     },[location])
 
 
-    const renderBreadcrumbItem = ():JSX.Element[]=>{
+    const renderBreadcrumbItem =():JSX.Element[]=>{
             return breadcrumb.map((item,i)=>{
 
-                const isLast =breadcrumb.length-1 !== i;
+                const isLast = breadcrumb.length-1 === i;
 
                 return(
                     <>
                         <BreadcrumbItem name={item.name} 
                                         pathBack={item.pathBack}
-                                        key={i}
+                                        key={item.pathBack}
                                         isLast={isLast}
                                         />
 
-                        {isLast 
+                        {!isLast 
                             ? 
                                 <span className={styles._arrow}>&gt;</span>
-                            :null}  
+                        :null}  
                     </>              
                 ) 
         })

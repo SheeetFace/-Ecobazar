@@ -10,25 +10,19 @@ interface BreadcrumbItemProps{
 const BreadcrumbItem:React.FC<BreadcrumbItemProps> =({name,pathBack,isLast})=>{
 
     return( 
-            // <NavLink className='_navLink' to={!isLast ? pathBack :''}>
-            //     <span className={styles.BreadcrumbItem}>
-            //         {name}
-            //     </span>
-            // </NavLink>
-            <>
-            {!isLast ? (
-    <NavLink className='_navLink' to={pathBack}>
-            <span className={styles.BreadcrumbItem}>
-        {name}
-    </span>
-    </NavLink>
-) : (
-    <span className={styles.BreadcrumbItem}>
-        {name}
-    </span>
-)}
-
-            </>
+        <>
+            {!isLast ?
+                <NavLink className='_navLink' to={pathBack}>
+                    <span className={styles.BreadcrumbItem}>
+                        {name}
+                    </span>
+                </NavLink>
+            : 
+                <span className={`${styles.BreadcrumbItem} ${styles._lastItem}`}>
+                    {name}
+                </span>
+            }
+        </>
             
     )
 }
