@@ -8,16 +8,22 @@ import EyeIcon from '../../../../atoms/icon/navigate/EyeIcon';
 import styles from '../ButtonQuickView/ButtonQuickView.module.scss';
 
 interface ButtonQuickViewProps{
-    id:string
+    name:string,
+    id:string,
+    src:string,
+    currentCost:string,
+    oldCost:string,
+    sale:string,
+    rating:string,
 }
 
-const ButtonQuickView:React.FC<ButtonQuickViewProps> = ({id}) => {
+const ButtonQuickView:React.FC<ButtonQuickViewProps> = (props) => {
 
-    const {openProductModal, closeProductModal} = useContext(ProductModalContext)
+    const {openProductModal} = useContext(ProductModalContext)
 
     const openQuickView =(id:string)=>{
         console.log(`${id} opened quick view`)
-        openProductModal()
+        openProductModal(props)
     }
 
     return (
@@ -25,7 +31,7 @@ const ButtonQuickView:React.FC<ButtonQuickViewProps> = ({id}) => {
                         <div className={styles.ButtonQuickView}>
                         <Button className='ButtonTransparent' 
                                 icon={<EyeIcon className={styles._buttonQuickViewIcon}/>}
-                                onClick={()=>openQuickView(id)} 
+                                onClick={()=>openQuickView(props.id)} 
                                 type='button'/>
                 </div>
         </div>

@@ -20,9 +20,9 @@ interface ProductsCardProps{
     rating:string,
 }
 
-const ProductsCard:React.FC<ProductsCardProps> = ({name,id,src,currentCost,oldCost,sale,rating}) => {
+const ProductsCard:React.FC<ProductsCardProps> = (props) => {
 
-   
+    const {name, id, src, currentCost, oldCost, sale, rating} = props;
 
     //href - vegetable/id---
     const addToCart = (id:string)=>{
@@ -41,7 +41,7 @@ const ProductsCard:React.FC<ProductsCardProps> = ({name,id,src,currentCost,oldCo
 
                 <ButtonWishlist type='card' id={id}/>
 
-                <ButtonQuickView id={id}/>
+                <ButtonQuickView {...props}/>
                 
             </div>
             

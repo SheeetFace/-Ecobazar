@@ -1,0 +1,12 @@
+
+.ProductModalHeader{
+    display: flex;
+    flex-direction: column;
+
+    ._info{
+        display: flex;
+        align-items: center;
+        gap:.5rem;
+
+    }
+}
