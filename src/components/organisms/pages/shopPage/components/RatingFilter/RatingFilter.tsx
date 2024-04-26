@@ -3,7 +3,7 @@ import { memo, useContext, useMemo } from 'react';
 import RatingItem from '../../../../../molecules/pages/shopPage/RatingItem/RatingItem';
 
 import useToggleFilter from '../../../../../../hooks/useToggleFilter';
-import { FilterContext } from '../../../../../../contexts/FilterContext';
+import { FilterContext } from '../../../../../../context/FilterContext';
 
 import Divider from '../../../../../atoms/Divider/Divider';
 

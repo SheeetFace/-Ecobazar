@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import { FilterContext } from '../../../../../../contexts/FilterContext';
+import { FilterContext } from '../../../../../../context/FilterContext';
 
 import Button from '../../../../../atoms/Button/Button';
 

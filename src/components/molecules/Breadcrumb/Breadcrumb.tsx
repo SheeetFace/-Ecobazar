@@ -17,7 +17,6 @@ interface BreadcrumbItem{
 type Breadcrumb = BreadcrumbItem[]|[]
 
 
-
 const Breadcrumb:React.FC = ()=>{
 
     const [breadcrumb, setBreadcrumb] = useState<Breadcrumb>([])
@@ -27,7 +26,6 @@ const Breadcrumb:React.FC = ()=>{
     useEffect(()=>{
         if(location) setBreadcrumb(parsePathToBreadcrumb(location.pathname)) 
     },[location])
-
 
     const renderBreadcrumbItem =():JSX.Element[]=>{
             return breadcrumb.map((item,i)=>{

@@ -3,7 +3,7 @@ import { memo, useContext, useMemo } from 'react';
 import TagItem from '../../../../../molecules/pages/shopPage/TagItem/TagItem';
 
 import useToggleFilter from '../../../../../../hooks/useToggleFilter';
-import { FilterContext } from '../../../../../../contexts/FilterContext';
+import { FilterContext } from '../../../../../../context/FilterContext';
 
 import { tagsData } from '../../../../../../data/filter/tagsData';
 

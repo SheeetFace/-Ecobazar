@@ -1,0 +1,34 @@
+
+.ProductModal{
+    position: fixed;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.384);
+    width: 100%;
+    height: 100%;
+    z-index: 33;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+._showProductModal{
+    animation: fadeIn .5s ease forwards;
+}
+
+._hideProductModal{
+    animation: fadeOut .5s ease forwards;
+}
+
+@keyframes fadeIn {
+    0%{ background-color: rgba(0, 0, 0, 0) }
+    100%{ background-color: rgba(0, 0, 0, 0.384) }
+}
+
+@keyframes fadeOut {
+    0%{ background-color: rgba(0, 0, 0, 0.384)}
+
+    100%{
+        background-color: rgba(0, 0, 0, 0);
+        display: none;
+    }
+}

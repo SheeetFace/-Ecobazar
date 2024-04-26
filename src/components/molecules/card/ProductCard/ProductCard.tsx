@@ -1,3 +1,5 @@
+
+
 import LabelBadge from '../../../atoms/LabelBadge/LabelBadge';
 import RatingStars from '../../RatingStars/RatingStars';
 import Button from '../../../atoms/Button/Button';
@@ -19,6 +21,8 @@ interface ProductsCardProps{
 }
 
 const ProductsCard:React.FC<ProductsCardProps> = ({name,id,src,currentCost,oldCost,sale,rating}) => {
+
+   
 
     //href - vegetable/id---
     const addToCart = (id:string)=>{

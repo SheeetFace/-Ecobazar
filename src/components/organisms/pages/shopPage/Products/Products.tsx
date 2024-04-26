@@ -6,7 +6,7 @@ import ProductsCard from '../../../../molecules/card/ProductCard/ProductCard';
 import NotingFound from '../../../../atoms/NothingFound/NothingFound';
 import PaginationButtons from '../../../PaginationButtons/PaginationButtons';
 
-import { FilterContext } from '../../../../../contexts/FilterContext';
+import { FilterContext } from '../../../../../context/FilterContext';
 import { filterProducts } from '../../../../../utils/filterProducts';
 
 import { shopProductData } from '../../../../../data/temp/shopProductData';

@@ -22,8 +22,7 @@ const BreadcrumbItem:React.FC<BreadcrumbItemProps> =({name,pathBack,isLast})=>{
                     {name}
                 </span>
             }
-        </>
-            
+        </>     
     )
 }
 export default BreadcrumbItem;

@@ -1,7 +1,7 @@
 import { memo, useContext } from 'react';
 
 import useToggleFilter from '../../../../../../hooks/useToggleFilter';
-import { FilterContext } from '../../../../../../contexts/FilterContext';
+import { FilterContext } from '../../../../../../context/FilterContext';
 
 import ReactSlider from 'react-slider'
 import Divider from '../../../../../atoms/Divider/Divider';

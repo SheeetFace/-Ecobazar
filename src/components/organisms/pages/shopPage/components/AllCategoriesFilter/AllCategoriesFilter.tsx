@@ -4,7 +4,7 @@ import CategoryItem from '../../../../../molecules/pages/shopPage/CategoryItem/C
 import Divider from '../../../../../atoms/Divider/Divider';
 
 import useToggleFilter from '../../../../../../hooks/useToggleFilter';
-import { FilterContext } from '../../../../../../contexts/FilterContext';
+import { FilterContext } from '../../../../../../context/FilterContext';
 
 import { allCategoriesData } from '../../../../../../data/filter/allCategories';
 
