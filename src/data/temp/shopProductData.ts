@@ -4,24 +4,8 @@ import cabbage from '../../assets/temp/popularProducts/cabbage.webp';
 import lettuce from '../../assets/temp/popularProducts/lettuce.webp';
 import eggplant from '../../assets/temp/popularProducts/eggplant.webp';
 
-interface ShopProductData{
-    name:string
-    id:string
-    src:string
-    currentCost:string
-    oldCost:string
-    sale:string
-    rating:string
-    promotedCategories:string[]
-    weight:string
-    color:string
-    type:string
-    category:string
-    stockStatus:string
-    date:string
-    tag:string
-    description:string
-}
+import type { ProductDataType as ShopProductData} from '../../types/productDataTypes';
+
 
 export const shopProductData:ShopProductData[] =[
     {
@@ -39,7 +23,7 @@ export const shopProductData:ShopProductData[] =[
         category:'Fruit',
         stockStatus:'0',
         date: '2024-04-01',
-        tag:'Healthy',
+        tag:['Vitamins','Kid foods','Low fat','Vegetarian'],
         description:"Valencia Oranges is one of the largest varieties in Australia. They are deliciously sweet and juicy with the perfect ratio of sweet-tart flavour. Eat on there own or they are great as juicing oranges and can be stored for a long time. Oranges are an awesome source of Vitamin C, Thiamine and Folate. "
     },
     {
@@ -57,7 +41,7 @@ export const shopProductData:ShopProductData[] =[
         category:'Fruit',
         stockStatus:'133',
         date: '2024-04-02',
-        tag:'Healthy',
+        tag:['Vitamins','Kid foods','Low fat','Vegetarian'],
         description:"Valencia Oranges is one of the largest varieties in Australia. They are deliciously sweet and juicy with the perfect ratio of sweet-tart flavour. Eat on there own or they are great as juicing oranges and can be stored for a long time. Oranges are an awesome source of Vitamin C, Thiamine and Folate. "
     },
     {
@@ -75,7 +59,7 @@ export const shopProductData:ShopProductData[] =[
         category:'Vegetables',
         stockStatus:'93',
         date: '2024-04-03',
-        tag:'Low fat',
+        tag:['Vitamins','Kid foods','Low fat','Vegetarian'],
         description:"This oblong, white to pale green cabbage is cultivated worldwide, and is a popular ingredient in authentic Asian cuisines, from stir-fry and noodle dishes to dumplings, rolls, and salads. It's easy to prepare and offers a mild flavour that gets sweeter with cooking. It provides a good source of vitamin C and dietary fibre."
     },
     {
@@ -93,7 +77,7 @@ export const shopProductData:ShopProductData[] =[
         category:'Vegetables',
         stockStatus:'103',
         date: '2024-04-04',
-        tag:'Low fat',
+        tag:['Vitamins','Kid foods','Low fat','Vegetarian'],
         description:"Green Oak lettuce is firm and crisp, and a source of Vitamin A, Vitamin C and Vitamin K. A great addition to salads, sandwiches and wraps. "
     },
     {
@@ -111,7 +95,7 @@ export const shopProductData:ShopProductData[] =[
         category:'Vegetables',
         stockStatus:'133',
         date: '2024-04-05',
-        tag:'Vegetarian',
+        tag:['Vitamins','Kid foods','Low fat','Vegetarian'],
         description:" A smooth-skinned vegetable, eggplants are a great alternative for animal protein foods in terms of taste and texture. Eggplants can be baked, roasted, or grilled and are a source of potassium, magnesium and Vitamin E. "
     },
     {
@@ -129,7 +113,7 @@ export const shopProductData:ShopProductData[] =[
         category:'Fruit',
         stockStatus:'123',
         date: '2024-04-06',
-        tag:'Vegetarian',
+        tag:['Vitamins','Kid foods','Low fat','Vegetarian'],
         description:"Valencia Oranges is one of the largest varieties in Australia. They are deliciously sweet and juicy with the perfect ratio of sweet-tart flavour. Eat on there own or they are great as juicing oranges and can be stored for a long time. Oranges are an awesome source of Vitamin C, Thiamine and Folate. "
     },
     {
@@ -147,7 +131,7 @@ export const shopProductData:ShopProductData[] =[
         category:'Fruit',
         stockStatus:'133',
         date: '2024-04-07',
-        tag:'Kid foods',
+        tag:['Vitamins','Kid foods','Low fat','Vegetarian'],
         description:"Valencia Oranges is one of the largest varieties in Australia. They are deliciously sweet and juicy with the perfect ratio of sweet-tart flavour. Eat on there own or they are great as juicing oranges and can be stored for a long time. Oranges are an awesome source of Vitamin C, Thiamine and Folate. "
     },
     {
@@ -165,7 +149,7 @@ export const shopProductData:ShopProductData[] =[
         category:'Vegetables',
         stockStatus:'93',
         date: '2024-04-08',
-        tag:'Kid foods',
+        tag:['Vitamins','Kid foods','Low fat','Vegetarian'],
         description:"This oblong, white to pale green cabbage is cultivated worldwide, and is a popular ingredient in authentic Asian cuisines, from stir-fry and noodle dishes to dumplings, rolls, and salads. It's easy to prepare and offers a mild flavour that gets sweeter with cooking. It provides a good source of vitamin C and dietary fibre."
     },
     {
@@ -183,7 +167,7 @@ export const shopProductData:ShopProductData[] =[
         category:'Vegetables',
         stockStatus:'103',
         date: '2024-04-09',
-        tag:'Kid foods',
+        tag:['Vitamins','Kid foods','Low fat','Vegetarian'],
         description:"Green Oak lettuce is firm and crisp, and a source of Vitamin A, Vitamin C and Vitamin K. A great addition to salads, sandwiches and wraps. "
     },
     {
@@ -201,7 +185,7 @@ export const shopProductData:ShopProductData[] =[
         category:'Vegetables',
         stockStatus:'133',
         date: '2024-04-10',
-        tag:'Vitamins',
+        tag:['Vitamins','Kid foods','Low fat','Vegetarian'],
         description:" A smooth-skinned vegetable, eggplants are a great alternative for animal protein foods in terms of taste and texture. Eggplants can be baked, roasted, or grilled and are a source of potassium, magnesium and Vitamin E. "
 
     },
@@ -220,7 +204,7 @@ export const shopProductData:ShopProductData[] =[
         category:'Fruit',
         stockStatus:'123',
         date: '2024-04-11',
-        tag:'Vitamins',
+        tag:['Vitamins','Kid foods','Low fat','Vegetarian'],
         description:"Valencia Oranges is one of the largest varieties in Australia. They are deliciously sweet and juicy with the perfect ratio of sweet-tart flavour. Eat on there own or they are great as juicing oranges and can be stored for a long time. Oranges are an awesome source of Vitamin C, Thiamine and Folate. "
     },
     {
@@ -238,7 +222,7 @@ export const shopProductData:ShopProductData[] =[
         category:'Fruit',
         stockStatus:'133',
         date: '2024-04-12',
-        tag:'Bread',
+        tag:['Vitamins','Kid foods','Low fat','Vegetarian'],
         description:"Valencia Oranges is one of the largest varieties in Australia. They are deliciously sweet and juicy with the perfect ratio of sweet-tart flavour. Eat on there own or they are great as juicing oranges and can be stored for a long time. Oranges are an awesome source of Vitamin C, Thiamine and Folate. "
     },
     {
@@ -256,7 +240,7 @@ export const shopProductData:ShopProductData[] =[
         category:'Vegetables',
         stockStatus:'93',
         date: '2024-04-13',
-        tag:'Bread',
+        tag:['Vitamins','Kid foods','Low fat','Vegetarian'],
         description:"This oblong, white to pale green cabbage is cultivated worldwide, and is a popular ingredient in authentic Asian cuisines, from stir-fry and noodle dishes to dumplings, rolls, and salads. It's easy to prepare and offers a mild flavour that gets sweeter with cooking. It provides a good source of vitamin C and dietary fibre."
     },
     {
@@ -274,7 +258,7 @@ export const shopProductData:ShopProductData[] =[
         category:'Vegetables',
         stockStatus:'103',
         date: '2024-04-14',
-        tag:'Meat',
+        tag:['Vitamins','Kid foods','Low fat','Vegetarian'],
         description:"Green Oak lettuce is firm and crisp, and a source of Vitamin A, Vitamin C and Vitamin K. A great addition to salads, sandwiches and wraps. "
     },
     {
@@ -292,7 +276,7 @@ export const shopProductData:ShopProductData[] =[
         category:'Vegetables',
         stockStatus:'133',
         date: '2024-04-15',
-        tag:'Meat',
+        tag:['Vitamins','Kid foods','Low fat','Vegetarian'],
         description:" A smooth-skinned vegetable, eggplants are a great alternative for animal protein foods in terms of taste and texture. Eggplants can be baked, roasted, or grilled and are a source of potassium, magnesium and Vitamin E. "
     },
     {
@@ -310,7 +294,7 @@ export const shopProductData:ShopProductData[] =[
         category:'Fruit',
         stockStatus:'123',
         date: '2024-04-16',
-        tag:'Snacks',
+        tag:['Vitamins','Kid foods','Low fat','Vegetarian'],
         description:"Valencia Oranges is one of the largest varieties in Australia. They are deliciously sweet and juicy with the perfect ratio of sweet-tart flavour. Eat on there own or they are great as juicing oranges and can be stored for a long time. Oranges are an awesome source of Vitamin C, Thiamine and Folate. "
     },
     {
@@ -328,7 +312,7 @@ export const shopProductData:ShopProductData[] =[
         category:'Fruit',
         stockStatus:'133',
         date: '2024-04-17',
-        tag:'Snacks',
+        tag:['Vitamins','Kid foods','Low fat','Vegetarian'],
         description:"Valencia Oranges is one of the largest varieties in Australia. They are deliciously sweet and juicy with the perfect ratio of sweet-tart flavour. Eat on there own or they are great as juicing oranges and can be stored for a long time. Oranges are an awesome source of Vitamin C, Thiamine and Folate. "
     },
     {
@@ -346,7 +330,7 @@ export const shopProductData:ShopProductData[] =[
         category:'Vegetables',
         stockStatus:'93',
         date: '2024-04-18',
-        tag:'Tiffin',
+        tag:['Vitamins','Kid foods','Low fat','Vegetarian'],
         description:"This oblong, white to pale green cabbage is cultivated worldwide, and is a popular ingredient in authentic Asian cuisines, from stir-fry and noodle dishes to dumplings, rolls, and salads. It's easy to prepare and offers a mild flavour that gets sweeter with cooking. It provides a good source of vitamin C and dietary fibre."
     },
     {
@@ -364,7 +348,7 @@ export const shopProductData:ShopProductData[] =[
         category:'Vegetables',
         stockStatus:'103',
         date: '2024-04-19',
-        tag:'Tiffin',
+        tag:['Vitamins','Kid foods','Low fat','Vegetarian'],
         description:"Green Oak lettuce is firm and crisp, and a source of Vitamin A, Vitamin C and Vitamin K. A great addition to salads, sandwiches and wraps. "
     },
     {
@@ -382,7 +366,7 @@ export const shopProductData:ShopProductData[] =[
         category:'Vegetables',
         stockStatus:'133',
         date: '2024-04-20',
-        tag:'Launch',
+        tag:['Vitamins','Kid foods','Low fat','Vegetarian'],
         description:" A smooth-skinned vegetable, eggplants are a great alternative for animal protein foods in terms of taste and texture. Eggplants can be baked, roasted, or grilled and are a source of potassium, magnesium and Vitamin E. "
 
     },
@@ -401,7 +385,7 @@ export const shopProductData:ShopProductData[] =[
         category:'Fruit',
         stockStatus:'123',
         date: '2024-04-21',
-        tag:'Launch',
+        tag:['Vitamins','Kid foods','Low fat','Vegetarian'],
         description:"Valencia Oranges is one of the largest varieties in Australia. They are deliciously sweet and juicy with the perfect ratio of sweet-tart flavour. Eat on there own or they are great as juicing oranges and can be stored for a long time. Oranges are an awesome source of Vitamin C, Thiamine and Folate. "
     },
     {
@@ -419,7 +403,7 @@ export const shopProductData:ShopProductData[] =[
         category:'Fruit',
         stockStatus:'133',
         date: '2024-04-22',
-        tag:'Dinner',
+        tag:['Vitamins','Kid foods','Low fat','Vegetarian'],
         description:"Valencia Oranges is one of the largest varieties in Australia. They are deliciously sweet and juicy with the perfect ratio of sweet-tart flavour. Eat on there own or they are great as juicing oranges and can be stored for a long time. Oranges are an awesome source of Vitamin C, Thiamine and Folate. "
     },
     {
@@ -437,7 +421,7 @@ export const shopProductData:ShopProductData[] =[
         category:'Vegetables',
         stockStatus:'93',
         date: '2024-04-23',
-        tag:'Breakfast',
+        tag:['Vitamins','Kid foods','Low fat','Vegetarian'],
         description:"This oblong, white to pale green cabbage is cultivated worldwide, and is a popular ingredient in authentic Asian cuisines, from stir-fry and noodle dishes to dumplings, rolls, and salads. It's easy to prepare and offers a mild flavour that gets sweeter with cooking. It provides a good source of vitamin C and dietary fibre."
     },
     {
@@ -455,7 +439,7 @@ export const shopProductData:ShopProductData[] =[
         category:'Vegetables',
         stockStatus:'103',
         date: '2024-04-24',
-        tag:'Breakfast',
+        tag:['Vitamins','Kid foods','Low fat','Vegetarian'],
         description:"Green Oak lettuce is firm and crisp, and a source of Vitamin A, Vitamin C and Vitamin K. A great addition to salads, sandwiches and wraps. "
     },
     {
@@ -473,7 +457,7 @@ export const shopProductData:ShopProductData[] =[
         category:'Vegetables',
         stockStatus:'133',
         date: '2024-04-25',
-        tag:'Fruit',
+        tag:['Vitamins','Kid foods','Low fat','Vegetarian'],
         description:" A smooth-skinned vegetable, eggplants are a great alternative for animal protein foods in terms of taste and texture. Eggplants can be baked, roasted, or grilled and are a source of potassium, magnesium and Vitamin E. "
     },
 ]

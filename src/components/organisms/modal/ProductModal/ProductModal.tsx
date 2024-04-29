@@ -3,6 +3,8 @@ import {  useContext, useEffect, useRef } from 'react';
 import ProductModalHeader from '../../../molecules/modal/ProductModal/ProductModalHeader/ProductModalHeader';
 import ProductModalDescription from '../../../molecules/modal/ProductModal/ProductModalDescription/ProductModalDescription';
 import ProductModalButtons from '../../../molecules/modal/ProductModal/ProductModalButtons/ProductModalButtons';
+import ProductModalFooter from '../../../molecules/modal/ProductModal/ProductModalFooter/ProductModalFooter';
+import ProductModalSlider from '../../../molecules/modal/ProductModal/ProductModalSlider/ProductModalSlider';
 import Divider from '../../../atoms/Divider/Divider';
 
 import { manageModalDisplay } from '../../../../utils/manageModalDisplay';
@@ -48,6 +50,9 @@ const ProductModal:React.FC = () => {
                         </div>
 
                         <div className={styles._wrapper}>
+
+                            <ProductModalSlider src={dataProduct.src}/>
+
                             <div className={styles._img}>
                                 <img alt={dataProduct.name} 
                                     src={dataProduct.src}/>
@@ -74,6 +79,13 @@ const ProductModal:React.FC = () => {
 
                                 <div>
                                     <ProductModalButtons id={dataProduct.id}/>
+
+                                    <Divider type='horizontal' className={styles._divider}/>
+                                </div>
+
+                                <div>
+                                    <ProductModalFooter category={dataProduct.category}
+                                                        tag={dataProduct.tag}/>
                                 </div>
                             </div>
                         </div>

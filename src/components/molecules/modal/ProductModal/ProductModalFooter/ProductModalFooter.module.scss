@@ -1,0 +1,14 @@
+@import '../../../../../styles/colors.scss';
+@import '../../../../../styles/typography.scss';
+
+.ProductModalFooter{
+    margin-top: 1rem;
+    font-size: $body-small;
+    font-weight: $medium;
+
+    ._items{
+        margin-left: .5rem;
+        font-weight: $regular;
+        color:$grey-4;
+    }
+}

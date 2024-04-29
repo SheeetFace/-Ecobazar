@@ -57,9 +57,9 @@ const ShoppingCart:React.FC = () => {
             <NavLink to='shop' className={styles._navLink}>
                 <Button className='ButtonFilledOval fillGrey1 colorTextGrey7 buttonMaxHeight'
                         text='Return to Shop'
-                        type='button'/>
+                        type='button'
+                        />
             </NavLink>
-
 
         </section>
     )

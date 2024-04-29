@@ -1,0 +1,17 @@
+@import '../../../../../styles/colors.scss';
+
+.ProductModalSlider{
+    height: max-content;
+    width: 110px;
+    display: flex;
+    justify-content: center;
+    padding: .3rem;
+
+    ._image{
+        border: 1px solid $grey-2;
+        border-radius: 5px;
+        cursor: grab;
+        width: 90px;
+        height: 90px;
+    }
+}

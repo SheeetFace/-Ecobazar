@@ -5,6 +5,7 @@ import Divider from '../../../atoms/Divider/Divider';
 
 import styles from '../ShoppingCartCard/ShoppingCartCard.module.scss';
 
+
 interface ShoppingCartCardProps{
     name:string,
     id:string,
@@ -15,6 +16,7 @@ interface ShoppingCartCardProps{
 }
 
 const ShoppingCartCard:React.FC<ShoppingCartCardProps> = ({name,id,src,currentCost,oldCost,isLast}) => {
+    
 
     return (
         <>

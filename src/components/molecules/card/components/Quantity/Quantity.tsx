@@ -6,15 +6,17 @@ import styles from '../Quantity/Quantity.module.scss';
 
 import type { MutableRefObject } from 'react';
 
-interface QuantityProps{
-    countRef:MutableRefObject<number>
-}
+// interface QuantityProps{
+//     countRef?:MutableRefObject<number>
+// }
 
-const Quantity:React.FC<QuantityProps> = ({countRef}) => {
+const Quantity:React.FC = (
+    // {countRef}
+) => {
 
     const [count, setCount] = useState<number>(1);
 
-    useEffect(()=>{countRef.current = count},[count])
+    // useEffect(()=>{countRef.current = count},[count])
 
     const DecreaseCount =()=>{
         if(count < 50){

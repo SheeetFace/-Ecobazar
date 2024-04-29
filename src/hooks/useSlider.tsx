@@ -10,9 +10,11 @@ interface useSliderProps{
     slidesToShow:number,
     dots?:boolean,
     arrows?:boolean,
+    vertical?:boolean
+    autoplay?:boolean
 }
 
-const useSlider:React.FC<useSliderProps> = ({cards,styles,slidesToShow,dots=false,arrows=false}) => {
+const useSlider:React.FC<useSliderProps> = ({cards,styles,slidesToShow,dots=false,arrows=false,vertical=false,autoplay=true}) => {
 
     //!need individual breakpoint for each component for adaptation
     const settings = {
@@ -24,10 +26,11 @@ const useSlider:React.FC<useSliderProps> = ({cards,styles,slidesToShow,dots=fals
         slidesToScroll: 1,
         // adaptiveHeight: true,
         pauseOnHover: true,
-        autoplay: true,
+        autoplay,
         autoplaySpeed: 3000,
         cssEase: "linear",
         arrows,
+        vertical,
         responsive: [
             {
               breakpoint: 1024,
