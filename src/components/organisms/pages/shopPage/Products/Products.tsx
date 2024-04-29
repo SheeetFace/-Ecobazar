@@ -70,6 +70,16 @@ const Products:React.FC = () => {
             oldCost={item.oldCost}
             sale={item.sale}
             rating={item.rating}
+
+            promotedCategories={item.promotedCategories}
+            weight={item.weight}
+            color={item.color}
+            type={item.type}
+            category={item.category}
+            stockStatus={item.stockStatus}
+            date={item.date}
+            tag={item.tag}
+            description={item.description}
           />
       ));
     },[JSON.stringify(displayedData)])

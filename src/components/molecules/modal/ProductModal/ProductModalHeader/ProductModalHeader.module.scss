@@ -1,12 +1,65 @@
+@import '../../../../../styles/colors.scss';
+@import '../../../../../styles/typography.scss';
 
 .ProductModalHeader{
     display: flex;
     flex-direction: column;
+    gap:.3rem;
+
+    ._title{
+        display: flex;
+        align-items:center;
+        gap:1rem;
+
+        ._labelBadge{
+            font-size: $body-small;
+            height: max-content;
+        }
+
+        ._labelBadgeInStock{
+            @extend ._labelBadge;
+            color:$hard-primary-color;
+            background-color: rgb($soft-primary-color, .4);
+        }
+        ._labelBadgeOutOfStock{
+            @extend ._labelBadge;   
+            color:$danger-color;
+            background-color: rgb($danger-color, .4);
+        }
+    }
+
 
     ._info{
         display: flex;
         align-items: center;
         gap:.5rem;
+        font-size: $body-small;
+        color:$grey-5;
 
+        ._sku{
+            color:$grey-9;
+        }
+    }
+
+    ._price{
+        display: flex;
+        align-items: center;
+        gap:.5rem;
+        font-size: $body-xl;
+        color:$hard-primary-color;
+        font-weight: $medium;
+
+        ._oldCost{
+            color:$grey-3;
+            text-decoration: line-through;
+        }
+
+
+        ._labelSale{
+            color:$danger-color;
+            background-color: rgb($danger-color, .2);
+            border-radius: 1rem;
+            font-size: $body-tiny;
+        }
     }
 }

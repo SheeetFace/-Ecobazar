@@ -1,4 +1,4 @@
-import Quantity from './components/Quantity/Quantity';
+import Quantity from '../components/Quantity/Quantity';
 import SubTotal from './components/SubTotal/SubTotal';
 import CrossIcon from '../../../atoms/icon/action/CrossIcon/CrossIcon';
 import Divider from '../../../atoms/Divider/Divider';

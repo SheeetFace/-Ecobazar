@@ -1,0 +1,40 @@
+@import '../../../../../styles/colors.scss';
+@import '../../../../../styles/typography.scss';
+
+.ProductModalDescription{
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    max-width: 550px;
+
+    ._header{
+        display: flex;
+        align-items:center;
+        justify-content: space-between;
+        padding-bottom: 1rem;
+        font-size: $body-small;
+
+        ._brand{
+            display: flex;
+            align-items:center;
+            gap:.5rem;
+
+            ._brandIcon{
+                width: 65px;
+            }
+        }
+
+
+        ._share{
+            display: flex;
+            align-items:center;
+            gap:.5rem;
+        }
+
+    }
+
+    ._description{
+        color:$grey-5;
+        font-size: $body-small;
+    }
+}

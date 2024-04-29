@@ -1,12 +1,20 @@
-import { useState} from 'react';
+import { useEffect, useState} from 'react';
 
-import QuantityIcon from '../../../../../atoms/icon/action/QuantityIcon/QuantityIcon';
+import QuantityIcon from '../../../../atoms/icon/action/QuantityIcon/QuantityIcon';
 
 import styles from '../Quantity/Quantity.module.scss';
 
-const Quantity:React.FC = () => {
+import type { MutableRefObject } from 'react';
+
+interface QuantityProps{
+    countRef:MutableRefObject<number>
+}
+
+const Quantity:React.FC<QuantityProps> = ({countRef}) => {
 
     const [count, setCount] = useState<number>(1);
+
+    useEffect(()=>{countRef.current = count},[count])
 
     const DecreaseCount =()=>{
         if(count < 50){
@@ -19,7 +27,6 @@ const Quantity:React.FC = () => {
             setCount((prev) => prev -1)
         }
     }
-
 
     return (
         <div className={styles.Quantity}>

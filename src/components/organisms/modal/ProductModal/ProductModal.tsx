@@ -1,8 +1,13 @@
 import {  useContext, useEffect, useRef } from 'react';
 
 import ProductModalHeader from '../../../molecules/modal/ProductModal/ProductModalHeader/ProductModalHeader';
+import ProductModalDescription from '../../../molecules/modal/ProductModal/ProductModalDescription/ProductModalDescription';
+import ProductModalButtons from '../../../molecules/modal/ProductModal/ProductModalButtons/ProductModalButtons';
+import Divider from '../../../atoms/Divider/Divider';
 
 import { manageModalDisplay } from '../../../../utils/manageModalDisplay';
+
+import useCloseModal from '../../../../hooks/useCloseModal';
 
 import { ProductModalContext } from '../../../../context/ProductModalContext';
 
@@ -13,6 +18,11 @@ const ProductModal:React.FC = () => {
     const {isShow,dataProduct, closeProductModal} = useContext(ProductModalContext)
 
     const modalRef= useRef<HTMLDivElement>(null)
+
+    useCloseModal({
+        ref:modalRef,
+        closeFn:closeProductModal
+    })
 
     const isFirstOpen = useRef<boolean>(false);
 
@@ -29,10 +39,8 @@ const ProductModal:React.FC = () => {
 
     return (
         <section className={styles.ProductModal} ref={modalRef}>
-                <span>ProductModal</span>
-               
 
-                {dataProduct ? 
+                {dataProduct && isShow ? 
                     <div className={styles._container}>
 
                         <div className={styles._closeModal}>
@@ -46,12 +54,27 @@ const ProductModal:React.FC = () => {
                             </div>
 
                             <div>
-                                <ProductModalHeader name={dataProduct.name}
-                                                    currentCost={dataProduct.currentCost}
-                                                    oldCost={dataProduct.oldCost}
-                                                    sale={dataProduct.sale}
-                                                    rating={dataProduct.rating}
-                                                    />
+                                <div>
+                                    <ProductModalHeader name={dataProduct.name}
+                                                        currentCost={dataProduct.currentCost}
+                                                        oldCost={dataProduct.oldCost}
+                                                        sale={dataProduct.sale}
+                                                        rating={dataProduct.rating}
+                                                        stockStatus={dataProduct.stockStatus}
+                                                        />
+                                    
+                                    <Divider type='horizontal' className={styles._divider}/>
+                                </div>
+
+                                <div>
+                                    <ProductModalDescription description={dataProduct.description}/>
+
+                                    <Divider type='horizontal' className={styles._divider}/>
+                                </div>
+
+                                <div>
+                                    <ProductModalButtons id={dataProduct.id}/>
+                                </div>
                             </div>
                         </div>
 
