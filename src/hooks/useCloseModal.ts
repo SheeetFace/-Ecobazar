@@ -3,21 +3,21 @@ import { useEffect } from "react";
 import type { RefObject } from "react";
 
 interface Arguments{
-    ref:RefObject<HTMLDivElement>
     closeFn:()=>void
+    modalCloseRef:RefObject<HTMLDivElement>
 }
 
-type UseCloseModalType = ({ref,closeFn}:Arguments)=>void;
+type UseCloseModalType = ({closeFn,modalCloseRef}:Arguments)=>void;
 
 
-const useCloseModal:UseCloseModalType = ({ ref,closeFn}) => {
+const useCloseModal:UseCloseModalType = ({closeFn,modalCloseRef}) => {
 
     useEffect(() => {
         const keyHandler = (e:KeyboardEvent)=>{
           if(e.key === "Escape") closeFn();
         }
         const clickHandler =(e: MouseEvent)=>{
-            if(ref.current && e.target === ref.current){
+            if(modalCloseRef.current && !modalCloseRef.current.contains(e.target as Node)){
                 closeFn();
             }
         }

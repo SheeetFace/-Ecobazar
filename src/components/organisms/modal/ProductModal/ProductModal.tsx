@@ -20,10 +20,11 @@ const ProductModal:React.FC = () => {
     const {isShow,dataProduct, closeProductModal} = useContext(ProductModalContext)
 
     const modalRef= useRef<HTMLDivElement>(null)
+    const modalCloseRef= useRef<HTMLDivElement>(null)
 
     useCloseModal({
-        ref:modalRef,
-        closeFn:closeProductModal
+        closeFn:closeProductModal,
+        modalCloseRef
     })
 
     const isFirstOpen = useRef<boolean>(false);
@@ -49,7 +50,7 @@ const ProductModal:React.FC = () => {
                             <span onClick={()=>closeProductModal()}>✖</span>
                         </div>
 
-                        <div className={styles._wrapper}>
+                        <div className={styles._wrapper} ref={modalCloseRef}>
 
                             <ProductModalSlider src={dataProduct.src}/>
 
