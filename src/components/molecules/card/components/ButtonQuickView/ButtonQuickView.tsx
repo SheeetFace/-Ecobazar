@@ -7,24 +7,8 @@ import EyeIcon from '../../../../atoms/icon/navigate/EyeIcon';
 
 import styles from '../ButtonQuickView/ButtonQuickView.module.scss';
 
-interface ButtonQuickViewProps{
-    name:string,
-    id:string,
-    src:string,
-    currentCost:string,
-    oldCost:string,
-    sale:string,
-    rating:string,
-    promotedCategories:string[]
-    weight:string
-    color:string
-    type:string
-    category:string
-    stockStatus:string
-    date:string
-    tag:string
-    description:string
-}
+import type { ProductDataType as ButtonQuickViewProps} from '../../../../../types/productDataTypes';
+
 
 const ButtonQuickView:React.FC<ButtonQuickViewProps> = (props) => {
 
@@ -36,11 +20,11 @@ const ButtonQuickView:React.FC<ButtonQuickViewProps> = (props) => {
     }
 
     return (
-        <div className={styles.ButtonQuickView}>
+        <div className={styles.ButtonQuickView} 
+             onClick={()=>openQuickView(props.id)}>
                         <div className={styles.ButtonQuickView}>
                         <Button className='ButtonTransparent' 
                                 icon={<EyeIcon className={styles._buttonQuickViewIcon}/>}
-                                onClick={()=>openQuickView(props.id)} 
                                 type='button'/>
                 </div>
         </div>

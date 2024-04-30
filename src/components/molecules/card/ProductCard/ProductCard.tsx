@@ -10,25 +10,8 @@ import CartIcon from '../../../atoms/icon/navigate/CartIcon';
 
 import styles from '../ProductCard/ProductCard.module.scss';
 
-interface ProductsCardProps{
-    name:string,
-    id:string,
-    src:string,
-    currentCost:string,
-    oldCost:string,
-    sale:string,
-    rating:string,
+import type { ProductDataType as ProductsCardProps} from '../../../../types/productDataTypes';
 
-    promotedCategories:string[]
-    weight:string
-    color:string
-    type:string
-    category:string
-    stockStatus:string
-    date:string
-    tag:string
-    description:string
-}
 
 const ProductsCard:React.FC<ProductsCardProps> = (props) => {
 

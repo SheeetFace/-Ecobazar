@@ -1,17 +1,36 @@
 @import '../../../../../styles/colors.scss';
 
 .ProductModalSlider{
-    height: max-content;
-    width: 110px;
+    height: 95%;
     display: flex;
-    justify-content: center;
-    padding: .3rem;
+    align-items:center;
+    width: 120px;
 
-    ._image{
+    ._imageItem{
         border: 1px solid $grey-2;
         border-radius: 5px;
-        cursor: grab;
-        width: 90px;
-        height: 90px;
+
+        ._image{
+            margin-left: 8px;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+
+            &._filter1 {
+                filter: grayscale(100%);
+            }
+            
+            &._filter2 {
+                filter: sepia(100%);
+            }
+            
+            &._filter3 {
+                filter: invert(100%);
+            }
+            
+            &._filter4 {
+                filter: hue-rotate(90deg);
+            }
+        }
     }
 }

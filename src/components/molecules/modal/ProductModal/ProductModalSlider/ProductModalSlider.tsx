@@ -8,27 +8,35 @@ interface ProductModalSliderProps{
 
 const ProductModalSlider:React.FC<ProductModalSliderProps> = ({src}) => {
 
-    const images = Array.from({length:5}, ()=>src);
-    console.log(images)
+    const images = Array.from({length:4}, ()=>src);
+
+    const filters =[
+        styles._filter1,
+        styles._filter2,
+        styles._filter3,
+        styles._filter4,
+    ]
 
     const renderImages = ()=>{
         return images.map((item,i)=>{
            return(
-           <img alt='Product image' 
-                        src={item} 
-                        key={i} 
-                        className={styles._image}/>
-                    )
-
+            <div className={styles._imageItem} key={i}>
+                <img alt='Product image' 
+                    src={item} 
+                    className={`${styles._image} ${filters[i+1]}`}/>
+            </div>
+            )
         })
     }
-
 
     const useSlicer = useSlider({ 
                                 cards: renderImages(),
                                 styles: '',
-                                slidesToShow: 4,
+                                slidesToShow: 3,
                                 vertical:true,
+                                dots:true,
+                                pauseOnHover:false,
+                                swipe:false
     });
 
     return (
@@ -36,6 +44,7 @@ const ProductModalSlider:React.FC<ProductModalSliderProps> = ({src}) => {
             {useSlicer}
         </div>
     )
+
 }
 
 export default ProductModalSlider;
