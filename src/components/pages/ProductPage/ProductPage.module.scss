@@ -1,0 +1,10 @@
+@import '../../../styles/colors.scss';
+
+.ProductPage{
+    background-color: $white-color;
+    padding-bottom: 2rem;
+    ._container{
+        display: flex;
+        flex-direction: column;
+    }
+}

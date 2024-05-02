@@ -1,0 +1,17 @@
+@import '../../../../../styles/colors.scss';
+
+.InfoButton{
+    padding: .2rem;
+
+    ._selected{
+        border-bottom:3px solid $primary-color;
+        transition:  border-bottom .4s ease;
+    }
+    
+    ._notSelected{
+        color:$grey-5;
+        border-bottom:3px solid transparent;
+        transition:  border-bottom .4s ease, color .4s ease;
+    }
+}
+

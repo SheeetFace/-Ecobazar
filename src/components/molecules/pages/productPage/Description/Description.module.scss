@@ -1,0 +1,14 @@
+@import '../../../../../styles/colors.scss';
+
+.Description{
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+    color:$grey-6;
+
+    ._list{
+        display: flex;
+        gap:.5rem;
+    }
+
+}

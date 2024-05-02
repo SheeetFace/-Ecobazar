@@ -7,12 +7,14 @@ interface FeatureItem{
   icon:React.FC,
   title:string,
   description:string,
+  
 }
 interface FeatureProps{
   data:FeatureItem[]
+  className?:string
 }
 
-const Feature:React.FC<FeatureProps> = ({data}) => {
+const Feature:React.FC<FeatureProps> = ({data,className=styles.Feature}) => {
 
   const renderFeatureCard =()=>{
     return data.map((item:FeatureItem,i:number)=>{
@@ -31,7 +33,7 @@ const Feature:React.FC<FeatureProps> = ({data}) => {
   }
 
   return (
-    <section className={styles.Feature}>
+    <section className={className}>
         {renderFeatureCard()}
     </section>
   )

@@ -42,3 +42,18 @@ export const featureAboutPageData = [
         description:'Our happy customer'
     },
 ]
+
+
+export const featureProductPageData = [
+ 
+    {
+        icon:ShoppingBagIcon,
+        title:'64% Discount',
+        description:'Save your 64% money with us'
+    },
+    {
+        icon:LeafIcon,
+        title:'100% Organic Food',
+        description:'100% healthy & Fresh food'
+    },
+]
