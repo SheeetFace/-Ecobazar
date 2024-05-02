@@ -34,18 +34,20 @@ const ButtonWishlist:React.FC<ButtonWishlistProps> = ({id, type}) => {
     // },[wishlistRef.current])
 
 
-    const updateWishlist =(id:string)=>{
+    const updateWishlist =(id:string,e:React.MouseEvent)=>{
+        e.preventDefault()
         // add or remove id to zustand state IN ANOTHER FILE
     }
 
     const typeStyle=type === 'card' ? styles._cardNotInWishList: styles._detailNotInWishList;
 
     return (
-        <div className={`${styles.ButtonWishlist} ${typeStyle}`}>
+        <div className={`${styles.ButtonWishlist} ${typeStyle}`}
+             onClick={(e)=>updateWishlist(id,e)}>
          {/* <div className={`${styles.ButtonWishlist} ${getStyle}`}> */}
             <Button className='ButtonTransparent' 
                     icon={<WishlistIcon className={styles._buttonWishlistIcon}/>}
-                    onClick={()=>updateWishlist(id)} 
+                    // onClick={(e)=>updateWishlist(id,e)} 
                     type='button'/>
         </div>
   )

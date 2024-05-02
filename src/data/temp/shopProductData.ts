@@ -23,7 +23,7 @@ export const shopProductData:ShopProductData[] =[
         category:'Fruit',
         stockStatus:'0',
         date: '2024-04-01',
-        tag:['Vitamins','Kid foods','Low fat','Vegetarian'],
+        tag:['Vitamins','Kid foods','Low fat','Vegetarian','Healthy'],
         description:"Valencia Oranges is one of the largest varieties in Australia. They are deliciously sweet and juicy with the perfect ratio of sweet-tart flavour. Eat on there own or they are great as juicing oranges and can be stored for a long time. Oranges are an awesome source of Vitamin C, Thiamine and Folate. "
     },
     {

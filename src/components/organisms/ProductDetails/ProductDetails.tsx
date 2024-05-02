@@ -11,7 +11,7 @@ import type { ProductDataType } from '../../../types/productDataTypes';
 import type { RefObject } from 'react';
 
 interface ProductDetailsProps{
-    forwardRef:RefObject<HTMLDivElement>,
+    forwardRef?:RefObject<HTMLDivElement>,
     data: ProductDataType
 }
 

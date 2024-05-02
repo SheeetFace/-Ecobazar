@@ -1,3 +1,5 @@
+import { ProductDataType as ShopProduct } from "../types/productDataTypes"
+
 type TDate = 'newest'|'oldest'
 
 interface InitFilter{
@@ -11,24 +13,24 @@ interface InitFilter{
     date:TDate
 }
 
-interface ShopProduct{
-    name:string
-    id:string
-    src:string
-    currentCost:string
-    oldCost:string
-    sale:string
-    rating:string
-    promotedCategories:string[],
-    weight:string
-    color:string
-    type:string
-    category:string
-    stockStatus:string
-    date:string
-    tag:string
-    description:string
-}
+// interface ShopProduct{
+//     name:string
+//     id:string
+//     src:string
+//     currentCost:string
+//     oldCost:string
+//     sale:string
+//     rating:string
+//     promotedCategories:string[],
+//     weight:string
+//     color:string
+//     type:string
+//     category:string
+//     stockStatus:string
+//     date:string
+//     tag:string[]
+//     description:string
+// }
 
 export const filterProducts = (products: ShopProduct[], filter: InitFilter): ShopProduct[] => {
 
@@ -58,7 +60,8 @@ export const filterProducts = (products: ShopProduct[], filter: InitFilter): Sho
         return false;
       }
   
-      if(filter.tag && product.tag !== filter.tag){
+      // if(filter.tag && product.tag !== filter.tag){
+        if(filter.tag && product.tag && !product.tag.includes(filter.tag)){
         return false;
       }
   

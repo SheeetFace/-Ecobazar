@@ -1,4 +1,4 @@
-
+import { NavLink } from 'react-router-dom';
 
 import LabelBadge from '../../../atoms/LabelBadge/LabelBadge';
 import RatingStars from '../../RatingStars/RatingStars';
@@ -11,64 +11,70 @@ import CartIcon from '../../../atoms/icon/navigate/CartIcon';
 import styles from '../ProductCard/ProductCard.module.scss';
 
 import type { ProductDataType as ProductsCardProps} from '../../../../types/productDataTypes';
+import type { MouseEvent } from 'react';
 
 
 const ProductsCard:React.FC<ProductsCardProps> = (props) => {
 
     const {name, id, src, currentCost, oldCost, sale, rating} = props;
 
+
     //href - vegetable/id---
-    const addToCart = (id:string)=>{
+    const addToCart = (id:string,e:MouseEvent)=>{
+        e.preventDefault()
         console.log(`${id} added to cart`)
     }
 
-    //!quickView will use a modal window that depends on the zustand state, 
-    //!and this component will be imorted in the MainPage
 
     return (
-        <div className={styles.ProductsCard}>
+        <NavLink to={`/shop/productPage/${name}`}
+                state={{data:props}} 
+                className="_navLink">
 
-            {sale ?  <LabelBadge className={styles._label} label={`Sale ${sale}`}/> :null}
-            
-            <div className={styles._topButtonsContainer}>
+            <div className={styles.ProductsCard}>
 
-                <ButtonWishlist type='card' id={id}/>
-
-                <ButtonQuickView {...props}/>
+                {sale ?  <LabelBadge className={styles._label} label={`Sale ${sale}`}/> :null}
                 
-            </div>
-            
+                <div className={styles._topButtonsContainer}>
 
-            <img loading='lazy' src={src} alt={name}/>
+                    <ButtonWishlist type='card' id={id}/>
 
-            <span className={styles._name}>{name}</span>
-            
+                    <ButtonQuickView {...props}/>
+                    
+                </div>
+                
 
-            <div className={styles._container}>
-                <div className={styles._containerCostAndRating}>
-                    <div className={styles._costWrapper}>
-                        <span className={styles._currentConst}>
-                            ${currentCost}
-                        </span>
-                        
-                        {oldCost ? 
-                            <span className={styles._oldCost}>
-                                ${oldCost}
+                <img loading='lazy' src={src} alt={name}/>
+
+                <span className={styles._name}>{name}</span>
+                
+
+                <div className={styles._container}>
+                    <div className={styles._containerCostAndRating}>
+                        <div className={styles._costWrapper}>
+                            <span className={styles._currentConst}>
+                                ${currentCost}
                             </span>
-                        :null}
+                            
+                            {oldCost ? 
+                                <span className={styles._oldCost}>
+                                    ${oldCost}
+                                </span>
+                            :null}
+                        </div>
+                        <RatingStars rating={+rating} type='small'/>
                     </div>
-                    <RatingStars rating={+rating} type='small'/>
+                    
+                    <div className={styles._buttonCart}
+                         onClick={(e)=>addToCart(id,e)}>
+                        <Button className='ButtonTransparent' 
+                                icon={<CartIcon className={styles._buttonCartIcon}/>}
+                                type='button'/>
+                    </div>
+                    
                 </div>
-                
-                <div className={styles._buttonCart}>
-                    <Button className='ButtonTransparent' 
-                            icon={<CartIcon className={styles._buttonCartIcon}/>}
-                            onClick={()=>addToCart(id)} 
-                            type='button'/>
-                </div>
-                
             </div>
-        </div>
+        </NavLink>
     )
 }
 
