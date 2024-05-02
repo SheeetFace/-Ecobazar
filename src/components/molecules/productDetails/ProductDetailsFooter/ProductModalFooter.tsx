@@ -1,14 +1,14 @@
-import styles from '../ProductModalFooter/ProductModalFooter.module.scss';
+import styles from '../ProductDetailsFooter/ProductDetailsFooter.module.scss';
 
-interface ProductModalFooterProps{
+interface ProductDetailsFooterProps{
     category:string
     tag:string[]
 }
 
-const ProductModalFooter:React.FC<ProductModalFooterProps> = ({category,tag}) => {
+const ProductDetailsFooter:React.FC<ProductDetailsFooterProps> = ({category,tag}) => {
 
     return (
-        <div className={styles.ProductModalFooter}>
+        <div className={styles.ProductDetailsFooter}>
             <div>
                 <span> Category: 
                     <span className={styles._items}>{category}</span>
@@ -24,4 +24,4 @@ const ProductModalFooter:React.FC<ProductModalFooterProps> = ({category,tag}) =>
     )
 }
 
-export default ProductModalFooter;
+export default ProductDetailsFooter;

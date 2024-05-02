@@ -1,9 +1,9 @@
-import LabelBadge from '../../../../atoms/LabelBadge/LabelBadge';
-import RatingStars from '../../../RatingStars/RatingStars';
+import LabelBadge from '../../../atoms/LabelBadge/LabelBadge';
+import RatingStars from '../../RatingStars/RatingStars';
 
-import styles from '../ProductModalHeader/ProductModalHeader.module.scss';
+import styles from '../ProductDetailsHeader/ProductDetailsHeader.module.scss';
 
-interface ProductModalHeaderProps{
+interface ProductDetailsHeaderProps{
     name:string
     currentCost:string,
     oldCost:string,
@@ -12,13 +12,13 @@ interface ProductModalHeaderProps{
     stockStatus:string
 }
 
-const ProductModalHeader:React.FC<ProductModalHeaderProps> = ({name,currentCost,oldCost,sale,rating,stockStatus}) => {
+const ProductDetailsHeader:React.FC<ProductDetailsHeaderProps> = ({name,currentCost,oldCost,sale,rating,stockStatus}) => {
 
     const stockStatusBoolean = !!(+stockStatus);
     const stockStatusClass = stockStatusBoolean ? styles._labelBadgeInStock : styles._labelBadgeOutOfStock
 
     return (
-        <div className={styles.ProductModalHeader}>
+        <div className={styles.ProductDetailsHeader}>
             <div className={styles._title}>
                 <h2>{name}</h2>
                 <LabelBadge label={stockStatusBoolean ? 'In Stock' :'Out of Stock'}
@@ -56,4 +56,4 @@ const ProductModalHeader:React.FC<ProductModalHeaderProps> = ({name,currentCost,
     )
 }
 
-export default ProductModalHeader;
+export default ProductDetailsHeader;

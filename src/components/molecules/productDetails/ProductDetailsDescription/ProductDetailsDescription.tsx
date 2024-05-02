@@ -1,17 +1,17 @@
-import SocialMediaIcons from '../../../SocialMediaIcons/SocialMediaIcons';
-import FoodCoIcon from '../../../../atoms/icon/brand/FoodCoIcon';
+import SocialMediaIcons from '../../SocialMediaIcons/SocialMediaIcons';
+import FoodCoIcon from '../../../atoms/icon/brand/FoodCoIcon';
 
 
-import styles from '../ProductModalDescription/ProductModalDescription.module.scss';
+import styles from '../ProductDetailsDescription/ProductDetailsDescription.module.scss';
 
-interface ProductModalDescriptionProps{
+interface ProductDetailsDescriptionProps{
     description:string
 }
 
-const ProductModalDescription:React.FC<ProductModalDescriptionProps> = ({description}) => {
+const ProductDetailsDescription:React.FC<ProductDetailsDescriptionProps> = ({description}) => {
 
     return (
-        <div className={styles.ProductModalDescription}>
+        <div className={styles.ProductDetailsDescription}>
             <div className={styles._header}>
                 <div className={styles._brand}>
                     <span>Brand:</span>
@@ -29,4 +29,4 @@ const ProductModalDescription:React.FC<ProductModalDescriptionProps> = ({descrip
     )
 }
 
-export default ProductModalDescription;
+export default ProductDetailsDescription;

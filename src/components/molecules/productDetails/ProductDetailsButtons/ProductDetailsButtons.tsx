@@ -1,19 +1,19 @@
-import Button from '../../../../atoms/Button/Button';
-import ButtonWishlist from '../../../card/components/ButtonWishlist/ButtonWishlist';
-import Quantity from '../../../card/components/Quantity/Quantity';
+import Button from '../../../atoms/Button/Button';
+import ButtonWishlist from '../../card/components/ButtonWishlist/ButtonWishlist';
+import Quantity from '../../card/components/Quantity/Quantity';
 
-import CartIcon from '../../../../atoms/icon/navigate/CartIcon';
+import CartIcon from '../../../atoms/icon/navigate/CartIcon';
 
-import styles from '../ProductModalButtons/ProductModalButtons.module.scss';
+import styles from '../ProductDetailsButtons/ProductDetailsButtons.module.scss';
 
 import type { FormEvent } from 'react';
 
 
-interface ProductModalButtonsProps{
+interface ProductDetailsButtonsProps{
     id:string
 }
 
-const ProductModalButtons:React.FC<ProductModalButtonsProps> = ({id}) => {
+const ProductDetailsButtons:React.FC<ProductDetailsButtonsProps> = ({id}) => {
 
     // const countRef = useRef<number>(1)
 
@@ -24,7 +24,7 @@ const ProductModalButtons:React.FC<ProductModalButtonsProps> = ({id}) => {
 
     return (
         <div >
-            <form onSubmit={handleSubmit} className={styles.ProductModalButtons}>
+            <form onSubmit={handleSubmit} className={styles.ProductDetailsButtons}>
                 <Quantity 
                 // countRef={countRef}
                 />
@@ -36,4 +36,4 @@ const ProductModalButtons:React.FC<ProductModalButtonsProps> = ({id}) => {
     )
 }
 
-export default ProductModalButtons;
+export default ProductDetailsButtons;

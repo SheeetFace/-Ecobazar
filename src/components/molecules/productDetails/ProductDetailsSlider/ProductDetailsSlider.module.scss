@@ -1,13 +1,13 @@
-@import '../../../../../styles/colors.scss';
+@import '../../../../styles/colors.scss';
 
-.ProductModalSlider{
+.ProductDetailsSlider{
     height: 95%;
     display: flex;
     align-items:center;
     width: 120px;
 
     ._imageItem{
-        border: 1px solid $grey-2;
+        border: 1px solid $soft-primary-color;
         border-radius: 5px;
 
         ._image{

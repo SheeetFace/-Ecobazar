@@ -1,12 +1,12 @@
-import useSlider from '../../../../../hooks/useSlider';
+import useSlider from '../../../../hooks/useSlider';
 
-import styles from '../ProductModalSlider/ProductModalSlider.module.scss';
+import styles from '../ProductDetailsSlider/ProductDetailsSlider.module.scss';
 
-interface ProductModalSliderProps{
+interface ProductDetailsSliderProps{
     src:string
 }
 
-const ProductModalSlider:React.FC<ProductModalSliderProps> = ({src}) => {
+const ProductDetailsSlider:React.FC<ProductDetailsSliderProps> = ({src}) => {
 
     const images = Array.from({length:4}, ()=>src);
 
@@ -40,11 +40,11 @@ const ProductModalSlider:React.FC<ProductModalSliderProps> = ({src}) => {
     });
 
     return (
-        <div className={styles.ProductModalSlider}>
+        <div className={styles.ProductDetailsSlider}>
             {useSlicer}
         </div>
     )
 
 }
 
-export default ProductModalSlider;
+export default ProductDetailsSlider;

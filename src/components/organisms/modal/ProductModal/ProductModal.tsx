@@ -1,11 +1,6 @@
 import {  useContext, useEffect, useRef } from 'react';
 
-import ProductModalHeader from '../../../molecules/modal/ProductModal/ProductModalHeader/ProductModalHeader';
-import ProductModalDescription from '../../../molecules/modal/ProductModal/ProductModalDescription/ProductModalDescription';
-import ProductModalButtons from '../../../molecules/modal/ProductModal/ProductModalButtons/ProductModalButtons';
-import ProductModalFooter from '../../../molecules/modal/ProductModal/ProductModalFooter/ProductModalFooter';
-import ProductModalSlider from '../../../molecules/modal/ProductModal/ProductModalSlider/ProductModalSlider';
-import Divider from '../../../atoms/Divider/Divider';
+import ProductDetails from '../../ProductDetails/ProductDetails';
 
 import { manageModalDisplay } from '../../../../utils/manageModalDisplay';
 
@@ -50,46 +45,8 @@ const ProductModal:React.FC = () => {
                             <span onClick={()=>closeProductModal()}>✖</span>
                         </div>
 
-                        <div className={styles._wrapper} ref={modalCloseRef}>
-
-                            <ProductModalSlider src={dataProduct.src}/>
-
-                            <div className={styles._img}>
-                                <img alt={dataProduct.name} 
-                                    src={dataProduct.src}/>
-                            </div>
-
-                            <div>
-                                <div>
-                                    <ProductModalHeader name={dataProduct.name}
-                                                        currentCost={dataProduct.currentCost}
-                                                        oldCost={dataProduct.oldCost}
-                                                        sale={dataProduct.sale}
-                                                        rating={dataProduct.rating}
-                                                        stockStatus={dataProduct.stockStatus}
-                                                        />
-                                    
-                                    <Divider type='horizontal' className={styles._divider}/>
-                                </div>
-
-                                <div>
-                                    <ProductModalDescription description={dataProduct.description}/>
-
-                                    <Divider type='horizontal' className={styles._divider}/>
-                                </div>
-
-                                <div>
-                                    <ProductModalButtons id={dataProduct.id}/>
-
-                                    <Divider type='horizontal' className={styles._divider}/>
-                                </div>
-
-                                <div>
-                                    <ProductModalFooter category={dataProduct.category}
-                                                        tag={dataProduct.tag}/>
-                                </div>
-                            </div>
-                        </div>
+                        <ProductDetails forwardRef={modalCloseRef}
+                                        data={dataProduct}/>
 
                     </div>
                 :
