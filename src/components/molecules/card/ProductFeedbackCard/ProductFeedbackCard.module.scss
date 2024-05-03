@@ -1,0 +1,42 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/typography.scss';
+
+.ProductFeedbackCard{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 2rem;
+    padding-right: .5rem;
+    font-size: $body-small;
+
+    ._container{
+        display: flex;
+        justify-content: space-between;
+
+        ._customerAndRating{
+            display: flex;
+            gap:.7rem;
+            align-items:center;
+
+            img{
+                width: 50px;
+                height: 50px;
+                border-radius: 100%;
+            }
+        }
+
+        ._date{
+            color:$grey-4;
+
+        }
+    }
+
+    ._feedback{
+        margin-top: .7rem;
+        color:$grey-5;
+    }
+
+    ._divider{
+        margin-top: 1rem;
+        background-color:$grey-1;
+    }
+}

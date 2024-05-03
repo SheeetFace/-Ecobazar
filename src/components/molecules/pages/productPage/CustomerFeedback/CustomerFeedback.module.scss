@@ -1,0 +1,24 @@
+@import '../../../../../styles/colors.scss';
+@import '../styles/styles.module.scss';
+
+
+.CustomerFeedback{
+
+    animation: appear 1s ease;
+
+    ._feedbacks{
+        height: 440px;
+        overflow: auto;
+    }
+
+    ._pagButtons{
+        width: inherit;
+        display: flex;
+        align-items:center;
+        justify-content: center;
+    }
+
+    ._divider{
+        background-color: $grey-1;
+    }
+}

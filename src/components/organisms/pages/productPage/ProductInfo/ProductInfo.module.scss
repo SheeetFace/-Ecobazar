@@ -1,4 +1,4 @@
-
+@import '../../../../../styles/colors.scss';
 
 .ProductInfo{
     ._buttons{
@@ -8,6 +8,10 @@
         justify-content: center;
         align-items: center;
         gap:1rem;
+    }
+
+    ._divider{
+        background-color:$grey-1;
     }
 
     ._container{

@@ -1,9 +1,11 @@
 import { useCallback, useMemo, useState } from 'react';
 
+import Divider from '../../../../atoms/Divider/Divider';
 import InfoButton from '../../../../molecules/pages/productPage/InfoButton/InfoButton';
 import Description from '../../../../molecules/pages/productPage/Description/Description';
 import VideoAndFeature from '../components/VideoAndFeature/VideoAndFeature';
 import AdditionalInformation from '../../../../molecules/pages/productPage/AdditionalInformation/AdditionalInformation';
+import CustomerFeedback from '../../../../molecules/pages/productPage/CustomerFeedback/CustomerFeedback';
 
 import styles from '../ProductInfo/ProductInfo.module.scss';
 
@@ -56,7 +58,7 @@ const ProductInfo:React.FC<ProductInfoProps> = ({data}) => {
                  content = <AdditionalInformation data={data}/>
                  break;
             case (ButtonContent.FEEDBACK):
-                 content = <span>2</span>
+                 content = <CustomerFeedback/>
                  break;
             default:
                 content = <Description/>
@@ -68,9 +70,12 @@ const ProductInfo:React.FC<ProductInfoProps> = ({data}) => {
 
     return (
         <section className={styles.ProductInfo}>
+           
             <div className={styles._buttons}>
                 {renderButtons}
+              
             </div>
+            <Divider type='horizontal' className={styles._divider}/>
 
             <div className={styles._container}>
                 {returnContent()}

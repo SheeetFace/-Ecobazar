@@ -5,9 +5,9 @@ import PaginationButtons from '../../../PaginationButtons/PaginationButtons';
 
 import { orderHistoryData } from '../../../../../data/temp/orderHistoryData';
 
-import styles from '../OrderHistoryTable/OrderHistoryTable.module.scss'
-
 import usePagination from '../../../../../hooks/usePagination';
+
+import styles from '../OrderHistoryTable/OrderHistoryTable.module.scss'
 
 
 const OrderHistoryTable: React.FC = () => {
