@@ -1,15 +1,18 @@
 @import '../../../../../styles/colors.scss';
 @import '../styles/styles.module.scss';
 
-.Description{
+.AdditionalInformation{
     display: flex;
     flex-direction: column;
-    gap:1rem;
-    color:$grey-6;
+    gap:.7rem;
 
-    ._list{
+    ._container{
         display: flex;
-        gap:.5rem;
+        gap:1rem;
+
+        ._value{
+            color:$grey-5;
+        }
     }
 
     animation: appear 1s ease ;

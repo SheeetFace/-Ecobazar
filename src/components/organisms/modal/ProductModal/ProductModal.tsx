@@ -46,7 +46,8 @@ const ProductModal:React.FC = () => {
                         </div>
 
                         <ProductDetails forwardRef={modalCloseRef}
-                                        data={dataProduct}/>
+                                        data={dataProduct}
+                                        viewMode='modal'/>
 
                     </div>
                 :

@@ -3,10 +3,17 @@
 .ProductDetails{
     display: flex;
     height: max-content;
-    padding: 2rem;
+    justify-content: space-between;
     background-color:$white-color;
     border-radius: .3rem;
-    
+
+    &._pageViewMode{
+        padding-top: 2rem;
+    }
+    &._modalViewMode{
+        padding: 2rem;
+    }
+
     ._img{
         img{
             height: 400px;

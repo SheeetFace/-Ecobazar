@@ -5,4 +5,15 @@
     margin-right: auto;
     padding-right: .7rem;
     padding-left: .7rem;
+
+    animation: appear .8s ease ;
 }
+
+@keyframes appear {
+    0%{
+        opacity: 0;
+    }100%{
+        opacity: 1;
+    }
+}
+

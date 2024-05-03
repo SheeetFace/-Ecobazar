@@ -1,3 +1,4 @@
+@import '../styles/styles.module.scss';
 
 .Video{
     iframe{
@@ -6,5 +7,8 @@
         height:315px;
         border:none;
         border-radius: 4px;
+
+        animation: appear 1.5s ease ;
     }
+
 }

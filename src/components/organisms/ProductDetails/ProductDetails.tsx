@@ -10,15 +10,20 @@ import styles from '../ProductDetails/ProductDetails.module.scss';
 import type { ProductDataType } from '../../../types/productDataTypes';
 import type { RefObject } from 'react';
 
+type ProductDetailsViewMode = 'modal' | 'page';
+
 interface ProductDetailsProps{
     forwardRef?:RefObject<HTMLDivElement>,
-    data: ProductDataType
+    data: ProductDataType,
+    viewMode: ProductDetailsViewMode
 }
 
-const ProductDetails:React.FC<ProductDetailsProps> = ({forwardRef,data}) => {
+const ProductDetails:React.FC<ProductDetailsProps> = ({forwardRef,data,viewMode}) => {
+
+    const classs = `${styles.ProductDetails} ${viewMode ==='page' ?styles._pageViewMode : styles._modalViewMode}`
 
     return (
-        <section className={styles.ProductDetails} ref={forwardRef}>
+        <section className={classs} ref={forwardRef}>
 
             <ProductDetailsSlider src={data.src}/>
 
