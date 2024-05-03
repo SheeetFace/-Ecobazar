@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import Divider from '../../../../atoms/Divider/Divider';
 import InfoButton from '../../../../molecules/pages/productPage/InfoButton/InfoButton';
@@ -27,6 +27,7 @@ enum ButtonContent{
     FEEDBACK='Customer Feedback'
 }
 
+
 const ProductInfo:React.FC<ProductInfoProps> = ({data}) => {
 
     const [buttonContent, setButtonContent] =useState<ButtonContent>(ButtonContent.DESCRIPTION)
@@ -46,8 +47,7 @@ const ProductInfo:React.FC<ProductInfoProps> = ({data}) => {
         })
     },[buttons])
 
-    const returnContent = useCallback(()=>{
-
+    const returnContent =()=>{
         let content:JSX.Element;
 
         switch(buttonContent){
@@ -65,15 +65,13 @@ const ProductInfo:React.FC<ProductInfoProps> = ({data}) => {
         }
 
         return content
-        
-    },[buttonContent])
+    }
 
     return (
         <section className={styles.ProductInfo}>
            
             <div className={styles._buttons}>
                 {renderButtons}
-              
             </div>
             <Divider type='horizontal' className={styles._divider}/>
 

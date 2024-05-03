@@ -9,8 +9,6 @@ import styles from '../VideoAndFeature/VideoAndFeature.module.scss';
 
 const VideoAndFeature:React.FC = () => {
 
-
-
     return (
         <section className={styles.VideoAndFeature}>
             <Video/>

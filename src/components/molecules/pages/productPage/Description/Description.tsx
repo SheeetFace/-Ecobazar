@@ -3,7 +3,7 @@ import CheckCircleIcon from '../../../../atoms/icon/info/CheckCircleIcon/CheckCi
 import styles from '../Description/Description.module.scss';
 
 const Description:React.FC = () => {
-
+    
     return (
         <section className={styles.Description}>
             <span>
