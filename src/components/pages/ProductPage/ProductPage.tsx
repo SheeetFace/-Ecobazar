@@ -2,6 +2,7 @@ import { useLocation } from 'react-router-dom';
 
 import ProductDetails from '../../organisms/ProductDetails/ProductDetails';
 import ProductInfo from '../../organisms/pages/productPage/ProductInfo/ProductInfo';
+import RelatedProducts from '../../organisms/pages/productPage/RelatedProducts/RelatedProducts';
 
 import styles from '../ProductPage/ProductPage.module.scss';
 
@@ -36,6 +37,7 @@ const ProductPage:React.FC = () => {
                 <div className={styles._container}>
                     <ProductDetails data={data} viewMode='page'/>
                     <ProductInfo data={productInfoData}/>
+                    <RelatedProducts/>
                 </div>
             </div>
             

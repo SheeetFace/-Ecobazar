@@ -3,7 +3,6 @@
 .ProductPage{
     background-color: $white-color;
     padding-bottom: 2rem;
-    transition: all .2s ease;
 
     ._container{
         display: flex;
@@ -11,7 +10,6 @@
 
         ._ProductDetailsWide{
             display: flex;
-
         }
     }
 }
