@@ -1,4 +1,7 @@
+
+import SearchFilter from '../components/SearchFilter/SearchFilter';
 import BlogCatagoriesFilter from '../components/BlogCatagoriesFilter/BlogCatagoriesFilter';
+
 
 import Button from '../../../../atoms/Button/Button';
 
@@ -23,6 +26,9 @@ const FilterBlogs:React.FC = () => {
             />
             </div>
 
+            <div className={bodyClass}>
+                <SearchFilter/>
+            </div>
             <div className={bodyClass}>
                 <BlogCatagoriesFilter/>
             </div>

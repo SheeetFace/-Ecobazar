@@ -36,7 +36,6 @@ textarea{
 }
 
 
-
 ._searchInput{
     border-right: none !important;
     border-top-left-radius:6px;
@@ -45,6 +44,9 @@ textarea{
 ._invalidSearchInput{
     @extend ._searchInput;
     border:1px solid $danger-color;
+}
+._searchInputBlog{
+    border-radius:6px;
 }
 
 ._subscribeInput{

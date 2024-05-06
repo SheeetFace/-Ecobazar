@@ -1,0 +1,11 @@
+@import '../../../../../../styles/colors.scss';
+
+.SearchFilter{
+    display: flex;
+    flex-direction: column;
+    gap:1.3rem;
+    
+    ._divider{
+        background-color:$grey-2;
+    }
+}
