@@ -2,6 +2,8 @@ import { useContext, useEffect, useMemo, useRef } from 'react';
 
 import usePagination from '../../../../../hooks/usePagination';
 import useSmoothTransition from '../../../../../hooks/useSmoothTransition';
+import useScrollToTop from '../../../../../hooks/useScrollToTop';
+import useEnsureValidPage from '../../../../../hooks/useEnsureValidPage';
 
 import ProductsCard from '../../../../molecules/card/ProductCard/ProductCard';
 import NotingFound from '../../../../atoms/NothingFound/NothingFound';
@@ -31,22 +33,13 @@ const Products:React.FC = () => {
     );
 
     useSmoothTransition(productsRef, filter, currentPage);
+    useScrollToTop(currentPage);
+    useEnsureValidPage(filteredProducts, currentPage, itemsPerPage, goToPage)
+
 
     useEffect(()=>{
       changeFilter('productsLength',totalItems)
     },[totalItems])
-
-    useEffect(() => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      });
-    },[currentPage]);
-
-    useEffect(()=>{ //! mb this code move to hook too
-      if(filteredProducts.length<(currentPage*itemsPerPage)) goToPage(1)
-
-    },[JSON.stringify(filteredProducts)])
 
 
     const renderProductCard = useMemo(() => {
