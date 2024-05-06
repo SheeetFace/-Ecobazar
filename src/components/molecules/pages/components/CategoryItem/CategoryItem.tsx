@@ -19,9 +19,11 @@ const CategoryItem:React.FC<CategoryItemProps> = ({value,name,fn,isChecked}) => 
                     onClick={()=>fn()}
                     checked={isChecked}
             />
-
-            <span>{name}</span>
-            <span className={styles._count}>(999)</span>
+            
+            <div className={styles._container}>
+                <span>{name}</span>
+                <span className={styles._count}>(999)</span>
+            </div>
         </div>
 
     )

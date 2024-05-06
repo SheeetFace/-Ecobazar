@@ -1,5 +1,5 @@
 import Button from '../../../../atoms/Button/Button';
-import AllCategoriesFilter from '../components/AllCategoriesFilter/AllCategoriesFilter';
+import ProductCategoriesFilter from '../components/ProductCategoriesFilter/ProductCategoriesFilter';
 import PriceFilter from '../components/PriceFilter/PriceFilter';
 import RatingFilter from '../components/RatingFilter/RatingFilter';
 import TagFilter from '../components/TagFilter/TagFilter';
@@ -19,7 +19,7 @@ const FilterProducts: React.FC = () => {
       <section className={styles.FilterProducts}>
         <div className={styles._button} onClick={toggle}>
           <Button
-            className="ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight buttonMaxWidth"
+            className="ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight"
             text="Filter"
             type="button"
             icon={<FilterIcon className="" />}
@@ -27,7 +27,7 @@ const FilterProducts: React.FC = () => {
         </div>
   
         <div className={bodyClass}>
-          <AllCategoriesFilter />
+          <ProductCategoriesFilter />
         </div>
   
         <div className={bodyClass}>

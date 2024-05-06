@@ -1,18 +1,23 @@
-import { useMemo,useContext, memo} from 'react';
+import { useMemo, memo} from 'react';
 
-import CategoryItem from '../../../../../molecules/pages/shopPage/CategoryItem/CategoryItem';
-import Divider from '../../../../../atoms/Divider/Divider';
+import CategoryItem from '../../../../molecules/pages/components/CategoryItem/CategoryItem';
+import Divider from '../../../../atoms/Divider/Divider';
 
-import useToggleFilter from '../../../../../../hooks/useToggleFilter';
-import { ProductFilterContext } from '../../../../../../context/ProductFilterContext';
+import useToggleFilter from '../../../../../hooks/useToggleFilter';
 
-import { allCategoriesData } from '../../../../../../data/filter/allCategories';
+import { allCategoriesData } from '../../../../../data/filter/allCategories';
 
-import styles from '../AllCategoriesFilter/AllCategoriesFilter.module.scss';
+import styles from '../CategoriesFilter/CategoriesFilter.module.scss';
 
-const AllCategoriesFilter:React.FC = () => {
+import type { InitProductFilter,TChangeProductFilterFn } from '../../../../../types/productFilterType';
 
-    const {filter, changeFilter } = useContext(ProductFilterContext);
+interface CategoriesFilterProps{
+    filter:InitProductFilter
+    changeFilter:TChangeProductFilterFn
+}
+
+const CategoriesFilter:React.FC<CategoriesFilterProps> = ({filter,changeFilter}) => {
+
     const [arrowClass, bodyClass,toggle] =useToggleFilter(styles._form)
 
     const handleFilter =(value:string)=>{
@@ -41,7 +46,7 @@ const AllCategoriesFilter:React.FC = () => {
     },[filter])
     
         return (
-            <section className={styles.AllCategoriesFilter}>
+            <section className={styles.CategoriesFilter}>
                 <div className={styles._header}>
                     <h2>All Categories</h2>
                     <h1 className={arrowClass} onClick={toggle}>
@@ -58,4 +63,4 @@ const AllCategoriesFilter:React.FC = () => {
         )
     }
     
-export default memo(AllCategoriesFilter);
+export default memo(CategoriesFilter);

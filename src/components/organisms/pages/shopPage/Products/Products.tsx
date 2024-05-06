@@ -36,7 +36,6 @@ const Products:React.FC = () => {
     useScrollToTop(currentPage);
     useEnsureValidPage(filteredProducts, currentPage, itemsPerPage, goToPage)
 
-
     useEffect(()=>{
       changeFilter('productsLength',totalItems)
     },[totalItems])

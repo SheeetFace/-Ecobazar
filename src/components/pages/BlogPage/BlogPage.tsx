@@ -1,4 +1,6 @@
+import FilterBlogs from '../../organisms/pages/blogPage/FilterBlogs/FilterBlogs';
 import HeaderBlog from '../../organisms/pages/blogPage/HeaderBlog/HeaderBlog';
+
 
 import styles from '../BlogPage/BlogPage.module.scss';
 
@@ -10,7 +12,7 @@ const BlogPage:React.FC = () => {
             <div className={styles._container}>
                     <div className={styles._wrapper}>
                         <div className={styles._filters}>
-                            {/* <FilterProducts/> */}
+                            <FilterBlogs/>
                         </div>
                         {/* <DiscountBanner/>
                         <SaleProducts/> */}

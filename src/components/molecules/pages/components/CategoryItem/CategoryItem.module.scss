@@ -1,0 +1,21 @@
+@import '../../../../../styles/colors.scss';
+@import '../../../../../styles/typography.scss';
+@import '../../styles/styles.module.scss';
+
+
+.CategoryItem{
+    display: flex;
+    align-items:center;
+    gap:.6rem;
+
+    ._container{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        
+        ._count{
+            color:$grey-4;
+            font-size: $body-small;
+        }
+    }
+}

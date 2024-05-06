@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import styles from '../components/organisms/pages/shopPage/styles/styles.module.scss'
+import styles from '../components/organisms/pages/styles/styles.module.scss';
 
 type UseToggleFilterReturnType = [string, string, ()=> void];
 
