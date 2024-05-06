@@ -1,20 +1,14 @@
-import DateFilter from '../components/DateFilter/DateFilter';
 
-import styles from '../HeaderShop/HeaderShop.module.scss';
+import {  useContext } from 'react';
+import { FilterContext } from '../../../../../context/FilterContext';
+
+import HeaderFilterPage from "../../components/HeaderFilterPage/HeaderFilterPage";
 
 const HeaderShop:React.FC = () => {
 
-    return (
-        <section className={styles.HeaderShop}>
+    const {filter, changeFilter} = useContext(FilterContext);
 
-            <DateFilter/>
-
-            <div className={styles._results}>
-                <span className={styles._count}>88</span>
-                <span>Results Found</span>
-            </div>
-        </section>
-    )
+    return( <HeaderFilterPage filter={filter} changeFilter={changeFilter}/>)
 }
 
 export default HeaderShop;

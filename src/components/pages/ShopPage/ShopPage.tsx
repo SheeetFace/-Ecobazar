@@ -10,6 +10,7 @@ import styles from '../ShopPage/ShopPage.module.scss';
 
 const ShopPage:React.FC = () => {
 
+
     return (
         <section className={styles.ShopPage}>
            <div className='center'>

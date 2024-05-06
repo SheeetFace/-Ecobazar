@@ -54,13 +54,12 @@ const Products:React.FC = () => {
       }
     }, [filter,currentPage]);
 
-    
-
+  
     const renderProductCard = useMemo(() => {
 
       if(filteredProducts.length===0) return <NotingFound/>
-       
-      return displayedData.map((item, i) => (
+      
+      return displayedData.map((item, i)=>(
           <ProductsCard
             key={i}
             name={item.name}
