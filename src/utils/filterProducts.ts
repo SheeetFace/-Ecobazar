@@ -1,38 +1,21 @@
 import { ProductDataType as ShopProduct } from "../types/productDataTypes"
 
-type TDate = 'newest'|'oldest'
+import type { InitProductFilter } from "../types/productFilterType";
 
-interface InitFilter{
-    categoryValue:string[]
-    price:{
-        min:string
-        max:string
-    },
-    rating:number[]
-    tag:string
-    date:TDate
-}
+// type TDate = 'newest'|'oldest'
 
-// interface ShopProduct{
-//     name:string
-//     id:string
-//     src:string
-//     currentCost:string
-//     oldCost:string
-//     sale:string
-//     rating:string
-//     promotedCategories:string[],
-//     weight:string
-//     color:string
-//     type:string
-//     category:string
-//     stockStatus:string
-//     date:string
-//     tag:string[]
-//     description:string
+// interface InitFilter{
+//     categoryValue:string[]
+//     price:{
+//         min:string
+//         max:string
+//     },
+//     rating:number[]
+//     tag:string
+//     date:TDate
 // }
 
-export const filterProducts = (products: ShopProduct[], filter: InitFilter): ShopProduct[] => {
+export const filterProducts = (products: ShopProduct[], filter: InitProductFilter): ShopProduct[] => {
 
     const sortedProducts = [...products].sort((a, b)=>{
       const dateA = new Date(a.date);
@@ -67,6 +50,6 @@ export const filterProducts = (products: ShopProduct[], filter: InitFilter): Sho
   
       return true; 
     });
-  
+    
     return filteredProducts;
 };

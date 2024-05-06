@@ -1,7 +1,7 @@
 import { memo, useContext } from 'react';
 
 import useToggleFilter from '../../../../../../hooks/useToggleFilter';
-import { FilterContext } from '../../../../../../context/FilterContext';
+import { ProductFilterContext } from '../../../../../../context/ProductFilterContext';
 
 import ReactSlider from 'react-slider'
 import Divider from '../../../../../atoms/Divider/Divider';
@@ -11,7 +11,7 @@ import styles from '../PriceFilter/PriceFilter.module.scss';
 const PriceFilter:React.FC = () => {
 
     const [arrowClass, bodyClass,toggle] =useToggleFilter(styles._container)
-    const {filter, changeFilter } = useContext(FilterContext);
+    const {filter, changeFilter } = useContext(ProductFilterContext);
 
     const handleFilter =(value:number[])=>{
         const newPrice = {  

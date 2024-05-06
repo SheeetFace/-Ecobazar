@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import { FilterContext } from '../../../../../../context/FilterContext';
+import { ProductFilterContext } from '../../../../../../context/ProductFilterContext';
 
 import Button from '../../../../../atoms/Button/Button';
 
@@ -8,7 +8,7 @@ import styles from '../ClearFilter/ClearFilter.module.scss';
 
 const ClearFilter:React.FC = () => {
 
-    const { clearFilter } = useContext(FilterContext);
+    const { clearFilter } = useContext(ProductFilterContext);
 
     const handleClearFilter =()=>{
         clearFilter()

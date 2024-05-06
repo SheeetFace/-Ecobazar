@@ -1,12 +1,13 @@
 import { useContext, useEffect, useMemo, useRef } from 'react';
 
 import usePagination from '../../../../../hooks/usePagination';
+import useSmoothTransition from '../../../../../hooks/useSmoothTransition';
 
 import ProductsCard from '../../../../molecules/card/ProductCard/ProductCard';
 import NotingFound from '../../../../atoms/NothingFound/NothingFound';
 import PaginationButtons from '../../../PaginationButtons/PaginationButtons';
 
-import { FilterContext } from '../../../../../context/FilterContext';
+import { ProductFilterContext } from '../../../../../context/ProductFilterContext';
 import { filterProducts } from '../../../../../utils/filterProducts';
 
 import { shopProductData } from '../../../../../data/temp/shopProductData';
@@ -15,19 +16,25 @@ import styles from '../Products/Products.module.scss';
 
 const Products:React.FC = () => {
 
-    const { filter } = useContext(FilterContext);
+    const { filter, changeFilter } = useContext(ProductFilterContext);
     const filteredProducts = filterProducts(shopProductData, filter);
 
     const itemsPerPage= 24;
     const totalItems = filteredProducts.length;
-  
+
+    const productsRef = useRef<HTMLDivElement>(null);
+
     const{displayedData,currentPage,goToNextPage,goToPrevPage,goToPage}=usePagination(
       totalItems,
       itemsPerPage,
       filteredProducts
     );
 
-    const productsRef = useRef<HTMLDivElement>(null);
+    useSmoothTransition(productsRef, filter, currentPage);
+
+    useEffect(()=>{
+      changeFilter('productsLength',totalItems)
+    },[totalItems])
 
     useEffect(() => {
       window.scrollTo({
@@ -36,25 +43,12 @@ const Products:React.FC = () => {
       });
     },[currentPage]);
 
-    useEffect(()=>{
+    useEffect(()=>{ //! mb this code move to hook too
       if(filteredProducts.length<(currentPage*itemsPerPage)) goToPage(1)
 
     },[JSON.stringify(filteredProducts)])
 
 
-    useEffect(()=>{
-      if(productsRef.current){
-        productsRef.current.classList.add(styles.productsFadeInOut);
-
-        const timer = setTimeout(()=>{
-          productsRef.current?.classList.remove(styles.productsFadeInOut);
-        },600);
-
-        return ()=>clearTimeout(timer);
-      }
-    }, [filter,currentPage]);
-
-  
     const renderProductCard = useMemo(() => {
 
       if(filteredProducts.length===0) return <NotingFound/>

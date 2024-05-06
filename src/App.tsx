@@ -18,13 +18,11 @@ import './styles/select.scss'
 import styles from '../src/app.module.scss'
 
 import { Outlet } from 'react-router-dom';
-import { FilterProvider } from './context/FilterContext';
+import { ProductFilterProvider } from './context/ProductFilterContext';
 import { ProductModalProvider } from './context/ProductModalContext';
 
 
 function App() {
-
-    
 
   return (
     <main className={styles.App}>
@@ -35,9 +33,9 @@ function App() {
         <Breadcrumb/>
 
         <ProductModalProvider>
-          <FilterProvider>
+          <ProductFilterProvider>
             <Outlet></Outlet>
-          </FilterProvider>
+          </ProductFilterProvider>
 
           <ProductModal/>
 

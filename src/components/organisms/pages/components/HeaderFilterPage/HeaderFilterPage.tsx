@@ -17,7 +17,7 @@ const HeaderFilterPage:React.FC<HeaderFilterPageProps> = ({filter,changeFilter})
             <DateFilter filter={filter} changeFilter={changeFilter}/>
 
             <div className={styles._results}>
-                <span className={styles._count}>88</span>
+                <span className={styles._count}>{filter.productsLength}</span>
                 <span>Results Found</span>
             </div>
         </section>

@@ -4,7 +4,7 @@ import CategoryItem from '../../../../../molecules/pages/shopPage/CategoryItem/C
 import Divider from '../../../../../atoms/Divider/Divider';
 
 import useToggleFilter from '../../../../../../hooks/useToggleFilter';
-import { FilterContext } from '../../../../../../context/FilterContext';
+import { ProductFilterContext } from '../../../../../../context/ProductFilterContext';
 
 import { allCategoriesData } from '../../../../../../data/filter/allCategories';
 
@@ -12,7 +12,7 @@ import styles from '../AllCategoriesFilter/AllCategoriesFilter.module.scss';
 
 const AllCategoriesFilter:React.FC = () => {
 
-    const {filter, changeFilter } = useContext(FilterContext);
+    const {filter, changeFilter } = useContext(ProductFilterContext);
     const [arrowClass, bodyClass,toggle] =useToggleFilter(styles._form)
 
     const handleFilter =(value:string)=>{

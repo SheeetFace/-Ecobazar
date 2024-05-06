@@ -3,7 +3,7 @@ import { memo, useContext, useMemo } from 'react';
 import TagItem from '../../../../../molecules/pages/shopPage/TagItem/TagItem';
 
 import useToggleFilter from '../../../../../../hooks/useToggleFilter';
-import { FilterContext } from '../../../../../../context/FilterContext';
+import { ProductFilterContext } from '../../../../../../context/ProductFilterContext';
 
 import { tagsData } from '../../../../../../data/filter/tagsData';
 
@@ -12,7 +12,7 @@ import styles from '../TagFilter/TagFilter.module.scss';
 const TagFilter:React.FC = () => {
 
     const [arrowClass, bodyClass,toggle] =useToggleFilter(styles._container)
-    const {filter,changeFilter } = useContext(FilterContext);
+    const {filter,changeFilter } = useContext(ProductFilterContext);
 
     const handleFilter =(value:string)=>{
         changeFilter('tag',value)

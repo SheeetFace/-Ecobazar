@@ -10,6 +10,7 @@ export interface InitProductFilter{
     rating:number[]
     tag:string
     date:TDate
+    productsLength:number
 }
 
 type TKey=  keyof InitProductFilter;

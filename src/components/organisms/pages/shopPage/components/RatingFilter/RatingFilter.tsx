@@ -3,7 +3,7 @@ import { memo, useContext, useMemo } from 'react';
 import RatingItem from '../../../../../molecules/pages/shopPage/RatingItem/RatingItem';
 
 import useToggleFilter from '../../../../../../hooks/useToggleFilter';
-import { FilterContext } from '../../../../../../context/FilterContext';
+import { ProductFilterContext } from '../../../../../../context/ProductFilterContext';
 
 import Divider from '../../../../../atoms/Divider/Divider';
 
@@ -12,7 +12,7 @@ import styles from '../RatingFilter/RatingFilter.module.scss';
 const RatingFilter:React.FC = () => {
 
     const [arrowClass, bodyClass,toggle] =useToggleFilter('')
-    const {filter,changeFilter } = useContext(FilterContext);
+    const {filter,changeFilter } = useContext(ProductFilterContext);
 
     const handleFilter =(value:number)=>{
         const rating = filter.rating
