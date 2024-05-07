@@ -18,7 +18,6 @@ const Info:React.FC<InfoProps> = ({count,category, owner}) => {
             <Category category={category}/>
             <Owner owner={owner}/>
             <CommentsCount count={count}/>
-           
         </div>
     )
 }

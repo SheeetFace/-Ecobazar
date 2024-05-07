@@ -1,0 +1,33 @@
+
+.Blogs{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+
+    ._container{
+        min-height: 1560px;
+
+        ._cards{
+            padding: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            overflow: hidden;
+            justify-content: space-around;
+
+            ._card{
+                width: 48%;
+                margin-bottom: 1.3rem;
+            }
+        }
+    }
+
+    ._pagButtons{
+        width: 100%;
+        padding-top: 2rem;
+        display: flex;
+
+        justify-content: center;
+    }
+}

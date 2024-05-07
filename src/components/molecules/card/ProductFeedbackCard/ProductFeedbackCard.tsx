@@ -17,7 +17,6 @@ interface ProductFeedbackCardProps{
 const ProductFeedbackCard:React.FC<ProductFeedbackCardProps> = ({id,name,avatar,rating,date,feedback}) => {
 
     const newDate = formatDate(date,'normal')
-    // const newDate = date ? (new Date(date).toLocaleDateString()):null;
 
     return (
         <div className={styles.ProductFeedbackCard}>

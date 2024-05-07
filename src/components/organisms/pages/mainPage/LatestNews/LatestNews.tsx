@@ -19,15 +19,16 @@ const LatestNews:React.FC = () => {
     const renderLatesNews = ()=>{
         return latestNews.map((item:LatestNewsItem,i)=>{
             return(
-                <BlogCard  id={item.id}
-                                category={item.category}
-                                owner={item.owner}
-                                commentsCount={item.commentsCount}
-                                title={item.title}
-                                date={item.date}
-                                src={item.src}
-                                key={i}
-                />
+                <div className={styles._card} key={i}>
+                    <BlogCard  id={item.id}
+                                    category={item.category}
+                                    owner={item.owner}
+                                    commentsCount={item.commentsCount}
+                                    title={item.title}
+                                    date={item.date}
+                                    src={item.src}   
+                    />
+                </div>
             )
         })
     }

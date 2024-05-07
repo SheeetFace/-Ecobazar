@@ -30,7 +30,8 @@ const BlogCard:React.FC<BlogCardProps> = ({id,category, owner,commentsCount,titl
                 <Info count={commentsCount} category={category} owner={owner}/>
                 <span className={styles._title}>{title}</span>
                 <div className={styles._button}>
-                    <Button className='ButtonTransparent colorTextGreenPrimary' type='button' text='Shop now &#10132;'/>
+                    <Button className=' ButtonTransparent colorTextGreenPrimary _navLinkGreenPrimaryLetterSpacing'
+                     type='button' text='Read More &#10132;'/>
                 </div>
             </div>
             
