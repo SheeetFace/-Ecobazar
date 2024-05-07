@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
 
 import type { InitProductFilter } from '../types/productFilterType';
+import type { InitBlogFilter } from '../types/blogFilterTypes';
 
 type Ref =React.RefObject<HTMLDivElement>
 
-type UseSmoothTransition = (ref:Ref,filter:InitProductFilter,currentPage:number)=>void
+type UseSmoothTransition = (ref:Ref,filter:InitProductFilter|InitBlogFilter,currentPage:number)=>void
 
 const useSmoothTransition:UseSmoothTransition=(ref,filter,currentPage)=>{
 

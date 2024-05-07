@@ -2,7 +2,9 @@ import blog1 from '../../assets/temp/blog/blog-01.webp';
 import blog2 from '../../assets/temp/blog/blog-02.webp';
 import blog3 from '../../assets/temp/blog/blog-03.webp';
 
-export const blogsData = [
+import type { BlogDataTypes } from '../../types/blogDataTypes';
+
+export const blogsData:BlogDataTypes[] = [
     {
         id:'1',
         category:'Vegetables',

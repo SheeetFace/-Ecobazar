@@ -22,6 +22,10 @@ import BlogPage from './components/pages/BlogPage/BlogPage.tsx';
 
 import ErrorBoundary from './components/pages/ErrorBoundary/ErrorBoundary.tsx';
 
+import { ProductFilterProvider } from './context/ProductFilterContext.tsx';
+// import { ProductModalProvider } from './context/ProductModalContext.tsx';
+import { BlogFilterProvider } from './context/BlogFilterContext.tsx';
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -49,7 +53,10 @@ const router = createBrowserRouter([
       },
       {
         path: "shop",
-        element: <ShopPage />,
+        element: 
+        <ProductFilterProvider>
+            <ShopPage/>
+        </ProductFilterProvider>,
       },
       {
         path: "shop/productPage/:name",
@@ -57,7 +64,10 @@ const router = createBrowserRouter([
       },
       {
         path: "blog",
-        element: <BlogPage />,
+        element: 
+        <BlogFilterProvider>
+          <BlogPage />
+        </BlogFilterProvider>,
       },
       {
         path: "about",

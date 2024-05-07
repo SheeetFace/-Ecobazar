@@ -5,15 +5,18 @@ import Divider from '../../../../atoms/Divider/Divider';
 
 import useToggleFilter from '../../../../../hooks/useToggleFilter';
 
+import { filterTypeGuard } from '../../../../../utils/filterTypeGuard';
+
 import { allCategoriesData } from '../../../../../data/filter/allCategories';
 
 import styles from '../CategoriesFilter/CategoriesFilter.module.scss';
 
 import type { InitProductFilter,TChangeProductFilterFn } from '../../../../../types/productFilterType';
+import type { InitBlogFilter,TChangeBlogFilterFn } from '../../../../../types/blogFilterTypes';
 
 interface CategoriesFilterProps{
-    filter:InitProductFilter
-    changeFilter:TChangeProductFilterFn
+    filter:InitProductFilter|InitBlogFilter
+    changeFilter:TChangeProductFilterFn|TChangeBlogFilterFn
 }
 
 const CategoriesFilter:React.FC<CategoriesFilterProps> = ({filter,changeFilter}) => {
@@ -21,7 +24,6 @@ const CategoriesFilter:React.FC<CategoriesFilterProps> = ({filter,changeFilter})
     const [arrowClass, bodyClass,toggle] =useToggleFilter(styles._form)
 
     const handleFilter =(value:string)=>{
-
         const category = filter.categoryValue;
 
         const index = category.findIndex((el)=> el===value)
@@ -29,7 +31,7 @@ const CategoriesFilter:React.FC<CategoriesFilterProps> = ({filter,changeFilter})
         if(index !== -1) category.splice(index,1)
         else category.push(value)
 
-        changeFilter('categoryValue',category)
+        filterTypeGuard(filter,changeFilter,'categoryValue',category)
     }
 
     const renderCategories=useMemo(()=>{

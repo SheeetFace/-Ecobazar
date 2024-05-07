@@ -2,12 +2,12 @@ import { useContext} from 'react';
 
 import CategoriesFilter from '../../../components/CategoriesFilter/CategoriesFilter';
 
-import { ProductFilterContext } from '../../../../../../context/ProductFilterContext';
+import { BlogFilterContext } from '../../../../../../context/BlogFilterContext';
 
 const BlogCatagoriesFilter:React.FC = () => {
 
-    const {filter, changeFilter } = useContext(ProductFilterContext); //! TEMP
-
+    const {filter, changeFilter } = useContext(BlogFilterContext);
+    
     return (<CategoriesFilter filter={filter} changeFilter={changeFilter}/>)
 }
 

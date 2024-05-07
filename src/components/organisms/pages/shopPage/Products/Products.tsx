@@ -10,7 +10,7 @@ import NotingFound from '../../../../atoms/NothingFound/NothingFound';
 import PaginationButtons from '../../../PaginationButtons/PaginationButtons';
 
 import { ProductFilterContext } from '../../../../../context/ProductFilterContext';
-import { filterProducts } from '../../../../../utils/filterProducts';
+import { filterProducts } from '../../../../../utils/filter/filterProducts';
 
 import { shopProductData } from '../../../../../data/temp/shopProductData';
 

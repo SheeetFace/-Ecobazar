@@ -4,15 +4,18 @@ import TagItem from '../../../../molecules/pages/components/TagItem/TagItem';
 
 import useToggleFilter from '../../../../../hooks/useToggleFilter';
 
+import { filterTypeGuard } from '../../../../../utils/filterTypeGuard';
+
 import { tagsData } from '../../../../../data/filter/tagsData';
 
 import styles from '../TagFilter/TagFilter.module.scss';
 
 import type { InitProductFilter,TChangeProductFilterFn } from '../../../../../types/productFilterType';
+import type { InitBlogFilter,TChangeBlogFilterFn } from '../../../../../types/blogFilterTypes';
 
 interface TagFilterProps{
-    filter:InitProductFilter
-    changeFilter:TChangeProductFilterFn
+    filter:InitProductFilter|InitBlogFilter
+    changeFilter:TChangeProductFilterFn|TChangeBlogFilterFn
 }
 
 const TagFilter:React.FC<TagFilterProps> = ({filter,changeFilter}) => {
@@ -20,7 +23,8 @@ const TagFilter:React.FC<TagFilterProps> = ({filter,changeFilter}) => {
     const [arrowClass, bodyClass,toggle] =useToggleFilter(styles._container)
 
     const handleFilter =(value:string)=>{
-        changeFilter('tag',value)
+
+        filterTypeGuard(filter,changeFilter,'tag',value)
     }
     
     const renderTags = useMemo(()=>{

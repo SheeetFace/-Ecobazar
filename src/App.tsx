@@ -5,7 +5,6 @@ import Breadcrumb from './components/molecules/Breadcrumb/Breadcrumb';
 
 import ProductModal from './components/organisms/modal/ProductModal/ProductModal';
 
-
 import Newsletter from './components/molecules/newsletter/Newsletter/Newsletter';
 import Footer from './components/organisms/Footer/Footer';
 
@@ -18,7 +17,6 @@ import './styles/select.scss'
 import styles from '../src/app.module.scss'
 
 import { Outlet } from 'react-router-dom';
-import { ProductFilterProvider } from './context/ProductFilterContext';
 import { ProductModalProvider } from './context/ProductModalContext';
 
 
@@ -32,12 +30,21 @@ function App() {
         <Navigation/>
         <Breadcrumb/>
 
-        <ProductModalProvider>
-          <ProductFilterProvider>
-            <Outlet></Outlet>
-          </ProductFilterProvider>
+        {/* <ProductModalProvider>
+            <ProductFilterProvider>
+              <BlogFilterProvider>
+                <Outlet></Outlet>
+              </BlogFilterProvider>
+            </ProductFilterProvider>
 
           <ProductModal/>
+
+        </ProductModalProvider> */}
+
+        <ProductModalProvider>
+                <Outlet></Outlet>
+
+              <ProductModal/>
 
         </ProductModalProvider>
 

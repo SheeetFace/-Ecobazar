@@ -2,12 +2,15 @@ import { useContext, useEffect, useMemo, useRef } from 'react';
 
 import usePagination from '../../../../../hooks/usePagination';
 import useScrollToTop from '../../../../../hooks/useScrollToTop';
+import useSmoothTransition from '../../../../../hooks/useSmoothTransition';
 import useEnsureValidPage from '../../../../../hooks/useEnsureValidPage';
 
 import BlogCard from '../../../../molecules/card/BlogCard/BlogCard';
 
 import NotingFound from '../../../../atoms/NothingFound/NothingFound';
 import PaginationButtons from '../../../PaginationButtons/PaginationButtons';
+
+import { BlogFilterContext } from '../../../../../context/BlogFilterContext';
 
 import { blogsData } from '../../../../../data/temp/blogsData';
 
@@ -16,7 +19,7 @@ import styles from '../Blogs/Blogs.module.scss';
 
 const Blogs:React.FC = () => {
 
-    // const { filter, changeFilter } = useContext(ProductFilterContext);
+    const { filter, changeFilter } = useContext(BlogFilterContext);
     // const filteredProducts = filterProducts(shopProductData, filter);
 
     const filteredProducts = blogsData; //!temp
@@ -32,13 +35,13 @@ const Blogs:React.FC = () => {
       filteredProducts
     );
 
-    // useSmoothTransition(blogsRef, filter, currentPage);
+    useSmoothTransition(blogsRef, filter, currentPage);
     useScrollToTop(currentPage);
     // useEnsureValidPage(filteredProducts, currentPage, itemsPerPage, goToPage)
 
-    // useEffect(()=>{
-    //   changeFilter('productsLength',totalItems)
-    // },[totalItems])
+    useEffect(()=>{
+      changeFilter('blogsLength',totalItems)
+    },[totalItems])
 
 
     const renderBlogCards = useMemo(()=>{

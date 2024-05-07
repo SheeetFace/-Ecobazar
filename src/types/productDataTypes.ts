@@ -1,6 +1,4 @@
-
 export interface ProductDataType{
-
         name:string,
         id:string,
         src:string,
@@ -18,5 +16,4 @@ export interface ProductDataType{
         date:string,
         tag:string[],
         description:string,
-    
 }
