@@ -1,17 +1,15 @@
-import { useContext } from 'react';
-
-import { ProductFilterContext } from '../../../../../../context/ProductFilterContext';
-
-import Button from '../../../../../atoms/Button/Button';
+import Button from '../../../../atoms/Button/Button';
 
 import styles from '../ClearFilter/ClearFilter.module.scss';
 
-const ClearFilter:React.FC = () => {
+interface ClearFilterProps{
+    clearFilterFn:()=>void
+}
 
-    const { clearFilter } = useContext(ProductFilterContext);
+const ClearFilter:React.FC<ClearFilterProps> = ({clearFilterFn}) => {
 
     const handleClearFilter =()=>{
-        clearFilter()
+        clearFilterFn()
     }
 
     return (

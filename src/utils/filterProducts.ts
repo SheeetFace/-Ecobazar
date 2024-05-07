@@ -2,19 +2,6 @@ import { ProductDataType as ShopProduct } from "../types/productDataTypes"
 
 import type { InitProductFilter } from "../types/productFilterType";
 
-// type TDate = 'newest'|'oldest'
-
-// interface InitFilter{
-//     categoryValue:string[]
-//     price:{
-//         min:string
-//         max:string
-//     },
-//     rating:number[]
-//     tag:string
-//     date:TDate
-// }
-
 export const filterProducts = (products: ShopProduct[], filter: InitProductFilter): ShopProduct[] => {
 
     const sortedProducts = [...products].sort((a, b)=>{
@@ -44,7 +31,7 @@ export const filterProducts = (products: ShopProduct[], filter: InitProductFilte
       }
   
       // if(filter.tag && product.tag !== filter.tag){
-        if(filter.tag && product.tag && !product.tag.includes(filter.tag)){
+      if(filter.tag && product.tag && !product.tag.includes(filter.tag)){
         return false;
       }
   

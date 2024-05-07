@@ -1,7 +1,7 @@
-
 import SearchFilter from '../components/SearchFilter/SearchFilter';
 import BlogCatagoriesFilter from '../components/BlogCatagoriesFilter/BlogCatagoriesFilter';
-
+import BlogTagFilter from '../components/BlogTagFilter/BlogTagFilter';
+import BlogClearFilter from '../components/BlogClearFilter/BlogClearFilter';
 
 import Button from '../../../../atoms/Button/Button';
 
@@ -32,7 +32,13 @@ const FilterBlogs:React.FC = () => {
             <div className={bodyClass}>
                 <BlogCatagoriesFilter/>
             </div>
-
+            <div className={bodyClass}>
+                <BlogTagFilter/>
+            </div>
+            <div className={bodyClass}>
+                <BlogClearFilter/>
+            </div>
+            
         </section>
     )
 }

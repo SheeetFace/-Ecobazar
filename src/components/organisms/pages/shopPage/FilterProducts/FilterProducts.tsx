@@ -2,8 +2,8 @@ import Button from '../../../../atoms/Button/Button';
 import ProductCategoriesFilter from '../components/ProductCategoriesFilter/ProductCategoriesFilter';
 import PriceFilter from '../components/PriceFilter/PriceFilter';
 import RatingFilter from '../components/RatingFilter/RatingFilter';
-import TagFilter from '../components/TagFilter/TagFilter';
-import ClearFilter from '../components/ClearFilter/ClearFilter';
+import ProductTagFilter from '../components/ProductTagFilter/ProductTagFilter';
+import ProductClearFilter from '../components/ProductClearFilter/ProductClearFilter';
 
 import FilterIcon from '../../../../atoms/icon/navigate/FilterIcon';
 
@@ -39,14 +39,12 @@ const FilterProducts: React.FC = () => {
         </div>
 
         <div className={bodyClass}>
-          <TagFilter />
+          <ProductTagFilter />
         </div>
 
         <div className={bodyClass}>
-          <ClearFilter />
+          <ProductClearFilter />
         </div>
-        
-
       </section>
     );
   };

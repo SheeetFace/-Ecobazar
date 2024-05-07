@@ -1,18 +1,23 @@
-import { memo, useContext, useMemo } from 'react';
+import { memo, useMemo } from 'react';
 
-import TagItem from '../../../../../molecules/pages/shopPage/TagItem/TagItem';
+import TagItem from '../../../../molecules/pages/components/TagItem/TagItem';
 
-import useToggleFilter from '../../../../../../hooks/useToggleFilter';
-import { ProductFilterContext } from '../../../../../../context/ProductFilterContext';
+import useToggleFilter from '../../../../../hooks/useToggleFilter';
 
-import { tagsData } from '../../../../../../data/filter/tagsData';
+import { tagsData } from '../../../../../data/filter/tagsData';
 
 import styles from '../TagFilter/TagFilter.module.scss';
 
-const TagFilter:React.FC = () => {
+import type { InitProductFilter,TChangeProductFilterFn } from '../../../../../types/productFilterType';
+
+interface TagFilterProps{
+    filter:InitProductFilter
+    changeFilter:TChangeProductFilterFn
+}
+
+const TagFilter:React.FC<TagFilterProps> = ({filter,changeFilter}) => {
 
     const [arrowClass, bodyClass,toggle] =useToggleFilter(styles._container)
-    const {filter,changeFilter } = useContext(ProductFilterContext);
 
     const handleFilter =(value:string)=>{
         changeFilter('tag',value)

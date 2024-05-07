@@ -10,7 +10,9 @@ export const latestNews = [
         commentsCount:'63',
         title:'Curabitur porttitor orci eget neque accumsan venenatis. Nunc fermentum.',
         date:'28 MAR',
-        src:blog1
+        src:blog1,
+        // date: '2024-04-01',
+        tag:['Vitamins','Kid foods','Low fat','Vegetarian','Healthy'],
     },
     {
         id:'2',
@@ -30,6 +32,4 @@ export const latestNews = [
         date:'8 JAN',
         src:blog3
     },
-
-
 ]
