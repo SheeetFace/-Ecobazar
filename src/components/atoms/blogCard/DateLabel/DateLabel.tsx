@@ -1,3 +1,5 @@
+import { formatDate } from '../../../../utils/formatDate';
+
 import styles from '../DateLabel/DateLabel.module.scss';
 
 interface DateLabelProps{
@@ -6,7 +8,8 @@ interface DateLabelProps{
 
 const DateLabel:React.FC<DateLabelProps> = ({date}) => {
 
-    const [day, month] = date.split(' ')
+    const dateFormatted = formatDate(date,'short')
+    const [day, month] = dateFormatted.split(' ')
 
     return (
         <div className={styles.DateLabel}>

@@ -1,6 +1,8 @@
 import RatingStars from '../../RatingStars/RatingStars';
 import Divider from '../../../atoms/Divider/Divider';
 
+import { formatDate } from '../../../../utils/formatDate';
+
 import styles from '../ProductFeedbackCard/ProductFeedbackCard.module.scss';
 
 interface ProductFeedbackCardProps{
@@ -8,13 +10,14 @@ interface ProductFeedbackCardProps{
     name:string
     avatar:string
     rating:string
-    date:number
+    date:string
     feedback:string
 }
 
 const ProductFeedbackCard:React.FC<ProductFeedbackCardProps> = ({id,name,avatar,rating,date,feedback}) => {
 
-    const newDate = date ? (new Date(date).toLocaleDateString()):null;
+    const newDate = formatDate(date,'normal')
+    // const newDate = date ? (new Date(date).toLocaleDateString()):null;
 
     return (
         <div className={styles.ProductFeedbackCard}>

@@ -9,9 +9,9 @@ export const latestNews = [
         owner:'Admin',
         commentsCount:'63',
         title:'Curabitur porttitor orci eget neque accumsan venenatis. Nunc fermentum.',
-        date:'28 MAR',
+        // date:'28 MAR',
         src:blog1,
-        // date: '2024-04-01',
+        date: '2024-04-01',
         tag:['Vitamins','Kid foods','Low fat','Vegetarian','Healthy'],
     },
     {
@@ -20,7 +20,8 @@ export const latestNews = [
         owner:'Admin',
         commentsCount:'64',
         title:'Curabitur porttitor orci eget neque accumsan venenatis. Nunc fermentum.',
-        date:'11 NOV',
+        // date:'11 NOV',
+        date: '2024-04-02',
         src:blog2
     },
     {
@@ -29,7 +30,8 @@ export const latestNews = [
         owner:'Admin',
         commentsCount:'65',
         title:'Curabitur porttitor orci eget neque accumsan venenatis. Nunc fermentum.',
-        date:'8 JAN',
+        // date:'8 JAN',
+        date: '2024-04-03',
         src:blog3
     },
 ]
