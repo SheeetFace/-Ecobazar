@@ -11,3 +11,4 @@ export interface InitBlogFilter{
 
 type TKey=  keyof InitBlogFilter;
 export type TChangeBlogFilterFn = <K extends TKey>(key: K, newFilter: InitBlogFilter[K]) => void;
+

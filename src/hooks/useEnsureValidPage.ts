@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 
 import type { ProductDataType } from "../types/productDataTypes";
+import type { BlogDataTypes } from "../types/blogDataTypes";
 
 type UseEnsureValidPage = (
-    filteredProducts:ProductDataType[],
+    filteredProducts:ProductDataType[]|BlogDataTypes[],
     currentPage:number,
     itemsPerPage:number,
     goToPage:(page:number)=>void

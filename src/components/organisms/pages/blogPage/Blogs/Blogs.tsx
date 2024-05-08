@@ -5,12 +5,14 @@ import useScrollToTop from '../../../../../hooks/useScrollToTop';
 import useSmoothTransition from '../../../../../hooks/useSmoothTransition';
 import useEnsureValidPage from '../../../../../hooks/useEnsureValidPage';
 
+import { BlogFilterContext } from '../../../../../context/BlogFilterContext';
+
+import { filterBlogs } from '../../../../../utils/filter/filterBlogs';
+
 import BlogCard from '../../../../molecules/card/BlogCard/BlogCard';
 
 import NotingFound from '../../../../atoms/NothingFound/NothingFound';
 import PaginationButtons from '../../../PaginationButtons/PaginationButtons';
-
-import { BlogFilterContext } from '../../../../../context/BlogFilterContext';
 
 import { blogsData } from '../../../../../data/temp/blogsData';
 
@@ -20,24 +22,22 @@ import styles from '../Blogs/Blogs.module.scss';
 const Blogs:React.FC = () => {
 
     const { filter, changeFilter } = useContext(BlogFilterContext);
-    // const filteredProducts = filterProducts(shopProductData, filter);
-
-    const filteredProducts = blogsData; //!temp
+    const filteredBlogs = filterBlogs(blogsData, filter);
 
     const itemsPerPage= 6;
-    const totalItems = blogsData.length;
+    const totalItems = filteredBlogs.length;
 
     const blogsRef = useRef<HTMLDivElement>(null);
 
     const{displayedData,currentPage,goToNextPage,goToPrevPage,goToPage}=usePagination(
       totalItems,
       itemsPerPage,
-      filteredProducts
+      filteredBlogs
     );
 
     useSmoothTransition(blogsRef, filter, currentPage);
     useScrollToTop(currentPage);
-    // useEnsureValidPage(filteredProducts, currentPage, itemsPerPage, goToPage)
+    useEnsureValidPage(filteredBlogs, currentPage, itemsPerPage, goToPage)
 
     useEffect(()=>{
       changeFilter('blogsLength',totalItems)
@@ -45,6 +45,9 @@ const Blogs:React.FC = () => {
 
 
     const renderBlogCards = useMemo(()=>{
+
+      if(filteredBlogs.length===0) return <NotingFound/>
+
         return displayedData.map((item,i)=>{
             return(
                     <div className={styles._card} key={i}>

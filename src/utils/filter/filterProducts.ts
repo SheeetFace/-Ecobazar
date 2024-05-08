@@ -1,9 +1,8 @@
-import { ProductDataType as ShopProduct } from "../../types/productDataTypes"
-
 import { subFilterCategoryValue } from "./subFilters/subFilterCategoryValue";
 import { subFilterTag } from "./subFilters/subFilterTag";
 import { subFilterDate } from "./subFilters/subFilterDate";
 
+import type { ProductDataType as ShopProduct } from "../../types/productDataTypes"
 import type { InitProductFilter } from "../../types/productFilterType";
 
 export const filterProducts = (products: ShopProduct[], filter: InitProductFilter): ShopProduct[] => {
@@ -25,7 +24,7 @@ export const filterProducts = (products: ShopProduct[], filter: InitProductFilte
       if(filter.rating.length > 0 && !filter.rating.includes(+product.rating)){
         return false;
       }
-  
+
       if(!subFilterTag(filter.tag,product.tag)) return false;
       
       return true; 

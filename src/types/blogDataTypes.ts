@@ -6,5 +6,5 @@ export interface BlogDataTypes{
     title:string
     src:string
     date:string
-    tag:string
+    tag:string[]
 }

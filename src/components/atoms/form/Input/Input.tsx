@@ -1,3 +1,5 @@
+import type {ChangeEvent} from 'react'
+
 interface InputProps{
     placeholder?:string
     forwardRef?: React.RefObject<HTMLInputElement>
@@ -8,9 +10,10 @@ interface InputProps{
     register?: any 
     isErrorValidation?:boolean  //! rewrite later on req prop
     maxLength?:number
+    changeFn?:(e:ChangeEvent<HTMLInputElement>) => void
 }
 
-const Input:React.FC<InputProps> =({placeholder, forwardRef, className,type, icon,register=null,isErrorValidation,maxLength=40})=>{
+const Input:React.FC<InputProps> =({placeholder, forwardRef, className,type, icon,register=null,isErrorValidation,maxLength=40, changeFn})=>{
 
     const isError = isErrorValidation ? '_errorInput' : ''; 
     const classs = type==='checkbox' ?  className : `DefaultBorderStyle ${className} ${isError}`;
@@ -21,6 +24,7 @@ const Input:React.FC<InputProps> =({placeholder, forwardRef, className,type, ico
                    type={type}
                    placeholder={placeholder}
                    maxLength={maxLength}
+                   onChange={changeFn ? (e)=>changeFn(e) : undefined}
                    {...register}
                   />
             {icon ? icon: null}

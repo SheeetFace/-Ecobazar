@@ -1,18 +1,24 @@
 import { ChangeEvent } from 'react';
 
+import { filterTypeGuard } from '../../../../../utils/filterTypeGuard';
+
 import styles from '../DateFilter/DateFilter.module.scss';
 
-import type { TDate,InitProductFilter,TChangeProductFilterFn } from '../../../../../../types/productFilterType';
+import type { TDate,InitProductFilter,TChangeProductFilterFn } from '../../../../../types/productFilterType';
+import type { InitBlogFilter,TChangeBlogFilterFn } from '../../../../../types/blogFilterTypes';
 
 interface DateFilterProps{
-    filter:InitProductFilter
-    changeFilter:TChangeProductFilterFn
+    filter: InitProductFilter|InitBlogFilter
+    changeFilter: TChangeProductFilterFn|TChangeBlogFilterFn
 }
 
 const DateFilter:React.FC<DateFilterProps> = ({ filter, changeFilter }) => {
 
     const handleFilter = (event: ChangeEvent<HTMLSelectElement>)=>{
-        changeFilter('date', event.target.value as TDate)
+
+        const date = event.target.value as TDate;
+
+        filterTypeGuard(filter,changeFilter,'date',date)
     }
 
     return (

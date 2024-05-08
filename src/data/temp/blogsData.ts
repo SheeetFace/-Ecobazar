@@ -13,7 +13,7 @@ export const blogsData:BlogDataTypes[] = [
         title:"VeggieVibes: A Fresh Perspective",
         src:blog1,
         date: '2024-04-01',
-        tag:'Vitamins',
+        tag:['Vitamins'],
     },
     {
         id:'2',
@@ -23,7 +23,7 @@ export const blogsData:BlogDataTypes[] = [
         title:"Fruitful Journeys",
         date: '2024-04-02',
         src:blog2,
-        tag:'Kid foods',
+        tag:['Kid foods'],
     },
     {
         id:'3',
@@ -33,7 +33,7 @@ export const blogsData:BlogDataTypes[] = [
         title:"The Crunchy Carrot Chronicles",
         date: '2024-04-03',
         src:blog3,
-        tag:'Low fat',
+        tag:['Low fat'],
     },
     {
         id:'4',
@@ -43,7 +43,7 @@ export const blogsData:BlogDataTypes[] = [
         title:"Berry Bliss Diaries",
         src:blog1,
         date: '2024-04-04',
-        tag:'Vegetarian',
+        tag:['Vegetarian'],
     },
     {
         id:'5',
@@ -53,7 +53,7 @@ export const blogsData:BlogDataTypes[] = [
         title:"Peas in a Pod: Green Living",
         src:blog2,
         date: '2024-04-05',
-        tag:'Healthy',
+        tag:['Healthy'],
     },
     {
         id:'6',
@@ -63,7 +63,7 @@ export const blogsData:BlogDataTypes[] = [
         title:"The Citrus Circle",
         src:blog3,
         date: '2024-04-06',
-        tag:'Vitamins',
+        tag:['Vitamins'],
     },
     {
         id:'7',
@@ -73,7 +73,7 @@ export const blogsData:BlogDataTypes[] = [
         title:"Apple Orchard Adventures",
         src:blog1,
         date: '2024-04-07',
-        tag:'Kid foods',
+        tag:['Kid foods'],
     },
     {
         id:'8',
@@ -83,7 +83,7 @@ export const blogsData:BlogDataTypes[] = [
         title:"Kale Kaleidoscope",
         src:blog2,
         date: '2024-04-08',
-        tag:'Low fat',
+        tag:['Low fat'],
     },
     {
         id:'9',
@@ -93,7 +93,7 @@ export const blogsData:BlogDataTypes[] = [
         title:"Pineapple Paradise",
         src:blog3,
         date: '2024-04-09',
-        tag:'Vegetarian',
+        tag:['Vegetarian'],
     },
     {
         id:'10',
@@ -103,7 +103,7 @@ export const blogsData:BlogDataTypes[] = [
         title:"The Banana Bunch Blog",
         src:blog1,
         date: '2024-04-10',
-        tag:'Healthy',
+        tag:['Healthy'],
     },
     {
         id:'11',
@@ -113,7 +113,7 @@ export const blogsData:BlogDataTypes[] = [
         title:"Tomato Tango",
         src:blog2,
         date: '2024-04-11',
-        tag:'Vitamins',
+        tag:['Vitamins'],
     },
     {
         id:'12',
@@ -123,7 +123,7 @@ export const blogsData:BlogDataTypes[] = [
         title:"The Zesty Lemon Life",
         src:blog3,
         date: '2024-04-12',
-        tag:'Kid foods',
+        tag:['Kid foods'],
     },
     {
         id:'13',
@@ -133,7 +133,7 @@ export const blogsData:BlogDataTypes[] = [
         title:"Grapevine Gossip",
         src:blog1,
         date: '2024-04-13',
-        tag:'Low fat',
+        tag:['Low fat'],
     },
     {
         id:'14',
@@ -143,7 +143,7 @@ export const blogsData:BlogDataTypes[] = [
         title:"The Sweet Peach Patch",
         src:blog2,
         date: '2024-04-14',
-        tag:'Vegetarian',
+        tag:['Vegetarian'],
     },
     {
         id:'15',
@@ -153,7 +153,7 @@ export const blogsData:BlogDataTypes[] = [
         title:"Cornucopia of Cucumbers",
         src:blog3,
         date: '2024-04-15',
-        tag:'Healthy',
+        tag:['Healthy'],
     },
     {
         id:'16',
@@ -163,7 +163,7 @@ export const blogsData:BlogDataTypes[] = [
         title:"The Pumpkin Patch Diaries",
         src:blog1,
         date: '2024-04-16',
-        tag:'Vitamins',
+        tag:['Vitamins'],
     },
     {
         id:'17',
@@ -173,7 +173,7 @@ export const blogsData:BlogDataTypes[] = [
         title:"Strawberry Fields Forever",
         src:blog2,
         date: '2024-04-17',
-        tag:'Kid foods',
+        tag:['Kid foods'],
     },
     {
         id:'18',
@@ -183,7 +183,7 @@ export const blogsData:BlogDataTypes[] = [
         title:"The Avocado Advocate",
         src:blog3,
         date: '2024-04-18',
-        tag:'Low fat',
+        tag:['Low fat'],
     },
     {
         id:'19',
@@ -193,7 +193,7 @@ export const blogsData:BlogDataTypes[] = [
         title:"The Pomegranate Press",
         src:blog2,
         date: '2024-04-19',
-        tag:'Vegetarian',
+        tag:['Vegetarian'],
     },
     {
         id:'20',
@@ -203,7 +203,7 @@ export const blogsData:BlogDataTypes[] = [
         title:"The Radish Report",
         src:blog3,
         date: '2024-04-20',
-        tag:'Healthy',
+        tag:['Healthy'],
     },
     {
         id:'21',
@@ -213,7 +213,7 @@ export const blogsData:BlogDataTypes[] = [
         title:"The Juicy Watermelon",
         src:blog1,
         date: '2024-04-21',
-        tag:'Vitamins',
+        tag:['Vitamins'],
     },
     {
         id:'22',
@@ -223,7 +223,7 @@ export const blogsData:BlogDataTypes[] = [
         title:"The Broccoli Bulletin",
         src:blog2,
         date: '2024-04-22',
-        tag:'Kid foods',
+        tag:['Kid foods'],
     },
     {
         id:'23',
@@ -233,7 +233,7 @@ export const blogsData:BlogDataTypes[] = [
         title:"The Fig Leaf Files",
         src:blog3,
         date: '2024-04-23',
-        tag:'Low fat',
+        tag:['Low fat'],
     },
     {
         id:'24',
@@ -243,7 +243,7 @@ export const blogsData:BlogDataTypes[] = [
         title: "The Mango Muse",
         src:blog1,
         date: '2024-04-24',
-        tag:'Vegetarian',
+        tag:['Vegetarian'],
     },
     {
         id:'25',
@@ -253,6 +253,6 @@ export const blogsData:BlogDataTypes[] = [
         title:"The Potato Peel Post",
         src:blog2,
         date: '2024-04-25',
-        tag:'Healthy',
+        tag:['Healthy'],
     },
 ]
