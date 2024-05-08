@@ -48,6 +48,10 @@ textarea{
 ._searchInputBlog{
     border-radius:6px;
 }
+._invalidSearchBlog{
+    @extend ._searchInputBlog;
+    border:1px solid $danger-color;
+}
 
 ._subscribeInput{
     background-color:$white-color;

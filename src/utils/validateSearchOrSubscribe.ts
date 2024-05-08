@@ -6,9 +6,16 @@ export const validateSearchOrSubscribe = (value:string, type:ValidateSearchOrSub
       result: true,
       reason: '',
     };
+
+    if(value.startsWith(' ')){
+      validation.result = false;
+      validation.reason = 'leadingSpace';
+      
+      return validation;
+    }
   
     const trimmedValue = value.trim();
-  
+
     if(type === ValidateSearchOrSubscribeTypes.SEARCH && !trimmedValue){
 
       validation.result = false;

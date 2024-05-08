@@ -3,7 +3,7 @@ export enum ValidateSearchOrSubscribeTypes {
     SUBSCRIBE = 'subscribe',
 }
 
-type ValidationResultReason = 'inputEmpty'|'invalidEmailFormat'|'';
+type ValidationResultReason = 'inputEmpty'|'invalidEmailFormat'|'leadingSpace'|'';
 
 export interface ValidationResult{
     result:boolean
