@@ -37,13 +37,29 @@ export const BlogFilterProvider:React.FC<BlogFilterProviderProps> = ({ children 
     const [filter, setFilter] = useState<InitBlogFilter>(()=>createInitBlogFilter());
     
     const changeFilter: TChangeBlogFilterFn =(key, newFilter)=>{
-        setFilter((prevFilter) => ({
-          ...prevFilter,
-          [key]: newFilter,
-        }));
+        setFilter((prevFilter) => {
+
+          if(key === 'tag' && prevFilter.tag === newFilter) return prevFilter;
+
+          return{
+            ...prevFilter,
+            [key]: newFilter,
+          }
+        });
     }
   
-    const clearFilter =()=>{setFilter(()=>createInitBlogFilter())}
+    const clearFilter =()=>{
+      setFilter((prevFilter)=>{
+        const isFilterEmpty = prevFilter.search === '' &&
+                              prevFilter.categoryValue.length === 0 &&
+                              prevFilter.tag === '' &&
+                              prevFilter.date === 'newest'
+    
+        if(isFilterEmpty) return prevFilter;
+
+        return createInitBlogFilter();
+      });
+    }
   
     return(
       <BlogFilterContext.Provider value={{ filter, changeFilter,clearFilter }}>

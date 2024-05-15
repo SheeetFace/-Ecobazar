@@ -40,14 +40,31 @@ export const ProductFilterProvider:React.FC<ProductFilterProviderProps> = ({ chi
   const [filter, setFilter] = useState<InitProductFilter>(()=>createInitProductFilter());
 
   const changeFilter: TChangeProductFilterFn =(key, newFilter)=>{
-    //need to do something with the comparison and don't call the function with the same value
-      setFilter((prevFilter) => ({
-        ...prevFilter,
-        [key]: newFilter,
-      }));
+      setFilter((prevFilter)=>{
+
+        if(key === 'tag' && prevFilter.tag === newFilter) return prevFilter;
+
+        return{
+          ...prevFilter,
+          [key]: newFilter,
+        }
+      });
   }
 
-  const clearFilter =()=>{setFilter(()=>createInitProductFilter())}
+  const clearFilter =()=>{
+    setFilter((prevFilter)=>{
+      const isFilterEmpty = prevFilter.categoryValue.length === 0 &&
+                            prevFilter.price.min==='' &&
+                            prevFilter.price.max==='' &&
+                            prevFilter.rating.length === 0 &&
+                            prevFilter.tag=== '' &&
+                            prevFilter.date=== 'newest'
+
+      if(isFilterEmpty) return prevFilter;
+
+      return createInitProductFilter()
+    }
+  )}
 
   return(
     <ProductFilterContext.Provider value={{ filter, changeFilter,clearFilter }}>

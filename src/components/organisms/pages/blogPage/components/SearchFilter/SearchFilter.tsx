@@ -8,7 +8,7 @@ import Input from '../../../../../atoms/form/Input/Input';
 import Divider from '../../../../../atoms/Divider/Divider';
 
 import useValidation from '../../../../../../hooks/useValidation';
-import useDebounce from '../../../../../../hooks/useDebounce';
+// import useDebounce from '../../../../../../hooks/useDebounce';
 
 import styles from '../SearchFilter/SearchFilter.module.scss';
 
@@ -24,15 +24,12 @@ const SearchFilter:React.FC = () => {
     const handleSearch = useCallback((e:ChangeEvent<HTMLInputElement>)=>{
 
         const value = e.target.value;
+        const validationResult = validateFn(value, ValidateSearchOrSubscribeTypes.SEARCH);
+        
+        if(validationResult.result || value === '') filterTypeGuard(filter, changeFilter, "search", value);
+        else if(!validationResult.result && filter.search !== '') filterTypeGuard(filter, changeFilter, "search", '');
 
-        const validationResult =validateFn(value, ValidateSearchOrSubscribeTypes.SEARCH)
-
-        if(validationResult.result) filterTypeGuard(filter,changeFilter,"search", value)
-        else if(!validationResult.result && validationResult.reason === 'inputEmpty' && filter.search !=='') filterTypeGuard(filter,changeFilter,"search", '')
-        else filterTypeGuard(filter,changeFilter,"search", '')
-    },[])
-
-    console.log(filter.search)
+    }, [validateFn])
 
     const renderInput = useMemo(()=>{
         return(
@@ -41,9 +38,10 @@ const SearchFilter:React.FC = () => {
                     className={(isValid) ?"_searchInputBlog":"_invalidSearchBlog"}
                     maxLength={30}
                     changeFn={handleSearch}
+                    value={filter.search}
             />
         )
-    },[isValid])
+    },[isValid, filter.search])
 
     return (
         <section className={styles.SearchFilter}>

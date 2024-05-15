@@ -11,9 +11,10 @@ interface InputProps{
     isErrorValidation?:boolean  //! rewrite later on req prop
     maxLength?:number
     changeFn?:(e:ChangeEvent<HTMLInputElement>) => void
+    value?:string
 }
 
-const Input:React.FC<InputProps> =({placeholder, forwardRef, className,type, icon,register=null,isErrorValidation,maxLength=40, changeFn})=>{
+const Input:React.FC<InputProps> =({placeholder, forwardRef, className,type, icon,register=null,isErrorValidation,maxLength=40, changeFn, value})=>{
 
     const isError = isErrorValidation ? '_errorInput' : ''; 
     const classs = type==='checkbox' ?  className : `DefaultBorderStyle ${className} ${isError}`;
@@ -25,6 +26,7 @@ const Input:React.FC<InputProps> =({placeholder, forwardRef, className,type, ico
                    placeholder={placeholder}
                    maxLength={maxLength}
                    onChange={changeFn ? (e)=>changeFn(e) : undefined}
+                   value={value}
                    {...register}
                   />
             {icon ? icon: null}
