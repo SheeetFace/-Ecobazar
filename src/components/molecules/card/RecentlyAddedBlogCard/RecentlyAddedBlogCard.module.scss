@@ -1,0 +1,40 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/typography.scss';
+
+.RecentlyAddedBlogCard{
+   display: flex;
+   font-size: $body-small;
+   border-radius:6px;
+   background-color:$white-color;
+   border:1px solid $grey-1;
+
+   img{
+        height: 80px;
+        border-radius:6px;
+   }
+
+   ._title{
+        font-weight: $semiBold;
+        color: $grey-8;
+        display: -webkit-box;
+        max-height: 61px;
+        -webkit-line-clamp: 3; 
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+   }
+
+   ._container{
+        display: flex;
+        margin-left: .3rem;
+        padding: 3px;
+        flex-direction: column;
+        justify-content: space-between;
+
+        ._date{
+            display: flex;
+            gap:.3rem;
+            color:$grey-5;
+        }
+   }
+}

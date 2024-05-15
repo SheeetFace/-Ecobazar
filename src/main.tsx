@@ -19,6 +19,7 @@ import OrderDetailDashboardPage from './components/pages/OrderDetailDashboardPag
 import SettingsDashboardPage from './components/pages/SettingsDashboardPage/SettingsDashboardPage.tsx';
 import LogOutDashboardPage from './components/pages/LogOutDashboardPage/LogOutDashboardPage.tsx';
 import BlogPage from './components/pages/BlogPage/BlogPage.tsx';
+import BlogPostPage from './components/pages/BlogPostPage/BlogPostPage.tsx';
 
 import ErrorBoundary from './components/pages/ErrorBoundary/ErrorBoundary.tsx';
 
@@ -59,7 +60,8 @@ const router = createBrowserRouter([
         </ProductFilterProvider>,
       },
       {
-        path: "shop/productPage/:name",
+        // path: "shop/productPage/:name",
+        path: "shop/:name",
         element: <ProductPage />,
       },
       {
@@ -68,6 +70,10 @@ const router = createBrowserRouter([
         <BlogFilterProvider>
           <BlogPage />
         </BlogFilterProvider>,
+      },
+      {
+        path: "blog/:name",
+        element: <BlogPostPage />,
       },
       {
         path: "about",

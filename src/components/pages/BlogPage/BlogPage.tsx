@@ -1,6 +1,7 @@
 import FilterBlogs from '../../organisms/pages/blogPage/FilterBlogs/FilterBlogs';
 import HeaderBlog from '../../organisms/pages/blogPage/HeaderBlog/HeaderBlog';
 import Blogs from '../../organisms/pages/blogPage/Blogs/Blogs';
+import RecentlyAdded from '../../organisms/pages/blogPage/components/RecentlyAdded/RecentlyAdded';
 
 
 import styles from '../BlogPage/BlogPage.module.scss';
@@ -15,8 +16,7 @@ const BlogPage:React.FC = () => {
                         <div className={styles._filters}>
                             <FilterBlogs/>
                         </div>
-                        {/* <DiscountBanner/>
-                        <SaleProducts/> */}
+                        <RecentlyAdded/>
                     </div>
 
                     <div className={styles._content}>

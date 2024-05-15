@@ -11,19 +11,18 @@ export const filterBlogs = (blogs: BlogDataTypes[], filter: InitBlogFilter): Blo
   
     const filteredBlogs = sortedBlogs.filter((blog)=>{
 
-    if(filter.search){
-        const lowerCaseSearch = filter.search.toLowerCase();
-        const lowerCaseTitle = blog.title.toLowerCase();
+        if(filter.search){
+            const lowerCaseSearch = filter.search.toLowerCase();
+            const lowerCaseTitle = blog.title.toLowerCase();
 
-        if(!lowerCaseTitle.includes(lowerCaseSearch)) return false;
-    }
+            if(!lowerCaseTitle.includes(lowerCaseSearch)) return false;
+        }
 
-
-      if(!subFilterCategoryValue(filter.categoryValue,blog.category)) return false;
+        if(!subFilterCategoryValue(filter.categoryValue,blog.category)) return false;
   
-      if(!subFilterTag(filter.tag,blog.tag)) return false;
+        if(!subFilterTag(filter.tag,blog.tag)) return false;
       
-      return true; 
+        return true; 
     });
     
     return filteredBlogs;

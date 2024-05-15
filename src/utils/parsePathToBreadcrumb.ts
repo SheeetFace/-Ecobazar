@@ -15,7 +15,7 @@ export const parsePathToBreadcrumb = (str:string):Breadcrumb=>{
 
         breadcrumbPaths = arrStr.map((item)=>{
 
-            const newItem = item.includes('%20') ? item.replace('%20',' ') :item
+            const newItem = item.includes('%20') ? (item.split('%20').join(' ')) :item
 
             return(
                 {
