@@ -8,41 +8,47 @@ interface BlogPostDetailProps{
 }
 
 
-const BlogPostDetail: React.FC<BlogPostDetailProps> = ({ id }) => {
+const BlogPostDetail: React.FC<BlogPostDetailProps>=({id})=>{
 
     console.log(id)
 
-    const renderBlogPost = () => {
-      return (
+    const renderBlogPost=()=>{
+      return(
         <>
-          {blogPostData.map((item, index) => {
-            switch (item.type) {
+          {blogPostData.map((item, i)=>{
+
+            switch (item.type){
               case 'header':
-                return <h1 key={index} className={styles._blogPostHeader}>{item.text}</h1>
+                return <h1 key={i} className={styles._blogPostHeader}>{item.text}</h1>
+
               case 'paragraph':
-                return <p key={index} className={styles._blogPostParagraph}>{item.text}</p>
+                return <p key={i} className={styles._blogPostParagraph}>{item.text}</p>
+
               case 'image':
                 return (
-                  <div key={index} className={`${styles._blogPostImages} ${styles['_imagesCount' + item.images?.length]}`}>
+                  <div key={i} className={`${styles._blogPostImages} ${styles['_imagesCount' + item.images?.length]}`}>
                     {item.images?.map((img, i) => (
                       <img key={i} src={img.src} alt={img.alt} className={styles._blogPostImage} />
                     ))}
                   </div>
                 );
+
               case 'list':
-                return (
-                  <ul key={index} className={styles._blogPostList}>
+                return(
+                  <ul key={i} className={styles._blogPostList}>
                     {item.textList?.map((listItem, i) => (
                       <li key={i} className={styles._blogPostListItem}>{listItem.text}</li>
                     ))}
                   </ul>
                 );
+
               default:
                 return null;
             }
           })}
         </>
-      );
+      )
+
     };
   
     return (

@@ -143,9 +143,13 @@
 .buttonMaxWidth{
   width: 100%;
 }
+.buttonWidthMaxContent{
+  width: max-content;
+}
 .buttonMaxHeight{
   height: 40px;
 }
+
 
 .buttonBorderGreenPrimary{
   border: 2px solid $primary-color;

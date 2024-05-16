@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router-dom';
+
 import Button from '../../../../../atoms/Button/Button';
 
 import styles from '../SummerSale/SummerSale.module.scss';
@@ -20,7 +22,9 @@ const SummerSale:React.FC = () => {
                     </span>
 
                     <div className={styles._wrapperButton}>
-                        <Button className='ButtonFilledOval fillGreen colorTextGrey1' type='button' text='Shop now &#10132;'/>
+                        <NavLink to={'/shop'} className='_navLink _navLinkWidthMaxContent'>
+                            <Button className='ButtonFilledOval fillGreen colorTextGrey1' type='button' text='Shop now &#10132;'/>
+                        </NavLink>
                     </div>
                 </div>
             </div>

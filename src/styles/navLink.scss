@@ -1,9 +1,13 @@
 @import '../styles/colors.scss';
 @import '../styles/typography.scss';
 
-
-._navLink{
+a{
     text-decoration: none;
+    color:inherit;   
+}
+._navLink{
+
+    // text-decoration: none;
     // border:3px solid red;
     :visited {
         text-decoration-color: initial;
@@ -34,5 +38,9 @@
 
 ._sizeLarge{
     font-size: $body-large; 
+}
+
+._navLinkWidthMaxContent{
+    width: max-content;
 }
 
