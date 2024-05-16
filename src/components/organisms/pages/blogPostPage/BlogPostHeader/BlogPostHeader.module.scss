@@ -1,0 +1,64 @@
+@import '../../../../../styles/colors.scss';
+@import '../../../../../styles/typography.scss';
+
+.BlogPostHeader{
+    display: flex;
+    flex-direction: column;
+
+    h1{
+        text-align: center;
+        font-size: $heading-03;
+        padding: 1rem;
+    }
+
+    ._imgContainer{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 1rem;
+
+        img{
+            width: 100%;
+            object-fit: cover;
+        }
+
+        ._backgroundImage{
+            filter: blur(2px) brightness(20%);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        ._foregroundImage{
+            width: 50%;
+            position: relative;
+            z-index: 1;
+            margin: 2rem;
+            border-radius: 1rem;
+        }
+    }
+
+    ._postInfo{
+        width: 30%;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    ._ownerAndSocial{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+    }
+
+    ._divider{
+        background-color:$grey-2;
+    }
+}
+

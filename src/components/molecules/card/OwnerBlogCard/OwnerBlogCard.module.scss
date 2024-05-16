@@ -1,0 +1,31 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/typography.scss';
+
+.OwnerBlogCard{
+    display: flex;
+    gap:.5rem;
+
+    img{
+        width: 60px;
+        height: 60px;
+        border-radius:100%;
+    }
+
+    ._container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        ._ownerName{
+            font-weight: $medium;
+        }
+
+        ._dateAndSpentTime{
+            display: flex;
+            gap:.4rem;
+            color:$grey-4;
+            font-size: $body-small;
+        }
+    }
+
+}

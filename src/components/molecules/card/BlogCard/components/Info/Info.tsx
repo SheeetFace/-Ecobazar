@@ -8,7 +8,7 @@ import styles from '../Info/Info.module.scss';
 interface InfoProps{
     count:string
     category:string
-    owner:string
+    owner:string,
 }
 
 const Info:React.FC<InfoProps> = ({count,category, owner}) => {
