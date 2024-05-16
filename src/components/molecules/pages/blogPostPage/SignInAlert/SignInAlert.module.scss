@@ -1,0 +1,12 @@
+@import '../../../../../styles/typography.scss';
+
+
+.SignInAlert{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    gap:.4rem;
+    font-size: $body-xl;
+    font-weight: $medium;
+    padding: 2rem;
+}

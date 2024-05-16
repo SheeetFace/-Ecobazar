@@ -1,4 +1,10 @@
 .BlogPostPage{
     width: 80%;
     margin: 0 auto;
+
+    ._container{
+        display: flex;
+        flex-direction: column;
+        gap:1rem;
+    }
 }
