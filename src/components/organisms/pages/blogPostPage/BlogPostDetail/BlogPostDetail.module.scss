@@ -1,0 +1,87 @@
+@import '../../../../../styles/typography.scss';
+@import '../../../../../styles/colors.scss';
+
+._BlogPostDetail{
+
+    ._blogPostHeader{
+        font-size: $heading-05;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    ._blogPostParagraph{
+        font-size: $body-medium;
+        margin-bottom: 1rem;
+        color:$grey-7;
+    }
+    
+    ._blogPostImages{
+        display: flex;
+        flex-wrap: wrap;
+        gap:.5rem;
+        margin-bottom: 1rem;
+        justify-content: center;
+    }
+
+    
+    %fullWidthImage{
+        width: 100%;
+        height: auto;
+        border-radius: .3rem;
+    }
+
+    ._blogPostImage{
+    @extend %fullWidthImage;
+    }
+
+    ._imagesCount1{
+        ._blogPostImage{
+            @extend %fullWidthImage;
+            max-width: 50%;
+        }
+    }
+
+    ._imagesCount2{
+        ._blogPostImage{
+            @extend %fullWidthImage;
+            max-width: 48%;
+        }
+    }
+
+    ._imagesCount3,
+    ._imagesCount4{
+        ._blogPostImage{
+            @extend %fullWidthImage;
+            max-width: 30%;
+        }
+    }
+
+    ._imagesCount5,
+    ._imagesCount6{
+        ._blogPostImage{
+            @extend %fullWidthImage;
+            max-width: 30%;
+        }
+    }
+
+    ._imagesCount7,
+    ._imagesCount8,
+    ._imagesCount9{
+        ._blogPostImage{
+            @extend %fullWidthImage;
+            max-width: 22%;
+        }
+    }
+
+    ._blogPostList{
+        margin-bottom: 1rem;
+        padding-left: 1rem;
+        color:$grey-7;
+    }
+    
+    ._blogPostListItem{
+        font-size: $body-medium;
+    }
+}
+
+  

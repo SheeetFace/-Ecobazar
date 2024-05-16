@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom';
 
 import BlogPostHeader from '../../organisms/pages/blogPostPage/BlogPostHeader/BlogPostHeader';
+import BlogPostDetail from '../../organisms/pages/blogPostPage/BlogPostDetail/BlogPostDetail';
 
 import styles from '../BlogPostPage/BlogPostPage.module.scss';
 
@@ -13,6 +14,7 @@ const BlogPostPage:React.FC = () => {
         <div className={styles.BlogPostPage}>
             <div className='center'>
                 <BlogPostHeader data={data}/>
+                <BlogPostDetail id={data.id}/>
             </div>
 
         </div>
