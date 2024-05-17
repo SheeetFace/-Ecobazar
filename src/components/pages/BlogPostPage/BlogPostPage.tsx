@@ -6,6 +6,7 @@ import BlogPostHeader from '../../organisms/pages/blogPostPage/BlogPostHeader/Bl
 import BlogPostDetail from '../../organisms/pages/blogPostPage/BlogPostDetail/BlogPostDetail';
 import BlogPostBannerSummerSale from '../../molecules/banner/blogPostPage/BlogPostBannerSummerSale/BlogPostBannerSummerSale';
 import BlogPostLeaveComment from '../../organisms/pages/blogPostPage/BlogPostLeaveComment/BlogPostLeaveComment';
+import BlogPostComments from '../../organisms/pages/blogPostPage/BlogPostComments/BlogPostComments';
 
 import styles from '../BlogPostPage/BlogPostPage.module.scss';
 
@@ -25,6 +26,8 @@ const BlogPostPage:React.FC = () => {
                 <BlogPostBannerSummerSale/>
 
                 <BlogPostLeaveComment/>
+
+                <BlogPostComments/>
             </div>
 
         </div>

@@ -1,0 +1,26 @@
+@import '../../../../../styles/colors.scss';
+
+.BlogPostComments{
+
+    h1{
+        padding-bottom: 1rem;
+    }
+
+    ._comments{
+        display: flex;
+        flex-direction: column;
+        gap:1rem;
+        min-height: 500px;
+
+        ._divider{
+            background-color:$grey-3;
+        }
+    }
+
+    ._pagButtons{
+        padding: 1rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}
