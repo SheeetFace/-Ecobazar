@@ -11,6 +11,9 @@
         justify-content: space-between;
         align-items:center;
 
+        ._checkboxWrapper{
+            align-items:center;
+        }
         ._forgetPassword{
             cursor: pointer;
             transition: color .3s ease;

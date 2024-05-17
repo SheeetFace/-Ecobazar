@@ -16,10 +16,10 @@ const TextAreaFormField:React.FC<TextAreaFormFieldProps> = ({maxLength,placehold
 
     return (
         <>
-             <textarea      className={`${styles.TextAreaFormField_border} ${isErrors ? '_errorInput' : ''}`}
-                            maxLength={maxLength}
-                            placeholder={placeholder}
-                            {...register}
+             <textarea  className={`${styles.TextAreaFormField_border} ${isErrors ? '_errorInput' : ''}`}
+                        maxLength={maxLength}
+                        placeholder={placeholder}
+                        {...register}
             />
             <FormValidationMessage error={errorMessage}/>
         </>
