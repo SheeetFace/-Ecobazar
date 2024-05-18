@@ -5,6 +5,7 @@ import ProductDetails from '../../ProductDetails/ProductDetails';
 import { manageModalDisplay } from '../../../../utils/manageModalDisplay';
 
 import useCloseModal from '../../../../hooks/useCloseModal';
+import useScrollLock from '../../../../hooks/useScrollLock';
 
 import { ProductModalContext } from '../../../../context/ProductModalContext';
 
@@ -17,21 +18,19 @@ const ProductModal:React.FC = () => {
     const modalRef= useRef<HTMLDivElement>(null)
     const modalCloseRef= useRef<HTMLDivElement>(null)
 
+    const isFirstOpen = useRef<boolean>(false);
+
+    useScrollLock(isShow);
+
     useCloseModal({
         closeFn:closeProductModal,
         modalCloseRef
     })
 
-    const isFirstOpen = useRef<boolean>(false);
-
     useEffect(()=>{
         if(modalRef.current){
-            document.documentElement.style.overflow = isShow ? 'hidden' : 'auto';
             manageModalDisplay(isShow, isFirstOpen, modalRef, styles._showProductModal, styles._hideProductModal)
         }
-
-        return()=>{ document.documentElement.style.overflow = 'auto' }
-
     },[isShow])
 
 

@@ -1,0 +1,60 @@
+@import '../../../../styles/colors.scss';
+
+._overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.357);
+    z-index: 4;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .4s ease;
+  
+    &.show{
+      opacity: 1;
+      pointer-events: auto;
+    }
+  
+    &.hide{
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+  
+  ._dropdown{
+    position: absolute;
+    top: 110px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-height: 350px;
+    overflow-y: auto;
+    width: 50%;
+    background-color: $grey-05;
+    border-radius: 6px;
+    z-index: 5;
+  }
+  
+  ._suggestionsDropdown{
+    @extend ._dropdown;
+  
+    li{
+      padding: 10px;
+      cursor: pointer;
+  
+      &:hover{
+        background-color: rgb($soft-primary-color, .5);
+      }
+    }
+  }
+  
+  ._noSuggestions{
+    @extend ._dropdown;
+  
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+  }

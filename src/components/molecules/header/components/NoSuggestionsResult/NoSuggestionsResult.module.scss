@@ -1,0 +1,9 @@
+@import '../../../../../styles/colors.scss';
+@import '../../../../../styles/typography.scss';
+
+.NoSuggestionsResult{
+    padding: .3rem;
+    color: $soft-primary-color;
+    font-size: $body-xxl;
+    font-weight: $medium;
+}

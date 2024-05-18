@@ -19,6 +19,7 @@ const Input:React.FC<InputProps> =({placeholder, forwardRef, className,type, ico
     const isError = isErrorValidation ? '_errorInput' : ''; 
     const classs = type==='checkbox' ?  className : `DefaultBorderStyle ${className} ${isError}`;
 
+
     return(
         <div className={classs}>
             <input ref={forwardRef}
