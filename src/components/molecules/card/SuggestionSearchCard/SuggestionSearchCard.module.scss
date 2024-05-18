@@ -1,0 +1,49 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/typography.scss';
+
+.SuggestionSearchCard{
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+
+    ._container{
+        display: flex;
+        align-items:center;
+        gap:.5rem;
+        
+        img{
+            height: 50px;
+            border-radius:4px;
+        }
+
+        ._name{
+            font-weight: $medium;
+            color:$hard-primary-color;
+        }
+
+        ._currentCost{
+            font-weight: $medium;
+            font-size: $body-small;
+        }
+        ._oldCost{
+            font-weight: $medium;
+            font-size: $body-small;
+            color:$grey-3;
+            text-decoration: line-through;
+        }
+
+        ._label{
+            margin-left: 1rem;
+            background-color:$danger-color;
+            font-weight: $medium;
+            font-size: $body-small;
+            color:$white-color;
+        }
+    }
+
+    ._category{
+        color:$grey-3;
+        font-size: $body-small;
+    }
+
+}

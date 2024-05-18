@@ -25,15 +25,16 @@
   
   ._dropdown{
     position: absolute;
-    top: 110px;
+    top: 115px;
     left: 50%;
     transform: translateX(-50%);
     max-height: 350px;
     overflow-y: auto;
     width: 50%;
-    background-color: $grey-05;
+    background-color: $white-color;
     border-radius: 6px;
     z-index: 5;
+
   }
   
   ._suggestionsDropdown{

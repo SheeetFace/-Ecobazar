@@ -22,7 +22,7 @@ const SearchPanel =()=>{
 
     const ref = useRef<HTMLInputElement>(null);
 
-    const {setQuery, setSuggestions } = useSearch();
+    const {query,setQuery, setSuggestions } = useSearch();
 
     const {isValid, validateFn} = useValidation();
 
@@ -64,6 +64,7 @@ const SearchPanel =()=>{
                 <Input placeholder='Search'
                     type='text' 
                     forwardRef={ref}
+                    value={query}
                     changeFn={handleChange}
                     className={isValid ?"_searchInput":"_invalidSearchInput"}
                 />
