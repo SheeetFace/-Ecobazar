@@ -1,18 +1,31 @@
 @import '../../../../../styles/colors.scss';
 
 .ComponentBadge{
-    display: flex;
-    align-items: center;
-    position: relative;
-    cursor: pointer;
-  
-    &:hover ._iconHover{
-      stroke: $hard-primary-color;
-    }
-  
-    ._count{
-      position: absolute;
-      top: -7px;
-      right: -7px;
-    }
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+
+  &:hover ._iconHover{
+    stroke: $hard-primary-color;
+  }
+
+  ._count{
+    position: absolute;
+    top: -7px;
+    right: -7px;
+  }
+}
+
+._dropdown{
+  position: absolute;
+  top: 115px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-height: 350px;
+  overflow-y: auto;
+  width: 50%;
+  background-color: $white-color;
+  border-radius: 6px;
+  z-index: 5;
 }

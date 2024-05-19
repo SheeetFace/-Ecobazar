@@ -1,0 +1,15 @@
+@import '../styles/styles.module.scss';
+
+.SuggestionsResult{
+
+    @extend ._dropdown;
+    
+    li{
+        padding: 10px;
+        cursor: pointer;
+    
+        &:hover{
+        background-color: rgb($soft-primary-color, .5);
+        }
+    }
+}

@@ -23,39 +23,3 @@
     }
   }
   
-  ._dropdown{
-    position: absolute;
-    top: 115px;
-    left: 50%;
-    transform: translateX(-50%);
-    max-height: 350px;
-    overflow-y: auto;
-    width: 50%;
-    background-color: $white-color;
-    border-radius: 6px;
-    z-index: 5;
-
-  }
-  
-  ._suggestionsDropdown{
-    @extend ._dropdown;
-  
-    li{
-      padding: 10px;
-      cursor: pointer;
-  
-      &:hover{
-        background-color: rgb($soft-primary-color, .5);
-      }
-    }
-  }
-  
-  ._noSuggestions{
-    @extend ._dropdown;
-  
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 45px;
-  }

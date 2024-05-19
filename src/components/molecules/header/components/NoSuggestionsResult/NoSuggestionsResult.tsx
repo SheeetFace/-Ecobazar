@@ -1,14 +1,15 @@
+import useScrollLock from '../../../../../hooks/useScrollLock';
+
 import styles from '../NoSuggestionsResult/NoSuggestionsResult.module.scss';
 
-interface NoSuggestionsResultProps{
-    className:string
-}
 
-const NoSuggestionsResult:React.FC<NoSuggestionsResultProps> = ({className}) => {
+const NoSuggestionsResult:React.FC = () => {
+
+    useScrollLock(true,{ current: null });
 
     return (
-        <div className={className}>
-            <span className={styles.NoSuggestionsResult}>Nothing was found 😭</span>
+        <div className={styles.NoSuggestionsResult}>
+            <span>Nothing was found 😭</span>
         </div>
     )
 }

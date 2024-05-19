@@ -20,7 +20,7 @@ const ProductModal:React.FC = () => {
 
     const isFirstOpen = useRef<boolean>(false);
 
-    useScrollLock(isShow);
+    useScrollLock(isShow, {current:null});
 
     useCloseModal({
         closeFn:closeProductModal,

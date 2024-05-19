@@ -1,9 +1,21 @@
 @import '../../../../../styles/colors.scss';
 @import '../../../../../styles/typography.scss';
+@import '../styles/styles.module.scss';
 
 .NoSuggestionsResult{
-    padding: .3rem;
-    color: $soft-primary-color;
-    font-size: $body-xxl;
-    font-weight: $medium;
+
+    @extend ._dropdown;
+    
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+      
+    span{
+        padding: .3rem;
+        color: $soft-primary-color;
+        font-size: $body-xxl;
+        font-weight: $medium;
+    }
 }
