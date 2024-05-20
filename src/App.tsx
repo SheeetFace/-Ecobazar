@@ -40,7 +40,6 @@ function App() {
           <ProductModal/>
 
         </ProductModalProvider> */}
-
         <ProductModalProvider>
                 <Outlet></Outlet>
 

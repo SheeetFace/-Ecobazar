@@ -37,7 +37,7 @@ import './index.scss'
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>,
+    element: <ProductFilterProvider><App/></ProductFilterProvider>,
     errorElement: <ErrorBoundary />,
     children: [
       {
@@ -55,9 +55,8 @@ const router = createBrowserRouter([
       {
         path: "shop",
         element: 
-        <ProductFilterProvider>
-            <ShopPage/>
-        </ProductFilterProvider>,
+        // <ProductFilterProvider>
+            <ShopPage/>,
       },
       {
         // path: "shop/productPage/:name",

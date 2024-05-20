@@ -1,3 +1,5 @@
+import { useLocation } from 'react-router-dom';
+
 import { useSearch } from '../../../../context/MainSearchContext';
 
 import SuggestionsResult from '../components/SuggestionsResult/SuggestionsResult';
@@ -9,22 +11,24 @@ import styles from './SuggestionsDropdown.module.scss';
 const SuggestionsDropdown = () => {
   const { query, suggestions } = useSearch();
 
+  const location = useLocation();
+
   const isNoResults = query && suggestions.length === 0;
   const showOverlay = query && (suggestions.length > 0 || isNoResults);
 
-  if(isNoResults){
-    return(
-      <div className={`${styles._overlay} ${showOverlay ? styles.show : styles.hide}`}>
-        <NoSuggestionsResult/>
-      </div>
-    )
+  const renderContent = ()=>{
+    if(location.pathname !=='/shop'){
+      return(
+        <div className={`${styles._overlay} ${showOverlay ? styles.show : styles.hide}`}>
+          {isNoResults ? <NoSuggestionsResult/> : <SuggestionsResult suggestions={suggestions}/>}
+        </div>
+      )
+    }else{
+      return null
+    }
   }
 
-  return(
-    <div className={`${styles._overlay} ${showOverlay ? styles.show : styles.hide}`}>
-      <SuggestionsResult suggestions={suggestions}/>
-    </div>
-  );
+  return( renderContent());
 };
 
 export default SuggestionsDropdown;

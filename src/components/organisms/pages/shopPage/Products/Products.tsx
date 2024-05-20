@@ -1,5 +1,7 @@
 import { useContext, useEffect, useMemo, useRef } from 'react';
 
+import { useLocation } from 'react-router-dom';
+
 import usePagination from '../../../../../hooks/usePagination';
 import useSmoothTransition from '../../../../../hooks/useSmoothTransition';
 import useScrollToTop from '../../../../../hooks/useScrollToTop';
@@ -19,8 +21,11 @@ import styles from '../Products/Products.module.scss';
 const Products:React.FC = () => {
 
     const { filter, changeFilter } = useContext(ProductFilterContext);
-    const filteredProducts = filterProducts(shopProductData, filter);
 
+    console.log(123)
+    const filteredProducts = filterProducts(shopProductData, filter);
+    const location = useLocation();
+    // console.log(location.state.searchFilter)
     const itemsPerPage= 24;
     const totalItems = filteredProducts.length;
 
@@ -39,6 +44,12 @@ const Products:React.FC = () => {
     useEffect(()=>{
       changeFilter('productsLength',totalItems)
     },[totalItems])
+
+    useEffect(()=>{
+      if(location.state && ('searchFilter' in location.state)){
+        changeFilter('search',location.state.searchFilter)
+      }
+    },[location.state])
 
 
     const renderProductCard = useMemo(() => {

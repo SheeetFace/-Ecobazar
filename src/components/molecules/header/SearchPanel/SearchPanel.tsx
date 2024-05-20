@@ -1,9 +1,12 @@
-import {useRef} from 'react'
-import { useNavigate } from 'react-router-dom';
+import {useRef, useContext} from 'react'
+import { useNavigate,useLocation } from 'react-router-dom';
 
 import useValidation from '../../../../hooks/useValidation';
 
+import { filterTypeGuard } from '../../../../utils/filterTypeGuard';
+
 import { useSearch,SearchProvider } from '../../../../context/MainSearchContext';
+import { ProductFilterContext } from '../../../../context/ProductFilterContext';
 
 import Button from '../../../atoms/Button/Button';
 import SearchIcon from '../../../atoms/icon/navigate/SearchIcon';
@@ -24,10 +27,15 @@ const SearchPanel =()=>{
     const ref = useRef<HTMLInputElement>(null);
 
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const { filter, changeFilter } = useContext(ProductFilterContext);
 
     const {query,setQuery,suggestions, setSuggestions } = useSearch();
 
     const {isValid, validateFn} = useValidation();
+
+    const isLocationShop = location.pathname ==='/shop'
 
     const handleSubmit =(event:FormEvent<HTMLFormElement>)=>{
         event.preventDefault();
@@ -44,27 +52,36 @@ const SearchPanel =()=>{
     }
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>)=>{
-        const userInput = event.target.value;
-        setQuery(userInput);
 
-        if(userInput === ''){
-            setSuggestions([])
-            return
+        if(!isLocationShop){
+            const userInput = event.target.value;
+            setQuery(userInput);
+    
+            if(userInput === ''){
+                setSuggestions([])
+                return
+            }
+    
+            const filteredSuggestions = shopProductData.filter(
+                suggestion=>suggestion.name.toLowerCase().includes(userInput.toLowerCase())
+            );
+    
+            setSuggestions(filteredSuggestions);
+        }else{
+            // console.log(event.target.value)
+            // changeFilter("search", event.target.value)
+            filterTypeGuard(filter, changeFilter, "search", event.target.value);
         }
 
-        const filteredSuggestions = shopProductData.filter(
-            suggestion=>suggestion.name.toLowerCase().includes(userInput.toLowerCase())
-        );
-
-        setSuggestions(filteredSuggestions);
     };
 
-    // const redirectToShop = ()=>{
-    //     if(isValid && suggestions.length>=1){
-    //         console.log(query)
-    //         navigate('/shop');
-    //     }
-    // }
+    const redirectToShop = ()=>{
+        if(isValid && suggestions.length>=1 && !isLocationShop){
+            const state = {searchFilter: query}
+            navigate('/shop', {state});
+            // setQuery('');
+        }
+    }
 
     return(
         <div className={styles._container} >
@@ -75,7 +92,7 @@ const SearchPanel =()=>{
                 <Input placeholder='Search'
                     type='text' 
                     forwardRef={ref}
-                    value={query}
+                    value={!isLocationShop ? query :undefined} //!filter.search
                     changeFn={handleChange}
                     className={isValid ?"_searchInput":"_invalidSearchInput"}
                 />
@@ -98,3 +115,4 @@ const SearchPanelWithProvider =()=>(
 );
 
 export default SearchPanelWithProvider;
+

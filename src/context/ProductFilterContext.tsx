@@ -16,6 +16,7 @@ type TCreateInitProductFilter = ()=> InitProductFilter;
 
 const createInitProductFilter:TCreateInitProductFilter =()=>{
   const initProductFilter:InitProductFilter={
+    search:'',
     categoryValue:[],
     price:{
         min:'',
@@ -40,6 +41,7 @@ export const ProductFilterProvider:React.FC<ProductFilterProviderProps> = ({ chi
   const [filter, setFilter] = useState<InitProductFilter>(()=>createInitProductFilter());
 
   const changeFilter: TChangeProductFilterFn =(key, newFilter)=>{
+
       setFilter((prevFilter)=>{
 
         if(key === 'tag' && prevFilter.tag === newFilter) return prevFilter;
@@ -53,7 +55,8 @@ export const ProductFilterProvider:React.FC<ProductFilterProviderProps> = ({ chi
 
   const clearFilter =()=>{
     setFilter((prevFilter)=>{
-      const isFilterEmpty = prevFilter.categoryValue.length === 0 &&
+      const isFilterEmpty = prevFilter.search === '' &&
+                            prevFilter.categoryValue.length === 0 &&
                             prevFilter.price.min==='' &&
                             prevFilter.price.max==='' &&
                             prevFilter.rating.length === 0 &&
@@ -67,7 +70,7 @@ export const ProductFilterProvider:React.FC<ProductFilterProviderProps> = ({ chi
   )}
 
   return(
-    <ProductFilterContext.Provider value={{ filter, changeFilter,clearFilter }}>
+    <ProductFilterContext.Provider value={{ filter, changeFilter,clearFilter}}>
       {children}
     </ProductFilterContext.Provider>
   )

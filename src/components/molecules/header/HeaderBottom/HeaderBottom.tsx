@@ -9,9 +9,9 @@ const HeaderCenter:React.FC = ()=>{
         <section className={styles.HeaderBottom}>
             <div className='center'>
                 <div className={styles._container}>
-                        <Logo className={styles._logo}/>
-                        <SearchPanel/>
-                        <ShoppingActions/>
+                    <Logo className={styles._logo}/>
+                    <SearchPanel/>
+                    <ShoppingActions/>
                 </div>
 
             </div>

@@ -26,7 +26,6 @@ const SuggestionsResult:React.FC<SuggestionsResultProps> = ({ suggestions }) => 
     useScrollLock(!!isNoResults, resultsRef);
 
     useCloseModal({closeFn:clearQuery,modalCloseRef:resultsRef})
-    // useCloseModal({closeFn:clearQuery,modalCloseRef:{current:null}})
 
     function clearQuery(){
       setQuery('')

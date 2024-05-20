@@ -11,6 +11,13 @@ export const filterProducts = (products: ShopProduct[], filter: InitProductFilte
   
     const filteredProducts = sortedProducts.filter((product)=>{
 
+      if(filter.search){
+        const lowerCaseSearch = filter.search.toLowerCase();
+        const lowerCaseTitle = product.name.toLowerCase();
+
+        if(!lowerCaseTitle.includes(lowerCaseSearch)) return false;
+    }
+
       if(!subFilterCategoryValue(filter.categoryValue,product.category)) return false;
   
       if(

@@ -2,6 +2,7 @@
 export type TDate = 'newest'|'oldest';
 
 export interface InitProductFilter{
+    search:string
     categoryValue:string[]
     price:{
         min:string
