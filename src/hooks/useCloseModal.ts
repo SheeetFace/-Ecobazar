@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 
-import type { RefObject } from "react";
+import type { RefObject,MutableRefObject } from "react";
 
 interface Arguments{
     closeFn:()=>void
-    modalCloseRef:RefObject<HTMLDivElement>
+    modalCloseRef:RefObject<HTMLDivElement>|MutableRefObject<HTMLUListElement | null>
 }
 
 type UseCloseModalType = ({closeFn,modalCloseRef}:Arguments)=>void;

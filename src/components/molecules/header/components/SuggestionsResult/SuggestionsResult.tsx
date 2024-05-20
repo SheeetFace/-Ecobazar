@@ -3,7 +3,9 @@ import { useMemo,memo, useRef } from 'react';
 import SuggestionSearchCard from '../../../card/SuggestionSearchCard/SuggestionSearchCard';
 
 import { useSearch } from '../../../../../context/MainSearchContext';
+
 import useScrollLock from '../../../../../hooks/useScrollLock';
+import useCloseModal from '../../../../../hooks/useCloseModal';
 
 import styles from '../SuggestionsResult/SuggestionsResult.module.scss';
 
@@ -19,11 +21,17 @@ const SuggestionsResult:React.FC<SuggestionsResultProps> = ({ suggestions }) => 
 
     const resultsRef = useRef<HTMLUListElement|null>(null);
 
-    useScrollLock(true, resultsRef);
+    useScrollLock(suggestions.length>=1, resultsRef);
+
+    useCloseModal({closeFn:clearQuery,modalCloseRef:resultsRef})
+
+    function clearQuery(){
+      setQuery('')
+    }
 
     const renderSuggestionSearchCard =useMemo(()=>{
       return suggestions.map((item, i)=>(
-        <div onClick={()=>setQuery('')}>
+        <div onClick={()=>clearQuery}>
           <SuggestionSearchCard  {...item} key={i}/>
         </div>
       ))
@@ -31,7 +39,7 @@ const SuggestionsResult:React.FC<SuggestionsResultProps> = ({ suggestions }) => 
 
     return(
         <ul className={styles.SuggestionsResult} ref={resultsRef}>
-            {renderSuggestionSearchCard}
+          {renderSuggestionSearchCard}
         </ul>
     )
 }
