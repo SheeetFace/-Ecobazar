@@ -12,6 +12,7 @@ input{
     font-family: inherit;
     font-size: $body-medium;
     background-color:transparent;
+    // background-color:inherit;
 }
 
 textarea{
@@ -40,6 +41,7 @@ textarea{
     border-right: none !important;
     border-top-left-radius:6px;
     border-bottom-left-radius:6px;
+    background-color:$white-color;
 }
 ._invalidSearchInput{
     @extend ._searchInput;

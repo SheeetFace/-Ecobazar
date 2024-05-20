@@ -17,11 +17,13 @@ interface  SuggestionsResultProps{
 
 const SuggestionsResult:React.FC<SuggestionsResultProps> = ({ suggestions }) => {
 
-    const { setQuery } = useSearch();
+    const {query, setQuery } = useSearch();
 
     const resultsRef = useRef<HTMLUListElement|null>(null);
 
-    useScrollLock(suggestions.length>=1, resultsRef);
+    const isNoResults = query && suggestions.length>=1;
+
+    useScrollLock(!!isNoResults, resultsRef);
 
     useCloseModal({closeFn:clearQuery,modalCloseRef:resultsRef})
 
@@ -31,7 +33,7 @@ const SuggestionsResult:React.FC<SuggestionsResultProps> = ({ suggestions }) => 
 
     const renderSuggestionSearchCard =useMemo(()=>{
       return suggestions.map((item, i)=>(
-        <div onClick={()=>clearQuery}>
+        <div onClick={()=>clearQuery()}>
           <SuggestionSearchCard  {...item} key={i}/>
         </div>
       ))

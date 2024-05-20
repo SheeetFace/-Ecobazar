@@ -5,7 +5,7 @@
 }
 .SearchPanel{
     position: relative;
-    z-index: 15;
+    z-index: 15 !important;
     display: flex;
     // width: 40%;
     min-width: 150px;
