@@ -1,4 +1,5 @@
 import {useRef} from 'react'
+import { useNavigate } from 'react-router-dom';
 
 import useValidation from '../../../../hooks/useValidation';
 
@@ -22,7 +23,9 @@ const SearchPanel =()=>{
 
     const ref = useRef<HTMLInputElement>(null);
 
-    const {query,setQuery, setSuggestions } = useSearch();
+    const navigate = useNavigate();
+
+    const {query,setQuery,suggestions, setSuggestions } = useSearch();
 
     const {isValid, validateFn} = useValidation();
 
@@ -56,10 +59,18 @@ const SearchPanel =()=>{
         setSuggestions(filteredSuggestions);
     };
 
+    // const redirectToShop = ()=>{
+    //     if(isValid && suggestions.length>=1){
+    //         console.log(query)
+    //         navigate('/shop');
+    //     }
+    // }
+
     return(
-        <div className={styles._container}>
-            <form className={styles.SearchPanel}
-                onSubmit={handleSubmit}>
+        <div className={styles._container} >
+            <form className={styles.SearchPanel} 
+                  onSubmit={handleSubmit}
+                  id='searchPanelForm'>
 
                 <Input placeholder='Search'
                     type='text' 
@@ -70,7 +81,8 @@ const SearchPanel =()=>{
                 />
                 <Button className='Search'
                         icon={<SearchIcon/>}
-                        type='submit'/>
+                        type='submit'
+                        onClick={redirectToShop}/>
 
             </form>
 

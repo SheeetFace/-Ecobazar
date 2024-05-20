@@ -16,7 +16,12 @@ const useCloseModal:UseCloseModalType = ({closeFn,modalCloseRef}) => {
         const keyHandler = (e:KeyboardEvent)=>{
           if(e.key === "Escape") closeFn();
         }
+        
         const clickHandler =(e: MouseEvent)=>{
+            const searchPanelForm = document.getElementById('searchPanelForm');
+            
+            if(searchPanelForm && searchPanelForm.contains(e.target as Node)) return;
+
             if(modalCloseRef.current && !modalCloseRef.current.contains(e.target as Node)){
                 closeFn();
             }

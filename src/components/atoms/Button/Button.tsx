@@ -7,7 +7,7 @@ interface ButtonProps{
     type:ButtonType
 }
 
-const Button: React.FC<ButtonProps> = ({className,text,icon,onClick,type }) => {
+const Button: React.FC<ButtonProps> = ({className,text,icon,onClick,type}) => {
     return (
       <button className={className} onClick={onClick} type={type}>
         {icon && <>{icon}</>}
