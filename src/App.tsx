@@ -1,3 +1,7 @@
+import { Outlet } from 'react-router-dom';
+
+import { ProductModalProvider } from './context/ProductModalContext';
+
 import Divider from './components/atoms/Divider/Divider';
 import Header from './components/organisms/Header/Header';
 import Navigation from './components/organisms/Navigation/Navigation';
@@ -16,8 +20,6 @@ import './styles/select.scss'
 
 import styles from '../src/app.module.scss'
 
-import { Outlet } from 'react-router-dom';
-import { ProductModalProvider } from './context/ProductModalContext';
 
 
 function App() {
@@ -30,16 +32,6 @@ function App() {
         <Navigation/>
         <Breadcrumb/>
 
-        {/* <ProductModalProvider>
-            <ProductFilterProvider>
-              <BlogFilterProvider>
-                <Outlet></Outlet>
-              </BlogFilterProvider>
-            </ProductFilterProvider>
-
-          <ProductModal/>
-
-        </ProductModalProvider> */}
         <ProductModalProvider>
                 <Outlet></Outlet>
 

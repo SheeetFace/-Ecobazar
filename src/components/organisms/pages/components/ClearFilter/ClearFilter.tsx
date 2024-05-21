@@ -9,7 +9,7 @@ interface ClearFilterProps{
 const ClearFilter:React.FC<ClearFilterProps> = ({clearFilterFn}) => {
 
     const handleClearFilter =()=>{
-        clearFilterFn()
+        clearFilterFn() 
     }
 
     return (

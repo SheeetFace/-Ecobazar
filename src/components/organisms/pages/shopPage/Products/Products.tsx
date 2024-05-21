@@ -22,7 +22,6 @@ const Products:React.FC = () => {
 
     const { filter, changeFilter } = useContext(ProductFilterContext);
 
-    console.log(123)
     const filteredProducts = filterProducts(shopProductData, filter);
     const location = useLocation();
     // console.log(location.state.searchFilter)

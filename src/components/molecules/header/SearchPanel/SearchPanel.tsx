@@ -1,4 +1,4 @@
-import {useRef, useContext} from 'react'
+import {useRef, useContext, useEffect, useState} from 'react'
 import { useNavigate,useLocation } from 'react-router-dom';
 
 import useValidation from '../../../../hooks/useValidation';
@@ -29,13 +29,24 @@ const SearchPanel =()=>{
     const navigate = useNavigate();
     const location = useLocation();
 
-    const { filter, changeFilter } = useContext(ProductFilterContext);
+    const { filter, changeFilter, clearFilter } = useContext(ProductFilterContext);
 
     const {query,setQuery,suggestions, setSuggestions } = useSearch();
 
     const {isValid, validateFn} = useValidation();
 
     const isLocationShop = location.pathname ==='/shop'
+
+    useEffect(()=>{
+        console.log(`query: ${query}`)
+        console.log(`filter.search: ${filter.search}`)
+        console.log(`ref.current.value: ${ref.current.value}`)
+
+        if(!isLocationShop) clearFilter(), setQuery(''), ref.current.value=''
+        // else if(isLocationShop && query ==='') ref.current.value=''
+        // else if(isLocationShop && query !=='' && filter.search ==='' && ref.current.value !=='') ref.current.value=''
+    },[location.pathname, filter])
+
 
     const handleSubmit =(event:FormEvent<HTMLFormElement>)=>{
         event.preventDefault();
@@ -51,37 +62,71 @@ const SearchPanel =()=>{
         }
     }
 
-    const handleChange = (event: ChangeEvent<HTMLInputElement>)=>{
+    // const handleChange = (event: ChangeEvent<HTMLInputElement>)=>{
 
-        if(!isLocationShop){
-            const userInput = event.target.value;
-            setQuery(userInput);
+    //     if(!isLocationShop){
+    //         const userInput = event.target.value;
+    //         setQuery(userInput);
     
-            if(userInput === ''){
-                setSuggestions([])
-                return
-            }
+    //         if(userInput === ''){
+    //             setSuggestions([])
+    //             return
+    //         }
     
-            const filteredSuggestions = shopProductData.filter(
-                suggestion=>suggestion.name.toLowerCase().includes(userInput.toLowerCase())
-            );
+    //         const filteredSuggestions = shopProductData.filter(
+    //             suggestion=>suggestion.name.toLowerCase().includes(userInput.toLowerCase())
+    //         );
     
-            setSuggestions(filteredSuggestions);
-        }else{
-            // console.log(event.target.value)
-            // changeFilter("search", event.target.value)
-            filterTypeGuard(filter, changeFilter, "search", event.target.value);
+    //         setSuggestions(filteredSuggestions);
+    //     }else{
+    //         filterTypeGuard(filter, changeFilter, "search", event.target.value);
+    //     }
+    // };
+
+    //!
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+        if (!isLocationShop) {
+          const userInput = event.target.value;
+          setQuery(userInput);
+    
+          if (userInput === '') {
+            setSuggestions([]);
+            return;
+          }
+    
+          const filteredSuggestions = shopProductData.filter((suggestion) =>
+            suggestion.name.toLowerCase().includes(userInput.toLowerCase())
+          );
+    
+          setSuggestions(filteredSuggestions);
+    
+          if(ref.current){
+            ref.current.value = userInput;
+          }
+        } else {
+          filterTypeGuard(filter, changeFilter, 'search', event.target.value);
+    
+          if (ref.current) {
+            ref.current.value = event.target.value;
+          }
         }
+      };
 
-    };
+
 
     const redirectToShop = ()=>{
         if(isValid && suggestions.length>=1 && !isLocationShop){
             const state = {searchFilter: query}
             navigate('/shop', {state});
-            // setQuery('');
         }
     }
+
+    // const [inputValue, setInputValue] = useState('');
+
+    // useEffect(()=>{
+    //     if(!isLocationShop)setInputValue(query)
+    //     else setInputValue(filter.search);
+    // },[query,filter.search,isLocationShop]);
 
     return(
         <div className={styles._container} >
@@ -92,7 +137,7 @@ const SearchPanel =()=>{
                 <Input placeholder='Search'
                     type='text' 
                     forwardRef={ref}
-                    value={!isLocationShop ? query :undefined} //!filter.search
+                    // value={!isLocationShop ? query :filter.search} //!filter.search
                     changeFn={handleChange}
                     className={isValid ?"_searchInput":"_invalidSearchInput"}
                 />
