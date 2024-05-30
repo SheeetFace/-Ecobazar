@@ -24,6 +24,8 @@ import type {FormEvent,ChangeEvent} from 'react';
 
 const SearchPanel =()=>{
 
+    // const [inputValue, setInputValue] = useState<string>('');
+
     const ref = useRef<HTMLInputElement>(null);
 
     const navigate = useNavigate();
@@ -38,14 +40,12 @@ const SearchPanel =()=>{
     const isLocationShop = location.pathname ==='/shop'
 
     useEffect(()=>{
-        console.log(`query: ${query}`)
-        console.log(`filter.search: ${filter.search}`)
-        console.log(`ref.current.value: ${ref.current.value}`)
+      if(!isLocationShop && ref.current) handleClear()
+    },[location.pathname, filter.search])
 
-        if(!isLocationShop) clearFilter(), setQuery(''), ref.current.value=''
-        // else if(isLocationShop && query ==='') ref.current.value=''
-        // else if(isLocationShop && query !=='' && filter.search ==='' && ref.current.value !=='') ref.current.value=''
-    },[location.pathname, filter])
+    useEffect(()=>{
+      if(filter.search ==='' && ref.current) handleClear()
+    },[filter.search])
 
 
     const handleSubmit =(event:FormEvent<HTMLFormElement>)=>{
@@ -62,34 +62,12 @@ const SearchPanel =()=>{
         }
     }
 
-    // const handleChange = (event: ChangeEvent<HTMLInputElement>)=>{
-
-    //     if(!isLocationShop){
-    //         const userInput = event.target.value;
-    //         setQuery(userInput);
-    
-    //         if(userInput === ''){
-    //             setSuggestions([])
-    //             return
-    //         }
-    
-    //         const filteredSuggestions = shopProductData.filter(
-    //             suggestion=>suggestion.name.toLowerCase().includes(userInput.toLowerCase())
-    //         );
-    
-    //         setSuggestions(filteredSuggestions);
-    //     }else{
-    //         filterTypeGuard(filter, changeFilter, "search", event.target.value);
-    //     }
-    // };
-
-    //!
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-        if (!isLocationShop) {
+    const handleChange = (event: ChangeEvent<HTMLInputElement>)=>{
+        if(!isLocationShop){
           const userInput = event.target.value;
           setQuery(userInput);
     
-          if (userInput === '') {
+          if(userInput === ''){
             setSuggestions([]);
             return;
           }
@@ -103,16 +81,18 @@ const SearchPanel =()=>{
           if(ref.current){
             ref.current.value = userInput;
           }
-        } else {
+        }else{
           filterTypeGuard(filter, changeFilter, 'search', event.target.value);
     
-          if (ref.current) {
-            ref.current.value = event.target.value;
-          }
+          if(ref.current) ref.current.value = event.target.value;
         }
-      };
+    }
 
-
+    const handleClear = ()=>{
+      clearFilter()
+      setQuery('')
+      ref.current!.value='' 
+    }
 
     const redirectToShop = ()=>{
         if(isValid && suggestions.length>=1 && !isLocationShop){
@@ -120,13 +100,6 @@ const SearchPanel =()=>{
             navigate('/shop', {state});
         }
     }
-
-    // const [inputValue, setInputValue] = useState('');
-
-    // useEffect(()=>{
-    //     if(!isLocationShop)setInputValue(query)
-    //     else setInputValue(filter.search);
-    // },[query,filter.search,isLocationShop]);
 
     return(
         <div className={styles._container} >
@@ -137,7 +110,8 @@ const SearchPanel =()=>{
                 <Input placeholder='Search'
                     type='text' 
                     forwardRef={ref}
-                    // value={!isLocationShop ? query :filter.search} //!filter.search
+                    // value={inputValue} 
+                      // value={!isLocationShop ? query :filter.search} //!filter.search
                     changeFn={handleChange}
                     className={isValid ?"_searchInput":"_invalidSearchInput"}
                 />
