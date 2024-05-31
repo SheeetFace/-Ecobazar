@@ -24,7 +24,7 @@ const Products:React.FC = () => {
 
     const filteredProducts = filterProducts(shopProductData, filter);
     const location = useLocation();
-    // console.log(location.state.searchFilter)
+
     const itemsPerPage= 24;
     const totalItems = filteredProducts.length;
 
@@ -58,23 +58,24 @@ const Products:React.FC = () => {
       return displayedData.map((item, i)=>(
           <ProductsCard
             key={i}
-            name={item.name}
-            src={item.src}
-            id={item.id}
-            currentCost={item.currentCost}
-            oldCost={item.oldCost}
-            sale={item.sale}
-            rating={item.rating}
+            {...item}
+            // name={item.name}
+            // src={item.src}
+            // id={item.id}
+            // currentCost={item.currentCost}
+            // oldCost={item.oldCost}
+            // sale={item.sale}
+            // rating={item.rating}
 
-            promotedCategories={item.promotedCategories}
-            weight={item.weight}
-            color={item.color}
-            type={item.type}
-            category={item.category}
-            stockStatus={item.stockStatus}
-            date={item.date}
-            tag={item.tag}
-            description={item.description}
+            // promotedCategories={item.promotedCategories}
+            // weight={item.weight}
+            // color={item.color}
+            // type={item.type}
+            // category={item.category}
+            // stockStatus={item.stockStatus}
+            // date={item.date}
+            // tag={item.tag}
+            // description={item.description}
           />
       ));
     },[JSON.stringify(displayedData)])

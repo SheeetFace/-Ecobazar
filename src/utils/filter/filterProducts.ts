@@ -1,6 +1,7 @@
 import { subFilterCategoryValue } from "./subFilters/subFilterCategoryValue";
 import { subFilterTag } from "./subFilters/subFilterTag";
 import { subFilterDate } from "./subFilters/subFilterDate";
+import { subFilterSearch } from "./subFilters/subFilterSearch";
 
 import type { ProductDataType as ShopProduct } from "../../types/productDataTypes"
 import type { InitProductFilter } from "../../types/productFilterType";
@@ -11,12 +12,7 @@ export const filterProducts = (products: ShopProduct[], filter: InitProductFilte
   
     const filteredProducts = sortedProducts.filter((product)=>{
 
-      if(filter.search){
-        const lowerCaseSearch = filter.search.toLowerCase();
-        const lowerCaseTitle = product.name.toLowerCase();
-
-        if(!lowerCaseTitle.includes(lowerCaseSearch)) return false;
-    }
+      if(!subFilterSearch(filter.search,product.name)) return false;
 
       if(!subFilterCategoryValue(filter.categoryValue,product.category)) return false;
   

@@ -1,5 +1,7 @@
 import { createContext, useState} from 'react';
 
+import { isProductFilterEmpty } from '../utils/filter/isProductFilterEmpty';
+
 import type {InitProductFilter,TChangeProductFilterFn } from '../types/productFilterType';
 
 interface ProductFilterContextType {
@@ -58,17 +60,11 @@ export const ProductFilterProvider:React.FC<ProductFilterProviderProps> = ({ chi
 
     setFilter((prevFilter)=>{
       
-      const isFilterEmpty = prevFilter.search === '' &&
-                            prevFilter.categoryValue.length === 0 &&
-                            prevFilter.price.min==='' &&
-                            prevFilter.price.max==='' &&
-                            prevFilter.rating.length === 0 &&
-                            prevFilter.tag=== '' &&
-                            prevFilter.date=== 'newest'
+      const isFilterEmpty = isProductFilterEmpty(prevFilter);
 
       if(isFilterEmpty) return prevFilter;
 
-      return createInitProductFilter()
+      return createInitProductFilter();
     }
   )}
 

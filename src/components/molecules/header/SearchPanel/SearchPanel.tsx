@@ -1,9 +1,10 @@
-import {useRef, useContext, useEffect, useState} from 'react'
+import {useRef, useContext, useEffect} from 'react'
 import { useNavigate,useLocation } from 'react-router-dom';
 
 import useValidation from '../../../../hooks/useValidation';
 
 import { filterTypeGuard } from '../../../../utils/filterTypeGuard';
+import { isProductFilterEmpty } from '../../../../utils/filter/isProductFilterEmpty';
 
 import { useSearch,SearchProvider } from '../../../../context/MainSearchContext';
 import { ProductFilterContext } from '../../../../context/ProductFilterContext';
@@ -24,8 +25,6 @@ import type {FormEvent,ChangeEvent} from 'react';
 
 const SearchPanel =()=>{
 
-    // const [inputValue, setInputValue] = useState<string>('');
-
     const ref = useRef<HTMLInputElement>(null);
 
     const navigate = useNavigate();
@@ -44,7 +43,10 @@ const SearchPanel =()=>{
     },[location.pathname, filter.search])
 
     useEffect(()=>{
-      if(filter.search ==='' && ref.current) handleClear()
+        const isFilterEmpty = isProductFilterEmpty(filter)
+
+        if(isFilterEmpty && ref.current) handleClear()
+          
     },[filter.search])
 
 
@@ -78,9 +80,8 @@ const SearchPanel =()=>{
     
           setSuggestions(filteredSuggestions);
     
-          if(ref.current){
-            ref.current.value = userInput;
-          }
+          if(ref.current) ref.current.value = userInput;
+          
         }else{
           filterTypeGuard(filter, changeFilter, 'search', event.target.value);
     
@@ -88,7 +89,7 @@ const SearchPanel =()=>{
         }
     }
 
-    const handleClear = ()=>{
+    const handleClear =()=>{
       clearFilter()
       setQuery('')
       ref.current!.value='' 
@@ -111,7 +112,7 @@ const SearchPanel =()=>{
                     type='text' 
                     forwardRef={ref}
                     // value={inputValue} 
-                      // value={!isLocationShop ? query :filter.search} //!filter.search
+                    // value={!isLocationShop ? query :filter.search} //!filter.search
                     changeFn={handleChange}
                     className={isValid ?"_searchInput":"_invalidSearchInput"}
                 />
