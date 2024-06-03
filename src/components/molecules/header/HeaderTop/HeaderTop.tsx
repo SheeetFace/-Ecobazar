@@ -1,11 +1,39 @@
+import {NavLink} from "react-router-dom";
+
+import { useAuthState } from "../../../../hooks/useAuthState";
+
+import UserHeader from "../UserHeader/UserHeader";
+
 import StoreLocation from "../StoreLocation/StoreLocation";
 import Button from "../../../atoms/Button/Button";
-
-import {NavLink} from "react-router-dom";
 
 import styles from "../HeaderTop/HeaderTop.module.scss"
 
 const HeaderTop:React.FC =()=>{
+
+    const {user, loading} = useAuthState()
+    console.log(user)
+
+    const renderContent = ()=>{
+        if(loading){
+            return <span>loading...</span>
+        
+        }else if(!loading && !user){
+            return(
+                <NavLink to="/login">
+                    <Button className="ButtonFilledOval fillWhite colorTextGreenPrimary"  text="Sing in" type='button'/>
+                </NavLink>
+            )
+        }else if(!loading && user){
+            return(
+                <NavLink to="/dashboard">
+                    <UserHeader photoURL={user.photoURL} displayName={user.displayName}/>
+                </NavLink>
+            )
+        }else{
+            return <span>Sorry, try later </span>
+        }
+    }
 
     return(
         <section className={styles.HeaderTop}>
@@ -13,19 +41,7 @@ const HeaderTop:React.FC =()=>{
                 <div className={styles._container}>
                     <StoreLocation/>
 
-                    <NavLink to="/login">
-                        <Button className="SingInSingOut"
-                                text="Sing in / Sing out"
-                                type='button'
-                        />
-                    </NavLink>
-
-                    <NavLink to="/dashboard">
-                        <Button className=""
-                                text="/dashboard"
-                                type='button'
-                        />
-                    </NavLink>
+                    {renderContent()}
 
                 </div>
             </div>

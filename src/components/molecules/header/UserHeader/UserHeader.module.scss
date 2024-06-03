@@ -1,0 +1,29 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/typography.scss';
+
+.UserHeader{
+    display: flex;
+    align-items:center;
+    gap:1rem;
+    transition:color .3s ease;
+    padding: .3rem;
+    color:$primary-color;
+    font-size: $body-small;
+    font-weight: $medium;
+
+
+    img{
+        width: 35px;
+        height: 35px;
+        border-radius:100%;
+        transform: rotate(0);
+        transition:transform .3s ease;
+    }
+
+    &:hover{
+        img{
+            transform: rotate(10deg);
+        }
+        color:$soft-primary-color;
+    }
+}

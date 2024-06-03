@@ -46,9 +46,8 @@ const SearchPanel =()=>{
         const isFilterEmpty = isProductFilterEmpty(filter)
 
         if(isFilterEmpty && ref.current) handleClear()
-          
-    },[filter.search])
 
+    },[filter.search])
 
     const handleSubmit =(event:FormEvent<HTMLFormElement>)=>{
         event.preventDefault();
