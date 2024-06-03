@@ -1,4 +1,3 @@
-import Logo from '../../Logo/Logo';
 
 import styles from '../UserHeader/UserHeader.module.scss';
 
@@ -11,8 +10,7 @@ const UserHeader:React.FC<UserHeaderProps> = ({displayName,photoURL}) => {
 
     return (
         <div className={styles.UserHeader}>
-            {photoURL ? <img alt='user name' src={photoURL}/> : <Logo className=''/>}
-
+            {photoURL ? <img alt='user name' src={photoURL}/> : <span style={{fontSize:'1.5rem'}}>🥦</span>}
             <span>{displayName}</span>
         </div>
     )

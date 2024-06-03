@@ -12,11 +12,12 @@ import styles from "../HeaderTop/HeaderTop.module.scss"
 const HeaderTop:React.FC =()=>{
 
     const {user, loading} = useAuthState()
-    console.log(user)
+
 
     const renderContent = ()=>{
+
         if(loading){
-            return <span>loading...</span>
+            return <div className={`${styles._loading} _skeleton`}/>
         
         }else if(!loading && !user){
             return(
@@ -42,7 +43,6 @@ const HeaderTop:React.FC =()=>{
                     <StoreLocation/>
 
                     {renderContent()}
-
                 </div>
             </div>
 

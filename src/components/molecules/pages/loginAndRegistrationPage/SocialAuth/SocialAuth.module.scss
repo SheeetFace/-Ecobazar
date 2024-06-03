@@ -1,9 +1,17 @@
 @import '../../../../../styles/colors.scss';
+@import '../../../../../styles/typography.scss';
 
 .SocialAuth{
     display: flex;
     flex-direction: column;
     gap:.5rem;
+
+
+    h2{ 
+        text-align: center;
+        color:$danger-color;
+        font-size: $body-medium;
+    }
 
     ._or{
         display: flex;

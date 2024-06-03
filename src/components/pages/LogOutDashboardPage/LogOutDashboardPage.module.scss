@@ -26,5 +26,10 @@
 
     ._logout{
         width: 50%;
+
+        h1{ 
+            text-align: center;
+            color:$danger-color;
+        }
     }
 }
