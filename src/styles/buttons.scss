@@ -116,9 +116,9 @@
   }
 }
 .fillApple{
-  background-color:#080808;
+  background-color:#3f51b5;
   &:hover{
-    background-color:#252525;
+    background-color:#5463b8;
   }
 }
 .fillGithub{
@@ -142,9 +142,6 @@
 
 .buttonMaxWidth{
   width: 100%;
-}
-.buttonWidthMaxContent{
-  width: max-content;
 }
 .buttonMaxHeight{
   height: 40px;
