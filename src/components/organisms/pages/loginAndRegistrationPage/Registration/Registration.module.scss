@@ -5,4 +5,25 @@
 .Registration{
     @extend .PrimaryLoginAndRegistration;
 
+    ._checkboxWrapper{
+        display: flex;
+        flex-direction: column;
+        height: 20px;
+        margin-left: -10px;
+
+        ._checkboxError{
+            height: 20px;
+            background-color:black
+        }
+
+        ._container{
+            display: flex;
+            gap:.3rem;
+
+            span{
+                margin-top:2px;
+            }
+        }
+    }
+
 }

@@ -16,7 +16,7 @@ export const firebaseSignInWithService = async (provider:Provider) => {
         
         case 'facebook':
             providerAuth =new FacebookAuthProvider()
-        break
+            break
         
         default:
             providerAuth =new GoogleAuthProvider()

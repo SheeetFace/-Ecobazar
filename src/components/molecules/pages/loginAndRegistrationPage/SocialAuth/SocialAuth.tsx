@@ -9,7 +9,6 @@ import Button from '../../../../atoms/Button/Button';
 import Loader from '../../../Loader/Loader';
 
 import GoogleIcon from '../../../../atoms/icon/auth/GoogleIcon';
-import GithubIcon from '../../../../atoms/icon/auth/GithubIcon';
 import FacebookIcon from '../../../../atoms/icon/auth/FacebookIcon';
 
 import styles from '../SocialAuth/SocialAuth.module.scss';
