@@ -1,12 +1,17 @@
-import { NavLink } from 'react-router-dom';
+import { useState } from 'react';
+
+import { NavLink, useNavigate } from 'react-router-dom';
 
 import {useForm} from 'react-hook-form'
+
+import { firebaseCreateUserWithEmailAndPasswordService } from '../../../../../services/auth/firebaseCreateUserWithEmailAndPasswordService';
 
 import { getValidationOptions } from '../../../../../utils/getValidationOptions';
 
 import InputFormField from '../../../formField/InputFormField/InputFormField';
 import Button from '../../../../atoms/Button/Button';
 import FormValidationMessage from '../../../../atoms/form/FormValidationMessage/FormValidationMessage';
+import Loader from '../../../../molecules/Loader/Loader';
 
 import SocialAuth from '../../../../molecules/pages/loginAndRegistrationPage/SocialAuth/SocialAuth';
 
@@ -25,20 +30,44 @@ interface FormValues{
 
 const Registration:React.FC = () => {
 
+    const [errorMessageUser, setErrorMessageUser] = useState<string|null>(null)
+    const [isLoading, setIsLoading] = useState<boolean>(false)
+
     const {register, formState:{errors},handleSubmit,watch} = useForm<FormValues>();
 
     const password = watch('password');
 
-    const ErrorMessage = 'password (minimum 5 characters and not an empty string or spaces)';
-    
+    const navigation = useNavigate()
+
     const isChecked = !!errors?.checkbox;
 
     const passwordsMatch =(value: string,password: string)=>{
         return value === password || "Passwords do not match"
     }
 
-    const onSubmit: SubmitHandler<FormValues> =(data)=>{
-        alert(JSON.stringify(data))
+    const onSubmit: SubmitHandler<FormValues> = async(data)=>{
+
+        setIsLoading(true)
+
+        if(errorMessageUser) setErrorMessageUser(null)
+
+        const email = data.email;
+        const password = data.password
+        const displayName = data.displayName
+
+        if(email && password){
+            const res = await firebaseCreateUserWithEmailAndPasswordService(email,password,displayName)
+            console.log(res)
+
+            if(res.error.status)  return setIsLoading(false), setErrorMessageUser(res.error.message)
+
+            navigation('/')
+            
+        }else{
+            console.error("Something wrong with email or password")
+        }
+
+        setIsLoading(false)
     }
 
     return (
@@ -68,7 +97,7 @@ const Registration:React.FC = () => {
                                 isPassword={true} 
                                 inputType='string'
                                 isErrors={!!errors?.password}
-                                register={{...register('password', getValidationOptions(/^[^\s]{5,}$/,ErrorMessage))}}
+                                register={{...register('password', getValidationOptions(/^[^\s]{5,}$/,'password (minimum 5 characters and not an empty string or spaces)'))}}
                                 errorMessage={errors.password?.message}
                 />
                 <InputFormField className={styles._input} 
@@ -79,7 +108,7 @@ const Registration:React.FC = () => {
                                 register={{
                                     ...register("confirmPassword",{
                                       validate: (value) => passwordsMatch(value, password),
-                                      ...getValidationOptions(/^[^\s]{5,}$/, ErrorMessage),
+                                      ...getValidationOptions(/^[^\s]{5,}$/, 'password (minimum 5 characters and not an empty string or spaces)'),
                                     })
                                 }}
                                 errorMessage={errors.confirmPassword?.message}
@@ -100,6 +129,9 @@ const Registration:React.FC = () => {
                 </div>
 
                 <div className={styles._checkboxError}> {isChecked ? <FormValidationMessage error='Please select the checkbox'/> :<span>&nbsp;</span>}</div>
+
+                {errorMessageUser ? <FormValidationMessage error={errorMessageUser}/> :null}
+                {isLoading ? <Loader/> :null}
 
                 <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxWidth buttonMaxHeight' type='submit' text='Create Account'/>
 
