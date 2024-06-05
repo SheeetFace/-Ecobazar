@@ -24,7 +24,7 @@ export const firebaseCreateUserWithEmailAndPasswordService = async(email:string,
 
         res.data=initData
 
-        
+        //!
 
     }
     catch(error){
