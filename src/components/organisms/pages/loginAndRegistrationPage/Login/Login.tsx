@@ -2,6 +2,8 @@ import { useRef } from 'react';
 
 import { NavLink } from 'react-router-dom';
 
+import { firebaseSignInWithEmailAndPasswordService } from '../../../../../services/auth/signInServices/firebaseSignInWithEmailAndPasswordService';
+
 import Input from '../../../../atoms/form/Input/Input';
 import PasswordInputAction from '../../../../molecules/PasswordInputAction/PasswordInputAction';
 import Button from '../../../../atoms/Button/Button';
@@ -17,12 +19,14 @@ const Login:React.FC = () => {
     const passwordRef = useRef<HTMLInputElement>(null)
     const checkboxRef = useRef<HTMLInputElement>(null);
 
-    const handleSubmit = (event:FormEvent<HTMLFormElement>)=>{
+    const handleSubmit = async(event:FormEvent<HTMLFormElement>)=>{
         event.preventDefault()
         if(loginRef.current && passwordRef.current && checkboxRef.current ){
             console.log(loginRef.current.value)
             console.log(passwordRef.current.value)
-            console.log(checkboxRef.current.checked)
+            // console.log(checkboxRef.current.checked)
+            const res = await firebaseSignInWithEmailAndPasswordService(loginRef.current.value,passwordRef.current.value)
+            console.log(res)
         }
     }
 
