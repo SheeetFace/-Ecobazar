@@ -16,8 +16,6 @@ export const firebaseSignInWithEmailAndPasswordService =async (email:string,pass
 
     try{
         const credential = await signInWithEmailAndPassword(auth, email, password)
-
-        // return credential.user;
         res.data =credential.user
 
     }catch(error){

@@ -1,12 +1,11 @@
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import { useLoadingAndError } from '../../../../../hooks/useLoadingAndError';
 
 import { firebaseSignInWithService } from '../../../../../services/auth/firebaseSignInWithService';
 
-import { useNavigate } from 'react-router-dom';
-
 import Divider from '../../../../atoms/Divider/Divider';
 import Button from '../../../../atoms/Button/Button';
-import Loader from '../../../Loader/Loader';
 
 import GoogleIcon from '../../../../atoms/icon/auth/GoogleIcon';
 import FacebookIcon from '../../../../atoms/icon/auth/FacebookIcon';
@@ -17,27 +16,15 @@ type Provider = 'google'|'facebook'
 
 const SocialAuth:React.FC = () => {
 
-    const [isError, setIsError] = useState<boolean>(false)
-    const [isLoading, setIsLoading] =useState<boolean>(false)
+    const { executeAsync, renderLoaderOrError } = useLoadingAndError();
 
     const navigate = useNavigate();
 
-    const auth = async(provider: Provider)=>{
-        
-        setIsLoading(true)
+    const signInWithProvider = async(provider: Provider)=>{
 
-        if(isError) setIsError(false)
+        const res = await executeAsync(()=>firebaseSignInWithService(provider))
 
-        try{
-            const res = await firebaseSignInWithService(provider)
-
-            if(res) setIsLoading(false), navigate('/')
-
-        }catch(error){
-            console.error('Sign in error:', error);
-            setIsError(true)
-            setIsLoading(false)
-        }
+        if(res) return navigate('/')
     }
 
     return (
@@ -48,11 +35,10 @@ const SocialAuth:React.FC = () => {
                 <Divider type='horizontal' className={styles._divider}/>
             </div>
 
-            {isError ? <h2>Something went wrong, try again 😭</h2> : null}
-            {isLoading ? <Loader/> : null}
+            {renderLoaderOrError()}
 
-            <Button className='ButtonFilledOval fillGoogle colorTextGrey1 buttonMaxWidth buttonMaxHeight' type='button' text='LOG IN WITH GOOGLE' icon={<GoogleIcon/>} onClick={()=>auth('google')}/>
-            <Button className='ButtonFilledOval fillApple colorTextGrey1 buttonMaxWidth buttonMaxHeight' type='button' text='LOG IN WITH FACEBOOK' icon={<FacebookIcon/>} onClick={()=>auth('facebook')}/>
+            <Button className='ButtonFilledOval fillGoogle colorTextGrey1 buttonMaxWidth buttonMaxHeight' type='button' text='LOG IN WITH GOOGLE' icon={<GoogleIcon/>} onClick={()=>signInWithProvider('google')}/>
+            <Button className='ButtonFilledOval fillApple colorTextGrey1 buttonMaxWidth buttonMaxHeight' type='button' text='LOG IN WITH FACEBOOK' icon={<FacebookIcon/>} onClick={()=>signInWithProvider('facebook')}/>
 
         </div>
     )

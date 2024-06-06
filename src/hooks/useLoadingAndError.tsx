@@ -16,8 +16,8 @@ interface PromiseFunc<T>{
 type ExecuteAsync<T> = (asyncFunction: ()=>Promise<PromiseFunc<T>>) => Promise<T|null>
 
 interface UseLoadingAndErrorResult<T>{
-    isLoading: boolean
-    errorMessage: string|null
+    // isLoading: boolean
+    // errorMessage: string|null
     executeAsync: ExecuteAsync<T>
     renderLoaderOrError: ()=>JSX.Element|null
 }
@@ -57,10 +57,13 @@ export const useLoadingAndError=<T,>():UseLoadingAndErrorResult<T>=>{
 
     const renderLoaderOrError = useCallback(()=>{
         if(isLoading) return<Loader/>;
-        if(errorMessage) return<FormValidationMessage error={errorMessage}/>;
+        if(errorMessage) 
+            return  <div style={{width:'100%',height:'50px',display:'flex',justifyContent:'center',alignItems:'center'}}>
+                        <FormValidationMessage error={errorMessage}/>
+                    </div>
 
         return null
     },[isLoading, errorMessage]);
 
-    return {isLoading,errorMessage,executeAsync,renderLoaderOrError};
+    return {executeAsync,renderLoaderOrError};
 }

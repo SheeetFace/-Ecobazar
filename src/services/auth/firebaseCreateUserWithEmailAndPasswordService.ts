@@ -19,7 +19,6 @@ export const firebaseCreateUserWithEmailAndPasswordService = async(email:string,
 
     try{
         const credential =  await createUserWithEmailAndPassword(auth, email, password)
-        console.log(credential)
 
         const initData = await firebaseInitUserDataService(credential.user, displayName)
 
