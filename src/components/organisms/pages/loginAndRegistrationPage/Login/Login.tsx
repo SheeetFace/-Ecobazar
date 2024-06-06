@@ -1,8 +1,7 @@
-import { useState } from 'react';
-
 import { NavLink, useNavigate } from 'react-router-dom';
 
 import {useForm} from 'react-hook-form'
+import { useLoadingAndError } from '../../../../../hooks/useLoadingAndError';
 
 import { firebaseSignInWithEmailAndPasswordService } from '../../../../../services/auth/signInServices/firebaseSignInWithEmailAndPasswordService';
 
@@ -13,8 +12,6 @@ import InputFormField from '../../../formField/InputFormField/InputFormField';
 import Button from '../../../../atoms/Button/Button';
 import SocialAuth from '../../../../molecules/pages/loginAndRegistrationPage/SocialAuth/SocialAuth';
 import AlertMessage from '../../../../molecules/AlertMessage/AlertMessage';
-import Loader from '../../../../molecules/Loader/Loader';
-import FormValidationMessage from '../../../../atoms/form/FormValidationMessage/FormValidationMessage';
 
 import styles from '../Login/Login.module.scss';
 
@@ -27,38 +24,25 @@ interface FormValues{
 
 const Login:React.FC = () => {
 
-    const [errorMessageUser, setErrorMessageUser] = useState<string|null>(null)
-    const [isLoading, setIsLoading] = useState<boolean>(false)
-
     const {register, formState:{errors},handleSubmit} = useForm<FormValues>();
+
+    const { executeAsync, renderLoaderOrError } = useLoadingAndError();
 
     const navigation = useNavigate()
 
-    const onSubmit: SubmitHandler<FormValues> = async(data)=>{
-        setIsLoading(true)
+    const onSubmit: SubmitHandler<FormValues> = async (data) => {
+      const res = await executeAsync(()=> firebaseSignInWithEmailAndPasswordService(data.email, data.password));
 
-        const email = data.email
-        const password = data.password
+      if(res) return navigation('/');
 
-        if(errorMessageUser) setErrorMessageUser(null)
-        
-        if(email && password){
-
-            const res = await firebaseSignInWithEmailAndPasswordService(email,password)
-
-            if(res.error.status)  return setIsLoading(false), setErrorMessageUser(res.error.message)
-
-            navigation('/')
-
-        }else console.error("Something wrong with email or password")
-        
-        setIsLoading(false)
-    }
+      console.error("Something wrong with email or password")
+    };
+  
 
     return (
         <section className={styles.Login}>
             <h1>Sign in</h1>
-            
+
             <AlertMessage type='test' isCanClose={false}/>
             <AlertMessage type='note'/>
 
@@ -95,8 +79,7 @@ const Login:React.FC = () => {
 
             </form>
 
-            {errorMessageUser ? <FormValidationMessage error={errorMessageUser}/> :null}
-            {isLoading ? <Loader/> :null}
+            {renderLoaderOrError()}
 
             <SocialAuth/>
             

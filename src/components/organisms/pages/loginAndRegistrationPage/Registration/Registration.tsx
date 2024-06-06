@@ -1,8 +1,7 @@
-import { useState } from 'react';
-
 import { NavLink, useNavigate } from 'react-router-dom';
 
 import {useForm} from 'react-hook-form'
+import { useLoadingAndError } from '../../../../../hooks/useLoadingAndError';
 
 import { firebaseCreateUserWithEmailAndPasswordService } from '../../../../../services/auth/firebaseCreateUserWithEmailAndPasswordService';
 
@@ -11,7 +10,6 @@ import { getValidationOptions } from '../../../../../utils/getValidationOptions'
 import InputFormField from '../../../formField/InputFormField/InputFormField';
 import Button from '../../../../atoms/Button/Button';
 import FormValidationMessage from '../../../../atoms/form/FormValidationMessage/FormValidationMessage';
-import Loader from '../../../../molecules/Loader/Loader';
 import AlertMessage from '../../../../molecules/AlertMessage/AlertMessage';
 
 import SocialAuth from '../../../../molecules/pages/loginAndRegistrationPage/SocialAuth/SocialAuth';
@@ -31,10 +29,9 @@ interface FormValues{
 
 const Registration:React.FC = () => {
 
-    const [errorMessageUser, setErrorMessageUser] = useState<string|null>(null)
-    const [isLoading, setIsLoading] = useState<boolean>(false)
-
     const {register, formState:{errors},handleSubmit,watch} = useForm<FormValues>();
+
+    const { executeAsync, renderLoaderOrError } = useLoadingAndError();
 
     const password = watch('password');
 
@@ -48,27 +45,11 @@ const Registration:React.FC = () => {
 
     const onSubmit: SubmitHandler<FormValues> = async(data)=>{
 
-        setIsLoading(true)
+        const {email,password,displayName} =data
 
-        if(errorMessageUser) setErrorMessageUser(null)
+        const res = await executeAsync(()=>firebaseCreateUserWithEmailAndPasswordService(email,password,displayName))
 
-        const email = data.email;
-        const password = data.password
-        const displayName = data.displayName
-
-        if(email && password){
-            const res = await firebaseCreateUserWithEmailAndPasswordService(email,password,displayName)
-            console.log(res)
-
-            if(res.error.status)  return setIsLoading(false), setErrorMessageUser(res.error.message)
-
-            navigation('/')
-            
-        }else{
-            console.error("Something wrong with email or password")
-        }
-
-        setIsLoading(false)
+        if(res) return navigation('/')
     }
 
     return (
@@ -133,8 +114,7 @@ const Registration:React.FC = () => {
 
                 <div className={styles._checkboxError}> {isChecked ? <FormValidationMessage error='Please select the checkbox'/> :<span>&nbsp;</span>}</div>
 
-                {errorMessageUser ? <FormValidationMessage error={errorMessageUser}/> :null}
-                {isLoading ? <Loader/> :null}
+                {renderLoaderOrError()}
 
                 <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxWidth buttonMaxHeight' type='submit' text='Create Account'/>
 
