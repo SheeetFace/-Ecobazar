@@ -1,6 +1,6 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 import { firebaseSignInWithEmailAndPasswordService } from '../../../../../services/auth/signInServices/firebaseSignInWithEmailAndPasswordService';
 
@@ -8,6 +8,9 @@ import Input from '../../../../atoms/form/Input/Input';
 import PasswordInputAction from '../../../../molecules/PasswordInputAction/PasswordInputAction';
 import Button from '../../../../atoms/Button/Button';
 import SocialAuth from '../../../../molecules/pages/loginAndRegistrationPage/SocialAuth/SocialAuth';
+import AlertMessage from '../../../../molecules/AlertMessage/AlertMessage';
+import Loader from '../../../../molecules/Loader/Loader';
+import FormValidationMessage from '../../../../atoms/form/FormValidationMessage/FormValidationMessage';
 
 import styles from '../Login/Login.module.scss';
 
@@ -15,24 +18,40 @@ import type { FormEvent } from 'react';
 
 const Login:React.FC = () => {
 
+    const [errorMessageUser, setErrorMessageUser] = useState<string|null>(null)
+    const [isLoading, setIsLoading] = useState<boolean>(false)
+
     const loginRef = useRef<HTMLInputElement>(null)
     const passwordRef = useRef<HTMLInputElement>(null)
     const checkboxRef = useRef<HTMLInputElement>(null);
 
+    const navigation = useNavigate()
+
+    
     const handleSubmit = async(event:FormEvent<HTMLFormElement>)=>{
+
+        setIsLoading(true)
+
+        if(errorMessageUser) setErrorMessageUser(null)
+
         event.preventDefault()
         if(loginRef.current && passwordRef.current && checkboxRef.current ){
-            console.log(loginRef.current.value)
-            console.log(passwordRef.current.value)
-            // console.log(checkboxRef.current.checked)
+
             const res = await firebaseSignInWithEmailAndPasswordService(loginRef.current.value,passwordRef.current.value)
-            console.log(res)
+
+            if(res.error.status)  return setIsLoading(false), setErrorMessageUser(res.error.message)
+
+            navigation('/')
         }
+
+        setIsLoading(false)
     }
 
     return (
         <section className={styles.Login}>
             <h1>Sign in</h1>
+            <AlertMessage type='test'/>
+            <AlertMessage type='note'/>
 
             <form  onSubmit={handleSubmit}>
 
@@ -53,6 +72,9 @@ const Login:React.FC = () => {
                 <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxWidth buttonMaxHeight' type='submit' text='Log in'/>
 
             </form>
+
+            {errorMessageUser ? <FormValidationMessage error={errorMessageUser}/> :null}
+            {isLoading ? <Loader/> :null}
 
             <SocialAuth/>
             

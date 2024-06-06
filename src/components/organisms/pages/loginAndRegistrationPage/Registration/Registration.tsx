@@ -12,6 +12,7 @@ import InputFormField from '../../../formField/InputFormField/InputFormField';
 import Button from '../../../../atoms/Button/Button';
 import FormValidationMessage from '../../../../atoms/form/FormValidationMessage/FormValidationMessage';
 import Loader from '../../../../molecules/Loader/Loader';
+import AlertMessage from '../../../../molecules/AlertMessage/AlertMessage';
 
 import SocialAuth from '../../../../molecules/pages/loginAndRegistrationPage/SocialAuth/SocialAuth';
 
@@ -73,6 +74,8 @@ const Registration:React.FC = () => {
     return (
         <section className={styles.Registration}>
             <h1>Create Account</h1>
+
+            <AlertMessage type='note'/>
 
             <form  onSubmit={handleSubmit(onSubmit)}>
 
