@@ -1,11 +1,15 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 
 import { NavLink, useNavigate } from 'react-router-dom';
 
+import {useForm} from 'react-hook-form'
+
 import { firebaseSignInWithEmailAndPasswordService } from '../../../../../services/auth/signInServices/firebaseSignInWithEmailAndPasswordService';
 
+import { getValidationOptions } from '../../../../../utils/getValidationOptions';
+
 import Input from '../../../../atoms/form/Input/Input';
-import PasswordInputAction from '../../../../molecules/PasswordInputAction/PasswordInputAction';
+import InputFormField from '../../../formField/InputFormField/InputFormField';
 import Button from '../../../../atoms/Button/Button';
 import SocialAuth from '../../../../molecules/pages/loginAndRegistrationPage/SocialAuth/SocialAuth';
 import AlertMessage from '../../../../molecules/AlertMessage/AlertMessage';
@@ -14,53 +18,71 @@ import FormValidationMessage from '../../../../atoms/form/FormValidationMessage/
 
 import styles from '../Login/Login.module.scss';
 
-import type { FormEvent } from 'react';
+import type {SubmitHandler}from 'react-hook-form';
+
+interface FormValues{
+    email:string
+    password:string
+}
 
 const Login:React.FC = () => {
 
     const [errorMessageUser, setErrorMessageUser] = useState<string|null>(null)
     const [isLoading, setIsLoading] = useState<boolean>(false)
 
-    const loginRef = useRef<HTMLInputElement>(null)
-    const passwordRef = useRef<HTMLInputElement>(null)
-    const checkboxRef = useRef<HTMLInputElement>(null);
+    const {register, formState:{errors},handleSubmit} = useForm<FormValues>();
 
     const navigation = useNavigate()
 
-    
-    const handleSubmit = async(event:FormEvent<HTMLFormElement>)=>{
-
+    const onSubmit: SubmitHandler<FormValues> = async(data)=>{
         setIsLoading(true)
 
+        const email = data.email
+        const password = data.password
+
         if(errorMessageUser) setErrorMessageUser(null)
+        
+        if(email && password){
 
-        event.preventDefault()
-        if(loginRef.current && passwordRef.current && checkboxRef.current ){
-
-            const res = await firebaseSignInWithEmailAndPasswordService(loginRef.current.value,passwordRef.current.value)
+            const res = await firebaseSignInWithEmailAndPasswordService(email,password)
 
             if(res.error.status)  return setIsLoading(false), setErrorMessageUser(res.error.message)
 
             navigation('/')
-        }
 
+        }else console.error("Something wrong with email or password")
+        
         setIsLoading(false)
     }
 
     return (
         <section className={styles.Login}>
             <h1>Sign in</h1>
-            <AlertMessage type='test'/>
+            
+            <AlertMessage type='test' isCanClose={false}/>
             <AlertMessage type='note'/>
 
-            <form  onSubmit={handleSubmit}>
+            <form  onSubmit={handleSubmit(onSubmit)}>
 
-                <Input className={styles._input} placeholder='Login' type='text'  forwardRef={loginRef}/>
-                <PasswordInputAction forwardRef={passwordRef} classNameWrapperInput={styles._input} placeholder='Password'/>
+            <InputFormField className={styles._input} 
+                            placeholder='Email' 
+                            inputType='string'
+                            isErrors={!!errors?.email}
+                            register={{...register('email',getValidationOptions(/^\S+@\S+\.\S+$/, "email"))}}
+                            errorMessage={errors.email?.message}
+            />
+            <InputFormField className={styles._input} 
+                            placeholder='Password' 
+                            isPassword={true} 
+                            inputType='string'
+                            isErrors={!!errors?.password}
+                            register={{...register('password', getValidationOptions(/^[^\s]{5,}$/,'password (minimum 5 characters and not an empty string or spaces)'))}}
+                            errorMessage={errors.password?.message}
+            />
 
                 <div className={styles._container}>
                     <div className={styles._checkboxWrapper}>
-                        <Input className={styles._checkbox} type='checkbox' forwardRef={checkboxRef} />
+                        <Input className={styles._checkbox} type='checkbox'/>
                         <span>Remember me</span>
                     </div>
 

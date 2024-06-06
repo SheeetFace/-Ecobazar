@@ -6,9 +6,10 @@ type AlertType = 'note'|'test'
 
 interface AlertMessageProps{
     type:AlertType
+    isCanClose?:boolean
 }
 
-const AlertMessage:React.FC<AlertMessageProps> = ({type}) => {
+const AlertMessage:React.FC<AlertMessageProps> = ({type, isCanClose =true}) => {
 
     const [show, setShow] = useState<boolean>(true)
 
@@ -34,13 +35,10 @@ const AlertMessage:React.FC<AlertMessageProps> = ({type}) => {
             break
     }
 
-
-
     return (
         <>
             {show ?
             <>  
-                
                 <div className={`${styles.AlertMessage} ${options.class}`}>
                     <div className={styles._container}>
                         <div className={styles._title}>
@@ -48,14 +46,16 @@ const AlertMessage:React.FC<AlertMessageProps> = ({type}) => {
                         </div>
                         <span className={styles._message}>{options.message}</span>
                     </div>
-                    <div className={styles._cross}>
-                        <span onClick={()=>setShow(false)}>✖</span>
-                    </div>
+
+                    {isCanClose ? 
+                        <div className={styles._cross}>
+                            <span onClick={()=>setShow(false)}>✖</span>
+                        </div>
+                    :null}
+                    
                 </div>
-                
             </>
-            :
-            null}
+            :null}
         </>
     )
 }
