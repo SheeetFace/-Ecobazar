@@ -48,7 +48,6 @@ const Registration:React.FC = () => {
         const {email,password,displayName} =data
 
         const res = await executeAsync(()=>firebaseCreateUserWithEmailAndPasswordService(email,password,displayName))
-        console.log(res)
 
         if(res) return navigation('/')
     }

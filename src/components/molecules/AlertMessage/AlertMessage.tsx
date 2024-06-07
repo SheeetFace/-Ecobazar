@@ -2,14 +2,15 @@ import { useState } from 'react';
 
 import styles from '../AlertMessage/AlertMessage.module.scss';
 
-type AlertType = 'note'|'test'
+type AlertType = 'note'|'test'|'error'
 
 interface AlertMessageProps{
     type:AlertType
     isCanClose?:boolean
+    errorMessage?:string
 }
 
-const AlertMessage:React.FC<AlertMessageProps> = ({type, isCanClose =true}) => {
+const AlertMessage:React.FC<AlertMessageProps> = ({type, isCanClose =true, errorMessage}) => {
 
     const [show, setShow] = useState<boolean>(true)
 
@@ -24,6 +25,12 @@ const AlertMessage:React.FC<AlertMessageProps> = ({type, isCanClose =true}) => {
         class:styles._test
     }
 
+    const alertError={
+        title:'Error',
+        message:errorMessage,
+        class:styles._error
+    }
+
     let options;
 
     switch (type){
@@ -32,6 +39,9 @@ const AlertMessage:React.FC<AlertMessageProps> = ({type, isCanClose =true}) => {
             break
         case 'test':
             options = alertTest;
+            break
+        case 'error':
+            options = alertError;
             break
     }
 

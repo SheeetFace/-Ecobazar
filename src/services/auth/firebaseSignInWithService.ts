@@ -29,6 +29,5 @@ export const firebaseSignInWithService = async (provider:AuthProvider) => {
         const credentials = await signInWithPopup(auth, providerAuth);
 
         return await firebaseCheckIsUserAlreadyExistsService(credentials.user,(credentials.user.displayName || ''))
-
     });
 };

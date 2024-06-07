@@ -21,8 +21,9 @@ export const firebaseErrorHandlingOperations = async <T>(operation:Operation<T>)
     res.error.status = true;
 
     if(error instanceof FirebaseError) res.error.message = formatAuthError(error.code);
-    else res.error.message = error as string;
-    
+    else if (error instanceof Error) res.error.message = error.message;
+    else res.error.message = 'An unexpected error occurred';
+  
     console.error('Error during operation:', error);
   }
 

@@ -27,14 +27,12 @@
 
     ._cross{
         span{
-            // color:inherit;
             cursor: pointer;
             transition: color .3s ease;
         &:hover{
             color: $grey-9;
         }
         }
-
     }
 }
 
@@ -48,4 +46,10 @@
     border-color: $primary-color;
     color:$primary-color;
     background-color: rgba($primary-color, .1);
+}
+
+._error{
+    border-color: $danger-color;
+    color:$danger-color;
+    background-color: rgba($danger-color, .1);
 }

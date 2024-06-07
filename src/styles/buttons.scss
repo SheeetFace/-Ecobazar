@@ -143,6 +143,9 @@
 .buttonMaxWidth{
   width: 100%;
 }
+.buttonWidthMaxContent{
+  min-width: max-content;
+}
 .buttonMaxHeight{
   height: 40px;
 }

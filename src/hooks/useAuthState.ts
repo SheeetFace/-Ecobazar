@@ -1,53 +1,44 @@
-// useAuthState.js
 import { useEffect, useState } from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
+
+import { firebaseGetUserDataByUid } from '../services/db/firebaseGetUserDataByUid';
+
+import { firebaseErrorHandlingOperations } from '../utils/firebase/firebaseErrorHandlingOperations';
 
 import type { UserDataType } from '../types/userTypes';
 
 
 export const useAuthState = () => {
-  const [user, setUser] = useState<UserDataType|null>(null);
-  const [loading, setLoading] = useState(true);
+    const [user, setUser] = useState<UserDataType|null>(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    const auth = getAuth();
+    useEffect(()=>{
+        const auth = getAuth();
 
-    const userDataFromStorage = localStorage.getItem('userData');
+        const unsubscribe =  onAuthStateChanged(auth, async (user) => {
 
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if(user && user.uid){
+                const res = await firebaseErrorHandlingOperations(async ()=>{
+                    return await firebaseGetUserDataByUid(user.uid);
+                });
 
-        if(user){
-            if(!userDataFromStorage){
-                const userData:UserDataType = {
-                    displayName: user?.displayName || '',
-                    email: user?.email || '',
-                    photoURL: user?.photoURL || '',
-                    uid: user?.uid || '',
-                    
-                    firstName:'',
-                    lastName:'',
-                    userType:'Customer',
-                    phone:'',
-                    address:'',
-                    country:'',
-                    region:'',
-                    zipCode:'',
-                    company:''
+                if(res.error.status){
+                    console.error('Error during retrieving user data:', res.error.message);
+                    setError(res.error.message);
+                }else{
+                    setUser(res.data as UserDataType);
+                    setError(null);
                 }
-                localStorage.setItem('userData',JSON.stringify(userData));
-                setUser(userData);
-            }else{
-                setUser(JSON.parse(userDataFromStorage));
+
+                setLoading(false); 
             }
-        }else{
-            localStorage.setItem('userData','');
-        }
 
-        setLoading(false);
-    });
+            setLoading(false);
+        });
 
-    return () => unsubscribe();
-  }, []);
+        return () => unsubscribe();
+    },[]);
 
-  return { user, loading};
+    return { user, loading, error};
 };

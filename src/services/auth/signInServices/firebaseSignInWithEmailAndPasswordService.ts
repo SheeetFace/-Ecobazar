@@ -1,6 +1,8 @@
 import {getAuth,signInWithEmailAndPassword } from "firebase/auth"
 import { app } from "../../../firebase/firebaseAuth";
 
+import { firebaseGetUserDataByUid } from "../../db/firebaseGetUserDataByUid";
+
 import { firebaseErrorHandlingOperations } from "../../../utils/firebase/firebaseErrorHandlingOperations";
 
 export const firebaseSignInWithEmailAndPasswordService =async (email:string,password:string) => {
@@ -9,6 +11,7 @@ export const firebaseSignInWithEmailAndPasswordService =async (email:string,pass
 
     return firebaseErrorHandlingOperations(async ()=>{
         const credential = await signInWithEmailAndPassword(auth, email, password)
-        return credential.user
+
+        return await firebaseGetUserDataByUid(credential.user.uid)
     })
 }
