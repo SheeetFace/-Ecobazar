@@ -1,25 +1,24 @@
-import { getAuth, signInWithPopup,FacebookAuthProvider, GoogleAuthProvider,} from "firebase/auth"
+import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider} from "firebase/auth"
 
 import { app } from "../../firebase/firebaseAuth"
 
 import { firebaseAuthOperations } from "../../utils/firebase/firebaseAuthOperations";
 
-type Provider = 'google'|'facebook'|'loginAndPassword'
+import type { AuthProvider } from "../../types/auth/authProviderTypes";
 
-export const firebaseSignInWithService = async (provider:Provider) => {
+export const firebaseSignInWithService = async (provider:AuthProvider) => {
     const auth = getAuth(app);
 
     let providerAuth;
-
 
     switch (provider){
         case 'google':
             providerAuth =new GoogleAuthProvider()
             break
-        
-        case 'facebook':
-            providerAuth =new FacebookAuthProvider()
-            break
+            
+        case 'github':
+            providerAuth =new GithubAuthProvider()
+        break
 
         default:
             providerAuth =new GoogleAuthProvider()
