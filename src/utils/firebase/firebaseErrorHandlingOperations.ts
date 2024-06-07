@@ -4,7 +4,7 @@ import { formatAuthError } from './formatAuthError';
 
 type Operation<T> = ()=>Promise<T>
 
-export const firebaseAuthOperations = async <T>(operation:Operation<T>)=>{
+export const firebaseErrorHandlingOperations = async <T>(operation:Operation<T>)=>{
 
   const res ={
       data:{} as T,

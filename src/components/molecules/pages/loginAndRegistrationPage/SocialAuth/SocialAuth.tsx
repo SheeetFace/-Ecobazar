@@ -24,6 +24,7 @@ const SocialAuth:React.FC = () => {
     const signInWithProvider = async(provider: AuthProvider)=>{
 
         const res = await executeAsync(()=>firebaseSignInWithService(provider))
+        console.log(res)
 
         if(res) return navigate('/')
     }

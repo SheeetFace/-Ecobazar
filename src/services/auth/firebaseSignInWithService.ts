@@ -2,7 +2,9 @@ import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider} from 
 
 import { app } from "../../firebase/firebaseAuth"
 
-import { firebaseAuthOperations } from "../../utils/firebase/firebaseAuthOperations";
+import { firebaseCheckIsUserAlreadyExistsService } from "../db/firebaseCheckIsUserAlreadyExistsService";
+
+import { firebaseErrorHandlingOperations } from "../../utils/firebase/firebaseErrorHandlingOperations";
 
 import type { AuthProvider } from "../../types/auth/authProviderTypes";
 
@@ -15,18 +17,18 @@ export const firebaseSignInWithService = async (provider:AuthProvider) => {
         case 'google':
             providerAuth =new GoogleAuthProvider()
             break
-            
         case 'github':
             providerAuth =new GithubAuthProvider()
-        break
-
+            break
         default:
             providerAuth =new GoogleAuthProvider()
     }
 
 
-    return firebaseAuthOperations(async ()=>{
+    return firebaseErrorHandlingOperations(async ()=>{
         const credentials = await signInWithPopup(auth, providerAuth);
-        return credentials.user;
+
+        return await firebaseCheckIsUserAlreadyExistsService(credentials.user,(credentials.user.displayName || ''))
+
     });
 };
