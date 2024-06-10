@@ -43,26 +43,26 @@ const Login:React.FC = () => {
         <section className={styles.Login}>
             <h1>Sign in</h1>
 
-            <AlertMessage type='test' isCanClose={false}/>
-            <AlertMessage type='note'/>
+            <AlertMessage type='success' title='Test Account' message={<><b>email: </b>customer1@gmail.com<br/><b>password: </b>123123</>} isCanClose={false}/>
+            <AlertMessage type='warning' title='Note' message='Please note, If you sign up with your email and password and then sign in via Google with the same address, you will have different accounts. Be careful when choosing your login method to avoid creating multiple accounts. Thank you for your understanding!'/>
 
             <form  onSubmit={handleSubmit(onSubmit)}>
 
-            <InputFormField className={styles._input} 
-                            placeholder='Email' 
-                            inputType='string'
-                            isErrors={!!errors?.email}
-                            register={{...register('email',getValidationOptions(/^\S+@\S+\.\S+$/, "email"))}}
-                            errorMessage={errors.email?.message}
-            />
-            <InputFormField className={styles._input} 
-                            placeholder='Password' 
-                            isPassword={true} 
-                            inputType='string'
-                            isErrors={!!errors?.password}
-                            register={{...register('password', getValidationOptions(/^[^\s]{5,}$/,'password (minimum 5 characters and not an empty string or spaces)'))}}
-                            errorMessage={errors.password?.message}
-            />
+                <InputFormField className={styles._input} 
+                                placeholder='Email' 
+                                inputType='string'
+                                isErrors={!!errors?.email}
+                                register={{...register('email',getValidationOptions(/^\S+@\S+\.\S+$/, "email"))}}
+                                errorMessage={errors.email?.message}
+                />
+                <InputFormField className={styles._input} 
+                                placeholder='Password' 
+                                isPassword={true} 
+                                inputType='string'
+                                isErrors={!!errors?.password}
+                                register={{...register('password', getValidationOptions(/^[^\s]{5,}$/,'password (minimum 5 characters and not an empty string or spaces)'))}}
+                                errorMessage={errors.password?.message}
+                />
 
                 <div className={styles._container}>
                     <div className={styles._checkboxWrapper}>
@@ -70,9 +70,12 @@ const Login:React.FC = () => {
                         <span>Remember me</span>
                     </div>
 
-                    <span className={styles._forgetPassword}>
-                        Forget Password
-                    </span>
+                    <div className={styles._forgetPassword}>
+                        <NavLink    to={'/reset-password'}
+                                    className={styles._navLink}>
+                                Forget Password
+                        </NavLink>
+                    </div>
                 </div>
                 
                 <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxWidth buttonMaxHeight' type='submit' text='Log in'/>
@@ -83,7 +86,7 @@ const Login:React.FC = () => {
 
             <SocialAuth/>
             
-            <div className={styles._registerOrLogin}>
+            <div className={styles._registerOrLoginOrReset}>
                 <span>Don’t have account?</span>
 
                 <NavLink    to={'/registration'}

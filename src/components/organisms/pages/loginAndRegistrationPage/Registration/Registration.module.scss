@@ -3,7 +3,7 @@
 @import '../styles/style.module.scss';
 
 .Registration{
-    @extend .PrimaryLoginAndRegistration;
+    @extend .PrimaryLoginAndRegistrationAndReset;
 
     ._checkboxWrapper{
         display: flex;

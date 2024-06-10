@@ -5,10 +5,10 @@ a{
     text-decoration: none;
     color:inherit;   
 }
-._navLink{
 
-    // text-decoration: none;
-    // border:3px solid red;
+._navLink{
+    font-weight: $medium;
+    transition: color .3s ease ;
     :visited {
         text-decoration-color: initial;
     }
@@ -18,16 +18,23 @@ a{
     @extend ._navLink;
 
     color:$primary-color;
-    font-weight: $medium;
-    transition: color .3s ease ;
 
     &:hover{
         color:$hard-primary-color;
     }
 }
 
-._navLinkGreenPrimaryLetterSpacing{
-    @extend ._navLinkGreenPrimary;
+._navLinkBlackPrimary{
+    @extend ._navLink;
+
+    color:$grey-8;
+
+    &:hover{
+        color:$grey-6;
+    }
+}
+
+._navLinkLetterSpacing{
     letter-spacing: 0;
     transition:letter-spacing .3s ease, color .3s ease ;
 
@@ -36,11 +43,18 @@ a{
     }
 }
 
+._navLinkGreenPrimaryLetterSpacing{
+    @extend ._navLinkGreenPrimary;
+    @extend ._navLinkLetterSpacing;
+}
+
+._navLinkBlackPrimaryLetterSpacing{
+    @extend ._navLinkBlackPrimary;
+    @extend ._navLinkLetterSpacing;
+}
+
 ._sizeLarge{
     font-size: $body-large; 
 }
 
-._navLinkWidthMaxContent{
-    width: max-content;
-}
 

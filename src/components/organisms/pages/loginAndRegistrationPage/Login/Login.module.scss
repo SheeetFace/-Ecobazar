@@ -3,7 +3,7 @@
 @import '../styles/style.module.scss';
 
 .Login{
-    @extend .PrimaryLoginAndRegistration;
+    @extend .PrimaryLoginAndRegistrationAndReset;
 
     ._container{
         height: 15px;

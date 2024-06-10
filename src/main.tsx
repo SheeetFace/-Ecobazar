@@ -4,6 +4,7 @@ import App from './App.tsx'
 import MainPage from './components/pages/MainPage/MainPage.tsx';
 import LoginPage from './components/pages/LoginPage/LoginPage.tsx';
 import RegistrationPage from './components/pages/RegistrationPage/RegistrationPage.tsx';
+import ResetPasswordPage from './components/pages/ResetPasswordPage/ResetPasswordPage.tsx';
 import ShopPage from './components/pages/ShopPage/ShopPage.tsx';
 import ProductPage from './components/pages/ProductPage/ProductPage.tsx';
 import AboutPage from './components/pages/AboutPage/AboutPage.tsx';
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
       {
         path: "registration",
         element: <RegistrationPage />,
+      },
+      {
+        path: "reset-password",
+        element: <ResetPasswordPage />,
       },
       {
         path: "shop",

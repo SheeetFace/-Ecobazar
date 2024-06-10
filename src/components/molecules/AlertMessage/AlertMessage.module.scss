@@ -36,13 +36,13 @@
     }
 }
 
-._note{
+._warning{
     border-color: $warning-color;
     color:$warning-color;
     background-color: rgba($warning-color, .1);
 }
 
-._test{
+._success{
     border-color: $primary-color;
     color:$primary-color;
     background-color: rgba($primary-color, .1);

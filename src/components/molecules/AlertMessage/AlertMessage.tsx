@@ -2,43 +2,43 @@ import { useState } from 'react';
 
 import styles from '../AlertMessage/AlertMessage.module.scss';
 
-type AlertType = 'note'|'test'|'error'
+type AlertType = 'warning'|'success'|'error'
 
 interface AlertMessageProps{
     type:AlertType
     isCanClose?:boolean
-    errorMessage?:string
+    message:string|JSX.Element,
+    title:string
 }
 
-const AlertMessage:React.FC<AlertMessageProps> = ({type, isCanClose =true, errorMessage}) => {
+const AlertMessage:React.FC<AlertMessageProps> = ({type, isCanClose =true, message, title}) => {
 
     const [show, setShow] = useState<boolean>(true)
 
-    const alertNote={
-        title:'Note',
-        message:'Please note, If you sign up with your email and password and then sign in via Google with the same address, you will have different accounts. Be careful when choosing your login method to avoid creating multiple accounts. Thank you for your understanding!',
-        class: styles._note
+    const alertWarning={
+        title,
+        message,
+        class: styles._warning
     }
-    const alertTest={
-        title:'Test account',
-        message:<><b>email: </b>customer1@gmail.com<br/><b>password: </b>123123</>,
-        class:styles._test
+    const alertSuccess={
+        title,
+        message,
+        class:styles._success
     }
-
     const alertError={
-        title:'Error',
-        message:errorMessage,
+        title,
+        message,
         class:styles._error
     }
 
     let options;
 
     switch (type){
-        case 'note':
-            options = alertNote;
+        case 'warning':
+            options = alertWarning;
             break
-        case 'test':
-            options = alertTest;
+        case 'success':
+            options = alertSuccess;
             break
         case 'error':
             options = alertError;

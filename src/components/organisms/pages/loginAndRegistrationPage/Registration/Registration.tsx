@@ -6,6 +6,7 @@ import { useLoadingAndError } from '../../../../../hooks/useLoadingAndError';
 import { firebaseCreateUserWithEmailAndPasswordService } from '../../../../../services/auth/firebaseCreateUserWithEmailAndPasswordService';
 
 import { getValidationOptions } from '../../../../../utils/getValidationOptions';
+import { checkIsInputsMatch } from '../../../../../utils/checkIsInputsMatch';
 
 import InputFormField from '../../../formField/InputFormField/InputFormField';
 import Button from '../../../../atoms/Button/Button';
@@ -39,10 +40,6 @@ const Registration:React.FC = () => {
 
     const isChecked = !!errors?.checkbox;
 
-    const passwordsMatch =(value: string,password: string)=>{
-        return value === password || "Passwords do not match"
-    }
-
     const onSubmit: SubmitHandler<FormValues> = async(data)=>{
 
         const {email,password,displayName} =data
@@ -56,7 +53,7 @@ const Registration:React.FC = () => {
         <section className={styles.Registration}>
             <h1>Create Account</h1>
 
-            <AlertMessage type='note'/>
+            <AlertMessage type='warning' title='Note' message='Please note, If you sign up with your email and password and then sign in via Google with the same address, you will have different accounts. Be careful when choosing your login method to avoid creating multiple accounts. Thank you for your understanding!'/>
 
             <form  onSubmit={handleSubmit(onSubmit)}>
 
@@ -91,7 +88,7 @@ const Registration:React.FC = () => {
                                 isErrors={!!errors?.confirmPassword}
                                 register={{
                                     ...register("confirmPassword",{
-                                      validate: (value) => passwordsMatch(value, password),
+                                    validate: (value) =>  checkIsInputsMatch(value,password,"Passwords do not match"),
                                       ...getValidationOptions(/^[^\s]{5,}$/, 'password (minimum 5 characters and not an empty string or spaces)'),
                                     })
                                 }}
@@ -122,7 +119,7 @@ const Registration:React.FC = () => {
 
             <SocialAuth/>
 
-            <div className={styles._registerOrLogin}>
+            <div className={styles._registerOrLoginOrReset}>
                 <span>Already have account?</span>
 
                 <NavLink    to={'/login'}

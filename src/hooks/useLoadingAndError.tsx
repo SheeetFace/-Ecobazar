@@ -17,7 +17,7 @@ type ExecuteAsync<T> = (asyncFunction: ()=>Promise<PromiseFunc<T>>) => Promise<T
 
 interface UseLoadingAndErrorResult<T>{
     // isLoading: boolean
-    // errorMessage: string|null
+    errorMessage: string|null
     executeAsync: ExecuteAsync<T>
     renderLoaderOrError: ()=>JSX.Element|null
 }
@@ -65,5 +65,5 @@ export const useLoadingAndError=<T,>():UseLoadingAndErrorResult<T>=>{
         return null
     },[isLoading, errorMessage]);
 
-    return {executeAsync,renderLoaderOrError};
+    return {executeAsync,renderLoaderOrError,errorMessage};
 }

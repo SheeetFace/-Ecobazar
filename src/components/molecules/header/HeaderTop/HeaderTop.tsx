@@ -39,12 +39,12 @@ const HeaderTop:React.FC =()=>{
         }else if(error){
             return(
                 <div className={styles._error}>
-                    <AlertMessage type="error" errorMessage={error}/>
+                    <AlertMessage type="error" title="Error" message={error || ''}/>
                     {renderButton()}
                 </div>
             )
         }else{
-           return (<div style={{width:'maxContent'}}><AlertMessage type="error" errorMessage='Sorry, auth not available now' isCanClose={false}/></div> )
+           return (<div style={{width:'maxContent'}}><AlertMessage type="error" title="Error" message='Sorry, auth not available now' isCanClose={false}/></div> )
         }
     }
 
