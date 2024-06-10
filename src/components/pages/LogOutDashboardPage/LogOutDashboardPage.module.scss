@@ -26,10 +26,8 @@
 
     ._logout{
         width: 50%;
-
-        h1{ 
-            text-align: center;
-            color:$danger-color;
-        }
+        display: flex;
+        flex-direction: column;
+        gap:1rem;
     }
 }

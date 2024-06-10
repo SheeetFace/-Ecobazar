@@ -1,19 +1,13 @@
 import { getAuth, signOut } from "firebase/auth";
 
-export const firebaseSignOutService= () => {
+import { firebaseErrorHandlingOperations } from "../../utils/firebase/firebaseErrorHandlingOperations";
+
+export const firebaseSignOutService= async() => {
     const auth = getAuth();
 
-    const res =signOut(auth)
-        .then(() =>{
-            localStorage.setItem('userData','')
-            return {success:true}
-        })
-        .catch((error) => {
-            console.error(error)
-            return {success:false} 
-        });
-    
-    return res
-    
+    return await firebaseErrorHandlingOperations(async ()=>{
+
+        return await signOut(auth);
+    })
 }
 

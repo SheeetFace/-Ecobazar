@@ -24,6 +24,7 @@ import BlogPostPage from './components/pages/BlogPostPage/BlogPostPage.tsx';
 
 import ErrorBoundary from './components/pages/ErrorBoundary/ErrorBoundary.tsx';
 
+import { AuthProvider } from './context/AuthContext.tsx';
 import { ProductFilterProvider } from './context/ProductFilterContext.tsx';
 // import { ProductModalProvider } from './context/ProductModalContext.tsx';
 import { BlogFilterProvider } from './context/BlogFilterContext.tsx';
@@ -40,7 +41,13 @@ import './index.scss'
 const router = createBrowserRouter([
   {
     path: "/",
-    element:<SearchProvider><ProductFilterProvider><App/></ProductFilterProvider></SearchProvider>,
+    element:<AuthProvider>
+              <SearchProvider>
+                <ProductFilterProvider>
+                  <App/>
+                </ProductFilterProvider>
+              </SearchProvider>,
+            </AuthProvider>,
     errorElement: <ErrorBoundary />,
     children: [
       {

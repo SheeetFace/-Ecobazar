@@ -1,6 +1,8 @@
+import { useContext } from "react";
+
 import {NavLink} from "react-router-dom";
 
-import { useAuthState } from "../../../../hooks/useAuthState";
+import { AuthContext } from "../../../../context/AuthContext";
 
 import UserHeader from "../UserHeader/UserHeader";
 
@@ -12,7 +14,7 @@ import styles from "../HeaderTop/HeaderTop.module.scss"
 
 const HeaderTop:React.FC =()=>{
 
-    const {user, loading, error} = useAuthState()
+    const { user, loading, error } = useContext(AuthContext);
 
     const renderButton = ()=>{
         return(
