@@ -10,9 +10,10 @@ interface ProfilePictureWithChangeButtonProps{
     /* eslint-disable @typescript-eslint/no-explicit-any */
     register:any
     setValue: UseFormSetValue<any>
+    photoURL:string
 }
 
-const ProfilePictureWithChangeButton: React.FC<ProfilePictureWithChangeButtonProps>=({register,setValue})=>{
+const ProfilePictureWithChangeButton: React.FC<ProfilePictureWithChangeButtonProps>=({register,setValue,photoURL})=>{
 
     const [file, setFile] = useState<string|null>(null);
     const fileInputRef = useRef<HTMLInputElement|null>(null);
@@ -39,7 +40,7 @@ const ProfilePictureWithChangeButton: React.FC<ProfilePictureWithChangeButtonPro
         <div className={styles._profileIMG}>
           <img
             alt="profile photo"
-            src={file ||"https://cdn.discordapp.com/attachments/872343092500504628/1227957231207845938/image.png?ex=662a4b4a&is=6617d64a&hm=7192a45990350c4b175becc97d5efd6174b56583f05fd7075688aafcfec4b44d&"}
+            src={file || photoURL}
           />
         </div>
   

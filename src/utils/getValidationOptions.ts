@@ -1,8 +1,8 @@
 
-export  const getValidationOptions =(patterValue:RegExp,message:string)=>{
+export  const getValidationOptions =(patterValue:RegExp,message:string,isRequired = true)=>{
 
     return{   
-        required:"This Field is Required",
+        required: isRequired ? "This Field is Required" : false,
         pattern: {
             value: patterValue,
             message: `Please enter a valid ${message}`,
