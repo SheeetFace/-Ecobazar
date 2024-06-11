@@ -50,8 +50,6 @@ export const useAuthState:UseAuthState =({setUser,setLoading,setError})=>{
       }
     })
 
-
-
     return () => unsubscribe();
   }, [setUser, setLoading, setError]);
 };

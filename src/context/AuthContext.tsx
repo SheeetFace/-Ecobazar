@@ -31,6 +31,7 @@ export const AuthProvider: React.FC<{children:ReactNode}> =({children})=>{
 
     useAuthState({setUser, setLoading, setError});
 
+
     const logout = async ()=>{ 
         setLoading(true)
 
