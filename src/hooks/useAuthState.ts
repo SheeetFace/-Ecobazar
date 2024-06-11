@@ -23,33 +23,35 @@ type UseAuthState = (params:UseAuthStateParameters)=>void;
 
 export const useAuthState:UseAuthState =({setUser,setLoading,setError})=>{
 
-    useEffect(()=>{
+  useEffect(()=>{
 
-      const auth = getAuth();
+    const auth = getAuth();
 
-      const unsubscribe = onAuthStateChanged(auth, async (firebaseUser)=>{
+    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser)=>{
 
-        if(firebaseUser && firebaseUser.uid){
+      if(firebaseUser && firebaseUser.uid){
 
-          const res = await firebaseErrorHandlingOperations(async ()=>{
-            return await firebaseGetUserDataByUid(firebaseUser.uid);
-          })
-  
-          if(res.error.status){
-            console.error('Error during retrieving user data:', res.error.message)
-            setError(res.error.message)
-          }else{
-            setUser(res.data as UserDataType)
-            setError(null)
-          }
-  
-          setLoading(false)
+        const res = await firebaseErrorHandlingOperations(async ()=>{
+          return await firebaseGetUserDataByUid(firebaseUser.uid);
+        })
+
+        if(res.error.status){
+          console.error('Error during retrieving user data:', res.error.message)
+          setError(res.error.message)
         }else{
-          setUser(null)
-          setLoading(false)
+          setUser(res.data as UserDataType)
+          setError(null)
         }
-      })
-  
-      return () => unsubscribe();
-    }, [setUser, setLoading, setError]);
-  };
+
+        setLoading(false)
+      }else{
+        setUser(null)
+        setLoading(false)
+      }
+    })
+
+
+
+    return () => unsubscribe();
+  }, [setUser, setLoading, setError]);
+};

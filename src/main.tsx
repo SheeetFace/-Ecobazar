@@ -22,6 +22,8 @@ import LogOutDashboardPage from './components/pages/LogOutDashboardPage/LogOutDa
 import BlogPage from './components/pages/BlogPage/BlogPage.tsx';
 import BlogPostPage from './components/pages/BlogPostPage/BlogPostPage.tsx';
 
+import PrivateRoute from './components/molecules/PrivateRoute/PrivateRoute.tsx';
+
 import ErrorBoundary from './components/pages/ErrorBoundary/ErrorBoundary.tsx';
 
 import { AuthProvider } from './context/AuthContext.tsx';
@@ -41,13 +43,15 @@ import './index.scss'
 const router = createBrowserRouter([
   {
     path: "/",
-    element:<AuthProvider>
+    element:
+          <AuthProvider>
               <SearchProvider>
                 <ProductFilterProvider>
                   <App/>
                 </ProductFilterProvider>
               </SearchProvider>,
             </AuthProvider>,
+
     errorElement: <ErrorBoundary />,
     children: [
       {
@@ -69,11 +73,9 @@ const router = createBrowserRouter([
       {
         path: "shop",
         element: 
-        // <ProductFilterProvider>
             <ShopPage/>,
       },
       {
-        // path: "shop/productPage/:name",
         path: "shop/:name",
         element: <ProductPage />,
       },
@@ -113,36 +115,43 @@ const router = createBrowserRouter([
         element: <CheckoutPage />,
       },
       {
-        path: "dashboard",
-        element: <DashboardPage />,
+        path: 'dashboard',
+        element: <PrivateRoute />,
         children: [
           {
-            element: <UserDashboardPage/>,
-            index: true,
+            path: '',
+            element: <DashboardPage />,
+            children: [
+              {
+                index: true,
+                element: <UserDashboardPage />,
+              },
+              {
+                path: 'orderHistory',
+                element: <OrderHistoryDashboardPage />,
+              },
+              {
+                path: 'orderDetail',
+                element: <OrderDetailDashboardPage />,
+              },
+              {
+                path: 'settings',
+                element: <SettingsDashboardPage />,
+              },
+              {
+                path: 'logout',
+                element: <LogOutDashboardPage />,
+              },
+            ],
           },
-          {
-            element: <OrderHistoryDashboardPage/>,
-            path: "orderHistory",
-
-          },
-          {
-            element: <OrderDetailDashboardPage/>,
-            path: "orderDetail",
-          },
-          {
-            element: <SettingsDashboardPage/>,
-            path: "settings",
-          },
-          {
-            element: <LogOutDashboardPage/>,
-            path: "logout",
-          },
-        ]
+        ],
       },
     ],
   }
 ]);
 
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
-    <RouterProvider router={router} />
+    <RouterProvider router={router}/>
 )
+

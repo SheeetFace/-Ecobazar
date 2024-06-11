@@ -6,7 +6,7 @@ const LoginPage:React.FC = () => {
 
     return (
         <section className={styles.LoginPage}>
-            <Login/>
+            <Login/> 
         </section>
     )
 }

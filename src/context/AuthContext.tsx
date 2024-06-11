@@ -1,10 +1,10 @@
-import { createContext, useState, ReactNode } from 'react';
+import { createContext, useState } from 'react';
 
 import { firebaseSignOutService } from '../services/auth/firebaseSignOutService';
 
 import { useAuthState } from '../hooks/useAuthState';
 
-
+import type { ReactNode } from 'react';
 import type { UserDataType } from '../types/userTypes';
 
 interface AuthContextType{
@@ -12,13 +12,15 @@ interface AuthContextType{
     loading: boolean
     error: string|null
     logout: ()=>Promise<boolean>
+    clearError: () =>void
 }
   
 export const AuthContext = createContext<AuthContextType>({
     user: null,
     loading: true,
     error: null,
-    logout: ()=>Promise.resolve(false)
+    logout: ()=>Promise.resolve(false),
+    clearError: () =>{}
 })
   
 export const AuthProvider: React.FC<{children:ReactNode}> =({children})=>{
@@ -48,9 +50,12 @@ export const AuthProvider: React.FC<{children:ReactNode}> =({children})=>{
         }
     }
 
+    const clearError = ()=>{ setError(null) }
+
     return(
-        <AuthContext.Provider value={{ user, loading, error, logout }}>
-            {children}
+        <AuthContext.Provider value={{ user, loading, error, logout, clearError }}>
+            <div style={{backgroundColor:'#191919'}}>{children}</div>  
         </AuthContext.Provider>
     )
+    //there's a “,” at the bottom, I can't find it, so I thought I'd hide it and paint over it. very annoying
 };
