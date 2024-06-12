@@ -13,6 +13,7 @@ interface AuthContextType{
     error: string|null
     logout: ()=>Promise<boolean>
     clearError: () =>void
+    isUserCustomer1:boolean
 }
   
 export const AuthContext = createContext<AuthContextType>({
@@ -20,7 +21,8 @@ export const AuthContext = createContext<AuthContextType>({
     loading: true,
     error: null,
     logout: ()=>Promise.resolve(false),
-    clearError: () =>{}
+    clearError: () =>{},
+    isUserCustomer1:true
 })
   
 export const AuthProvider: React.FC<{children:ReactNode}> =({children})=>{
@@ -31,6 +33,7 @@ export const AuthProvider: React.FC<{children:ReactNode}> =({children})=>{
 
     useAuthState({setUser, setLoading, setError});
 
+    const isUserCustomer1 = user?.displayName === 'customer1' ? true:false
 
     const logout = async ()=>{ 
         setLoading(true)
@@ -54,7 +57,7 @@ export const AuthProvider: React.FC<{children:ReactNode}> =({children})=>{
     const clearError = ()=>{ setError(null) }
 
     return(
-        <AuthContext.Provider value={{ user, loading, error, logout, clearError }}>
+        <AuthContext.Provider value={{ user, loading, error, logout, clearError,isUserCustomer1 }}>
             <div style={{backgroundColor:'#191919'}}>{children}</div>  
         </AuthContext.Provider>
     )

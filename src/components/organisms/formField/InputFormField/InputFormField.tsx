@@ -14,15 +14,17 @@ interface InputFormFieldProps{
     errorMessage:string|undefined
     maxLength?:number
     isPassword?:boolean
+    disabled?:boolean
 }
 
-const InputFormField:React.FC<InputFormFieldProps> = ({className,inputType,placeholder,isErrors,register,errorMessage,maxLength=40,isPassword=false}) => {
+const InputFormField:React.FC<InputFormFieldProps> = ({className,inputType,placeholder,isErrors,register,errorMessage,maxLength=40,isPassword=false,disabled=false}) => {
 
     const props ={
         placeholder,
         isErrorValidation:isErrors,
         register,
         maxLength,
+        disabled
     }
 
     return (

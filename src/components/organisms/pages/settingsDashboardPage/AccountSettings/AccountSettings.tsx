@@ -8,6 +8,7 @@ import ProfilePictureWithChangeButton from '../components/ProfilePictureWithChan
 import InputFormField from '../../../formField/InputFormField/InputFormField';
 import Divider from '../../../../atoms/Divider/Divider';
 import Button from '../../../../atoms/Button/Button';
+import FormValidationMessage from '../../../../atoms/form/FormValidationMessage/FormValidationMessage';
 
 import { getValidationOptions } from '../../../../../utils/getValidationOptions';
 
@@ -26,22 +27,31 @@ interface FormValues{
 
 const AccountSettings:React.FC = () => {
 
-    const {user} =useContext(AuthContext)
+    const {user,isUserCustomer1} =useContext(AuthContext)
 
-    const {register, formState:{errors},handleSubmit, setValue} = useForm<FormValues>({
-        defaultValues: {
+    const defaultValues= {
             displayName:user?.displayName ||'',
             firstName:user?.firstName ||'',
             lastName:user?.lastName ||'',
             email:user?.email ||'',
             phone:user?.phone ||'',
             picture:user?.photoURL ||'',
-          }
+        }
+
+    const {register, formState:{errors},handleSubmit, setValue} = useForm<FormValues>({
+        defaultValues
     });
 
+
     const onSubmit: SubmitHandler<FormValues> =(data)=>{
-        alert(JSON.stringify(data))
-        // reset()
+
+        const dataArray = Object.values(data)
+        const defaultValuesArray = Object.values(defaultValues)
+
+        //!if there are data need check else
+        const isSimilar = dataArray.every((value, i) => value === defaultValuesArray[i]);
+
+        console.log(isSimilar) 
     }
 
     return (
@@ -65,6 +75,7 @@ const AccountSettings:React.FC = () => {
                                             register={{...register('displayName', getValidationOptions(/^(?!.*\s{2,})[^ ].*[^ ]\s*$/, "display name (minimum 2 characters and not an empty string and maximum one space)", false))}}
                                             errorMessage={errors.displayName?.message}
                                             maxLength={30}
+                                            disabled={isUserCustomer1}
                             />
                         </div>
 
@@ -77,6 +88,7 @@ const AccountSettings:React.FC = () => {
                                             register={{...register('firstName', getValidationOptions( /^(?!\s*$)[a-zA-Z\s]+$/, "name (2 characters minimum and not an empty string)", false))}}
                                             errorMessage={errors.firstName?.message}
                                             maxLength={50}
+                                            disabled={isUserCustomer1}
                             />
                         </div>
 
@@ -89,6 +101,7 @@ const AccountSettings:React.FC = () => {
                                             register={{...register('lastName',  getValidationOptions( /^(?!\s*$)[a-zA-Z\s]+$/, " last name (2 characters minimum and not an empty string)", false))}}
                                             errorMessage={errors.lastName?.message}
                                             maxLength={50}
+                                            disabled={isUserCustomer1}
                             />
                         </div>
 
@@ -101,6 +114,7 @@ const AccountSettings:React.FC = () => {
                                             register={{...register('email',getValidationOptions(/^\S+@\S+\.\S+$/, "email", false))}}
                                             errorMessage={errors.email?.message}
                                             maxLength={50}
+                                            disabled={isUserCustomer1}
                             />
                         </div>
 
@@ -113,18 +127,20 @@ const AccountSettings:React.FC = () => {
                                             register={{...register('phone',getValidationOptions(/^(\+)?(\s*\d\s*){7,15}$/, "phone", false))}}
                                             errorMessage={errors.phone?.message}
                                             maxLength={50}
+                                            disabled={isUserCustomer1}
                             />
                         </div>
                     </div>
 
-                    <ProfilePictureWithChangeButton register={{...register('picture')}} setValue={setValue} photoURL={user?.photoURL ||''} />
+                    <ProfilePictureWithChangeButton register={{...register('picture')}} setValue={setValue} photoURL={user?.photoURL ||''} disabled={isUserCustomer1} />
 
                 </div>
 
                 <div className={styles._buttonSubmit}>
-                    <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight' type='submit' text='Save Changes'/>
+                    <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight' type='submit' text='Save Changes'  disabled={isUserCustomer1}/>
                 </div>
                 
+                {isUserCustomer1 ? <FormValidationMessage error='Changing data for the test account is blocked.'/> :null}
             </form>
 
         </section>

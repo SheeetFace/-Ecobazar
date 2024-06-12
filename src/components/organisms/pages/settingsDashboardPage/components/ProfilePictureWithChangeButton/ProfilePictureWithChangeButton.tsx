@@ -11,9 +11,10 @@ interface ProfilePictureWithChangeButtonProps{
     register:any
     setValue: UseFormSetValue<any>
     photoURL:string
+    disabled?:boolean
 }
 
-const ProfilePictureWithChangeButton: React.FC<ProfilePictureWithChangeButtonProps>=({register,setValue,photoURL})=>{
+const ProfilePictureWithChangeButton: React.FC<ProfilePictureWithChangeButtonProps>=({register,setValue,photoURL,disabled=false})=>{
 
     const [file, setFile] = useState<string|null>(null);
     const fileInputRef = useRef<HTMLInputElement|null>(null);
@@ -60,6 +61,7 @@ const ProfilePictureWithChangeButton: React.FC<ProfilePictureWithChangeButtonPro
             className="ButtonFilledOval fillWhite buttonBorderGreenPrimary colorTextGreenPrimary buttonMaxHeight"
             type="button"
             text="Chose Image"
+            disabled={disabled}
           />
         </div>
       </div>

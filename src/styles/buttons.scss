@@ -19,6 +19,10 @@
     border: 0;
     padding: 0;
   }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 }
 
 .SingInSingOut{
