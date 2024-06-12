@@ -32,7 +32,7 @@ const ProfilePictureWithChangeButton: React.FC<ProfilePictureWithChangeButtonPro
         if (file) {
           const fileUrl = URL.createObjectURL(file);
           setFile(fileUrl);
-          setValue('picture', fileUrl);
+          setValue('photoURL', fileUrl);
         }
       };
   

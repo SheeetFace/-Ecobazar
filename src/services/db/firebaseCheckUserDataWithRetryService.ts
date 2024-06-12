@@ -3,7 +3,7 @@ import { firebaseCheckIsUserAlreadyExistsService } from './firebaseCheckIsUserAl
 
 import type { User } from 'firebase/auth';
 
-export const firebaseCheckUserDataWithRetry = async (firebaseUser:User, retryCount=3, delay=500)=>{
+export const firebaseCheckUserDataWithRetryService = async (firebaseUser:User, retryCount=3, delay=500)=>{
 
     for(let attempt=0; attempt<retryCount; attempt++){
         const userData = await firebaseGetUserDataByUid(firebaseUser.uid);

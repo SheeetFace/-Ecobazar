@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 import { firebaseGetUserDataByUid } from '../services/db/firebaseGetUserDataByUid';
-import { firebaseCheckUserDataWithRetry } from '../services/db/firebaseCheckUserDataWithRetry';
+import { firebaseCheckUserDataWithRetryService } from '../services/db/firebaseCheckUserDataWithRetryService';
 
 import { firebaseErrorHandlingOperations } from '../utils/firebase/firebaseErrorHandlingOperations';
 
@@ -34,7 +34,7 @@ export const useAuthState: UseAuthState = ({ setUser, setLoading, setError }) =>
           const userData = await firebaseGetUserDataByUid(firebaseUser.uid);
 
           if(userData) return userData;
-          else return await firebaseCheckUserDataWithRetry(firebaseUser);
+          else return await firebaseCheckUserDataWithRetryService(firebaseUser);
         })
 
         if(res.error.status){

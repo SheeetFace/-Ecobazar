@@ -1,16 +1,21 @@
 import { useContext } from 'react';
 
 import {useForm} from 'react-hook-form'
+import { useLoadingAndError } from '../../../../../hooks/useLoadingAndError';
 
 import { AuthContext } from '../../../../../context/AuthContext';
+
+import { firebaseUpdateUserDataService } from '../../../../../services/db/firebaseUpdateUserDataService';
+
+import { getValidationOptions } from '../../../../../utils/getValidationOptions';
+import { firebaseErrorHandlingOperations } from '../../../../../utils/firebase/firebaseErrorHandlingOperations';
 
 import ProfilePictureWithChangeButton from '../components/ProfilePictureWithChangeButton/ProfilePictureWithChangeButton';
 import InputFormField from '../../../formField/InputFormField/InputFormField';
 import Divider from '../../../../atoms/Divider/Divider';
 import Button from '../../../../atoms/Button/Button';
 import FormValidationMessage from '../../../../atoms/form/FormValidationMessage/FormValidationMessage';
-
-import { getValidationOptions } from '../../../../../utils/getValidationOptions';
+import Loader from '../../../../molecules/Loader/Loader';
 
 import styles from '../AccountSettings/AccountSettings.module.scss';
 
@@ -22,12 +27,14 @@ interface FormValues{
     lastName:string
     email:string
     phone:string
-    picture:string
+    photoURL:string
 }
 
 const AccountSettings:React.FC = () => {
 
     const {user,isUserCustomer1} =useContext(AuthContext)
+
+    const { executeAsync, renderLoaderOrError, isLoading } = useLoadingAndError();
 
     const defaultValues= {
             displayName:user?.accountSettings.displayName ||'',
@@ -35,7 +42,7 @@ const AccountSettings:React.FC = () => {
             lastName:user?.accountSettings.lastName ||'',
             email:user?.accountSettings.email ||'',
             phone:user?.accountSettings.phone ||'',
-            picture:user?.accountSettings.photoURL ||'',
+            photoURL:user?.accountSettings.photoURL ||'',
         }
 
     const {register, formState:{errors},handleSubmit, setValue} = useForm<FormValues>({
@@ -43,15 +50,24 @@ const AccountSettings:React.FC = () => {
     });
 
 
-    const onSubmit: SubmitHandler<FormValues> =(data)=>{
+    const onSubmit: SubmitHandler<FormValues> =async(data)=>{
 
         const dataArray = Object.values(data)
         const defaultValuesArray = Object.values(defaultValues)
 
-        //!if there are data need check else
         const isSimilar = dataArray.every((value, i) => value === defaultValuesArray[i]);
 
         console.log(isSimilar) 
+        if(!isSimilar && user?.uid){
+
+            const res = await executeAsync(async()=>{
+                return await firebaseErrorHandlingOperations(async ()=>{
+                    return await firebaseUpdateUserDataService(user.uid, data, 'accountSettings')
+                })
+            });
+
+            console.log(res) //! update userContext
+        }
     }
 
     return (
@@ -132,12 +148,18 @@ const AccountSettings:React.FC = () => {
                         </div>
                     </div>
 
-                    <ProfilePictureWithChangeButton register={{...register('picture')}} setValue={setValue} photoURL={user?.accountSettings.photoURL ||''} disabled={isUserCustomer1} />
+                    <ProfilePictureWithChangeButton register={{...register('photoURL')}} setValue={setValue} photoURL={user?.accountSettings.photoURL ||''} disabled={isUserCustomer1} />
 
                 </div>
 
+                {renderLoaderOrError()}
+
                 <div className={styles._buttonSubmit}>
-                    <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight' type='submit' text='Save Changes'  disabled={isUserCustomer1}/>
+                    <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight'
+                            type='submit'
+                            text='Save Changes'
+                            disabled={isUserCustomer1 || isLoading }
+                        />
                 </div>
                 
                 {isUserCustomer1 ? <FormValidationMessage error='Changing data for the test account is blocked.'/> :null}
