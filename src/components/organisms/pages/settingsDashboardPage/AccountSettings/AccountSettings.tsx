@@ -30,12 +30,12 @@ const AccountSettings:React.FC = () => {
     const {user,isUserCustomer1} =useContext(AuthContext)
 
     const defaultValues= {
-            displayName:user?.displayName ||'',
-            firstName:user?.firstName ||'',
-            lastName:user?.lastName ||'',
-            email:user?.email ||'',
-            phone:user?.phone ||'',
-            picture:user?.photoURL ||'',
+            displayName:user?.accountSettings.displayName ||'',
+            firstName:user?.accountSettings.firstName ||'',
+            lastName:user?.accountSettings.lastName ||'',
+            email:user?.accountSettings.email ||'',
+            phone:user?.accountSettings.phone ||'',
+            picture:user?.accountSettings.photoURL ||'',
         }
 
     const {register, formState:{errors},handleSubmit, setValue} = useForm<FormValues>({
@@ -132,7 +132,7 @@ const AccountSettings:React.FC = () => {
                         </div>
                     </div>
 
-                    <ProfilePictureWithChangeButton register={{...register('picture')}} setValue={setValue} photoURL={user?.photoURL ||''} disabled={isUserCustomer1} />
+                    <ProfilePictureWithChangeButton register={{...register('picture')}} setValue={setValue} photoURL={user?.accountSettings.photoURL ||''} disabled={isUserCustomer1} />
 
                 </div>
 

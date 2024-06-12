@@ -9,6 +9,6 @@ export const firebaseGetUserDataByUid = async(uid:string)=>{
 
     if(userDoc.exists()) return userDoc.data();
 
-    throw new Error('User not found in the DB');
+    // throw new Error('User not found in the DB');
       
 }

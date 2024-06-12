@@ -17,25 +17,25 @@ const BillingAddress:React.FC = () => {
             <span className={styles._title}>Billing Address</span>
 
             <DisplayField
-                value={user?.firstName || user?.lastName ? `${user?.firstName} ${user?.lastName}` : undefined}
+                value={user?.billingAddress.firstName || user?.billingAddress.lastName ? `${user?.billingAddress.firstName} ${user?.billingAddress.lastName}` : undefined}
                 defaultText="Name not specified"
                 className={styles._name}
             />
 
             <DisplayField
-                value={user?.address}
+                value={user?.billingAddress.address}
                 defaultText="Address not specified"
                 className={styles._address}
             />
 
             <DisplayField
-                value={user?.email}
+                value={user?.billingAddress.email}
                 defaultText="Email not specified"
                 className={styles._address}
             />
 
             <DisplayField
-                value={user?.phone}
+                value={user?.billingAddress.phone}
                 defaultText="Phone not specified"
                 className={styles._address}
             />

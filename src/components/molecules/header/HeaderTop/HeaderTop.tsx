@@ -35,7 +35,7 @@ const HeaderTop:React.FC =()=>{
         }else if(!loading && user){
             return(
                 <NavLink to="/dashboard">
-                    <UserHeader photoURL={user.photoURL} displayName={user.displayName}/>
+                    <UserHeader photoURL={user.accountSettings.photoURL} displayName={user.accountSettings.displayName}/>
                 </NavLink>
             )
         }else if(error){

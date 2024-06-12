@@ -33,7 +33,7 @@ export const AuthProvider: React.FC<{children:ReactNode}> =({children})=>{
 
     useAuthState({setUser, setLoading, setError});
 
-    const isUserCustomer1 = user?.displayName === 'customer1' ? true:false
+    const isUserCustomer1 = user?.accountSettings.displayName === 'customer1' ? true:false
 
     const logout = async ()=>{ 
         setLoading(true)

@@ -1,6 +1,8 @@
 @import '../../../styles/colors.scss';
+@import '../../../styles/typography.scss';
 
 ._notSpecified{
     font-style: italic;
+    font-weight: $tiny;
     color:$grey-6;
 }

@@ -16,11 +16,11 @@ const Profile:React.FC = () => {
         <section className={styles.Profile}>
 
             <div className={styles._profileImg}>
-                <img alt='profile image' src={user?.photoURL || ''}/>
+                <img alt='profile image' src={user?.accountSettings.photoURL || ''}/> 
             </div>
 
             <DisplayField
-                value={user?.firstName || user?.lastName ? `${user?.firstName} ${user?.lastName}` : undefined}
+                value={user?.accountSettings.firstName || user?.accountSettings.lastName ? `${user?.accountSettings.firstName} ${user?.accountSettings.lastName}` : undefined}
                 defaultText="Name not specified"
                 className={styles._name}
             />

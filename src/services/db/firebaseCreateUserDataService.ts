@@ -15,6 +15,5 @@ export const firebaseCreateUserDataService = async(user:User, displayName:string
     await setDoc(userRef, initData);
 
     return initData;
-
 }   
 
