@@ -10,16 +10,6 @@ export const firebaseUpdateUserDataService = async(uid:string,newData:NewData, d
     const db = getFirestore();
     const userRef = doc(db, 'users', uid);
 
-    // try {
-    //     const updateData = { [dataType]: newData };
-    //     await updateDoc(userRef, updateData);
-    //     console.log(`Successfully updated ${dataType} for user with UID: ${uid}`);
-    // } catch (error) {
-    //     console.error(`Error updating ${dataType} for user with UID: ${uid}`, error);
-    //     throw error;
-    // }
-
-
     const updateData = { [dataType]: newData };
 
     await updateDoc(userRef, updateData);

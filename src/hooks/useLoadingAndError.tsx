@@ -1,4 +1,6 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
+
+import useScrollLock from './useScrollLock';
 
 import Loader from '../components/molecules/Loader/Loader';
 import FormValidationMessage from '../components/atoms/form/FormValidationMessage/FormValidationMessage';
@@ -31,6 +33,9 @@ export const useLoadingAndError=<T,>():UseLoadingAndErrorResult<T>=>{
     const stopLoading = useCallback(()=>setIsLoading(false),[]);
     const setError = useCallback((message:string|null)=>setErrorMessage(message),[]);
 
+    const ref = useRef<HTMLDivElement|null>(null)
+    useScrollLock(isLoading,ref)
+
     const executeAsync: ExecuteAsync<T> = useCallback(async(asyncFunction)=>{
 
         startLoading();
@@ -56,15 +61,17 @@ export const useLoadingAndError=<T,>():UseLoadingAndErrorResult<T>=>{
     },[startLoading,stopLoading,setError])
 
     const renderLoaderOrError = useCallback(()=>{
-        if(isLoading) return<Loader/>;
+        if(isLoading) return <div ref={ref} style={{position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 9999, backgroundColor:'#52525291'}}>
+                                <Loader size='3rem'/>
+                            </div>
         if(errorMessage) 
             return  <div style={{width:'100%',height:'50px',display:'flex',justifyContent:'center',alignItems:'center'}}>
                         <FormValidationMessage error={errorMessage}/>
                     </div>
 
         return null
-        // return <div style={{height:'50px'}}></div>
     },[isLoading, errorMessage]);
 
     return {executeAsync,renderLoaderOrError,errorMessage,isLoading};
 }
+
