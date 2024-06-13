@@ -15,7 +15,6 @@ import InputFormField from '../../../formField/InputFormField/InputFormField';
 import Divider from '../../../../atoms/Divider/Divider';
 import Button from '../../../../atoms/Button/Button';
 import FormValidationMessage from '../../../../atoms/form/FormValidationMessage/FormValidationMessage';
-import Loader from '../../../../molecules/Loader/Loader';
 
 import styles from '../AccountSettings/AccountSettings.module.scss';
 

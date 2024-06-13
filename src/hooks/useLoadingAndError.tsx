@@ -33,8 +33,9 @@ export const useLoadingAndError=<T,>():UseLoadingAndErrorResult<T>=>{
     const stopLoading = useCallback(()=>setIsLoading(false),[]);
     const setError = useCallback((message:string|null)=>setErrorMessage(message),[]);
 
-    const ref = useRef<HTMLDivElement|null>(null)
-    useScrollLock(isLoading,ref)
+    const loadingRef = useRef<HTMLDivElement|null>(null)
+
+    useScrollLock(isLoading,loadingRef)
 
     const executeAsync: ExecuteAsync<T> = useCallback(async(asyncFunction)=>{
 
@@ -60,10 +61,35 @@ export const useLoadingAndError=<T,>():UseLoadingAndErrorResult<T>=>{
 
     },[startLoading,stopLoading,setError])
 
+
     const renderLoaderOrError = useCallback(()=>{
-        if(isLoading) return <div ref={ref} style={{position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 9999, backgroundColor:'#52525291'}}>
-                                <Loader size='3rem'/>
-                            </div>
+
+        if(isLoading) 
+            return  <div ref={loadingRef}
+                         style={{
+                            position: 'fixed', 
+                            top: 0, 
+                            left: 0, 
+                            width: '100%', 
+                            height: '100%', 
+                            display: 'flex', 
+                            justifyContent: 'center', 
+                            alignItems: 'center', 
+                            zIndex: 20,
+                        }}>
+                    <div style={{
+                        backgroundColor:'rgba(152,245,152,.6)',
+                        borderRadius:'100%',
+                        width:'7rem',
+                        height:'7rem',
+                        boxShadow: '0px 0px 85px 85px rgba(152,245,152,.6)',
+                        WebkitBoxShadow: '0px 0px 85px 85px rgba(152,245,152,.6)',
+                        MozBoxShadow: '0px 0px 85px 85px rgba(152,245,152,.6)',
+                    }}>
+                        <Loader size='3rem' />
+                    </div>
+                </div>
+                            
         if(errorMessage) 
             return  <div style={{width:'100%',height:'50px',display:'flex',justifyContent:'center',alignItems:'center'}}>
                         <FormValidationMessage error={errorMessage}/>

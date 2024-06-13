@@ -66,7 +66,7 @@ const ProfilePictureWithChangeButton: React.FC<ProfilePictureWithChangeButtonPro
   return (
     <div className={styles.ProfilePictureWithChangeButton}>
       <div className={styles._profileIMG}>
-        <img
+        <img className={`${ isLoading? styles._loadingIMG :null}`}
           alt="profile photo"
           src={file || photoURL}
         />
