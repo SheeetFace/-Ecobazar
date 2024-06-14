@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext,useState } from 'react';
 
 import {useForm} from 'react-hook-form'
 
@@ -6,12 +6,18 @@ import { useLoadingAndError } from '../../../../../hooks/useLoadingAndError';
 
 import { AuthContext } from '../../../../../context/AuthContext';
 
+import { firebaseUpdatePasswordService } from '../../../../../services/auth/firebaseUpdatePasswordService';
+
+import { checkIsInputsMatch } from '../../../../../utils/checkIsInputsMatch';
+import { getValidationOptions } from '../../../../../utils/getValidationOptions';
+import { firebaseErrorHandlingOperations } from '../../../../../utils/firebase/firebaseErrorHandlingOperations';
+
 import Divider from '../../../../atoms/Divider/Divider';
 import Button from '../../../../atoms/Button/Button';
 import InputFormField from '../../../formField/InputFormField/InputFormField';
 import FormValidationMessage from '../../../../atoms/form/FormValidationMessage/FormValidationMessage';
+import AlertMessage from '../../../../molecules/AlertMessage/AlertMessage';
 
-import { getValidationOptions } from '../../../../../utils/getValidationOptions';
 
 import styles from '../ChangePasswordSettings/ChangePasswordSettings.module.scss';
 
@@ -26,23 +32,38 @@ interface FormValues{
 
 const ChangePasswordSettings:React.FC = () => {
 
-    const {user,updateUserData,isUserCustomer1} =useContext(AuthContext)
+    const [isPasswordUpdatedSuccess,setIsPasswordUpdatedSuccess] = useState<boolean|null>(null)
+
+    const {isUserCustomer1} =useContext(AuthContext);
 
     const { executeAsync, renderLoaderOrError, isLoading } = useLoadingAndError();
 
-    const {register, formState:{errors},handleSubmit} = useForm<FormValues>();
+    const {register, formState:{errors},handleSubmit,watch, reset} = useForm<FormValues>();
+
+    const password = watch('newPassword');
 
     const storedProviderId = sessionStorage.getItem('provider');
-    console.log(storedProviderId);
     const isProviderPassword = storedProviderId ==='password' ? true : false;
-    console.log(isProviderPassword);
 
     const ErrorMessage = 'password (minimum 5 characters and not an empty string or spaces)';
 
-    //!mb need to use watch to check NEWPASSWORD AND CONFIRM PASSWORD and some check CURRENTPASSWORD
+    const onSubmit: SubmitHandler<FormValues> =async(data)=>{
 
-    const onSubmit: SubmitHandler<FormValues> =(data)=>{
-        alert(JSON.stringify(data))
+        if(isProviderPassword && data.currentPassword && data.newPassword){
+
+            const res = await executeAsync(async()=>{
+                return await firebaseErrorHandlingOperations(async()=>{
+                    return await firebaseUpdatePasswordService(data.currentPassword, data.newPassword)
+                })
+            })
+
+            if(res === undefined){
+                setIsPasswordUpdatedSuccess(true)
+                reset()
+            }
+
+        }
+
     }
 
     return (
@@ -81,13 +102,18 @@ const ChangePasswordSettings:React.FC = () => {
                                     placeholder='Confirm Password'
                                     inputType='string'
                                     isErrors={!!errors?.confirmPassword}
-                                    register={{...register('confirmPassword', getValidationOptions(/^[^\s]{5,}$/,ErrorMessage))}}
+                                    register={{...register('confirmPassword',{
+                                        validate: (value) =>  checkIsInputsMatch(value,password,"Passwords do not match"),
+                                        ...getValidationOptions(/^[^\s]{5,}$/, 'password (minimum 5 characters and not an empty string or spaces)'),
+                                    })}}
                                     errorMessage={errors.confirmPassword?.message}
                                     isPassword={true}
                                     disabled={true}/>
                     </div>
                 </div>
-                
+
+                {isPasswordUpdatedSuccess ? <AlertMessage type='success' title='Success' message='Password successfully updated' />:null}
+
                 <div className={styles._buttonSubmit}>
                     <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight' 
                             type='submit' 
@@ -95,6 +121,8 @@ const ChangePasswordSettings:React.FC = () => {
                             disabled={isUserCustomer1 || isLoading ||!isProviderPassword }
                     />
                 </div>
+
+                {renderLoaderOrError()}
 
                 {isUserCustomer1 ? <FormValidationMessage error='Changing data for the test account is blocked.'/> :null}
                 {!isProviderPassword ? <FormValidationMessage error='You can only change the password for accounts that were registered using email and password.'/> :null}
