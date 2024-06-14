@@ -15,9 +15,13 @@ export interface UserDataType {
         email: string,
         phone: string,
         address: string,
-        country: string,
+        country: UserDataCountryType,
         region: string,
         zipCode: string,
         company: string,
     }
 }
+
+export type UserDataSettingsOrAddressType= UserDataType['accountSettings'] | UserDataType['billingAddress'];
+
+export type UserDataCountryType ="United States"|"Canada"|"United Kingdom"|""

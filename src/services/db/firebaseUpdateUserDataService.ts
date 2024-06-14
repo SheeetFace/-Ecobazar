@@ -1,11 +1,10 @@
 import { getFirestore, doc, updateDoc, getDoc } from 'firebase/firestore';
 
-import type { UserDataType } from '../../types/userTypes';
+import type { UserDataType, UserDataSettingsOrAddressType } from '../../types/userTypes';
 
-type NewData = Partial<UserDataType>['accountSettings'] | Partial<UserDataType>['billingAddress']
 type DataType = 'accountSettings'|'billingAddress'
 
-export const firebaseUpdateUserDataService = async(uid:string,newData:NewData, dataType:DataType)=>{
+export const firebaseUpdateUserDataService = async(uid:string,newData:UserDataSettingsOrAddressType, dataType:DataType)=>{
 
     const db = getFirestore();
     const userRef = doc(db, 'users', uid);

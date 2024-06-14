@@ -6,6 +6,7 @@ import { useLoadingAndError } from '../../../../../hooks/useLoadingAndError';
 import { AuthContext } from '../../../../../context/AuthContext';
 
 import { firebaseUpdateUserDataService } from '../../../../../services/db/firebaseUpdateUserDataService';
+import { hasFormValuesUpdated } from '../../../../../utils/hasFormValuesUpdated';
 
 import { getValidationOptions } from '../../../../../utils/getValidationOptions';
 import { firebaseErrorHandlingOperations } from '../../../../../utils/firebase/firebaseErrorHandlingOperations';
@@ -43,7 +44,7 @@ const AccountSettings:React.FC = () => {
             email:user?.accountSettings.email ||'',
             phone:user?.accountSettings.phone ||'',
             photoURL:user?.accountSettings.photoURL ||'',
-        }
+    }
 
     const {register, formState:{errors},handleSubmit, setValue} = useForm<FormValues>({
         defaultValues
@@ -52,10 +53,7 @@ const AccountSettings:React.FC = () => {
 
     const onSubmit: SubmitHandler<FormValues> =async(data)=>{
 
-        const dataArray = Object.values(data)
-        const defaultValuesArray = Object.values(defaultValues)
-
-        const isSimilar = dataArray.every((value, i) => value === defaultValuesArray[i]);
+        const isSimilar =hasFormValuesUpdated(data,defaultValues)
 
         if(!isSimilar && user?.uid){
 

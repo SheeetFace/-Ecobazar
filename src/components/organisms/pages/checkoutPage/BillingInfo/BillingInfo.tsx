@@ -10,35 +10,36 @@ import { getValidationOptions } from '../../../../../utils/getValidationOptions'
 import styles from '../BillingInfo/BillingInfo.module.scss';
 
 import type {SubmitHandler}from 'react-hook-form';
+import { UserDataCountryType } from '../../../../../types/userTypes';
 
 interface FormValues{
     firstName:string
     lastName:string
-    companyName:string
-    streetAddress:string
-    countryOrRegion:string
-    state:string
-    zipCode:number
     email:string
-    phone:number
+    phone:string
+    address:string
+    country:UserDataCountryType
+    region:string
+    zipCode:string
+    company:string
+
     differentAddress:string
     orderNotes:string
 }
-type TypeWatchCountryOrRegionValue ="United States"|"Canada"|"United Kingdom"
 
 
 const BillingInfo:React.FC = () => {
 
     const {register, formState:{errors},handleSubmit, watch} = useForm<FormValues>();
 
-    const countryOrRegionValue = watch('countryOrRegion') as TypeWatchCountryOrRegionValue;
+    const countryValueWatch = watch('country') as UserDataCountryType;
 
     const onSubmit: SubmitHandler<FormValues> =(data)=>{
         alert(JSON.stringify(data))
         // reset()
     }
 
-    const billingAddressInfoOptions={
+    const billingAddressSettings={
         firstName:{
             isErrors:!!errors?.firstName,
             register:{...register('firstName', getValidationOptions( /^(?!\s*$)[a-zA-Z\s]+$/, "name (2 characters minimum and not an empty string)"))},
@@ -49,25 +50,25 @@ const BillingInfo:React.FC = () => {
             register:{...register('lastName',  getValidationOptions( /^(?!\s*$)[a-zA-Z\s]+$/, " last name (2 characters minimum and not an empty string)"))},
             errorMessage:errors.lastName?.message
         },
-        companyName:{
-            isErrors:!!errors?.companyName,
-            register:{...register('companyName')},
-            errorMessage:errors.companyName?.message
+        company:{
+            isErrors:!!errors?.company,
+            register:{...register('company')},
+            errorMessage:errors.company?.message
         },
-        streetAddress:{
-            isErrors:!!errors?.streetAddress,
-            register:{...register('streetAddress', getValidationOptions(/^(?!\s*$).+$/, "address (minimum 2 characters and not an empty string)"))},
-            errorMessage:errors.streetAddress?.message
+        address:{
+            isErrors:!!errors?.address,
+            register:{...register('address', getValidationOptions(/^(?!\s*$).+$/, "address (minimum 2 characters and not an empty string)"))},
+            errorMessage:errors.address?.message
         },
-        countryOrRegion:{
-            isErrors:!!errors?.countryOrRegion,
-            register:{...register('countryOrRegion', getValidationOptions(/^\S.*\S$/, ""))},
-            errorMessage:errors.countryOrRegion?.message
+        country:{
+            isErrors:!!errors?.country,
+            register:{...register('country', getValidationOptions(/^\S.*\S$/, ""))},
+            errorMessage:errors.country?.message
         },
-        state:{
-            isErrors:!!errors?.state,
-            register:{...register('state',getValidationOptions(/^\S.*\S$/, ""))},
-            errorMessage:errors.state?.message
+        region:{
+            isErrors:!!errors?.region,
+            register:{...register('region',getValidationOptions(/^\S.*\S$/, ""))},
+            errorMessage:errors.region?.message
         },
         zipCode:{
             isErrors:!!errors?.zipCode,
@@ -84,9 +85,8 @@ const BillingInfo:React.FC = () => {
             register:{...register('phone',getValidationOptions(/^(?!\s*$)[+\s()\d]+$/, "phone"))},
             errorMessage:errors.phone?.message
         },
-        watchCountryOrRegionValue: countryOrRegionValue
+        watchCountryOrRegionValue: countryValueWatch
     }
-
 
     return (
         <section className={styles.BillingInfo}>
@@ -94,7 +94,7 @@ const BillingInfo:React.FC = () => {
 
             <form className={styles._form} onSubmit={handleSubmit(onSubmit)}>
 
-                <BillingAddressInfo options={billingAddressInfoOptions}/>
+                <BillingAddressInfo options={billingAddressSettings} />
             
                 <Divider type='horizontal' className={styles._divider}/>
 

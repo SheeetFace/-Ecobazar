@@ -1,86 +1,131 @@
+import { useContext } from 'react';
+
 import {useForm} from 'react-hook-form'
+
+import { useLoadingAndError } from '../../../../../hooks/useLoadingAndError';
+
+import { AuthContext } from '../../../../../context/AuthContext';
+
+import { firebaseUpdateUserDataService } from '../../../../../services/db/firebaseUpdateUserDataService';
+
+import { getValidationOptions } from '../../../../../utils/getValidationOptions';
+import { hasFormValuesUpdated } from '../../../../../utils/hasFormValuesUpdated';
+import { firebaseErrorHandlingOperations } from '../../../../../utils/firebase/firebaseErrorHandlingOperations';
 
 import Button from '../../../../atoms/Button/Button';
 import BillingAddressInfo from '../../../formField/BillingAddressInfo/BillingAddressInfo';
 import Divider from '../../../../atoms/Divider/Divider';
-
-import { getValidationOptions } from '../../../../../utils/getValidationOptions';
+import FormValidationMessage from '../../../../atoms/form/FormValidationMessage/FormValidationMessage';
 
 import styles from '../BillingAddressSettings/BillingAddressSettings.module.scss';
 
 import type {SubmitHandler}from 'react-hook-form';
-type TypeWatchCountryOrRegionValue ="United States"|"Canada"|"United Kingdom"
+import type { UserDataType,UserDataCountryType } from '../../../../../types/userTypes';
+
+// type TypeCountryValueWatch ="United States"|"Canada"|"United Kingdom"
 
 interface FormValues{
     firstName:string
     lastName:string
-    companyName:string
-    streetAddress:string
-    countryOrRegion:string
-    state:string
-    zipCode:number
     email:string
-    phone:number
+    phone:string
+    address:string
+    country:UserDataCountryType
+    region:string
+    zipCode:string
+    company:string
 }
+
 
 const BillingAddressSettings:React.FC = () => {
 
-    const {register, formState:{errors},handleSubmit, watch} = useForm<FormValues>();
+    const {user,updateUserData,isUserCustomer1} =useContext(AuthContext)
 
-    const countryOrRegionValue = watch('countryOrRegion') as TypeWatchCountryOrRegionValue;
+    const { executeAsync, renderLoaderOrError, isLoading } = useLoadingAndError<UserDataType>();
 
-    const onSubmit: SubmitHandler<FormValues> =(data)=>{
-        alert(JSON.stringify(data))
-        // reset()
+    const defaultValues= {
+        firstName: user?.billingAddress.firstName ||'',
+        lastName: user?.billingAddress.lastName ||'',
+        email: user?.billingAddress.email ||'',
+        phone: user?.billingAddress.phone ||'',
+        address: user?.billingAddress.address ||'',
+        country: user?.billingAddress.country || '' as UserDataCountryType,
+        region: user?.billingAddress.region ||'',
+        zipCode: user?.billingAddress.zipCode ||'',
+        company: user?.billingAddress.company ||'',
+    }
+
+    const {register, formState:{errors},handleSubmit, watch} = useForm<FormValues>({
+        defaultValues
+    });
+
+    const countryValueWatch = watch('country') as UserDataCountryType;
+
+
+    const onSubmit: SubmitHandler<FormValues> =async(data)=>{
+
+        const isSimilar =hasFormValuesUpdated(data,defaultValues)
+
+        if(!isSimilar && user?.uid){
+
+            const updatedUserData = await executeAsync(async()=>{
+                return await firebaseErrorHandlingOperations(async ()=>{
+                    return await firebaseUpdateUserDataService(user.uid, data, 'billingAddress')
+                })
+            });
+
+            if(updatedUserData) updateUserData(updatedUserData)
+ 
+        }
     }
 
     const billingAddressSettings={
         firstName:{
             isErrors:!!errors?.firstName,
-            register:{...register('firstName', getValidationOptions( /^(?!\s*$)[a-zA-Z\s]+$/, "name (2 characters minimum and not an empty string)"))},
+            register:{...register('firstName', getValidationOptions( /^(?!\s*$)[a-zA-Z\s]+$/, "name (2 characters minimum and not an empty string)",false))},
             errorMessage:errors.firstName?.message
         },
         lastName:{
             isErrors:!!errors?.lastName,
-            register:{...register('lastName',  getValidationOptions( /^(?!\s*$)[a-zA-Z\s]+$/, " last name (2 characters minimum and not an empty string)"))},
+            register:{...register('lastName',  getValidationOptions( /^(?!\s*$)[a-zA-Z\s]+$/, " last name (2 characters minimum and not an empty string)",false))},
             errorMessage:errors.lastName?.message
         },
-        companyName:{
-            isErrors:!!errors?.companyName,
-            register:{...register('companyName')},
-            errorMessage:errors.companyName?.message
+        company:{
+            isErrors:!!errors?.company,
+            register:{...register('company')},
+            errorMessage:errors.company?.message
         },
-        streetAddress:{
-            isErrors:!!errors?.streetAddress,
-            register:{...register('streetAddress', getValidationOptions(/^(?!\s*$).+$/, "address (minimum 2 characters and not an empty string)"))},
-            errorMessage:errors.streetAddress?.message
+        address:{
+            isErrors:!!errors?.address,
+            register:{...register('address', getValidationOptions(/^(?!\s*$).+$/, "address (minimum 2 characters and not an empty string)",false))},
+            errorMessage:errors.address?.message
         },
-        countryOrRegion:{
-            isErrors:!!errors?.countryOrRegion,
-            register:{...register('countryOrRegion', getValidationOptions(/^\S.*\S$/, ""))},
-            errorMessage:errors.countryOrRegion?.message
+        country:{
+            isErrors:!!errors?.country,
+            register:{...register('country', getValidationOptions(/^\S.*\S$/, "",false))},
+            errorMessage:errors.country?.message
         },
-        state:{
-            isErrors:!!errors?.state,
-            register:{...register('state',getValidationOptions(/^\S.*\S$/, ""))},
-            errorMessage:errors.state?.message
+        region:{
+            isErrors:!!errors?.region,
+            register:{...register('region',getValidationOptions(/^\S.*\S$/, "",false))},
+            errorMessage:errors.region?.message
         },
         zipCode:{
             isErrors:!!errors?.zipCode,
-            register:{...register('zipCode',getValidationOptions(/^(?!\s*$)[a-zA-Z0-9\s]+$/, ""))},
+            register:{...register('zipCode',getValidationOptions(/^(?!\s*$)[a-zA-Z0-9\s]+$/, "",false))},
             errorMessage:errors.zipCode?.message
         },
         email:{
             isErrors:!!errors?.email,
-            register:{...register('email',getValidationOptions(/^\S+@\S+\.\S+$/, "email"))},
+            register:{...register('email',getValidationOptions(/^\S+@\S+\.\S+$/, "email",false))},
             errorMessage:errors.email?.message
         },
         phone:{
             isErrors:!!errors?.phone,
-            register:{...register('phone',getValidationOptions(/^(?!\s*$)[+\s()\d]+$/, "phone"))},
+            register:{...register('phone',getValidationOptions(/^(\+)?(\s*\d\s*){7,15}$/, "phone",false))},
             errorMessage:errors.phone?.message
         },
-        watchCountryOrRegionValue: countryOrRegionValue
+        watchCountryOrRegionValue: countryValueWatch
     }
 
     return (
@@ -93,9 +138,17 @@ const BillingAddressSettings:React.FC = () => {
 
                 <BillingAddressInfo options={billingAddressSettings}/>
 
+                {renderLoaderOrError()}
+
                 <div className={styles._buttonSubmit}>
-                    <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight' type='submit' text='Save Changes'/>
+                    <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight' 
+                            type='submit' 
+                            text='Save Changes'
+                            disabled={isUserCustomer1 || isLoading }
+                    />
                 </div>
+
+                {isUserCustomer1 ? <FormValidationMessage error='Changing data for the test account is blocked.'/> :null}
             </form>
         </section>
     )

@@ -5,26 +5,27 @@ import { regionData,statesData } from '../../../../data/selects';
 
 import styles from '../BillingAddressInfo/BillingAddressInfo.module.scss';
 
+import { UserDataCountryType } from '../../../../types/userTypes';
 
-type TypeWatchCountryOrRegionValue ="United States"|"Canada"|"United Kingdom"
 interface FieldOptions {
     isErrors: boolean
     /* eslint-disable @typescript-eslint/no-explicit-any */
     register: any
     errorMessage?: string
 }
+
 interface BillingAddressInfo{
     firstName: FieldOptions
     lastName: FieldOptions
-    companyName: FieldOptions
-    streetAddress:FieldOptions
-    countryOrRegion:FieldOptions
-    state:FieldOptions
+    company: FieldOptions
+    address:FieldOptions
+    country:FieldOptions
+    region:FieldOptions
     zipCode:FieldOptions
     email:FieldOptions
     phone:FieldOptions
 
-    watchCountryOrRegionValue: TypeWatchCountryOrRegionValue
+    watchCountryOrRegionValue: UserDataCountryType
 }
 interface BillingAddressInfoProps{
     options:BillingAddressInfo
@@ -71,9 +72,9 @@ const BillingAddressInfo:React.FC<BillingAddressInfoProps> = ({options}) => {
                         className=''
                         inputType='text'
                         placeholder='Company Name'
-                        isErrors={options.companyName.isErrors}
-                        register={options.companyName.register}
-                        errorMessage={options.companyName.errorMessage}
+                        isErrors={options.company.isErrors}
+                        register={options.company.register}
+                        errorMessage={options.company.errorMessage}
                     />
                 </div>
             </div>
@@ -84,9 +85,9 @@ const BillingAddressInfo:React.FC<BillingAddressInfoProps> = ({options}) => {
                         className=''
                         inputType='text'
                         placeholder='Street Address'
-                        isErrors={options.streetAddress.isErrors}
-                        register={options.streetAddress.register}
-                        errorMessage={options.streetAddress.errorMessage}
+                        isErrors={options.address.isErrors}
+                        register={options.address.register}
+                        errorMessage={options.address.errorMessage}
                         maxLength={150}
                 />
             </div>
@@ -95,18 +96,18 @@ const BillingAddressInfo:React.FC<BillingAddressInfoProps> = ({options}) => {
                 <div className={styles._item}>
                     <SelectFormField    label={regionData.label}
                                         regions={regionData.regions}
-                                        register={options.countryOrRegion.register}
-                                        isErrors={options.countryOrRegion.isErrors}
-                                        errorMessage={options.countryOrRegion.errorMessage}
+                                        register={options.country.register}
+                                        isErrors={options.country.isErrors}
+                                        errorMessage={options.country.errorMessage}
                     />
                 </div>
 
                 <div className={styles._item}>
                     <SelectFormField    label={statesData.label}
                                         regions={stateValue}
-                                        register={options.state.register}
-                                        isErrors={options.state.isErrors}
-                                        errorMessage={options.state.errorMessage}
+                                        register={options.region.register}
+                                        isErrors={options.region.isErrors}
+                                        errorMessage={options.region.errorMessage}
                     />
                 </div>
                 
