@@ -29,10 +29,11 @@ interface BillingAddressInfo{
 }
 interface BillingAddressInfoProps{
     options:BillingAddressInfo
+    disabled?:boolean
 }
 
 
-const BillingAddressInfo:React.FC<BillingAddressInfoProps> = ({options}) => {
+const BillingAddressInfo:React.FC<BillingAddressInfoProps> = ({options,disabled=false}) => {
 
     const state =options.watchCountryOrRegionValue;
     const stateValue = state ? statesData[state]:statesData["United States"]
@@ -49,6 +50,7 @@ const BillingAddressInfo:React.FC<BillingAddressInfoProps> = ({options}) => {
                         isErrors={options.firstName.isErrors}
                         register={options.firstName.register}
                         errorMessage={options.firstName.errorMessage}
+                        disabled={disabled}
                     />
                 </div>
 
@@ -61,6 +63,7 @@ const BillingAddressInfo:React.FC<BillingAddressInfoProps> = ({options}) => {
                         isErrors={options.lastName.isErrors}
                         register={options.lastName.register}
                         errorMessage={options.lastName.errorMessage}
+                        disabled={disabled}
                     />
                 </div>
 
@@ -75,6 +78,7 @@ const BillingAddressInfo:React.FC<BillingAddressInfoProps> = ({options}) => {
                         isErrors={options.company.isErrors}
                         register={options.company.register}
                         errorMessage={options.company.errorMessage}
+                        disabled={disabled}
                     />
                 </div>
             </div>
@@ -89,6 +93,7 @@ const BillingAddressInfo:React.FC<BillingAddressInfoProps> = ({options}) => {
                         register={options.address.register}
                         errorMessage={options.address.errorMessage}
                         maxLength={150}
+                        disabled={disabled}
                 />
             </div>
 
@@ -99,6 +104,7 @@ const BillingAddressInfo:React.FC<BillingAddressInfoProps> = ({options}) => {
                                         register={options.country.register}
                                         isErrors={options.country.isErrors}
                                         errorMessage={options.country.errorMessage}
+                                        // disabled={disabled}
                     />
                 </div>
 
@@ -108,6 +114,7 @@ const BillingAddressInfo:React.FC<BillingAddressInfoProps> = ({options}) => {
                                         register={options.region.register}
                                         isErrors={options.region.isErrors}
                                         errorMessage={options.region.errorMessage}
+                                        // disabled={disabled}
                     />
                 </div>
                 
@@ -121,6 +128,7 @@ const BillingAddressInfo:React.FC<BillingAddressInfoProps> = ({options}) => {
                             register={options.zipCode.register}
                             errorMessage={options.zipCode.errorMessage}
                             maxLength={10}
+                            disabled={disabled}
                     />
                 </div>
             </div>
@@ -136,6 +144,7 @@ const BillingAddressInfo:React.FC<BillingAddressInfoProps> = ({options}) => {
                             isErrors={options.email.isErrors}
                             register={options.email.register}
                             errorMessage={options.email.errorMessage}
+                            disabled={disabled}
                     />
                 </div>
 
@@ -148,6 +157,7 @@ const BillingAddressInfo:React.FC<BillingAddressInfoProps> = ({options}) => {
                             isErrors={options.phone.isErrors}
                             register={options.phone.register}
                             errorMessage={options.phone.errorMessage}
+                            disabled={disabled}
                     />
                 </div>
             </div>

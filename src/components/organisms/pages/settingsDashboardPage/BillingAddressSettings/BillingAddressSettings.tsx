@@ -136,7 +136,7 @@ const BillingAddressSettings:React.FC = () => {
 
             <form onSubmit={handleSubmit(onSubmit)} className={styles._form}>
 
-                <BillingAddressInfo options={billingAddressSettings}/>
+                <BillingAddressInfo options={billingAddressSettings} disabled={isUserCustomer1}/>
 
                 {renderLoaderOrError()}
 

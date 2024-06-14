@@ -1,8 +1,15 @@
+import { useContext } from 'react';
+
 import {useForm} from 'react-hook-form'
+
+import { useLoadingAndError } from '../../../../../hooks/useLoadingAndError';
+
+import { AuthContext } from '../../../../../context/AuthContext';
 
 import Divider from '../../../../atoms/Divider/Divider';
 import Button from '../../../../atoms/Button/Button';
 import InputFormField from '../../../formField/InputFormField/InputFormField';
+import FormValidationMessage from '../../../../atoms/form/FormValidationMessage/FormValidationMessage';
 
 import { getValidationOptions } from '../../../../../utils/getValidationOptions';
 
@@ -19,7 +26,16 @@ interface FormValues{
 
 const ChangePasswordSettings:React.FC = () => {
 
+    const {user,updateUserData,isUserCustomer1} =useContext(AuthContext)
+
+    const { executeAsync, renderLoaderOrError, isLoading } = useLoadingAndError();
+
     const {register, formState:{errors},handleSubmit} = useForm<FormValues>();
+
+    const storedProviderId = sessionStorage.getItem('provider');
+    console.log(storedProviderId);
+    const isProviderPassword = storedProviderId ==='password' ? true : false;
+    console.log(isProviderPassword);
 
     const ErrorMessage = 'password (minimum 5 characters and not an empty string or spaces)';
 
@@ -67,13 +83,21 @@ const ChangePasswordSettings:React.FC = () => {
                                     isErrors={!!errors?.confirmPassword}
                                     register={{...register('confirmPassword', getValidationOptions(/^[^\s]{5,}$/,ErrorMessage))}}
                                     errorMessage={errors.confirmPassword?.message}
-                                    isPassword={true}/>
+                                    isPassword={true}
+                                    disabled={true}/>
                     </div>
                 </div>
                 
                 <div className={styles._buttonSubmit}>
-                    <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight' type='submit' text='Save Changes'/>
+                    <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight' 
+                            type='submit' 
+                            text='Save Changes'
+                            disabled={isUserCustomer1 || isLoading ||!isProviderPassword }
+                    />
                 </div>
+
+                {isUserCustomer1 ? <FormValidationMessage error='Changing data for the test account is blocked.'/> :null}
+                {!isProviderPassword ? <FormValidationMessage error='You can only change the password for accounts that were registered using email and password.'/> :null}
                 
             </form>
         </div>

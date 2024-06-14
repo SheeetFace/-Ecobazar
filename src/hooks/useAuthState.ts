@@ -30,6 +30,9 @@ export const useAuthState: UseAuthState = ({ setUser, setLoading, setError }) =>
       if(firebaseUser && firebaseUser.uid){
         setLoading(true);
 
+        const provider = firebaseUser.providerData[0].providerId
+        if(provider) sessionStorage.setItem('provider', provider);
+
         const res = await firebaseErrorHandlingOperations(async ()=>{
           const userData = await firebaseGetUserDataByUid(firebaseUser.uid);
 
