@@ -19,6 +19,7 @@ import FormValidationMessage from '../../../../atoms/form/FormValidationMessage/
 import styles from '../AccountSettings/AccountSettings.module.scss';
 
 import type {SubmitHandler}from 'react-hook-form';
+import type { UserDataType } from '../../../../../types/userTypes';
 
 interface FormValues{
     displayName:string
@@ -31,9 +32,9 @@ interface FormValues{
 
 const AccountSettings:React.FC = () => {
 
-    const {user,isUserCustomer1} =useContext(AuthContext)
+    const {user,updateUserData,isUserCustomer1} =useContext(AuthContext)
 
-    const { executeAsync, renderLoaderOrError, isLoading } = useLoadingAndError();
+    const { executeAsync, renderLoaderOrError, isLoading } = useLoadingAndError<UserDataType>();
 
     const defaultValues= {
             displayName:user?.accountSettings.displayName ||'',
@@ -56,16 +57,16 @@ const AccountSettings:React.FC = () => {
 
         const isSimilar = dataArray.every((value, i) => value === defaultValuesArray[i]);
 
-        console.log(isSimilar) 
         if(!isSimilar && user?.uid){
 
-            const res = await executeAsync(async()=>{
+            const updatedUserData = await executeAsync(async()=>{
                 return await firebaseErrorHandlingOperations(async ()=>{
                     return await firebaseUpdateUserDataService(user.uid, data, 'accountSettings')
                 })
             });
 
-            console.log(res) //! update userContext
+            if(updatedUserData) updateUserData(updatedUserData)
+            
         }
     }
 

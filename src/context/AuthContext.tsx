@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useMemo } from 'react';
 
 import { firebaseSignOutService } from '../services/auth/firebaseSignOutService';
 
@@ -11,6 +11,7 @@ interface AuthContextType{
     user: UserDataType|null
     loading: boolean
     error: string|null
+    updateUserData: (newUserData:UserDataType) =>void
     logout: ()=>Promise<boolean>
     clearError: () =>void
     isUserCustomer1:boolean
@@ -20,6 +21,7 @@ export const AuthContext = createContext<AuthContextType>({
     user: null,
     loading: true,
     error: null,
+    updateUserData: () =>{},
     logout: ()=>Promise.resolve(false),
     clearError: () =>{},
     isUserCustomer1:true
@@ -33,7 +35,11 @@ export const AuthProvider: React.FC<{children:ReactNode}> =({children})=>{
 
     useAuthState({setUser, setLoading, setError});
 
-    const isUserCustomer1 = user?.accountSettings.displayName === 'customer1' ? true:false
+    const isUserCustomer1 = useMemo(() => user?.accountSettings.displayName === 'customer1' ? true : false, [user]);
+
+    const updateUserData = (newUserData:UserDataType)=>{
+        setUser(newUserData)
+    }
 
     const logout = async ()=>{ 
         setLoading(true)
@@ -57,7 +63,7 @@ export const AuthProvider: React.FC<{children:ReactNode}> =({children})=>{
     const clearError = ()=>{ setError(null) }
 
     return(
-        <AuthContext.Provider value={{ user, loading, error, logout, clearError,isUserCustomer1 }}>
+        <AuthContext.Provider value={{ user,updateUserData, loading, error, logout, clearError,isUserCustomer1 }}>
             <div style={{backgroundColor:'#191919'}}>{children}</div>  
         </AuthContext.Provider>
     )
