@@ -61,7 +61,6 @@ const ChangePasswordSettings:React.FC = () => {
                 setIsPasswordUpdatedSuccess(true)
                 reset()
             }
-
         }
 
     }

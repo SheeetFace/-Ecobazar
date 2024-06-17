@@ -68,7 +68,7 @@ const BillingAddressInfo:React.FC<BillingAddressInfoProps> = ({options,disabled=
                 </div>
 
                 <div className={styles._container}>
-                    <label>Company Name
+                    <label>Company
                         <span>(optional)</span>
                     </label>
                     <InputFormField 

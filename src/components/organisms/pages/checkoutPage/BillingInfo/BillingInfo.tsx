@@ -1,4 +1,8 @@
+import { useContext, useEffect } from 'react';
+
 import {useForm} from 'react-hook-form'
+
+import { FormCheckoutContext } from '../../../../../context/FormCheckoutContext';
 
 import BillingAddressInfo from '../../../formField/BillingAddressInfo/BillingAddressInfo';
 import TextAreaFormField from '../../../formField/TextAreaFormField/TextAreaFormField';
@@ -30,14 +34,17 @@ interface FormValues{
 
 const BillingInfo:React.FC = () => {
 
-    const {register, formState:{errors},handleSubmit, watch} = useForm<FormValues>();
+    const {setBillingInfoValid} = useContext(FormCheckoutContext);
+
+    const {register, formState:{errors},handleSubmit, watch,} = useForm<FormValues>();
 
     const countryValueWatch = watch('country') as UserDataCountryType;
 
     const onSubmit: SubmitHandler<FormValues> =(data)=>{
-        alert(JSON.stringify(data))
-        // reset()
+        console.log(data)
+        setBillingInfoValid(true)
     }
+
 
     const billingAddressSettings={
         firstName:{

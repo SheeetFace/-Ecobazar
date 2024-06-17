@@ -1,9 +1,12 @@
+import { memo } from 'react';
+
 import Divider from '../../../../atoms/Divider/Divider';
 
 import styles from '../PaymentSummary/PaymentSummary.module.scss';
 
 const PaymentSummary:React.FC = () => {
 
+    console.log('RENDER PaymentSummary')
     return (
         <div className={styles.PaymentSummary}>
                 <div className={styles._subTotal}>
@@ -24,4 +27,4 @@ const PaymentSummary:React.FC = () => {
     )
 }
 
-export default PaymentSummary;
+export default memo(PaymentSummary);

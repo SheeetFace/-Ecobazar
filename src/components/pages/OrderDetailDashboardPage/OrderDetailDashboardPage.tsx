@@ -27,7 +27,7 @@ const OrderDetailDashboardPage:React.FC = () => {
         <section className={styles.OrderDetailDashboardPage}>
             <div className={styles._headerContainer}>
                 <div className={styles._info}>
-                    <h1>OrderDetailDashboardPage</h1>
+                    <h1>Order Detail</h1>
                     <span>&#8226;</span>
                     <span>{data.state.date}</span>
                     <span>&#8226;</span>
