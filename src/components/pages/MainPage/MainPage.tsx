@@ -1,3 +1,5 @@
+import useScrollToTop from '../../../hooks/useScrollToTop';
+
 import BannerTop from '../../organisms/banner/mainPage/BannerTop/BannerTop';
 import Feature from '../../organisms/Feature/Feature';
 import PopularCategories from '../../organisms/pages/mainPage/PopularCategories/PopularCategories';
@@ -16,6 +18,8 @@ import { featureMainPageData} from '../../../data/feature';
 import styles from '../MainPage/MainPage.module.scss';
 
 const MainPage:React.FC = () =>{
+
+    useScrollToTop(0)
 
     return(
         <section className={styles.MainPage}>
