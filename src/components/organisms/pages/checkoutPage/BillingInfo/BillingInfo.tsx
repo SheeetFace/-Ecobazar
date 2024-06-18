@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext,memo } from 'react';
 
 import {useForm} from 'react-hook-form'
 
@@ -34,7 +34,7 @@ interface FormValues{
 
 const BillingInfo:React.FC = () => {
 
-    const {setBillingInfoValid} = useContext(FormCheckoutContext);
+    const {setBillingInfoValid,isBillingInfoValid} = useContext(FormCheckoutContext);
 
     const {register, formState:{errors},handleSubmit, watch,} = useForm<FormValues>();
 
@@ -44,7 +44,6 @@ const BillingInfo:React.FC = () => {
         console.log(data)
         setBillingInfoValid(true)
     }
-
 
     const billingAddressSettings={
         firstName:{
@@ -120,11 +119,13 @@ const BillingInfo:React.FC = () => {
                     />
                 </div>
             
-                <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight buttonMaxWidth' type='submit' text='Confirm Billing Information'/>
+                <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight buttonMaxWidth'
+                        type='submit'
+                        text={!isBillingInfoValid ? 'Confirm Billing Information' :'Confirmed ✓'}/>
             </form>
 
         </section>
     )
 }
 
-export default BillingInfo;
+export default memo(BillingInfo);

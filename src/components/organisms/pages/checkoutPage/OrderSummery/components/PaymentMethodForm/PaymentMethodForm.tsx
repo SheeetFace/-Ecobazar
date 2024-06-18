@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext,memo } from 'react';
 
 import { FormCheckoutContext } from '../../../../../../../context/FormCheckoutContext';
 
@@ -35,4 +35,4 @@ const PaymentMethodForm:React.FC = () => {
     )
 }
 
-export default PaymentMethodForm;
+export default memo(PaymentMethodForm);

@@ -25,8 +25,6 @@ export const FormCheckoutProvider: React.FC<{children:ReactNode}> = ({ children 
     const [paymentMethodValid, setPaymentMethodValid] = useState<string|null>(null);
     const [isFormReady, setIsFormReady] = useState<boolean>(false)
 
-    console.log(`isBillingInfoValid - ${isBillingInfoValid}`)
-
     useEffect(()=>{
         if(isBillingInfoValid && paymentMethodValid) setIsFormReady(true)
     },[isBillingInfoValid,paymentMethodValid])
@@ -35,7 +33,6 @@ export const FormCheckoutProvider: React.FC<{children:ReactNode}> = ({ children 
         setBillingInfoValid(false)
         setPaymentMethodValid(null)
         setIsFormReady(false)
-        console.log('Form reseted')
     }, [])
 
     return(
