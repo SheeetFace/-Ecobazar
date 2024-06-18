@@ -1,16 +1,19 @@
-import { useContext,memo } from 'react';
+import { memo } from 'react';
 
-import { FormCheckoutContext } from '../../../../../../../context/FormCheckoutContext';
+import { useAppSelector, useAppDispatch } from '../../../../../../../store/store';
+import { setPaymentMethodValid } from '../../../../../../../store/slices/checkoutFormSlice';
 
 import styles from '../PaymentMethodForm/PaymentMethodForm.module.scss';
 
-
 const PaymentMethodForm:React.FC = () => {
 
-    const {setPaymentMethodValid} = useContext(FormCheckoutContext);
+    const dispatch = useAppDispatch();
+    const paymentMethodValid = useAppSelector((state) => state.checkoutForm.paymentMethodValid);
+
+    console.log(paymentMethodValid)
 
     const handleMethod = (method:string)=>{
-        setPaymentMethodValid(method)
+        dispatch(setPaymentMethodValid(method));
     }
 
     return (

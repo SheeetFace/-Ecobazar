@@ -1,7 +1,8 @@
-import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { FormCheckoutContext } from '../../../../../../../context/FormCheckoutContext';
+import { useAppSelector, useAppDispatch } from '../../../../../../../store/store';
+
+import { resetFormState } from '../../../../../../../store/slices/checkoutFormSlice';
 
 import Button from '../../../../../../atoms/Button/Button';
 import AlertMessage from '../../../../../../molecules/AlertMessage/AlertMessage';
@@ -10,14 +11,16 @@ import styles from '../SubmitOrderForm/SubmitOrderForm.module.scss';
 
 const SubmitOrderForm:React.FC = () => {
 
-    const {isFormReady, resetFormState} = useContext(FormCheckoutContext);
+    const isFormReady = useAppSelector((state)=> state.checkoutForm.isFormReady) 
+
+    const dispatch = useAppDispatch()
 
     const navigate = useNavigate()
 
     const submitOrder =()=>{
         if(isFormReady){
             console.log('submitOrder')
-            resetFormState()
+            dispatch(resetFormState())
 
             navigate('/dashboard/orderDetail', 
                 { state: 

@@ -1,8 +1,10 @@
-import { useContext,memo } from 'react';
+import { memo, useEffect } from 'react';
 
 import {useForm} from 'react-hook-form'
 
-import { FormCheckoutContext } from '../../../../../context/FormCheckoutContext';
+import { useAppDispatch,useAppSelector } from '../../../../../store/store';
+
+import { setBillingInfoValid } from '../../../../../store/slices/checkoutFormSlice';
 
 import BillingAddressInfo from '../../../formField/BillingAddressInfo/BillingAddressInfo';
 import TextAreaFormField from '../../../formField/TextAreaFormField/TextAreaFormField';
@@ -34,15 +36,22 @@ interface FormValues{
 
 const BillingInfo:React.FC = () => {
 
-    const {setBillingInfoValid,isBillingInfoValid} = useContext(FormCheckoutContext);
-
-    const {register, formState:{errors},handleSubmit, watch,} = useForm<FormValues>();
+    const dispatch = useAppDispatch()
+    
+    const {register, formState,handleSubmit, watch,} = useForm<FormValues>();
+    const { errors, isValid } = formState;
 
     const countryValueWatch = watch('country') as UserDataCountryType;
 
+    const isBillingInfoValid = useAppSelector((state)=> state.checkoutForm.isBillingInfoValid)
+
+    useEffect(()=>{
+        if(!isValid) dispatch(setBillingInfoValid(false))
+    },[isValid])
+
     const onSubmit: SubmitHandler<FormValues> =(data)=>{
         console.log(data)
-        setBillingInfoValid(true)
+        dispatch(setBillingInfoValid(true))
     }
 
     const billingAddressSettings={
@@ -121,7 +130,7 @@ const BillingInfo:React.FC = () => {
             
                 <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight buttonMaxWidth'
                         type='submit'
-                        text={!isBillingInfoValid ? 'Confirm Billing Information' :'Confirmed ✓'}/>
+                        text={!isBillingInfoValid || !isValid ? 'Confirm Billing Information' :'Confirmed ✓'}/>
             </form>
 
         </section>

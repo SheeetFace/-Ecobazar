@@ -1,6 +1,9 @@
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 
+import { store } from './store/store.ts';
+import {Provider} from 'react-redux';
+
 import MainPage from './components/pages/MainPage/MainPage.tsx';
 import LoginPage from './components/pages/LoginPage/LoginPage.tsx';
 import RegistrationPage from './components/pages/RegistrationPage/RegistrationPage.tsx';
@@ -47,7 +50,11 @@ const router = createBrowserRouter([
           <AuthProvider>
               <SearchProvider>
                 <ProductFilterProvider>
+
+                <Provider store={store}>
                   <App/>
+                </Provider>
+
                 </ProductFilterProvider>
               </SearchProvider>,
             </AuthProvider>,
