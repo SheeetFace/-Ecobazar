@@ -1,7 +1,5 @@
 import { Outlet } from 'react-router-dom';
 
-import { ProductModalProvider } from './context/ProductModalContext';
-
 import Divider from './components/atoms/Divider/Divider';
 import Header from './components/organisms/Header/Header';
 import Navigation from './components/organisms/Navigation/Navigation';
@@ -22,7 +20,6 @@ import './styles/skeleton.scss'
 import styles from '../src/app.module.scss'
 
 
-
 function App() {
 
   return (
@@ -32,14 +29,8 @@ function App() {
         <Divider type='horizontal' className={styles._divider}/>
         <Navigation/>
         <Breadcrumb/>
-
-        <ProductModalProvider>
-                <Outlet></Outlet>
-
+              <Outlet></Outlet>
               <ProductModal/>
-
-        </ProductModalProvider>
-
         <Newsletter/>
         <Footer/>
 

@@ -1,4 +1,4 @@
-import {  useContext, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 import ProductDetails from '../../ProductDetails/ProductDetails';
 
@@ -7,13 +7,18 @@ import { manageModalDisplay } from '../../../../utils/manageModalDisplay';
 import useCloseModal from '../../../../hooks/useCloseModal';
 import useScrollLock from '../../../../hooks/useScrollLock';
 
-import { ProductModalContext } from '../../../../context/ProductModalContext';
+import { useAppDispatch,useAppSelector } from '../../../../store/store';
+import { closeProductModal } from '../../../../store/slices/productModalSlice';
 
 import styles from '../ProductModal/ProductModal.module.scss';
 
 const ProductModal:React.FC = () => {
 
-    const {isShow,dataProduct, closeProductModal} = useContext(ProductModalContext)
+    const dispatch = useAppDispatch()
+
+    const isShow = useAppSelector((state)=> state.productModal.isShow);
+    const dataProduct = useAppSelector((state)=> state.productModal.dataProduct);
+
 
     const modalRef= useRef<HTMLDivElement>(null)
     const modalCloseRef= useRef<HTMLDivElement>(null)
@@ -22,8 +27,12 @@ const ProductModal:React.FC = () => {
 
     useScrollLock(isShow, {current:null});
 
+    const closeProductModalFn =()=>{
+        dispatch(closeProductModal())
+    }
+
     useCloseModal({
-        closeFn:closeProductModal,
+        closeFn:closeProductModalFn,
         modalCloseRef
     })
 
@@ -36,24 +45,21 @@ const ProductModal:React.FC = () => {
 
     return (
         <section className={styles.ProductModal} ref={modalRef}>
+            {dataProduct && isShow ? 
+                <div className={styles._container}>
 
-                {dataProduct && isShow ? 
-                    <div className={styles._container}>
-
-                        <div className={styles._closeModal}>
-                            <span onClick={()=>closeProductModal()}>✖</span>
-                        </div>
-
-                        <ProductDetails forwardRef={modalCloseRef}
-                                        data={dataProduct}
-                                        viewMode='modal'/>
-
+                    <div className={styles._closeModal}>
+                        <span onClick={()=>closeProductModalFn}>✖</span>
                     </div>
-                :
-                    <span>LOADING...</span>
-                }
 
+                    <ProductDetails forwardRef={modalCloseRef}
+                                    data={dataProduct}
+                                    viewMode='modal'/>
 
+                </div>
+            :
+                <span>LOADING...</span>
+            }
         </section>
     )
 }

@@ -18,8 +18,6 @@ const ProductsCard:React.FC<ProductsCardProps> = (props) => {
 
     const {name, id, src, currentCost, oldCost, sale, rating} = props;
 
-
-    //href - vegetable/id---
     const addToCart = (id:string,e:MouseEvent)=>{
         e.preventDefault()
         console.log(`${id} added to cart`)

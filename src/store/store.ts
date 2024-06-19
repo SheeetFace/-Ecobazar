@@ -2,10 +2,12 @@ import { configureStore } from '@reduxjs/toolkit'
 import { useDispatch, useSelector } from "react-redux";
 
 import checkoutFormSlice from './slices/checkoutFormSlice'
+import productModalSlice from './slices/productModalSlice';
 
 export const store = configureStore({
   reducer: {
     checkoutForm: checkoutFormSlice,
+    productModal: productModalSlice,
   },
 })
 

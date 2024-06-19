@@ -1,8 +1,8 @@
-import { useContext } from 'react';
-import { ProductModalContext } from '../../../../../context/ProductModalContext';
+import { useAppDispatch } from '../../../../../store/store';
+
+import { openProductModal } from '../../../../../store/slices/productModalSlice';
 
 import Button from '../../../../atoms/Button/Button';
-
 import EyeIcon from '../../../../atoms/icon/navigate/EyeIcon';
 
 import styles from '../ButtonQuickView/ButtonQuickView.module.scss';
@@ -12,12 +12,11 @@ import type { MouseEvent } from 'react';
 
 const ButtonQuickView:React.FC<ButtonQuickViewProps> = (props) => {
 
-    const {openProductModal} = useContext(ProductModalContext)
+    const dispatch = useAppDispatch();
 
     const openQuickView =(id:string,e:MouseEvent)=>{
-        console.log(`${id} opened quick view`)
         e.preventDefault()
-        openProductModal(props)
+        dispatch(openProductModal(props))
     }
 
     return (
