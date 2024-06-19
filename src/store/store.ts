@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 
 import checkoutFormSlice from './slices/checkoutFormSlice'
 import productModalSlice from './slices/productModalSlice';
+import authSlice from './slices/authSlice';
 
 export const store = configureStore({
   reducer: {
     checkoutForm: checkoutFormSlice,
     productModal: productModalSlice,
+    auth:authSlice,
   },
 })
 

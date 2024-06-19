@@ -1,9 +1,9 @@
-import { useContext } from 'react';
-
 import {useForm} from 'react-hook-form'
 import { useLoadingAndError } from '../../../../../hooks/useLoadingAndError';
 
-import { AuthContext } from '../../../../../context/AuthContext';
+import { useAppDispatch,useAppSelector } from '../../../../../store/store';
+
+import { updateUserData } from '../../../../../store/slices/authSlice';
 
 import { firebaseUpdateUserDataService } from '../../../../../services/db/firebaseUpdateUserDataService';
 import { hasFormValuesUpdated } from '../../../../../utils/hasFormValuesUpdated';
@@ -33,7 +33,11 @@ interface FormValues{
 
 const AccountSettings:React.FC = () => {
 
-    const {user,updateUserData,isUserCustomer1} =useContext(AuthContext)
+    const dispatch = useAppDispatch();
+
+    const user = useAppSelector((state)=> state.auth.user);
+    const isUserCustomer1 = useAppSelector((state)=> state.auth.isCustomer1);
+
 
     const { executeAsync, renderLoaderOrError, isLoading } = useLoadingAndError<UserDataType>();
 
@@ -50,7 +54,6 @@ const AccountSettings:React.FC = () => {
         defaultValues
     });
 
-
     const onSubmit: SubmitHandler<FormValues> =async(data)=>{
 
         const isSimilar =hasFormValuesUpdated(data,defaultValues)
@@ -63,7 +66,7 @@ const AccountSettings:React.FC = () => {
                 })
             });
 
-            if(updatedUserData) updateUserData(updatedUserData)
+            if(updatedUserData) dispatch(updateUserData(updatedUserData))
             
         }
     }

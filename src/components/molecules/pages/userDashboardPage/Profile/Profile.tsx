@@ -1,8 +1,6 @@
-import { useContext } from 'react';
-
 import { NavLink } from 'react-router-dom';
 
-import { AuthContext } from '../../../../../context/AuthContext';
+import { useAppSelector } from '../../../../../store/store';
 
 import DisplayField from '../../../DisplayField/DisplayField';
 
@@ -10,7 +8,7 @@ import styles from '../Profile/Profile.module.scss';
 
 const Profile:React.FC = () => {
 
-    const {user} =useContext(AuthContext)
+    const user = useAppSelector((state)=> state.auth.user)
 
     return (
         <section className={styles.Profile}>

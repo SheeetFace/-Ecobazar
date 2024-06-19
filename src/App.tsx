@@ -1,5 +1,7 @@
 import { Outlet } from 'react-router-dom';
 
+import { useAuthState } from './hooks/useAuthState';
+
 import Divider from './components/atoms/Divider/Divider';
 import Header from './components/organisms/Header/Header';
 import Navigation from './components/organisms/Navigation/Navigation';
@@ -21,6 +23,8 @@ import styles from '../src/app.module.scss'
 
 
 function App() {
+
+  useAuthState()
 
   return (
     <main className={styles.App}>

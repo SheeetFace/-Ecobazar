@@ -1,10 +1,11 @@
-import { useContext } from 'react';
-
 import {useForm} from 'react-hook-form'
 
 import { useLoadingAndError } from '../../../../../hooks/useLoadingAndError';
 
-import { AuthContext } from '../../../../../context/AuthContext';
+import { useAppSelector,useAppDispatch } from '../../../../../store/store';
+
+import { updateUserData } from '../../../../../store/slices/authSlice';
+
 
 import { firebaseUpdateUserDataService } from '../../../../../services/db/firebaseUpdateUserDataService';
 
@@ -22,8 +23,6 @@ import styles from '../BillingAddressSettings/BillingAddressSettings.module.scss
 import type {SubmitHandler}from 'react-hook-form';
 import type { UserDataType,UserDataCountryType } from '../../../../../types/userTypes';
 
-// type TypeCountryValueWatch ="United States"|"Canada"|"United Kingdom"
-
 interface FormValues{
     firstName:string
     lastName:string
@@ -39,7 +38,10 @@ interface FormValues{
 
 const BillingAddressSettings:React.FC = () => {
 
-    const {user,updateUserData,isUserCustomer1} =useContext(AuthContext)
+    const dispatch = useAppDispatch()
+
+    const user = useAppSelector((state)=> state.auth.user)
+    const isUserCustomer1 = useAppSelector((state)=> state.auth.isCustomer1)
 
     const { executeAsync, renderLoaderOrError, isLoading } = useLoadingAndError<UserDataType>();
 
@@ -74,7 +76,7 @@ const BillingAddressSettings:React.FC = () => {
                 })
             });
 
-            if(updatedUserData) updateUserData(updatedUserData)
+            if(updatedUserData) dispatch(updateUserData(updatedUserData))
  
         }
     }

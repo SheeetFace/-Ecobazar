@@ -1,10 +1,10 @@
-import { useContext,useState } from 'react';
+import { useState } from 'react';
 
 import {useForm} from 'react-hook-form'
 
 import { useLoadingAndError } from '../../../../../hooks/useLoadingAndError';
 
-import { AuthContext } from '../../../../../context/AuthContext';
+import { useAppSelector } from '../../../../../store/store';
 
 import { firebaseUpdatePasswordService } from '../../../../../services/auth/firebaseUpdatePasswordService';
 
@@ -32,9 +32,9 @@ interface FormValues{
 
 const ChangePasswordSettings:React.FC = () => {
 
-    const [isPasswordUpdatedSuccess,setIsPasswordUpdatedSuccess] = useState<boolean|null>(null)
+    const [isPasswordUpdatedSuccess,setIsPasswordUpdatedSuccess] = useState<boolean|null>(null);
 
-    const {isUserCustomer1} =useContext(AuthContext);
+    const isUserCustomer1 = useAppSelector((state)=> state.auth.isCustomer1);
 
     const { executeAsync, renderLoaderOrError, isLoading } = useLoadingAndError();
 

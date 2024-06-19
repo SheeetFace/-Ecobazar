@@ -29,9 +29,7 @@ import PrivateRoute from './components/molecules/PrivateRoute/PrivateRoute.tsx';
 
 import ErrorBoundary from './components/pages/ErrorBoundary/ErrorBoundary.tsx';
 
-import { AuthProvider } from './context/AuthContext.tsx';
 import { ProductFilterProvider } from './context/ProductFilterContext.tsx';
-// import { ProductModalProvider } from './context/ProductModalContext.tsx';
 import { BlogFilterProvider } from './context/BlogFilterContext.tsx';
 import { SearchProvider } from './context/MainSearchContext.tsx';
 
@@ -47,7 +45,6 @@ const router = createBrowserRouter([
   {
     path: "/",
     element:
-          <AuthProvider>
               <SearchProvider>
                 <ProductFilterProvider>
 
@@ -57,7 +54,6 @@ const router = createBrowserRouter([
 
                 </ProductFilterProvider>
               </SearchProvider>,
-            </AuthProvider>,
 
     errorElement: <ErrorBoundary />,
     children: [

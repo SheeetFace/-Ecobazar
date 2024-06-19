@@ -1,6 +1,6 @@
-import {  useContext } from 'react';
+import { useAppDispatch,useAppSelector } from '../../../store/store';
 
-import { AuthContext } from '../../../context/AuthContext';
+import { logout } from '../../../store/slices/authSlice';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -13,12 +13,15 @@ import styles from '../LogOutDashboardPage/LogOutDashboardPage.module.scss';
 
 const LogOutDashboardPage:React.FC = () => {
 
-    const { loading, error,logout } = useContext(AuthContext);
+    const loading = useAppSelector((state)=> state.auth.loading)
+    const error = useAppSelector((state)=> state.auth.error)
+
+    const dispatch = useAppDispatch()
 
     const navigate = useNavigate();
 
     const logOut = async()=>{
-        const res = await logout()
+        const res = await dispatch(logout())
         
         if(res) navigate('/');
     }

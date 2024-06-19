@@ -6,7 +6,6 @@ import styles from '../PaymentSummary/PaymentSummary.module.scss';
 
 const PaymentSummary:React.FC = () => {
 
-    console.log('RENDER PaymentSummary')
     return (
         <div className={styles.PaymentSummary}>
                 <div className={styles._subTotal}>
