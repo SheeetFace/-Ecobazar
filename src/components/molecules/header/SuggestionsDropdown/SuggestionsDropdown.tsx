@@ -2,7 +2,7 @@ import { useRef, useEffect } from 'react';
 
 import { useLocation } from 'react-router-dom';
 
-import { useSearch } from '../../../../context/MainSearchContext';
+import { useAppSelector } from '../../../../store/store';
 
 import SuggestionsResult from '../components/SuggestionsResult/SuggestionsResult';
 import NoSuggestionsResult from '../components/NoSuggestionsResult/NoSuggestionsResult';
@@ -11,7 +11,8 @@ import styles from './SuggestionsDropdown.module.scss';
 
 
 const SuggestionsDropdown = () => {
-  const { query, suggestions } = useSearch();
+  const query = useAppSelector((state)=> state.mainSearch.query);
+  const suggestions = useAppSelector((state)=> state.mainSearch.suggestions);
 
   const location = useLocation();
 
@@ -60,7 +61,7 @@ const SuggestionsDropdown = () => {
   if(location.pathname === '/shop') return null;
 
 
-  return (
+  return(
     <div ref={overlayRef} className={overlayClassName}>
       {isNoResults ? <NoSuggestionsResult /> : <SuggestionsResult suggestions={suggestions} />}
     </div>

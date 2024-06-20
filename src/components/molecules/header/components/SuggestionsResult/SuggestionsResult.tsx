@@ -2,7 +2,8 @@ import { useMemo,memo, useRef } from 'react';
 
 import SuggestionSearchCard from '../../../card/SuggestionSearchCard/SuggestionSearchCard';
 
-import { useSearch } from '../../../../../context/MainSearchContext';
+import { useAppDispatch,useAppSelector } from '../../../../../store/store';
+import { setQuery } from '../../../../../store/slices/mainSearchSlice';
 
 import useScrollLock from '../../../../../hooks/useScrollLock';
 import useCloseModal from '../../../../../hooks/useCloseModal';
@@ -17,33 +18,35 @@ interface  SuggestionsResultProps{
 
 const SuggestionsResult:React.FC<SuggestionsResultProps> = ({ suggestions }) => {
 
-    const {query, setQuery } = useSearch();
+  const dispatch = useAppDispatch();
 
-    const resultsRef = useRef<HTMLUListElement|null>(null);
+  const query =useAppSelector((state) => state.mainSearch.query);
 
-    const isNoResults = query && suggestions.length>=1;
+  const resultsRef = useRef<HTMLUListElement|null>(null);
 
-    useScrollLock(!!isNoResults, resultsRef);
+  const isNoResults = query && suggestions.length>=1;
 
-    useCloseModal({closeFn:clearQuery,modalCloseRef:resultsRef})
+  useScrollLock(!!isNoResults, resultsRef);
 
-    function clearQuery(){
-      setQuery('')
-    }
+  useCloseModal({closeFn:clearQuery,modalCloseRef:resultsRef})
 
-    const renderSuggestionSearchCard =useMemo(()=>{
-      return suggestions.map((item, i)=>(
-        <div onClick={()=>clearQuery()}>
-          <SuggestionSearchCard  {...item} key={i}/>
-        </div>
-      ))
-    }, [suggestions,setQuery]);
+  function clearQuery(){
+    dispatch(setQuery(''))
+  }
 
-    return(
-        <ul className={styles.SuggestionsResult} ref={resultsRef}>
-          {renderSuggestionSearchCard}
-        </ul>
-    )
+  const renderSuggestionSearchCard =useMemo(()=>{
+    return suggestions.map((item, i)=>(
+      <div onClick={()=>clearQuery()}>
+        <SuggestionSearchCard  {...item} key={i}/>
+      </div>
+    ))
+  }, [suggestions,dispatch]);
+
+  return(
+      <ul className={styles.SuggestionsResult} ref={resultsRef}>
+        {renderSuggestionSearchCard}
+      </ul>
+  )
 }
 
 export default memo(SuggestionsResult);

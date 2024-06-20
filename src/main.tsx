@@ -31,8 +31,6 @@ import ErrorBoundary from './components/pages/ErrorBoundary/ErrorBoundary.tsx';
 
 import { ProductFilterProvider } from './context/ProductFilterContext.tsx';
 import { BlogFilterProvider } from './context/BlogFilterContext.tsx';
-import { SearchProvider } from './context/MainSearchContext.tsx';
-
 
 import {
   createBrowserRouter,
@@ -45,15 +43,13 @@ const router = createBrowserRouter([
   {
     path: "/",
     element:
-              <SearchProvider>
-                <ProductFilterProvider>
+          <ProductFilterProvider>
 
-                <Provider store={store}>
-                  <App/>
-                </Provider>
+            <Provider store={store}>
+              <App/>
+            </Provider>
 
-                </ProductFilterProvider>
-              </SearchProvider>,
+          </ProductFilterProvider>,
 
     errorElement: <ErrorBoundary />,
     children: [

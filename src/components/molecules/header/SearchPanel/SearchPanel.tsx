@@ -6,8 +6,10 @@ import useValidation from '../../../../hooks/useValidation';
 import { filterTypeGuard } from '../../../../utils/filterTypeGuard';
 import { isProductFilterEmpty } from '../../../../utils/filter/isProductFilterEmpty';
 
-import { useSearch,SearchProvider } from '../../../../context/MainSearchContext';
 import { ProductFilterContext } from '../../../../context/ProductFilterContext';
+
+import { useAppSelector, useAppDispatch } from '../../../../store/store';
+import { setQuery, setSuggestions } from '../../../../store/slices/mainSearchSlice';
 
 import Button from '../../../atoms/Button/Button';
 import SearchIcon from '../../../atoms/icon/navigate/SearchIcon';
@@ -25,113 +27,105 @@ import type {FormEvent,ChangeEvent} from 'react';
 
 const SearchPanel =()=>{
 
-    const ref = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-    const navigate = useNavigate();
-    const location = useLocation();
+  const dispatch = useAppDispatch()
 
-    const { filter, changeFilter, clearFilter } = useContext(ProductFilterContext);
+  const { filter, changeFilter, clearFilter } = useContext(ProductFilterContext);
 
-    const {query,setQuery,suggestions, setSuggestions } = useSearch();
+  const query = useAppSelector((state)=> state.mainSearch.query);
+  const suggestions = useAppSelector((state)=> state.mainSearch.suggestions);
 
-    const {isValid, validateFn} = useValidation();
+  const ref = useRef<HTMLInputElement>(null);
 
-    const isLocationShop = location.pathname ==='/shop'
+  const {isValid, validateFn} = useValidation();
 
-    useEffect(()=>{
-      if(!isLocationShop && ref.current) handleClear()
-    },[location.pathname, filter.search])
+  const isLocationShop = location.pathname ==='/shop'
 
-    useEffect(()=>{
-        const isFilterEmpty = isProductFilterEmpty(filter)
+  useEffect(()=>{
+    if(!isLocationShop && ref.current) handleClear()
+  },[location.pathname, filter.search])
 
-        if(isFilterEmpty && ref.current) handleClear()
+  useEffect(()=>{
+    const isFilterEmpty = isProductFilterEmpty(filter)
 
-    },[filter.search])
+    if(isFilterEmpty && ref.current) handleClear()
 
-    const handleSubmit =(event:FormEvent<HTMLFormElement>)=>{
-        event.preventDefault();
-        if(ref.current){
-            const validationResult =validateFn(ref.current.value, ValidateSearchOrSubscribeTypes.SEARCH)
+  },[filter.search])
 
-            if(!validationResult.result)  return ref.current.value = '';
-            
-            console.log(validationResult)
+  const handleSubmit =(event:FormEvent<HTMLFormElement>)=>{
+    event.preventDefault();
+    if(ref.current){
+      const validationResult =validateFn(ref.current.value, ValidateSearchOrSubscribeTypes.SEARCH)
 
-        }else{
-            console.error('ref.current in handleSubmit SearchPanel')
-        }
+      if(!validationResult.result)  return ref.current.value = '';
+        
+    }else{
+      console.error('ref.current in handleSubmit SearchPanel')
     }
+  }
 
-    const handleChange = (event: ChangeEvent<HTMLInputElement>)=>{
-        if(!isLocationShop){
-          const userInput = event.target.value;
-          setQuery(userInput);
-    
-          if(userInput === ''){
-            setSuggestions([]);
-            return;
-          }
-    
-          const filteredSuggestions = shopProductData.filter((suggestion) =>
-            suggestion.name.toLowerCase().includes(userInput.toLowerCase())
-          );
-    
-          setSuggestions(filteredSuggestions);
-    
-          if(ref.current) ref.current.value = userInput;
-          
-        }else{
-          filterTypeGuard(filter, changeFilter, 'search', event.target.value);
-    
-          if(ref.current) ref.current.value = event.target.value;
-        }
+  const handleChange = (event: ChangeEvent<HTMLInputElement>)=>{
+    if(!isLocationShop){
+      const userInput = event.target.value;
+      dispatch(setQuery(userInput))
+
+      if(userInput === ''){
+        dispatch(setSuggestions([]));
+        return;
+      }
+
+      const filteredSuggestions = shopProductData.filter((suggestion) =>
+        suggestion.name.toLowerCase().includes(userInput.toLowerCase())
+      );
+
+      dispatch(setSuggestions(filteredSuggestions));
+
+      if(ref.current) ref.current.value = userInput;
+      
+    }else{
+      filterTypeGuard(filter, changeFilter, 'search', event.target.value);
+
+      if(ref.current) ref.current.value = event.target.value;
     }
+  }
 
-    const handleClear =()=>{
-      clearFilter()
-      setQuery('')
-      ref.current!.value='' 
+  const handleClear =()=>{
+    clearFilter()
+    dispatch(setQuery(''))
+    ref.current!.value='' 
+  }
+
+  const redirectToShop = ()=>{
+    if(isValid && suggestions.length>=1 && !isLocationShop){
+        const state = {searchFilter: query}
+        navigate('/shop', {state});
     }
+  }
 
-    const redirectToShop = ()=>{
-        if(isValid && suggestions.length>=1 && !isLocationShop){
-            const state = {searchFilter: query}
-            navigate('/shop', {state});
-        }
-    }
+  return(
+    <div className={styles._container} >
+        <form className={styles.SearchPanel} 
+              onSubmit={handleSubmit}
+              id='searchPanelForm'>
 
-    return(
-        <div className={styles._container} >
-            <form className={styles.SearchPanel} 
-                  onSubmit={handleSubmit}
-                  id='searchPanelForm'>
+            <Input placeholder='Search'
+                type='text' 
+                forwardRef={ref}
+                changeFn={handleChange}
+                className={isValid ?"_searchInput":"_invalidSearchInput"}
+            />
+            <Button className='Search'
+                    icon={<SearchIcon/>}
+                    type='submit'
+                    onClick={redirectToShop}/>
 
-                <Input placeholder='Search'
-                    type='text' 
-                    forwardRef={ref}
-                    // value={inputValue} 
-                    // value={!isLocationShop ? query :filter.search} //!filter.search
-                    changeFn={handleChange}
-                    className={isValid ?"_searchInput":"_invalidSearchInput"}
-                />
-                <Button className='Search'
-                        icon={<SearchIcon/>}
-                        type='submit'
-                        onClick={redirectToShop}/>
+        </form>
 
-            </form>
-
-            <SuggestionsDropdown />
-        </div>
-    )
+        <SuggestionsDropdown />
+    </div>
+  )
 }
-
-const SearchPanelWithProvider =()=>(
-  <SearchProvider>
-    <SearchPanel />
-  </SearchProvider>
-);
-
-export default SearchPanelWithProvider;
+export default SearchPanel;
 
