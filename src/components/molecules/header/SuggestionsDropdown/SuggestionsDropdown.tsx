@@ -9,7 +9,6 @@ import NoSuggestionsResult from '../components/NoSuggestionsResult/NoSuggestions
 
 import styles from './SuggestionsDropdown.module.scss';
 
-
 const SuggestionsDropdown = () => {
   const query = useAppSelector((state)=> state.mainSearch.query);
   const suggestions = useAppSelector((state)=> state.mainSearch.suggestions);

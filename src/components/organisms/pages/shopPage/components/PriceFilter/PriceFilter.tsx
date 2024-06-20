@@ -1,7 +1,10 @@
-import { memo, useContext } from 'react';
+import { memo } from 'react';
+
+import { useAppDispatch, useAppSelector } from '../../../../../../store/store';
+
+import { changeFilter } from '../../../../../../store/slices/productFilterSlice';
 
 import useToggleFilter from '../../../../../../hooks/useToggleFilter';
-import { ProductFilterContext } from '../../../../../../context/ProductFilterContext';
 
 import ReactSlider from 'react-slider'
 import Divider from '../../../../../atoms/Divider/Divider';
@@ -9,9 +12,10 @@ import Divider from '../../../../../atoms/Divider/Divider';
 import styles from '../PriceFilter/PriceFilter.module.scss';
 
 const PriceFilter:React.FC = () => {
-
+    const dispatch = useAppDispatch()
     const [arrowClass, bodyClass,toggle] =useToggleFilter(styles._container)
-    const {filter, changeFilter } = useContext(ProductFilterContext);
+
+    const filter = useAppSelector((state)=>state.productFilter)
 
     const handleFilter =(value:number[])=>{
         const newPrice = {  
@@ -19,7 +23,7 @@ const PriceFilter:React.FC = () => {
                             max:value[1].toString()
                          }
 
-        changeFilter('price',newPrice)
+        dispatch(changeFilter({key:'price',value:newPrice}))
     }
 
     return (

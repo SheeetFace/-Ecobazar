@@ -1,15 +1,12 @@
-import { useContext} from 'react';
-
 import CategoriesFilter from '../../../components/CategoriesFilter/CategoriesFilter';
 
-import { ProductFilterContext } from '../../../../../../context/ProductFilterContext';
-
+import { useAppSelector } from '../../../../../../store/store';
 
 const ProductCategoriesFilter:React.FC = () => {
 
-    const {filter, changeFilter } = useContext(ProductFilterContext);
+    const filter = useAppSelector((state)=>state.productFilter)
 
-    return (<CategoriesFilter filter={filter} changeFilter={changeFilter}/>)
+    return (<CategoriesFilter filter={filter}/>)
 }
 
 export default ProductCategoriesFilter;

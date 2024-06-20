@@ -1,24 +1,31 @@
 import { ChangeEvent } from 'react';
 
+import { useAppDispatch } from '../../../../../store/store';
+
 import { filterTypeGuard } from '../../../../../utils/filterTypeGuard';
 
 import styles from '../DateFilter/DateFilter.module.scss';
 
-import type { TDate,InitProductFilter,TChangeProductFilterFn } from '../../../../../types/productFilterType';
-import type { InitBlogFilter,TChangeBlogFilterFn } from '../../../../../types/blogFilterTypes';
+import type { TDate,InitProductFilter } from '../../../../../types/productFilterType';
+import type { InitBlogFilter } from '../../../../../types/blogFilterTypes';
 
 interface DateFilterProps{
     filter: InitProductFilter|InitBlogFilter
-    changeFilter: TChangeProductFilterFn|TChangeBlogFilterFn
 }
 
-const DateFilter:React.FC<DateFilterProps> = ({ filter, changeFilter }) => {
+const DateFilter:React.FC<DateFilterProps> = ({ filter }) => {
+
+    const dispatch = useAppDispatch()
 
     const handleFilter = (event: ChangeEvent<HTMLSelectElement>)=>{
 
         const date = event.target.value as TDate;
 
-        filterTypeGuard(filter,changeFilter,'date',date)
+        const action = {
+            key: 'date' as keyof InitProductFilter,
+            value: date,
+        };
+        filterTypeGuard(dispatch, filter, action);
     }
 
     return (

@@ -1,14 +1,18 @@
-import { useContext } from 'react';
+import { useAppDispatch } from '../../../../../../store/store';
 
-import { ProductFilterContext } from '../../../../../../context/ProductFilterContext';
+import { clearFilter } from '../../../../../../store/slices/productFilterSlice';
 
 import ClearFilter from '../../../components/ClearFilter/ClearFilter';
 
 const ProductClearFilter:React.FC = () => {
 
-    const { clearFilter } = useContext(ProductFilterContext);
+    const dispatch = useAppDispatch()
 
-    return (<ClearFilter clearFilterFn={clearFilter}/>)
+    const clearFilterFn = ()=>{
+        dispatch(clearFilter())
+    }
+
+    return (<ClearFilter clearFilterFn={clearFilterFn}/>)
 }
 
 export default ProductClearFilter;

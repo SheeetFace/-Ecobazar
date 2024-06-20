@@ -1,4 +1,4 @@
-import {useRef, useContext, useEffect} from 'react'
+import {useRef, useEffect} from 'react'
 import { useNavigate,useLocation } from 'react-router-dom';
 
 import useValidation from '../../../../hooks/useValidation';
@@ -6,10 +6,9 @@ import useValidation from '../../../../hooks/useValidation';
 import { filterTypeGuard } from '../../../../utils/filterTypeGuard';
 import { isProductFilterEmpty } from '../../../../utils/filter/isProductFilterEmpty';
 
-import { ProductFilterContext } from '../../../../context/ProductFilterContext';
-
 import { useAppSelector, useAppDispatch } from '../../../../store/store';
 import { setQuery, setSuggestions } from '../../../../store/slices/mainSearchSlice';
+import { clearFilter } from '../../../../store/slices/productFilterSlice';
 
 import Button from '../../../atoms/Button/Button';
 import SearchIcon from '../../../atoms/icon/navigate/SearchIcon';
@@ -21,8 +20,8 @@ import { shopProductData } from '../../../../data/temp/shopProductData';
 import styles from '../SearchPanel/SearchPanel.module.scss'
 
 import { ValidateSearchOrSubscribeTypes } from '../../../../types/validateSearchOrSubscribeTypes';
-
 import type {FormEvent,ChangeEvent} from 'react';
+import type { InitProductFilter } from '../../../../types/productFilterType';
 
 
 const SearchPanel =()=>{
@@ -30,12 +29,12 @@ const SearchPanel =()=>{
   const navigate = useNavigate();
   const location = useLocation();
 
-  const dispatch = useAppDispatch()
-
-  const { filter, changeFilter, clearFilter } = useContext(ProductFilterContext);
+  const dispatch = useAppDispatch();
 
   const query = useAppSelector((state)=> state.mainSearch.query);
   const suggestions = useAppSelector((state)=> state.mainSearch.suggestions);
+  
+  const filter = useAppSelector((state)=> state.productFilter)
 
   const ref = useRef<HTMLInputElement>(null);
 
@@ -85,14 +84,20 @@ const SearchPanel =()=>{
       if(ref.current) ref.current.value = userInput;
       
     }else{
-      filterTypeGuard(filter, changeFilter, 'search', event.target.value);
+
+      const action ={
+        key: 'search' as keyof InitProductFilter,
+        value: event.target.value,
+      };
+      
+      filterTypeGuard(dispatch, filter, action);
 
       if(ref.current) ref.current.value = event.target.value;
     }
   }
 
   const handleClear =()=>{
-    clearFilter()
+    dispatch(clearFilter())
     dispatch(setQuery(''))
     ref.current!.value='' 
   }

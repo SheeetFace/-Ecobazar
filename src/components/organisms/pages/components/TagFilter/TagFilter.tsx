@@ -1,5 +1,7 @@
 import { memo, useMemo } from 'react';
 
+import { useAppDispatch } from '../../../../../store/store';
+
 import TagItem from '../../../../molecules/pages/components/TagItem/TagItem';
 
 import useToggleFilter from '../../../../../hooks/useToggleFilter';
@@ -10,21 +12,27 @@ import { tagsData } from '../../../../../data/filter/tagsData';
 
 import styles from '../TagFilter/TagFilter.module.scss';
 
-import type { InitProductFilter,TChangeProductFilterFn } from '../../../../../types/productFilterType';
-import type { InitBlogFilter,TChangeBlogFilterFn } from '../../../../../types/blogFilterTypes';
+import type { InitProductFilter } from '../../../../../types/productFilterType';
+import type { InitBlogFilter} from '../../../../../types/blogFilterTypes';
 
 interface TagFilterProps{
     filter:InitProductFilter|InitBlogFilter
-    changeFilter:TChangeProductFilterFn|TChangeBlogFilterFn
 }
 
-const TagFilter:React.FC<TagFilterProps> = ({filter,changeFilter}) => {
+const TagFilter:React.FC<TagFilterProps> = ({filter}) => {
+
+    const dispatch = useAppDispatch()
 
     const [arrowClass, bodyClass,toggle] =useToggleFilter(styles._container)
 
     const handleFilter =(value:string)=>{
 
-        filterTypeGuard(filter,changeFilter,'tag',value)
+        const action = {
+            key: 'tag' as keyof InitProductFilter,
+            value: value,
+        };
+
+        filterTypeGuard(dispatch, filter, action);
     }
     
     const renderTags = useMemo(()=>{

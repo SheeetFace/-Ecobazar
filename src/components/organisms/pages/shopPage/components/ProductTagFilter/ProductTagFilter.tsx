@@ -1,14 +1,12 @@
-import { useContext } from 'react';
-
-import { ProductFilterContext } from '../../../../../../context/ProductFilterContext';
+import { useAppSelector } from '../../../../../../store/store';
 
 import TagFilter from '../../../components/TagFilter/TagFilter';
 
 const ProductTagFilter:React.FC = () => {
 
-    const {filter,changeFilter } = useContext(ProductFilterContext);
+    const filter = useAppSelector((state)=>state.productFilter)
 
-    return (<TagFilter  filter={filter} changeFilter={changeFilter}/>)
+    return (<TagFilter  filter={filter}/>)
 }
 
 export default ProductTagFilter;

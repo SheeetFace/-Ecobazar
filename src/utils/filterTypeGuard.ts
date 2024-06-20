@@ -1,20 +1,35 @@
-import type { InitProductFilter,TChangeProductFilterFn } from '../types/productFilterType';
-import type { InitBlogFilter,TChangeBlogFilterFn } from '../types/blogFilterTypes';
+import type { InitProductFilter } from '../types/productFilterType';
+import type { InitBlogFilter } from '../types/blogFilterTypes';
+import { changeFilter as changeProductFilter } from '../store/slices/productFilterSlice';
 
-type Filter =InitProductFilter|InitBlogFilter
-type ChangeFilter =TChangeProductFilterFn|TChangeBlogFilterFn
-type Key = keyof InitProductFilter | keyof InitBlogFilter
-type Value = InitProductFilter[keyof InitProductFilter] | InitBlogFilter[keyof InitBlogFilter]
+import type { AppDispatch } from '../store/store';
 
-type FilterTypeGuard =(filter:Filter,changeFilter:ChangeFilter,key:Key,value:Value)=>void
+import type { ProductFilterAction } from '../types/productFilterType';
 
-export const filterTypeGuard:FilterTypeGuard= (filter,changeFilter,key, value) => {
+type Key<T> = keyof T;  //!
+type Value<T> = T[keyof T]; //! 
+type BlogFilterAction = { key: Key<InitBlogFilter>; value: Value<InitBlogFilter> }; //!
 
-    if(key in filter && 'productsLength' in filter) (changeFilter as TChangeProductFilterFn)(key as keyof InitProductFilter, value as keyof InitProductFilter)
-    else if(key in filter && 'blogsLength' in filter)(changeFilter as TChangeBlogFilterFn)(key as keyof InitBlogFilter,value as keyof InitBlogFilter) 
+type Filter = InitProductFilter | InitBlogFilter;
 
-    else console.error('🚨 Error: none of the filters were found 🚨')
-}
+type FilterTypeGuard=(
+  dispatch: AppDispatch,
+  filter: Filter,
+  action: ProductFilterAction | BlogFilterAction
+)=>void;
+
+export const filterTypeGuard: FilterTypeGuard = (dispatch, filter, action) => {
+
+  if('productsLength' in filter) dispatch(changeProductFilter(action as ProductFilterAction));
+  else if ('blogsLength' in filter) console.log('1231231') //!
+  else console.error('🚨 Error: none of the filters were found 🚨');
+
+};
+
+
+
+
+
 
 
 

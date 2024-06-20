@@ -1,5 +1,7 @@
 import { useMemo, memo} from 'react';
 
+import { useAppDispatch } from '../../../../../store/store';
+
 import CategoryItem from '../../../../molecules/pages/components/CategoryItem/CategoryItem';
 import Divider from '../../../../atoms/Divider/Divider';
 
@@ -11,27 +13,28 @@ import { allCategoriesData } from '../../../../../data/filter/allCategories';
 
 import styles from '../CategoriesFilter/CategoriesFilter.module.scss';
 
-import type { InitProductFilter,TChangeProductFilterFn } from '../../../../../types/productFilterType';
-import type { InitBlogFilter,TChangeBlogFilterFn } from '../../../../../types/blogFilterTypes';
+
+import type { InitProductFilter } from '../../../../../types/productFilterType';
+import type { InitBlogFilter } from '../../../../../types/blogFilterTypes';
 
 interface CategoriesFilterProps{
     filter:InitProductFilter|InitBlogFilter
-    changeFilter:TChangeProductFilterFn|TChangeBlogFilterFn
 }
 
-const CategoriesFilter:React.FC<CategoriesFilterProps> = ({filter,changeFilter}) => {
+const CategoriesFilter:React.FC<CategoriesFilterProps> = ({filter}) => {
 
     const [arrowClass, bodyClass,toggle] =useToggleFilter(styles._form)
 
+    const dispatch = useAppDispatch()
+
     const handleFilter =(value:string)=>{
-        const category = filter.categoryValue;
 
-        const index = category.findIndex((el)=> el===value)
+        const action = {
+            key: 'categoryValue' as keyof InitProductFilter,
+            value: value,
+        };
 
-        if(index !== -1) category.splice(index,1)
-        else category.push(value)
-
-        filterTypeGuard(filter,changeFilter,'categoryValue',category)
+        filterTypeGuard(dispatch, filter, action);
     }
 
     const renderCategories=useMemo(()=>{

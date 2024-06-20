@@ -1,9 +1,11 @@
-import { memo, useContext, useMemo } from 'react';
+import { memo, useMemo } from 'react';
+
+import { useAppDispatch, useAppSelector } from '../../../../../../store/store';
+import { changeFilter } from '../../../../../../store/slices/productFilterSlice';
 
 import RatingItem from '../../../../../molecules/pages/shopPage/RatingItem/RatingItem';
 
 import useToggleFilter from '../../../../../../hooks/useToggleFilter';
-import { ProductFilterContext } from '../../../../../../context/ProductFilterContext';
 
 import Divider from '../../../../../atoms/Divider/Divider';
 
@@ -11,17 +13,19 @@ import styles from '../RatingFilter/RatingFilter.module.scss';
 
 const RatingFilter:React.FC = () => {
 
+    const dispatch = useAppDispatch()
+    const filter = useAppSelector((state)=>state.productFilter)
+
     const [arrowClass, bodyClass,toggle] =useToggleFilter('')
-    const {filter,changeFilter } = useContext(ProductFilterContext);
 
     const handleFilter =(value:number)=>{
-        const rating = filter.rating
+        const rating = [...filter.rating]
         const index = rating.findIndex((el)=> el===value)
         
         if(index != -1) rating.splice(index,1)
         else rating.push(value)
 
-        changeFilter('rating',rating)
+        dispatch(changeFilter({key:'rating', value:rating}))
     }
 
     const renderRating = useMemo(()=>{
@@ -35,7 +39,6 @@ const RatingFilter:React.FC = () => {
             )
         })
     },[filter])
-
 
     return (
         <section className={styles.RatingFilter}>

@@ -5,6 +5,7 @@ import checkoutFormSlice from './slices/checkoutFormSlice'
 import productModalSlice from './slices/productModalSlice';
 import authSlice from './slices/authSlice';
 import mainSearchSlice from './slices/mainSearchSlice';
+import productFilterSlice from './slices/productFilterSlice';
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
     productModal: productModalSlice,
     auth:authSlice,
     mainSearch: mainSearchSlice,
+    productFilter:productFilterSlice,
   },
 })
 

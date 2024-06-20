@@ -1,6 +1,9 @@
-import { useContext, useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 
 import { useLocation } from 'react-router-dom';
+
+import { useAppDispatch,useAppSelector } from '../../../../../store/store';
+import { changeFilter } from '../../../../../store/slices/productFilterSlice';
 
 import usePagination from '../../../../../hooks/usePagination';
 import useSmoothTransition from '../../../../../hooks/useSmoothTransition';
@@ -11,7 +14,6 @@ import ProductsCard from '../../../../molecules/card/ProductCard/ProductCard';
 import NotingFound from '../../../../atoms/NothingFound/NothingFound';
 import PaginationButtons from '../../../PaginationButtons/PaginationButtons';
 
-import { ProductFilterContext } from '../../../../../context/ProductFilterContext';
 import { filterProducts } from '../../../../../utils/filter/filterProducts';
 
 import { shopProductData } from '../../../../../data/temp/shopProductData';
@@ -20,7 +22,8 @@ import styles from '../Products/Products.module.scss';
 
 const Products:React.FC = () => {
 
-    const { filter, changeFilter } = useContext(ProductFilterContext);
+    const dispatch = useAppDispatch()
+    const filter = useAppSelector((state)=> state.productFilter)
 
     const filteredProducts = filterProducts(shopProductData, filter);
     const location = useLocation();
@@ -41,15 +44,14 @@ const Products:React.FC = () => {
     useEnsureValidPage(filteredProducts, currentPage, itemsPerPage, goToPage)
 
     useEffect(()=>{
-      changeFilter('productsLength',totalItems)
+      dispatch(changeFilter({key:'productsLength', value:totalItems}))
     },[totalItems])
 
     useEffect(()=>{
       if(location.state && ('searchFilter' in location.state)){
-        changeFilter('search',location.state.searchFilter)
+        dispatch(changeFilter({key:'search',value:location.state.searchFilter}))
       }
     },[location.state])
-
 
     const renderProductCard = useMemo(() => {
 
@@ -58,24 +60,7 @@ const Products:React.FC = () => {
       return displayedData.map((item, i)=>(
           <ProductsCard
             key={i}
-            {...item}
-            // name={item.name}
-            // src={item.src}
-            // id={item.id}
-            // currentCost={item.currentCost}
-            // oldCost={item.oldCost}
-            // sale={item.sale}
-            // rating={item.rating}
-
-            // promotedCategories={item.promotedCategories}
-            // weight={item.weight}
-            // color={item.color}
-            // type={item.type}
-            // category={item.category}
-            // stockStatus={item.stockStatus}
-            // date={item.date}
-            // tag={item.tag}
-            // description={item.description}
+              {...item}
           />
       ));
     },[JSON.stringify(displayedData)])
