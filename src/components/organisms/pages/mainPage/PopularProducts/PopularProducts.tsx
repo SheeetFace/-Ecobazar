@@ -1,42 +1,21 @@
 import TitleWithViewAll from '../../../../molecules/pages/mainPage/TitleWithViewAll/TitleWithViewAll';
 import ProductsCard from '../../../../molecules/card/ProductCard/ProductCard';
 
-import { popularProductsData } from '../../../../../data/temp/popularProductsData';
+// import { popularProductsData } from '../../../../../data/temp/popularProductsData';
+import { shopProductData } from '../../../../../data/temp/shopProductData';
 
 import styles from '../PopularProducts/PopularProducts.module.scss';
 
-
-interface PopularProductsDataItem{
-    name:string,
-    id:string,
-    src:string,
-    currentCost:string,
-    oldCost:string,
-    sale:string,
-    rating:string,
-    promotedCategories:string[],
-    weight:string,
-    color:string,
-    type:string,
-    category:string,
-    stockStatus:string,
-    description:string,
-}
-
 const PopularProducts:React.FC = () => {
 
+  const popularProductsData = shopProductData.slice(0,10)
+
   const renderPopularProducts = ()=>{
-    return popularProductsData.map((item:PopularProductsDataItem)=>{
+    return popularProductsData.map((item, i)=>{
       return(
-          <ProductsCard  key={item.id}
-                                  id={item.id}
-                                  name={item.name}
-                                  src={item.src}
-                                  currentCost={item.currentCost}
-                                  oldCost={item.oldCost}
-                                  sale={item.sale}
-                                  rating={item.rating}
-                                  />
+          <ProductsCard key={i}
+                        {...item}
+          />
       )
     })
   }

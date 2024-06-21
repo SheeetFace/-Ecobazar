@@ -29,8 +29,6 @@ import PrivateRoute from './components/molecules/PrivateRoute/PrivateRoute.tsx';
 
 import ErrorBoundary from './components/pages/ErrorBoundary/ErrorBoundary.tsx';
 
-// import { BlogFilterProvider } from './context/BlogFilterContext.tsx';
-
 import {
   createBrowserRouter,
   RouterProvider,

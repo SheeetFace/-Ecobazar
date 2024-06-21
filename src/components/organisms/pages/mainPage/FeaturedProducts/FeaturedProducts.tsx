@@ -1,41 +1,22 @@
 import TitleWithViewAll from '../../../../molecules/pages/mainPage/TitleWithViewAll/TitleWithViewAll';
 import ProductsCard from '../../../../molecules/card/ProductCard/ProductCard';
 
-import { featuredProductsData } from '../../../../../data/temp/featuredProductsData';
+// import { featuredProductsData } from '../../../../../data/temp/featuredProductsData';
+import { shopProductData } from '../../../../../data/temp/shopProductData';
 
 import styles from '../FeaturedProducts/FeaturedProducts.module.scss';
 
-interface FeaturedProductsDataItem{
-    name:string,
-    id:string,
-    src:string,
-    currentCost:string,
-    oldCost:string,
-    sale:string,
-    rating:string,
-    promotedCategories:string[],
-    weight:string,
-    color:string,
-    type:string,
-    category:string,
-    stockStatus:string,
-    description:string,
-}
 
 const FeaturedProducts:React.FC = () => {
 
+  const featuredProductsData = shopProductData.slice(0,5)
+
     const renderFeaturedProducts = ()=>{
-        return featuredProductsData.map((item:FeaturedProductsDataItem)=>{
+        return featuredProductsData.map((item, i)=>{
           return(
-              <ProductsCard  key={item.id}
-                                      id={item.id}
-                                      name={item.name}
-                                      src={item.src}
-                                      currentCost={item.currentCost}
-                                      oldCost={item.oldCost}
-                                      sale={item.sale}
-                                      rating={item.rating}
-                                      />
+              <ProductsCard  key={i}
+                              {...item}
+              />
           )
         })
       }

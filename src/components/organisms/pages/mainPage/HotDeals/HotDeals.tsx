@@ -2,42 +2,23 @@ import TitleWithViewAll from '../../../../molecules/pages/mainPage/TitleWithView
 import BigProductCard from '../../../../molecules/card/BigProductCard/BigProductCard';
 import ProductsCard from '../../../../molecules/card/ProductCard/ProductCard';
 
-import { hotDealsData } from '../../../../../data/temp/hotDealsData';
+// import { hotDealsData } from '../../../../../data/temp/hotDealsData';
+import { shopProductData } from '../../../../../data/temp/shopProductData';
 
 import styles from '../HotDeals/HotDeals.module.scss';
 
-interface HotDealsDataItem{
-    name:string,
-    id:string,
-    src:string,
-    currentCost:string,
-    oldCost:string,
-    sale:string,
-    rating:string,
-    promotedCategories:string[],
-    weight:string,
-    color:string,
-    type:string,
-    category:string,
-    stockStatus:string,
-    description:string,
-}
 
 const HotDeals:React.FC = () => {
 
+  const hotDealsData = shopProductData.slice(0,7)
+
     const renderHotDeals = ()=>{
-        return hotDealsData.map((item:HotDealsDataItem, i)=>{
+        return hotDealsData.map((item, i)=>{
           if( i > 0){
             return(
-              <ProductsCard   key={item.id}
-                              id={item.id}
-                              name={item.name}
-                              src={item.src}
-                              currentCost={item.currentCost}
-                              oldCost={item.oldCost}
-                              sale={item.sale}
-                              rating={item.rating}
-                              />
+              <ProductsCard key={i}
+                            {...item}
+              />
             )
           }
         })
