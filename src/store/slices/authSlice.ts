@@ -6,6 +6,7 @@ import type { UserDataType } from '../../types/userTypes';
 
 interface AuthState{
     user: UserDataType|null;
+    isUser:boolean,
     isCustomer1:boolean;
     loading: boolean;
     error: string|null;
@@ -13,6 +14,7 @@ interface AuthState{
 
 const initialState: AuthState ={
     user: null,
+    isUser:false,
     isCustomer1:true,
     loading: true,
     error: null,
@@ -30,8 +32,10 @@ const authSlice = createSlice({
     initialState,
     reducers: {
         updateUserData(state, action: PayloadAction<UserDataType|null>){
+            console.log(state.user)
             state.user = action.payload;
             state.isCustomer1 = action.payload?.accountSettings.displayName === 'customer1' || false;
+            state.isUser = action.payload !== null;
         },
         clearError(state){
             state.error = null;
@@ -50,6 +54,7 @@ const authSlice = createSlice({
             })
             .addCase(logout.fulfilled, (state)=>{
                 state.user = null;
+                state.isUser = false;
                 state.isCustomer1 = false;
                 state.error = null;
                 state.loading = false;

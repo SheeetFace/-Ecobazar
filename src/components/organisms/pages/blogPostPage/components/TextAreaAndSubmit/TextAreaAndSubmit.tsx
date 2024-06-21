@@ -1,5 +1,7 @@
 import {useForm} from 'react-hook-form'
 
+import { useAppSelector } from '../../../../../../store/store';
+
 import TextAreaFormField from '../../../../formField/TextAreaFormField/TextAreaFormField';
 import Button from '../../../../../atoms/Button/Button';
 
@@ -13,6 +15,8 @@ interface FormValues{
 }
 
 const TextAreaAndSubmit:React.FC = () => {
+
+    const isUser = useAppSelector((state)=> state.auth.isUser);
 
     const {register, formState:{errors},handleSubmit, reset } = useForm<FormValues>();
 
@@ -44,7 +48,10 @@ const TextAreaAndSubmit:React.FC = () => {
                                     )}}
                                     errorMessage={errors.comment?.message}/>
 
-                <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight ' type='submit' text='Post Comment'/>
+                <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight' 
+                type='submit' 
+                text='Post Comment'
+                disabled={!isUser}/>
             </form>
         </section>
     )
