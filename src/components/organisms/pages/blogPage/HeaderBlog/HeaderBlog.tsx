@@ -1,13 +1,13 @@
-import {  useContext } from 'react';
 
-import { BlogFilterContext } from '../../../../../context/BlogFilterContext';
+import { useAppSelector } from "../../../../../store/store";
 
 import HeaderFilterPage from "../../components/HeaderFilterPage/HeaderFilterPage";
 
 const HeaderBlog:React.FC = () => {
-    const {filter, changeFilter} = useContext(BlogFilterContext); 
+    
+    const filter =  useAppSelector((state)=>state.blogFilter)
 
-    return( <HeaderFilterPage filter={filter} changeFilter={changeFilter}/>)
+    return( <HeaderFilterPage filter={filter}/>)
 }
 
 export default HeaderBlog;

@@ -18,6 +18,8 @@ export interface InitProductFilter {
 
 export type TKey = keyof InitProductFilter;
 export type TChangeProductFilterFn = <K extends TKey>(key: K, newFilter: InitProductFilter[K]) => void; //! &&&
+
 export type ProductFilterAction = { key: Key<InitProductFilter>; value: Value<InitProductFilter> };
+
 
 

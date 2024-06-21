@@ -29,7 +29,7 @@ import PrivateRoute from './components/molecules/PrivateRoute/PrivateRoute.tsx';
 
 import ErrorBoundary from './components/pages/ErrorBoundary/ErrorBoundary.tsx';
 
-import { BlogFilterProvider } from './context/BlogFilterContext.tsx';
+// import { BlogFilterProvider } from './context/BlogFilterContext.tsx';
 
 import {
   createBrowserRouter,
@@ -76,9 +76,9 @@ const router = createBrowserRouter([
       {
         path: "blog",
         element: 
-        <BlogFilterProvider>
+        // <BlogFilterProvider>
           <BlogPage />
-        </BlogFilterProvider>,
+        // </BlogFilterProvider>,
       },
       {
         path: "blog/:name",

@@ -1,14 +1,12 @@
-import { useContext} from 'react';
-
 import CategoriesFilter from '../../../components/CategoriesFilter/CategoriesFilter';
 
-import { BlogFilterContext } from '../../../../../../context/BlogFilterContext';
+import { useAppSelector } from '../../../../../../store/store';
 
 const BlogCatagoriesFilter:React.FC = () => {
 
-    const {filter, changeFilter } = useContext(BlogFilterContext);
-    
-    return (<CategoriesFilter filter={filter} changeFilter={changeFilter}/>)
+    const filter =  useAppSelector((state)=>state.blogFilter)
+
+    return (<CategoriesFilter filter={filter}/>)
 }
 
 export default BlogCatagoriesFilter;

@@ -1,6 +1,6 @@
-import { useContext, useCallback, useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 
-import { BlogFilterContext } from '../../../../../../context/BlogFilterContext';
+import { useAppDispatch, useAppSelector } from '../../../../../../store/store'; 
 
 import { filterTypeGuard } from '../../../../../../utils/filterTypeGuard';
 
@@ -13,10 +13,14 @@ import styles from '../SearchFilter/SearchFilter.module.scss';
 
 import { ValidateSearchOrSubscribeTypes } from '../../../../../../types/validateSearchOrSubscribeTypes';
 import type {ChangeEvent} from 'react'
+import type { InitBlogFilter } from '../../../../../../types/blogFilterTypes';
+
 
 const SearchFilter:React.FC = () => {
 
-    const {filter,changeFilter } = useContext(BlogFilterContext); 
+    const dispatch = useAppDispatch()
+
+    const filter =  useAppSelector((state)=>state.blogFilter)
 
     const {isValid, validateFn} = useValidation();
 
@@ -24,9 +28,9 @@ const SearchFilter:React.FC = () => {
 
         const value = e.target.value;
         const validationResult = validateFn(value, ValidateSearchOrSubscribeTypes.SEARCH);
-        
-        if(validationResult.result || value === '') filterTypeGuard(filter, changeFilter, "search", value);
-        else if(!validationResult.result && filter.search !== '') filterTypeGuard(filter, changeFilter, "search", '');
+
+        if(validationResult.result || value === '') filterTypeGuard(dispatch, filter, {key: 'search' as keyof InitBlogFilter,value});
+        else if(!validationResult.result && filter.search !== '') filterTypeGuard(dispatch, filter, {key: 'search' as keyof InitBlogFilter,value:''});
 
     }, [validateFn])
 

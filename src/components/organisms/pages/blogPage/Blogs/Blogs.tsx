@@ -1,11 +1,12 @@
-import { useContext, useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 
 import usePagination from '../../../../../hooks/usePagination';
 import useScrollToTop from '../../../../../hooks/useScrollToTop';
 import useSmoothTransition from '../../../../../hooks/useSmoothTransition';
 import useEnsureValidPage from '../../../../../hooks/useEnsureValidPage';
 
-import { BlogFilterContext } from '../../../../../context/BlogFilterContext';
+import { useAppDispatch,useAppSelector } from '../../../../../store/store';
+import { changeFilter } from '../../../../../store/slices/blogFilterSlice';
 
 import { filterBlogs } from '../../../../../utils/filter/filterBlogs';
 
@@ -21,7 +22,10 @@ import styles from '../Blogs/Blogs.module.scss';
 
 const Blogs:React.FC = () => {
 
-    const { filter, changeFilter } = useContext(BlogFilterContext);
+    const dispatch = useAppDispatch();
+
+    const filter = useAppSelector((state)=> state.blogFilter);
+
     const filteredBlogs = filterBlogs(blogsData, filter);
 
     const itemsPerPage= 6;
@@ -40,7 +44,7 @@ const Blogs:React.FC = () => {
     useEnsureValidPage(filteredBlogs, currentPage, itemsPerPage, goToPage)
 
     useEffect(()=>{
-      changeFilter('blogsLength',totalItems)
+      dispatch(changeFilter({key: 'blogsLength', value:totalItems}))
     },[totalItems])
 
 

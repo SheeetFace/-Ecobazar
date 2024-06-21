@@ -1,14 +1,18 @@
-import { useContext } from 'react';
+import { useAppDispatch } from '../../../../../../store/store';
 
-import { BlogFilterContext } from '../../../../../../context/BlogFilterContext';
+import { clearFilter } from '../../../../../../store/slices/blogFilterSlice';
 
 import ClearFilter from '../../../components/ClearFilter/ClearFilter';
 
 const BlogClearFilter:React.FC = () => {
 
-    const { clearFilter } = useContext(BlogFilterContext);
+    const dispatch = useAppDispatch()
 
-    return (<ClearFilter clearFilterFn={clearFilter}/>)
+    const clearFilterFn =()=>{
+        dispatch(clearFilter())
+    }
+
+    return (<ClearFilter clearFilterFn={clearFilterFn}/>)
 }
 
 export default BlogClearFilter;

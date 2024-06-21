@@ -1,15 +1,12 @@
-
-import { useContext } from 'react';
-
-import { BlogFilterContext } from '../../../../../../context/BlogFilterContext';
+import { useAppSelector } from '../../../../../../store/store';
 
 import TagFilter from '../../../components/TagFilter/TagFilter';
 
 const BlogTagFilter:React.FC = () => {
 
-    const {filter,changeFilter } = useContext(BlogFilterContext); 
+    const filter =  useAppSelector((state)=>state.blogFilter)
 
-    return (<TagFilter  filter={filter} changeFilter={changeFilter}/>)
+    return (<TagFilter  filter={filter}/>)
 }
 
 export default BlogTagFilter;

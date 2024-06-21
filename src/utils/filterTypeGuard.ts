@@ -1,14 +1,13 @@
 import type { InitProductFilter } from '../types/productFilterType';
 import type { InitBlogFilter } from '../types/blogFilterTypes';
+
 import { changeFilter as changeProductFilter } from '../store/slices/productFilterSlice';
+import { changeFilter as changeBlogFilter} from '../store/slices/blogFilterSlice';
+
 
 import type { AppDispatch } from '../store/store';
-
 import type { ProductFilterAction } from '../types/productFilterType';
-
-type Key<T> = keyof T;  //!
-type Value<T> = T[keyof T]; //! 
-type BlogFilterAction = { key: Key<InitBlogFilter>; value: Value<InitBlogFilter> }; //!
+import type { BlogFilterAction } from '../types/blogFilterTypes';
 
 type Filter = InitProductFilter | InitBlogFilter;
 
@@ -21,9 +20,9 @@ type FilterTypeGuard=(
 export const filterTypeGuard: FilterTypeGuard = (dispatch, filter, action) => {
 
   if('productsLength' in filter) dispatch(changeProductFilter(action as ProductFilterAction));
-  else if ('blogsLength' in filter) console.log('1231231') //!
+  else if ('blogsLength' in filter) dispatch(changeBlogFilter(action as BlogFilterAction));
   else console.error('🚨 Error: none of the filters were found 🚨');
-
+  
 };
 
 
