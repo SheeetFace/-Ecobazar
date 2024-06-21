@@ -27,7 +27,7 @@ const HotDeals:React.FC = () => {
     return (
         <div className={styles.HotDeals}>
             <div className='center'>
-                <TitleWithViewAll title='Hot Deals' path='/'/>
+                <TitleWithViewAll title='Hot Deals' path='/shop'/>
 
                 <div className={styles._container}>
                     <div className={styles._bigCard}>

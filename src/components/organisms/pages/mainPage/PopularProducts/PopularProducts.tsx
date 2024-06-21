@@ -23,7 +23,7 @@ const PopularProducts:React.FC = () => {
   return (
     <section className={styles.PopularProducts}>
         <div className='center'>
-            <TitleWithViewAll title='Popular Products' path='/'/>
+            <TitleWithViewAll title='Popular Products' path='/shop'/>
             
               <div className={styles._cards}>
                   {renderPopularProducts()}

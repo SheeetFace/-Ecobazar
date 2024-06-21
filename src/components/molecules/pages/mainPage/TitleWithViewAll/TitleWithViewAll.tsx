@@ -1,4 +1,4 @@
-import Button from '../../../../atoms/Button/Button';
+import { NavLink } from 'react-router-dom';
 
 import styles from '../TitleWithViewAll/TitleWithViewAll.module.scss';
 
@@ -11,8 +11,10 @@ const TitleWithViewAll:React.FC<TitleWithViewAllProps> = ({title,path}) => {
 
   return (
     <div className={styles.TitleWithViewAll}>
-            <span>{title}</span>
-            <Button text='View All ➔' className='ButtonTransparent colorTextGreenPrimary' type='button'/>
+      <span>{title}</span>
+        <NavLink to={path} className='_navLinkGreenPrimaryLetterSpacing'>
+          View All ➔
+        </NavLink> 
     </div>
   )
 }

@@ -24,7 +24,7 @@ const FeaturedProducts:React.FC = () => {
     return (
         <section className={styles.FeaturedProducts}>
             <div className='center'>
-                <TitleWithViewAll title='Featured Products' path='/'/>
+                <TitleWithViewAll title='Featured Products' path='/shop'/>
                 
                 <div className={styles._cards}>
                   {renderFeaturedProducts()}
