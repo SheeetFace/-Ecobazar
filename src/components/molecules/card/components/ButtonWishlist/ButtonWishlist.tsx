@@ -37,11 +37,9 @@ const ButtonWishlist:React.FC<ButtonWishlistProps> = ({id, type}) => {
 
     const updateWishlist =(id:string,e:React.MouseEvent)=>{
         e.preventDefault()
-        if(isUser) {
-            dispatch(toggleWishlistItem(id))
-        }else{
-            navigate('/login')
-        }
+
+        if(isUser) dispatch(toggleWishlistItem(id))
+        else navigate('/login')
     }
 
     return (

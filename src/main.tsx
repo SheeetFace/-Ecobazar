@@ -74,9 +74,7 @@ const router = createBrowserRouter([
       {
         path: "blog",
         element: 
-        // <BlogFilterProvider>
           <BlogPage />
-        // </BlogFilterProvider>,
       },
       {
         path: "blog/:name",
@@ -95,16 +93,34 @@ const router = createBrowserRouter([
         element: <FaqPage />,
       },
       {
-        path: "wishlist",
-        element: <WishlistPage />,
+        path: 'wishlist',
+        element: <PrivateRoute />,
+        children: [
+          {
+            path: "",
+            element: <WishlistPage />,
+          },
+        ]
       },
       {
-        path: "shoppingcart",
-        element: <ShoppingCartPage />,
+        path: 'shopping-cart',
+        element: <PrivateRoute />,
+        children: [
+          {
+            path: "",
+            element: <ShoppingCartPage />,
+          },
+        ]
       },
       {
-        path: "checkout",
-        element: <CheckoutPage />,
+        path: 'checkout',
+        element: <PrivateRoute />,
+        children: [
+          {
+            path: "",
+            element: <CheckoutPage />,
+          },
+        ]
       },
       {
         path: 'dashboard',

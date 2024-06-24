@@ -14,7 +14,7 @@ const PrivateRoute: React.FC = () => {
 
     const dispatch = useAppDispatch()
 
-    const user = useAppSelector((state)=>state.auth.user)
+    const isUser = useAppSelector((state)=>state.auth.isUser)
     const loading = useAppSelector((state)=>state.auth.loading)
     const error = useAppSelector((state)=>state.auth.error)
 
@@ -35,7 +35,7 @@ const PrivateRoute: React.FC = () => {
                 </div>
     }
 
-    return (user && !error && !loading) ? <Outlet /> : <Navigate to="/login" />
+    return (isUser && !error && !loading) ? <Outlet /> : <Navigate to="/login" />
 };
   
 export default PrivateRoute;
