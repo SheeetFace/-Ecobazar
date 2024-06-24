@@ -1,4 +1,8 @@
-import { useRef, useEffect, useCallback } from 'react';
+import { useRef, useEffect, useCallback, useMemo, memo } from 'react';
+
+import { useAppDispatch, useAppSelector } from '../../../../../store/store';
+
+import { toggleWishlistItem } from '../../../../../store/slices/wishlistSlice';
 
 import Button from '../../../../atoms/Button/Button';
 import WishlistIcon from '../../../../atoms/icon/navigate/WishlistIcon';
@@ -13,45 +17,32 @@ interface ButtonWishlistProps{
 
 const ButtonWishlist:React.FC<ButtonWishlistProps> = ({id, type}) => {
 
-    //!lidl preparing
+    const dispatch = useAppDispatch();
 
-    // const wishlist = useStore(state => state.wishlist)
-    // const wishlistRef = useRef(number|null)
+    const isItemInWishlist = useAppSelector((state)=> state.wishlist.items.includes(id));
 
-    // useEffect(() => {
-    //     wishlistRef.current = wishlist.some(item=> item.id === id)
-    // }, [wishlist])
+    const inWishlistStyle = type === 'card' ? styles._cardInWishList : styles._detailInWishList;
+    const notInWishlistStyle = type === 'card' ? styles._cardNotInWishList : styles._detailNotInWishList;
 
-    // const getStyle =useCallback (()=>{
-    //     let typeStyle:string;
-
-    //     if(wishlistRef.current) typeStyle = type === 'card' ? styles._cardInWishList: styles._detailInWishList;
-
-    //     typeStyle = type === 'card' ? styles._cardNotInWishList: styles._detailNotInWishList;
-        
-    //     return typeStyle;
-
-    // },[wishlistRef.current])
-
+    const inWishlistStyleIcon = isItemInWishlist ? styles._iconInWishList :styles._iconNotInWishList;
+  
+    const typeStyle = useMemo(()=>{
+      return isItemInWishlist ? inWishlistStyle : notInWishlistStyle;
+    },[isItemInWishlist, inWishlistStyle, notInWishlistStyle])
 
     const updateWishlist =(id:string,e:React.MouseEvent)=>{
         e.preventDefault()
-        // add or remove id to zustand state IN ANOTHER FILE
+        dispatch(toggleWishlistItem(id))
     }
-
-    const typeStyle=type === 'card' ? styles._cardNotInWishList: styles._detailNotInWishList;
 
     return (
         <div className={`${styles.ButtonWishlist} ${typeStyle}`}
              onClick={(e)=>updateWishlist(id,e)}>
-         {/* <div className={`${styles.ButtonWishlist} ${getStyle}`}> */}
-            <Button className='ButtonTransparent' 
-                    icon={<WishlistIcon className={styles._buttonWishlistIcon}/>}
-                    // onClick={(e)=>updateWishlist(id,e)} 
+            <Button  className='ButtonTransparentWithoutHover'
+                    icon={<WishlistIcon className={`${styles._buttonWishlistIcon} ${inWishlistStyleIcon}`}/>}
                     type='button'/>
         </div>
-  )
+    )
 }
 
-export default ButtonWishlist;
-
+export default memo(ButtonWishlist);

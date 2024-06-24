@@ -1,7 +1,6 @@
 import TitleWithViewAll from '../../../../molecules/pages/mainPage/TitleWithViewAll/TitleWithViewAll';
 import ProductsCard from '../../../../molecules/card/ProductCard/ProductCard';
 
-// import { popularProductsData } from '../../../../../data/temp/popularProductsData';
 import { shopProductData } from '../../../../../data/temp/shopProductData';
 
 import styles from '../PopularProducts/PopularProducts.module.scss';

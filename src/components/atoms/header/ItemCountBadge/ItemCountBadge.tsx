@@ -1,10 +1,14 @@
 import styles from '../ItemCountBadge/ItemCountBadge.module.scss'
 
-const ItemCountBadge:React.FC =()=>{
+interface ItemCountBadgeProps{
+    count:number
+}
+
+const ItemCountBadge:React.FC<ItemCountBadgeProps> =({count})=>{
 
     return(
         <div className={styles.ItemCountBadge}>
-            <span>9+</span>
+            <span>{count >9 ? '+9' : count}</span>
         </div>
     )
 }

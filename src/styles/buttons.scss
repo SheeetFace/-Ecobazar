@@ -82,6 +82,15 @@
   }
 }
 
+.ButtonTransparentWithoutHover{
+  @extend .defaultButtonStyle;
+  height: 100%;
+  border: none;
+  background-color:transparent;
+  font-size: $body-medium;
+  font-weight: $medium;
+}
+
 
 
 

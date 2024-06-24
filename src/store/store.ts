@@ -7,6 +7,7 @@ import authSlice from './slices/authSlice';
 import mainSearchSlice from './slices/mainSearchSlice';
 import productFilterSlice from './slices/productFilterSlice';
 import blogFilterSlice from './slices/blogFilterSlice';
+import wishlistSlice from './slices/wishlistSlice';
 
 export const store = configureStore({
   reducer: {
@@ -16,6 +17,8 @@ export const store = configureStore({
     mainSearch: mainSearchSlice,
     productFilter:productFilterSlice,
     blogFilter:blogFilterSlice,
+    wishlist:wishlistSlice,
+    
   },
 })
 

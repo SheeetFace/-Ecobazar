@@ -9,7 +9,7 @@ const CartBadge:React.FC = () =>{
         <div className={styles.ComponentBadge}>
             <CartIcon className={styles._iconHover} />
             <div className={styles._count}>
-                <ItemCountBadge />
+                <ItemCountBadge count = {123} />
             </div>
         </div>
      )

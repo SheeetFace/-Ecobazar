@@ -25,12 +25,20 @@
 
     &._cardInWishList{
         @extend .primary-background;
+
     }
     &._detailInWishList{
         @extend .primary-background;
     }
 
+
     ._buttonWishlistIcon{
         @extend._buttonIcon;
+    }
+    ._iconInWishList{
+        fill:tomato
+    }
+    ._iconNotInWishList{
+        fill:none;
     }
 }
