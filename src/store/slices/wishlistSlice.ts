@@ -18,10 +18,13 @@ const wishlistSlice = createSlice({
       
             if(index >= 0) state.items.splice(index, 1);
             else state.items.push(itemId);
+        },
+        clearWishlist(state){
+            state.items=[]
         }
     }
 
 })
 
-export const { toggleWishlistItem } = wishlistSlice.actions;
+export const { toggleWishlistItem, clearWishlist } = wishlistSlice.actions;
 export default wishlistSlice.reducer;

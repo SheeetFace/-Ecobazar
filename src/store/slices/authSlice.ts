@@ -21,6 +21,7 @@ const initialState: AuthState ={
 };
 
 export const logout = createAsyncThunk('auth/logout', async (_, { rejectWithValue })=>{
+
     const res = await firebaseSignOutService();
 
     if(!res.error.status && !res.error.message) return true;
