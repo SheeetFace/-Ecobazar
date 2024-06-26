@@ -4,11 +4,14 @@ import ShoppingCartCard from '../../../../molecules/card/ShoppingCartCard/Shoppi
 import Divider from '../../../../atoms/Divider/Divider';
 import Button from '../../../../atoms/Button/Button';
 
-import { popularProductsData } from '../../../../../data/temp/popularProductsData';
+
+import { shopProductData } from '../../../../../data/temp/shopProductData';
 
 import styles from '../ShoppingCart/ShoppingCart.module.scss';
 
 const ShoppingCart:React.FC = () => {
+
+    const popularProductsData = shopProductData.slice(0,10)
 
     const renderShoppingCartCard = ()=>{
         const length = popularProductsData.length

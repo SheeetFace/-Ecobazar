@@ -1,55 +1,76 @@
-import orange from '../../assets/temp/popularProducts/orange.webp';
-import apple from '../../assets/temp/popularProducts/apple.webp';
-import cabbage from '../../assets/temp/popularProducts/cabbage.webp';
-
 export const saleProductsShopData =[
-    {
-        name:'Orange',
-        id:'1',
-        src:orange,
-        currentCost:'$2.95',
-        oldCost:'$7.99',
-        sale:'63%',
-        rating:'4',
-        promotedCategories:["Popular Products", "Hot Deals", "Featured Products"],
-        weight:'1kg',
-        color:'Orange',
-        type:'Organic',
-        category:'Fruit',
-        stockStatus:'123',
-        description:"Valencia Oranges is one of the largest varieties in Australia. They are deliciously sweet and juicy with the perfect ratio of sweet-tart flavour. Eat on there own or they are great as juicing oranges and can be stored for a long time. Oranges are an awesome source of Vitamin C, Thiamine and Folate. "
-    },
-    {
-        name:'Apple',
-        id:'2',
-        src:apple,
-        currentCost:'$3.62',
-        oldCost:'$10.99',
-        sale:'33%',
-        rating:'3',
-        promotedCategories:["Popular Products", "Hot Deals", "Featured Products"],
-        weight:'1kg',
-        color:'Green',
-        type:'Organic',
-        category:'Fruit',
-        stockStatus:'133',
-        description:"Valencia Oranges is one of the largest varieties in Australia. They are deliciously sweet and juicy with the perfect ratio of sweet-tart flavour. Eat on there own or they are great as juicing oranges and can be stored for a long time. Oranges are an awesome source of Vitamin C, Thiamine and Folate. "
-    },
-    {
-        name:'Cabbage Chinese',
-        id:'3',
-        src:cabbage,
-        currentCost:'$6.50',
-        oldCost:'$12,99',
-        sale:'50%',
-        rating:'3',
-        promotedCategories:["Popular Products", "Hot Deals", "Featured Products"],
-        weight:'1kg',
-        color:'Green',
-        type:'Organic',
-        category:'Vegetables',
-        stockStatus:'93',
-        description:"This oblong, white to pale green cabbage is cultivated worldwide, and is a popular ingredient in authentic Asian cuisines, from stir-fry and noodle dishes to dumplings, rolls, and salads. It's easy to prepare and offers a mild flavour that gets sweeter with cooking. It provides a good source of vitamin C and dietary fibre."
 
-    },
+    {
+        "name": "Lemon Prepack",
+        "id": "3a90e270a33",
+        "src": "https://res.cloudinary.com/dof771xd5/image/upload/v1719392540/ypkjobyec1y18q2a33q1.webp",
+        "currentCost": "3.99",
+        "oldCost": "6.65",
+        "sale": "40%",
+        "rating": "3",
+        "promotedCategories": [],
+        "weight": "",
+        "color": "",
+        "type": "Organic",
+        "category": "Fruit",
+        "stockStatus": "89",
+        "date": "2024-04-19",
+        "tag": [
+          "Vitamins",
+          "Kid foods",
+          "Low fat",
+          "Vegetarian",
+          "Healthy",
+          "Fruit"
+        ],
+        "description": ""
+      },
+      {
+        "name": "Raspberries 125g",
+        "id": "ab2ea32524b",
+        "src": "https://res.cloudinary.com/dof771xd5/image/upload/v1719334491/mlpcow8esppiplykkfib.webp",
+        "currentCost": "4.50",
+        "oldCost": "5.70",
+        "sale": "21%",
+        "rating": "2",
+        "promotedCategories": [],
+        "weight": "",
+        "color": "",
+        "type": "Organic",
+        "category": "Fruit",
+        "stockStatus": "119",
+        "date": "2024-04-13",
+        "tag": [
+          "Vitamins",
+          "Kid foods",
+          "Low fat",
+          "Vegetarian",
+          "Healthy",
+          "Fruit"
+        ],
+        "description": "Raspberries are bright red, with a hollow core and round shape. They have a fresh sweetness to them, but their tartness undertone makes their sweetness subtler than a strawberry. They also have a floral note which helps sedate the sweetness. They are delicious when you eat them straight or toss them into oatmeal, salads, yoghurt or smoothies. They're good source of dietary fibre and vitamin C with some vitamins A, B, B2, calcium, phosphorus magnesium and iron."
+      },
+      {
+        "name": "Corn Loose Each",
+        "id": "b5fa01df96f",
+        "src": "https://res.cloudinary.com/dof771xd5/image/upload/v1719335289/lf6tujkdb1if7vtifpjw.webp",
+        "currentCost": "1.49",
+        "oldCost": "2.48",
+        "sale": "40%",
+        "rating": "3",
+        "promotedCategories": [],
+        "weight": "",
+        "color": "",
+        "type": "Organic",
+        "category": "Vegetables",
+        "stockStatus": "107",
+        "date": "2024-04-16",
+        "tag": [
+          "Vegetarian",
+          "Low fat",
+          "Healthy",
+          "Vitamins"
+        ],
+        "description": "A sweet and crunchy veg, corn is perfect for grilling, bbqing or boiling. A source of protein, fibre and B Vitamins."
+      },
 ]

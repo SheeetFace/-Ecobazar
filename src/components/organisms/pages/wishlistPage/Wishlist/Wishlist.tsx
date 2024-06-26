@@ -2,11 +2,13 @@ import Divider from '../../../../atoms/Divider/Divider';
 import SocialMediaIcons from '../../../../molecules/SocialMediaIcons/SocialMediaIcons';
 import WishlistCard from '../../../../molecules/card/WishlistCard/WishlistCard';
 
-import { popularProductsData } from '../../../../../data/temp/popularProductsData';
+import { shopProductData } from '../../../../../data/temp/shopProductData';
 
 import styles from '../Wishlist/Wishlist.module.scss';
 
 const Wishlist:React.FC = () => {
+
+    const popularProductsData = shopProductData.slice(0,10)
 
     const renderWishlistCard = ()=>{
         const length = popularProductsData.length;
@@ -14,14 +16,14 @@ const Wishlist:React.FC = () => {
         return popularProductsData.map((item,i)=>{
             return(
                 <WishlistCard
-                name={item.name}
-                id={item.id}
-                src={item.src}
-                currentCost={item.currentCost}
-                oldCost={item.oldCost}
-                stockStatus={item.stockStatus}
-                key={i}
-                isLast={length ===i}
+                    name={item.name}
+                    id={item.id}
+                    src={item.src}
+                    currentCost={item.currentCost}
+                    oldCost={item.oldCost}
+                    stockStatus={item.stockStatus}
+                    key={i}
+                    isLast={length ===i}
                 />
             )
         })
