@@ -1,13 +1,11 @@
+import Zoom from "react-img-zoom-gdn";
+
 import ProductDetailsHeader from '../../molecules/productDetails/ProductDetailsHeader/ProductModalHeader';
 import ProductDetailsDescription from '../../molecules/productDetails/ProductDetailsDescription/ProductDetailsDescription';
 import ProductDetailsButtons from '../../molecules/productDetails/ProductDetailsButtons/ProductDetailsButtons';
 import ProductDetailsFooter from '../../molecules/productDetails/ProductDetailsFooter/ProductModalFooter';
 import ProductDetailsSlider from '../../molecules/productDetails/ProductDetailsSlider/ProductDetailsSlider';
 import Divider from '../../atoms/Divider/Divider';
-
-import Zoom from "react-img-zoom-gdn";
-
-
 
 import styles from '../ProductDetails/ProductDetails.module.scss';
 
@@ -32,7 +30,7 @@ const ProductDetails:React.FC<ProductDetailsProps> = ({forwardRef,data,viewMode}
             <ProductDetailsSlider src={data.src}/>
 
             <div className={styles._img}>
-                <Zoom img={data.src} zoomScale={1.5} width={400} height={400} alt={data.name}  />;
+                <Zoom img={data.src} zoomScale={1.5} width={400} height={400} alt={data.name}/>
                 {/* <img alt={data.name} 
                     src={data.src}/> */}
             </div>

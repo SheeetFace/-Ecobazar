@@ -26,6 +26,7 @@ const Products:React.FC = () => {
     const filter = useAppSelector((state)=> state.productFilter)
 
     const filteredProducts = filterProducts(shopProductData, filter);
+    
     const location = useLocation();
 
     const itemsPerPage= 24;
@@ -52,6 +53,13 @@ const Products:React.FC = () => {
         dispatch(changeFilter({key:'search',value:location.state.searchFilter}))
       }
     },[location.state])
+
+    useEffect(()=>{
+      if(location.state && ('categoryFilter' in location.state)){
+        dispatch(changeFilter({key:'categoryValue',value:location.state.categoryFilter}))
+      }
+    },[location.state])
+    
 
     const renderProductCard = useMemo(() => {
 

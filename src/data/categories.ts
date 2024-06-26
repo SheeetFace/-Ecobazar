@@ -11,41 +11,41 @@ export const categories = [
     {
         title:'Fresh Fruit',
         img:fruit,
-        path:'/fruit',
+        categoryFilter:'fruit',
     },
     {
         title:'Fresh Vegetables',
         img:vegetables,
-        path:'/vegetables',
+        categoryFilter:'vegetables',
     },
     {
         title:'Meat & Fish',
         img:meatFish,
-        path:'/meat-fish',
+        categoryFilter:'meat&fish',
     },
     {
         title:'Snacks',
         img:snacks,
-        path:'/snacks',
+        categoryFilter:'snacks',
     },
     {
         title:'Beverages',
         img:beverages,
-        path:'/beverages',
+        categoryFilter:'beverages',
     },
     {
         title:'Bread & Bakery',
         img:breadBakery,
-        path:'/bread-bakery',
+        categoryFilter:'bread&bakery',
     },
     {
         title:'Diabetic Food',
         img:diabetic,
-        path:'/diabetic',
+        categoryFilter:'diabetic',
     },
     {
         title:'Oil',
         img:oil,
-        path:'/oil',
+        categoryFilter:'oil',
     },
 ]

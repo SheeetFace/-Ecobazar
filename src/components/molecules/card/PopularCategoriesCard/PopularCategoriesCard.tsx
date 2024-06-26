@@ -3,10 +3,9 @@ import styles from '../PopularCategoriesCard/PopularCategoriesCard.module.scss';
 interface PopularCategoriesCardProps{
     img:string,
     title:string
-    path:string
 }
 
-const PopularCategoriesCard:React.FC<PopularCategoriesCardProps> = ({img,title,path}) => {
+const PopularCategoriesCard:React.FC<PopularCategoriesCardProps> = ({img,title}) => {
 
   return (
     <div className={styles.PopularCategoriesCard}>

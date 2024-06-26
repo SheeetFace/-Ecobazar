@@ -1161,7 +1161,7 @@ export const shopProductData:ShopProductData[]=[
     "description": "Black Forest Ham is a mildly dry-cured, naturally smoked, air-dried and matured pork leg section. It has a very distinctive smokey flavour and a soft texture which resembles its traditional origin of the Black Forest in the southern region of Germany."
   },
   {
-    "name": "Harris Farm Chorizo x2 220g",
+    "name": "Chorizo x2 220g",
     "id": "8ab93ee66d5",
     "src": "https://res.cloudinary.com/dof771xd5/image/upload/v1719341623/bgvwjbuiwovclcwtxeex.webp",
     "currentCost": "7.99",
@@ -1756,7 +1756,7 @@ export const shopProductData:ShopProductData[]=[
     "description": "Chef’s Choice Certified Organic 100% Pure Coconut Water is made from the fresh juice of coconuts and is a healthy, refreshing and all natural drink. It makes a delicious, thirst-quenching sports and exercise drink and can be use in smoothies, protein shakes or as a juice base for drinks when mixed with other fruits.Ingredients: Organic Coconut Water (100%).No artificial flavoursNo artificial coloursNo preservativesGMO freeFat freeNatural hydrationHangover’s best mateNo added sugarGreat for kids after sportsGreat post workout replenishment100% naturalGluten freeVegan friendlyNot from concentrateKosher (Certified by Kashrut Authority)Nutrition InformationServings per package: 4 Serving size: 250mL(Average Quantity per Serve)Energy (kJ) 158 kJProtein 0 gFat, total 0 g- saturated 0 gCarbohydrate 9.9 g- sugars 8.3 gSodium (mg) 98 mg(Average Quantity per 100g)Energy (kJ) 63 kJProtein 0 gFat, total 0 g- saturated 0 gCarbohydrate 3.9 g- sugars 3.3 gSodium (mg) 39 mg"
   },
   {
-    "name": "Harris Farm Spring Water 12x600ml Bottlles",
+    "name": "Spring Water 12x600ml Bottlles",
     "id": "043b4a3f2dd",
     "src": "https://res.cloudinary.com/dof771xd5/image/upload/v1719387781/wve672xcvl5kivxutc8h.webp",
     "currentCost": "4.99",
