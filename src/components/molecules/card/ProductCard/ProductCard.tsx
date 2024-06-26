@@ -42,10 +42,11 @@ const ProductsCard:React.FC<ProductsCardProps> = (props) => {
                     
                 </div>
                 
+                <div className={styles._imgContainer}>
+                    <img loading='lazy' src={src} alt={name}/>
+                </div>
 
-                <img loading='lazy' src={src} alt={name}/>
-
-                <span className={styles._name}>{name}</span>
+                <div className={styles._name}><span>{name}</span></div>
                 
 
                 <div className={styles._container}>
