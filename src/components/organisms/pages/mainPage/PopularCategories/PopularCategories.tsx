@@ -7,12 +7,6 @@ import { categories } from '../../../../../data/categories';
 
 import styles from '../PopularCategories/PopularCategories.module.scss';
 
-// interface PopularCategoriesCard{
-//     img:string,
-//     title:string
-//     categoryFilter:string
-// }
-
 const PopularCategories:React.FC = () => {
 
     const renderPopularCategories = ()=>{
