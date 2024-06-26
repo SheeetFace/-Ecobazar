@@ -5,6 +5,10 @@ import ProductDetailsFooter from '../../molecules/productDetails/ProductDetailsF
 import ProductDetailsSlider from '../../molecules/productDetails/ProductDetailsSlider/ProductDetailsSlider';
 import Divider from '../../atoms/Divider/Divider';
 
+import Zoom from "react-img-zoom-gdn";
+
+
+
 import styles from '../ProductDetails/ProductDetails.module.scss';
 
 import type { ProductDataType } from '../../../types/productDataTypes';
@@ -28,8 +32,9 @@ const ProductDetails:React.FC<ProductDetailsProps> = ({forwardRef,data,viewMode}
             <ProductDetailsSlider src={data.src}/>
 
             <div className={styles._img}>
-                <img alt={data.name} 
-                    src={data.src}/>
+                <Zoom img={data.src} zoomScale={1.5} width={400} height={400} alt={data.name}  />;
+                {/* <img alt={data.name} 
+                    src={data.src}/> */}
             </div>
 
             <div>
