@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { useInView } from 'react-intersection-observer';
 
 import LabelBadge from '../../../atoms/LabelBadge/LabelBadge';
 import RatingStars from '../../RatingStars/RatingStars';
@@ -18,19 +19,25 @@ const ProductsCard:React.FC<ProductsCardProps> = (props) => {
 
     const {name, id, src, currentCost, oldCost, sale, rating} = props;
 
+    const { ref, inView} = useInView({
+        threshold: .3,
+        triggerOnce:true
+      });
+
     const addToCart = (id:string,e:MouseEvent)=>{
         e.preventDefault()
         console.log(`${id} added to cart`)
     }
 
+    console.log(inView )
     //!to go to the page with the product from MAIN it is necessary to expand props, as in /shop, but now here props is cut off.
 
     return (
         <NavLink to={`/shop/${name}`}
-                state={{data:props}} 
-                className="_navLink">
+                 state={{data:props}} 
+                 className="_navLink">
 
-            <div className={styles.ProductsCard}>
+            <div className={styles.ProductsCard} ref={ref}>
 
                 {sale ?  <LabelBadge className={styles._label} label={`Sale ${sale}`}/> :null}
                 
@@ -42,11 +49,18 @@ const ProductsCard:React.FC<ProductsCardProps> = (props) => {
                     
                 </div>
                 
-                <div className={styles._imgContainer}>
-                    <img loading='lazy' src={src} alt={name}/>
-                </div>
+                {inView ? 
+                    <div className={styles._imgContainer}>
+                        <img loading='lazy' src={src} alt={name}/>
+                    </div>
+                :
+                   null
+                }
 
-                <div className={styles._name}><span>{name}</span></div>
+
+                <div className={styles._name}>
+                    <span>{name}</span>
+                </div>
                 
 
                 <div className={styles._container}>
