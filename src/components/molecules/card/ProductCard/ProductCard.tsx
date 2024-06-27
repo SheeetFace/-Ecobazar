@@ -22,14 +22,13 @@ const ProductsCard:React.FC<ProductsCardProps> = (props) => {
     const { ref, inView} = useInView({
         threshold: .3,
         triggerOnce:true
-      });
+    });
 
     const addToCart = (id:string,e:MouseEvent)=>{
         e.preventDefault()
         console.log(`${id} added to cart`)
     }
 
-    console.log(inView )
     //!to go to the page with the product from MAIN it is necessary to expand props, as in /shop, but now here props is cut off.
 
     return (
@@ -54,10 +53,9 @@ const ProductsCard:React.FC<ProductsCardProps> = (props) => {
                         <img loading='lazy' src={src} alt={name}/>
                     </div>
                 :
-                   null
+                    <div className={styles._imgSkeleton}></div>
                 }
-
-
+                
                 <div className={styles._name}>
                     <span>{name}</span>
                 </div>
