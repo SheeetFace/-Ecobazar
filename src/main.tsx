@@ -1,22 +1,19 @@
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 
+import { lazy } from 'react';
+
 import { store } from './store/store.ts';
 import {Provider} from 'react-redux';
 
 import MainPage from './components/pages/MainPage/MainPage.tsx';
-import LoginPage from './components/pages/LoginPage/LoginPage.tsx';
 import RegistrationPage from './components/pages/RegistrationPage/RegistrationPage.tsx';
-import ResetPasswordPage from './components/pages/ResetPasswordPage/ResetPasswordPage.tsx';
 import ShopPage from './components/pages/ShopPage/ShopPage.tsx';
 import ProductPage from './components/pages/ProductPage/ProductPage.tsx';
-import AboutPage from './components/pages/AboutPage/AboutPage.tsx';
-import ContactPage from './components/pages/ContactPage/ContactPage.tsx';
-import FaqPage from './components/pages/FaqPage/FaqPage.tsx';
 import WishlistPage from './components/pages/WishlistPage/WishlistPage.tsx';
 import ShoppingCartPage from './components/pages/ShoppingCartPage/ShoppingCartPage.tsx';
 import CheckoutPage from './components/pages/CheckoutPage/CheckoutPage.tsx';
-import DashboardPage from './components/pages/DashboardPage/DashboardPage.tsx';
+
 import UserDashboardPage from './components/pages/UserDashboardPage/UserDashboardPage.tsx';
 import OrderHistoryDashboardPage from './components/pages/OrderHistoryDashboardPage/OrderHistoryDashboardPage.tsx';
 import OrderDetailDashboardPage from './components/pages/OrderDetailDashboardPage/OrderDetailDashboardPage.tsx';
@@ -27,7 +24,7 @@ import BlogPostPage from './components/pages/BlogPostPage/BlogPostPage.tsx';
 
 import PrivateRoute from './components/molecules/PrivateRoute/PrivateRoute.tsx';
 
-import ErrorBoundary from './components/pages/ErrorBoundary/ErrorBoundary.tsx';
+import Loader from './components/molecules/Loader/Loader.tsx'; //! fix H W
 
 import {
   createBrowserRouter,
@@ -35,6 +32,15 @@ import {
 } from "react-router-dom";
 
 import './index.scss'
+import { Suspense } from 'react';
+
+const AboutPage = lazy(() => import('./components/pages/AboutPage/AboutPage.tsx'));
+const LoginPage = lazy(() => import('./components/pages/LoginPage/LoginPage.tsx'));
+const ResetPasswordPage = lazy(() => import('./components/pages/ResetPasswordPage/ResetPasswordPage.tsx'));
+const ContactPage = lazy(() => import('./components/pages/ContactPage/ContactPage.tsx'));
+const FaqPage = lazy(() => import('./components/pages/FaqPage/FaqPage.tsx'));
+const DashboardPage = lazy(() => import('./components/pages/DashboardPage/DashboardPage.tsx'));
+const ErrorBoundary = lazy(() => import('./components/pages/ErrorBoundary/ErrorBoundary.tsx'));
 
 const router = createBrowserRouter([
   {
@@ -44,7 +50,7 @@ const router = createBrowserRouter([
         <App/>
       </Provider>,
 
-    errorElement: <ErrorBoundary />,
+    errorElement: (<Suspense fallback={<Loader/>}><ErrorBoundary /></Suspense>),
     children: [
       {
         element: <MainPage/>,
@@ -52,7 +58,7 @@ const router = createBrowserRouter([
       },
       {
         path: "login",
-        element: <LoginPage />,
+        element: (<Suspense fallback={<Loader/>}><LoginPage /></Suspense>),
       },
       {
         path: "registration",
@@ -60,7 +66,7 @@ const router = createBrowserRouter([
       },
       {
         path: "reset-password",
-        element: <ResetPasswordPage />,
+        element: (<Suspense fallback={<Loader/>}><ResetPasswordPage /></Suspense>),
       },
       {
         path: "shop",
@@ -82,15 +88,15 @@ const router = createBrowserRouter([
       },
       {
         path: "about",
-        element: <AboutPage />,
+        element: (<Suspense fallback={<Loader/>}><AboutPage /></Suspense>),
       },
       {
         path: "contacts",
-        element: <ContactPage />,
+        element: (<Suspense fallback={<Loader/>}><ContactPage /></Suspense>),
       },
       {
         path: "faq",
-        element: <FaqPage />,
+        element: (<Suspense fallback={<Loader/>}><FaqPage /></Suspense>),
       },
       {
         path: 'wishlist',
@@ -128,7 +134,7 @@ const router = createBrowserRouter([
         children: [
           {
             path: '',
-            element: <DashboardPage />,
+            element: (<Suspense fallback={<Loader/>}><DashboardPage /></Suspense>),
             children: [
               {
                 index: true,
@@ -158,7 +164,8 @@ const router = createBrowserRouter([
   }
 ]);
 
-
 ReactDOM.createRoot(document.getElementById('root')!).render(
-    <RouterProvider router={router}/>
-)
+  <Provider store={store}>
+    <RouterProvider router={router} />
+  </Provider>
+);
