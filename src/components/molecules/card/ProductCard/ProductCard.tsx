@@ -40,13 +40,15 @@ const ProductsCard:React.FC<ProductsCardProps> = (props) => {
 
                 {sale ?  <LabelBadge className={styles._label} label={`Sale ${sale}`}/> :null}
                 
-                <div className={styles._topButtonsContainer}>
+                {inView ? 
+                    <div className={styles._topButtonsContainer}>
 
-                    <ButtonWishlist type='card' id={id}/>
+                        <ButtonWishlist type='card' id={id}/>
 
-                    <ButtonQuickView {...props}/>
-                    
-                </div>
+                        <ButtonQuickView {...props}/>
+                        
+                    </div>
+                :null}
                 
                 {inView ? 
                     <div className={styles._imgContainer}>
