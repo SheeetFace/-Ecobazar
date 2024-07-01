@@ -25,6 +25,7 @@ import styles from '../src/app.module.scss'
 function App() {
 
   useAuthState()
+  
 
   return (
     <main className={styles.App}>
