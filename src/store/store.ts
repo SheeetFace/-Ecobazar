@@ -9,6 +9,8 @@ import productFilterSlice from './slices/productFilterSlice';
 import blogFilterSlice from './slices/blogFilterSlice';
 import wishlistSlice from './slices/wishlistSlice';
 
+import { baseApi } from '../api/baseApi';
+
 export const store = configureStore({
   reducer: {
     checkoutForm: checkoutFormSlice,
@@ -18,8 +20,10 @@ export const store = configureStore({
     productFilter:productFilterSlice,
     blogFilter:blogFilterSlice,
     wishlist:wishlistSlice,
-    
+    [baseApi.reducerPath]: baseApi.reducer,
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(baseApi.middleware),
+    
 })
 
 export type RootState = ReturnType<typeof store.getState>
