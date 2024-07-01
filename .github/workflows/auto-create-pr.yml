@@ -1,0 +1,38 @@
+name: Auto Create Pull Request
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  create_pull_request:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Get commit message
+        id: get_commit_message
+        run: |
+          COMMIT_MSG=$(git log -1 --pretty=%B)
+          echo "COMMIT_MSG=${COMMIT_MSG}" >> $GITHUB_ENV
+
+      - name: Create Pull Request
+        id: create_pr
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.PULL_REQUESTS_ACTIONS_TOKEN }}
+          commit-message: "Create Pull Request from ${{ github.ref }}"
+          branch: ${{ github.ref }}
+          base: main
+          title: "${{ env.COMMIT_MSG }}"
+          body: |
+            This is an automated pull request created by GitHub Actions.
+            Changes have been pushed to the branch `${{ github.ref }}`.
