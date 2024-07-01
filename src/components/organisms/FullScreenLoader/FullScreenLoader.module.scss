@@ -1,0 +1,29 @@
+.FullScreenLoader{
+    width: 100% ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+._fixed{
+    @extend .FullScreenLoader;
+    height: 100%;
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    z-index: 20;
+}
+._static{
+    @extend .FullScreenLoader;
+    height: 80dvh;
+}
+
+._container{
+    background-color:rgba(152,245,152,.6);
+    border-radius:100%;
+    width:7rem;
+    height:7rem;
+    box-shadow: 0px 0px 85px 85px rgba(152,245,152,.6);
+    -webkit-box-shadow: 0px 0px 85px 85px rgba(152,245,152,.6);
+    -moz-box-shadow: 0px 0px 85px 85px rgba(152,245,152,.6);
+}
