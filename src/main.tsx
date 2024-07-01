@@ -24,7 +24,7 @@ import BlogPostPage from './components/pages/BlogPostPage/BlogPostPage.tsx';
 
 import PrivateRoute from './components/molecules/PrivateRoute/PrivateRoute.tsx';
 
-import Loader from './components/molecules/Loader/Loader.tsx'; //! fix H W
+import FullScreenLoader from './components/organisms/FullScreenLoader/FullScreenLoader.tsx';
 
 import {
   createBrowserRouter,
@@ -50,7 +50,7 @@ const router = createBrowserRouter([
         <App/>
       </Provider>,
 
-    errorElement: (<Suspense fallback={<Loader/>}><ErrorBoundary /></Suspense>),
+    errorElement: (<Suspense fallback={<FullScreenLoader/>}><ErrorBoundary /></Suspense>),
     children: [
       {
         element: <MainPage/>,
@@ -58,7 +58,7 @@ const router = createBrowserRouter([
       },
       {
         path: "login",
-        element: (<Suspense fallback={<Loader/>}><LoginPage /></Suspense>),
+        element: (<Suspense fallback={<FullScreenLoader/>}><LoginPage /></Suspense>),
       },
       {
         path: "registration",
@@ -66,7 +66,7 @@ const router = createBrowserRouter([
       },
       {
         path: "reset-password",
-        element: (<Suspense fallback={<Loader/>}><ResetPasswordPage /></Suspense>),
+        element: (<Suspense fallback={<FullScreenLoader/>}><ResetPasswordPage /></Suspense>),
       },
       {
         path: "shop",
@@ -88,15 +88,15 @@ const router = createBrowserRouter([
       },
       {
         path: "about",
-        element: (<Suspense fallback={<Loader/>}><AboutPage /></Suspense>),
+        element: (<Suspense fallback={<FullScreenLoader/>}><AboutPage /></Suspense>),
       },
       {
         path: "contacts",
-        element: (<Suspense fallback={<Loader/>}><ContactPage /></Suspense>),
+        element: (<Suspense fallback={<FullScreenLoader/>}><ContactPage /></Suspense>),
       },
       {
         path: "faq",
-        element: (<Suspense fallback={<Loader/>}><FaqPage /></Suspense>),
+        element: (<Suspense fallback={<FullScreenLoader/>}><FaqPage /></Suspense>),
       },
       {
         path: 'wishlist',
@@ -134,7 +134,7 @@ const router = createBrowserRouter([
         children: [
           {
             path: '',
-            element: (<Suspense fallback={<Loader/>}><DashboardPage /></Suspense>),
+            element: (<Suspense fallback={<FullScreenLoader/>}><DashboardPage /></Suspense>),
             children: [
               {
                 index: true,

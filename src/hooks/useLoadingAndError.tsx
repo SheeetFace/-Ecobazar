@@ -2,7 +2,7 @@ import { useState, useCallback, useRef } from 'react';
 
 import useScrollLock from './useScrollLock';
 
-import Loader from '../components/molecules/Loader/Loader';
+import FullScreenLoader from '../components/organisms/FullScreenLoader/FullScreenLoader';
 import FormValidationMessage from '../components/atoms/form/FormValidationMessage/FormValidationMessage';
 
 interface Status{
@@ -62,35 +62,11 @@ export const useLoadingAndError=<T,>():UseLoadingAndErrorResult<T>=>{
     },[startLoading,stopLoading,setError])
 
 
-
     const renderLoaderOrError = useCallback(()=>{
 
         if(isLoading) 
-            return  <div ref={loadingRef}
-                         style={{
-                            position: 'fixed', 
-                            top: 0, 
-                            left: 0, 
-                            width: '100%', 
-                            height: '100%', 
-                            display: 'flex', 
-                            justifyContent: 'center', 
-                            alignItems: 'center', 
-                            zIndex: 20,
-                        }}>
-                    <div style={{
-                        backgroundColor:'rgba(152,245,152,.6)',
-                        borderRadius:'100%',
-                        width:'7rem',
-                        height:'7rem',
-                        boxShadow: '0px 0px 85px 85px rgba(152,245,152,.6)',
-                        WebkitBoxShadow: '0px 0px 85px 85px rgba(152,245,152,.6)',
-                        MozBoxShadow: '0px 0px 85px 85px rgba(152,245,152,.6)',
-                    }}>
-                        <Loader size='3rem' />
-                    </div>
-                </div>
-                            
+            return <FullScreenLoader loadingRef={loadingRef} position='fixed'/>
+               
         if(errorMessage) 
             return  <div style={{width:'100%',height:'50px',display:'flex',justifyContent:'center',alignItems:'center'}}>
                         <FormValidationMessage error={errorMessage}/>
