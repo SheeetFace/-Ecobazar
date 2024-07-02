@@ -1,23 +1,27 @@
+import { useMemo } from 'react';
+
 import TitleWithViewAll from '../../../../molecules/pages/mainPage/TitleWithViewAll/TitleWithViewAll';
 import ProductsCard from '../../../../molecules/card/ProductCard/ProductCard';
 
-import { shopProductData } from '../../../../../data/temp/shopProductData';
+import useFilteredPromotedData from '../../../../../hooks/useFilteredPromotedData';
+
+import { FilterPromotedTypes } from '../../../../../types/filterPromotedType';
 
 import styles from '../PopularProducts/PopularProducts.module.scss';
 
 const PopularProducts:React.FC = () => {
 
-  const popularProductsData = shopProductData.slice(0,10)
+  const {filteredData,content} = useFilteredPromotedData(FilterPromotedTypes.popular)
 
-  const renderPopularProducts = ()=>{
-    return popularProductsData.map((item, i)=>{
-      return(
-          <ProductsCard key={i}
-                        {...item}
-          />
-      )
+  const renderPopularProducts = useMemo(()=>{
+      return filteredData.map((item)=>{
+        return(
+            <ProductsCard key={item.id}
+                          {...item}
+            />
+        )
     })
-  }
+  },[JSON.stringify(filteredData)])
 
   return (
     <section className={styles.PopularProducts}>
@@ -25,7 +29,8 @@ const PopularProducts:React.FC = () => {
             <TitleWithViewAll title='Popular Products' path='/shop'/>
             
               <div className={styles._cards}>
-                  {renderPopularProducts()}
+                  {content}
+                  {renderPopularProducts}
               </div>
         </div>
 
