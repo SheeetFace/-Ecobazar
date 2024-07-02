@@ -26,12 +26,12 @@ import type { ProductDataType } from '../../../../../types/productDataTypes';
 
 const Products:React.FC = () => {
 
-    const {data, content} = useApiResource<ProductDataType[]>(useGetProductsQuery)
+    const {responseData, content} = useApiResource<ProductDataType[]>(useGetProductsQuery, 'products')
 
     const dispatch = useAppDispatch()
     const filter = useAppSelector((state)=> state.productFilter)
 
-    const filteredProducts = filterProducts((data ?? []), filter);
+    const filteredProducts = filterProducts((responseData ?? []), filter);
     
     const location = useLocation();
 
