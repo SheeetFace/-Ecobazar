@@ -30,7 +30,7 @@ type TypeResource = 'products'|'blogs'
 
 const useApiResource = <R,> (query: QueryHook<R>,typeResource:TypeResource): UseApiResourceReturn<R> => {
     const { data, isLoading, isError,error } = query();
-
+    
     let content = null;
 
     if (isLoading ) content = <FullScreenLoader />;
@@ -67,4 +67,3 @@ const useApiResource = <R,> (query: QueryHook<R>,typeResource:TypeResource): Use
 };
 
 export default useApiResource;
-
