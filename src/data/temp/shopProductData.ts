@@ -2,7 +2,7 @@ import type { ProductDataType as ShopProductData} from '../../types/productDataT
 
 export const shopProductData:ShopProductData[]=[
   {
-    "name": "Avocado GMax Greenskin Extra Large Each ",
+    "name": "Avocado GMax Greenskin Extra Large Each L ",
     "id": "5ea4f2b0e5c",
     "src": "https://res.cloudinary.com/dof771xd5/image/upload/v1719392111/jkkwbixdbaaoa8jb2rqb.webp",
     "currentCost": "1.99",
