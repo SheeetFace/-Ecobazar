@@ -6,3 +6,4 @@ export const baseApi = createApi({
     baseQuery: fetchBaseQuery({baseUrl}),
     endpoints: () =>({})
 })
+
