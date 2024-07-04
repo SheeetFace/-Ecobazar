@@ -5,7 +5,8 @@
     padding-top: 1rem;
     display: flex;
     flex-direction: column;
-    max-width: 550px;
+    max-width: 670px;
+    min-width: 600px;
 
     ._header{
         display: flex;
@@ -34,5 +35,6 @@
     ._description{
         color:$grey-5;
         font-size: $body-small;
+        min-height: 80px;
     }
 }

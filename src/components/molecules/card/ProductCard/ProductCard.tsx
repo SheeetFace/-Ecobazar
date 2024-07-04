@@ -29,8 +29,6 @@ const ProductsCard:React.FC<ProductsCardProps> = (props) => {
         console.log(`${id} added to cart`)
     }
 
-    //!to go to the page with the product from MAIN it is necessary to expand props, as in /shop, but now here props is cut off.
-
     return (
         <NavLink to={`/shop/${name}`}
                  state={{data:props}} 

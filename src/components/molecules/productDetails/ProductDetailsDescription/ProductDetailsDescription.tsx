@@ -10,6 +10,10 @@ interface ProductDetailsDescriptionProps{
 
 const ProductDetailsDescription:React.FC<ProductDetailsDescriptionProps> = ({description}) => {
 
+    const notDescription = 'Unfortunately 😔 the description of this product is not yet available, but it will be soon.'
+
+    const productDescription = !description ? notDescription :description;
+
     return (
         <div className={styles.ProductDetailsDescription}>
             <div className={styles._header}>
@@ -24,7 +28,7 @@ const ProductDetailsDescription:React.FC<ProductDetailsDescriptionProps> = ({des
                 
             </div>
 
-            <span className={styles._description}>{description}</span>
+            <span className={styles._description}>{productDescription}</span>
         </div>
     )
 }

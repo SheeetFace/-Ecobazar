@@ -1,11 +1,16 @@
 import { useEffect } from "react";
 
-const useScrollToTop = (currentPage:number) => {
+type Behavior = 'smooth'|'instant'
+
+type UseScrollToTop =(currentPage:number,behavior?:Behavior ) =>void
+
+
+const useScrollToTop:UseScrollToTop = (currentPage,behavior='smooth') => {
     
     useEffect(() => {
         window.scrollTo({
           top: 0,
-          behavior: 'smooth',
+          behavior,
         });
       },[currentPage]);
 }
