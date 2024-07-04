@@ -31,8 +31,6 @@ const ProductDetails:React.FC<ProductDetailsProps> = ({forwardRef,data,viewMode}
 
             <div className={styles._img}>
                 <Zoom img={data.src} zoomScale={1.5} width={400} height={400} alt={data.name} key={data.src}/>
-                {/* <img alt={data.name} 
-                    src={data.src}/> */}
             </div>
 
             <div>

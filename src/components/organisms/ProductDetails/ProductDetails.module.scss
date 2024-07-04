@@ -6,6 +6,7 @@
     justify-content: space-between;
     background-color:$white-color;
     border-radius: .3rem;
+    width: 1300px;
 
     &._pageViewMode{
         padding-top: 2rem;
@@ -15,6 +16,7 @@
     }
 
     ._img{
+        padding: .5rem;
         img{
             height: 400px;
         }

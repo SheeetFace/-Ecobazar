@@ -1,5 +1,7 @@
 import { useLocation } from 'react-router-dom';
 
+import useScrollToTop from '../../../hooks/useScrollToTop';
+
 import ProductDetails from '../../organisms/ProductDetails/ProductDetails';
 import ProductInfo from '../../organisms/pages/productPage/ProductInfo/ProductInfo';
 import RelatedProducts from '../../organisms/pages/productPage/RelatedProducts/RelatedProducts';
@@ -17,6 +19,8 @@ interface ProductInfoData {
 
 
 const ProductPage:React.FC = () => {
+
+    useScrollToTop(0,'instant')
 
     const LocationState = useLocation();
 

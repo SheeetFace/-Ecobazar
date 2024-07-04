@@ -34,7 +34,6 @@ const HotDeals:React.FC = () => {
                     </div>
                     
                     <div className={styles._cards}>
-                      
                       {renderHotDeals}
                     </div>
                     

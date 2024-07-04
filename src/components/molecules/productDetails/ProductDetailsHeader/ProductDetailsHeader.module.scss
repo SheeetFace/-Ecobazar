@@ -10,6 +10,9 @@
         display: flex;
         align-items:center;
         gap:1rem;
+        h2{
+            max-width: 80%;
+        }
 
         ._labelBadge{
             font-size: $body-small;
