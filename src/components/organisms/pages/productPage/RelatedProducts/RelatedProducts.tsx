@@ -1,52 +1,44 @@
+import { useMemo } from 'react';
+
 import useSlider from '../../../../../hooks/useSlider';
+import useApiResource from '../../../../../hooks/useApiResource';
+import { useGetProductsQuery } from '../../../../../api/products/productApi';
 
 import ProductsCard from '../../../../molecules/card/ProductCard/ProductCard';
 
-import { shopProductData } from '../../../../../data/temp/shopProductData';
+// import { shopProductData } from '../../../../../data/temp/shopProductData';
 
 import styles from '../RelatedProducts/RelatedProducts.module.scss';
 
-const RelatedProducts:React.FC = () => {
+import { CategoryProductValue } from '../../../../../types/categoryProductValueTypes';
+import type { ProductDataType } from '../../../../../types/productDataTypes';
 
-    const relatedData = shopProductData.slice(0, 6);
+interface RelatedProductsProps{
+    productCategory:  CategoryProductValue
+}
 
-    const useSlicer = useSlider({ cards: renderRelatedProducts(),
-                                 styles: styles._settingSlider,
-                                 slidesToShow: 5,
-                                 dots:true
+const RelatedProducts:React.FC<RelatedProductsProps> = ({productCategory}) => {
+
+    const { responseData, content } = useApiResource<ProductDataType[]>(useGetProductsQuery, 'products');
+
+    const relatedData = useMemo(()=>{
+        return responseData?.filter((item) => item.category.includes(productCategory)).slice(0, 6) || [];
+    },[responseData,productCategory])
+
+    const renderRelatedProducts = useMemo(()=>{
+        return relatedData.map((item)=>(<ProductsCard key={item.id} {...item}/>))
+    },[relatedData])
+
+    const useSlicer = useSlider({ cards: renderRelatedProducts,
+        styles: styles._settingSlider,
+        slidesToShow: 5,
+        dots:true
     });
-
-    function renderRelatedProducts(){
-        return relatedData.map((item,i)=>{
-            return(
-                <ProductsCard
-                key={i}
-                name={item.name}
-                src={item.src}
-                id={item.id}
-                currentCost={item.currentCost}
-                oldCost={item.oldCost}
-                sale={item.sale}
-                rating={item.rating}
-    
-                promotedCategories={item.promotedCategories}
-                weight={item.weight}
-                color={item.color}
-                type={item.type}
-                category={item.category}
-                stockStatus={item.stockStatus}
-                date={item.date}
-                tag={item.tag}
-                description={item.description}
-                />
-            )
-        })
-    }
 
     return (
         <section className={styles.RelatedProducts}>
             <h2>Related Products</h2>
-
+            {content}
             {useSlicer}
         </section>
     )
