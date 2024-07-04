@@ -66,37 +66,32 @@ const Products:React.FC = () => {
       }
     },[location.state])
     
-
     const renderProductCard = useMemo(() => {
-
       if(filteredProducts.length===0) return <NotingFound/>
       
-      return displayedData.map((item, i)=>(
-          <ProductsCard
-            key={i}
-              {...item}
-          />
-      ));
+      return displayedData.map((item)=>(<ProductsCard key={item.id} {...item}/>));
+
     },[JSON.stringify(displayedData)])
 
     return (
             <section className={styles.Products}>
 
-                <div className={styles._container}>
-                  <div className={styles._cards} ref={productsRef}>
-                    {!content ? renderProductCard : content}
-                  </div>
+              <div className={styles._container}>
+                <div className={styles._cards} ref={productsRef}>
+                  {content}
+                  {responseData ?renderProductCard:null}
                 </div>
-          
-                <div className={styles._pagButtons}>
-                  <PaginationButtons  totalItems={totalItems}
-                                      itemsPerPage={itemsPerPage}
-                                      valueCurrentPage={currentPage}
-                                      onNextPage={goToNextPage}
-                                      onPrevPage={goToPrevPage}
-                                      onGoToPage={goToPage}
-                  />
-                </div>
+              </div>
+        
+              <div className={styles._pagButtons}>
+                <PaginationButtons  totalItems={totalItems}
+                                    itemsPerPage={itemsPerPage}
+                                    valueCurrentPage={currentPage}
+                                    onNextPage={goToNextPage}
+                                    onPrevPage={goToPrevPage}
+                                    onGoToPage={goToPage}
+                />
+              </div>
             </section>
     )
 }

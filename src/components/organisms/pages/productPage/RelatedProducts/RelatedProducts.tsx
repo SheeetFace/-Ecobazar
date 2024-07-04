@@ -6,8 +6,6 @@ import { useGetProductsQuery } from '../../../../../api/products/productApi';
 
 import ProductsCard from '../../../../molecules/card/ProductCard/ProductCard';
 
-// import { shopProductData } from '../../../../../data/temp/shopProductData';
-
 import styles from '../RelatedProducts/RelatedProducts.module.scss';
 
 import { CategoryProductValue } from '../../../../../types/categoryProductValueTypes';
