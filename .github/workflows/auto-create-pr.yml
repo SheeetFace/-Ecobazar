@@ -36,3 +36,37 @@ jobs:
           body: |
             This is an automated pull request created by GitHub Actions.
             Changes have been pushed to the branch `${{ github.ref }}`.
+
+      - name: Add labels
+        if: steps.create_pr.outputs.pull-request-number
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.PULL_REQUESTS_ACTIONS_TOKEN }}
+          script: |
+            const prNumber = ${{ steps.create_pr.outputs.pull-request-number }};
+            const commitMsg = process.env.COMMIT_MSG;
+            
+            const labelMap = {
+              'STYLE:': 'STYLE',
+              'FIX:': 'FIX',
+              'REFACTOR:': 'REFACTOR',
+              'FEAT:': 'FEAT'
+            };
+            
+            let labels = [];
+            
+            for (const [key, value] of Object.entries(labelMap)) {
+              if (commitMsg.startsWith(key)) {
+                labels.push(value);
+                break;
+              }
+            }
+            
+            if (labels.length > 0) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prNumber,
+                labels: labels
+              });
+            }
