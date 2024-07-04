@@ -8,6 +8,9 @@ import RelatedProducts from '../../organisms/pages/productPage/RelatedProducts/R
 
 import styles from '../ProductPage/ProductPage.module.scss';
 
+import type { ProductDataType } from '../../../types/productDataTypes';
+import { CategoryProductValue } from '../../../types/categoryProductValueTypes';
+
 interface ProductInfoData {
     weight: string
     color: string
@@ -24,7 +27,8 @@ const ProductPage:React.FC = () => {
 
     const LocationState = useLocation();
 
-    const data = LocationState.state.data;
+    const data:ProductDataType = LocationState.state.data;
+    const dataCategory = data.category as CategoryProductValue;
 
     const productInfoData:ProductInfoData={
         weight: data.weight,
@@ -35,13 +39,15 @@ const ProductPage:React.FC = () => {
         tag: data.tag
     }
 
+    const productCategory:CategoryProductValue = dataCategory ? dataCategory: CategoryProductValue.FRUIT
+
     return (
         <section className={styles.ProductPage}>
             <div className='center'>
                 <div className={styles._container}>
                     <ProductDetails data={data} viewMode='page'/>
                     <ProductInfo data={productInfoData}/>
-                    <RelatedProducts/>
+                    <RelatedProducts productCategory={productCategory}/>
                 </div>
             </div>
             

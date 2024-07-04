@@ -84,7 +84,6 @@ const Products:React.FC = () => {
 
                 <div className={styles._container}>
                   <div className={styles._cards} ref={productsRef}>
-                    {/* {content} */}
                     {!content ? renderProductCard : content}
                   </div>
                 </div>
