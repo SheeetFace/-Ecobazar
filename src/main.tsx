@@ -1,10 +1,11 @@
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
 
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 
 import { store } from './store/store.ts';
 import {Provider} from 'react-redux';
+
+import App from './App.tsx'
 
 import MainPage from './components/pages/MainPage/MainPage.tsx';
 import RegistrationPage from './components/pages/RegistrationPage/RegistrationPage.tsx';
@@ -32,7 +33,7 @@ import {
 } from "react-router-dom";
 
 import './index.scss'
-import { Suspense } from 'react';
+
 
 const AboutPage = lazy(() => import('./components/pages/AboutPage/AboutPage.tsx'));
 const LoginPage = lazy(() => import('./components/pages/LoginPage/LoginPage.tsx'));
