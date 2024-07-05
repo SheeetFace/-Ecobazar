@@ -1,14 +1,14 @@
 import { useMemo } from "react";
 
-import { useGetProductsQuery } from "../api/products/productApi";
-import useApiResource from "./useApiResource";
+import { useGetProductsQuery } from "../../api/products/productApi";
+import useApiResource from "../useApiResource";
 
-import { ProductDataType } from "../types/productDataTypes";
+import { ProductDataType } from "../../types/productDataTypes";
 
-import type { FilterPromotedTypes as FilterType } from "../types/filterPromotedType";
+import type { FilterPromotedTypes as FilterType } from "../../types/filterPromotedType";
 
 const useFilteredPromotedData = (filterType: FilterType) => {
-    const { responseData, content } = useApiResource<ProductDataType[]>(useGetProductsQuery, 'products');
+    const { responseData, content } = useApiResource<ProductDataType>(useGetProductsQuery, 'products');
 
     const filteredData = useMemo(()=>{
         if(!responseData) return [];

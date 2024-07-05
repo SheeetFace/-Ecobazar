@@ -1,19 +1,24 @@
+import { useMemo } from 'react';
+
+import { useAppSelector } from '../../../../../store/store';
+import { useProductsByIds } from '../../../../../hooks/products/useProductsByIds';
+
 import Divider from '../../../../atoms/Divider/Divider';
 import SocialMediaIcons from '../../../../molecules/SocialMediaIcons/SocialMediaIcons';
 import WishlistCard from '../../../../molecules/card/WishlistCard/WishlistCard';
 
-import { shopProductData } from '../../../../../data/temp/shopProductData';
-
 import styles from '../Wishlist/Wishlist.module.scss';
+
 
 const Wishlist:React.FC = () => {
 
-    const popularProductsData = shopProductData.slice(0,10)
+    const productIDs = useAppSelector((state)=>state.wishlist.items);
 
-    const renderWishlistCard = ()=>{
-        const length = popularProductsData.length;
+    const { filteredProducts } = useProductsByIds(productIDs)
 
-        return popularProductsData.map((item,i)=>{
+    const renderWishlistCard = useMemo(()=>{
+        return filteredProducts.map((item,i)=>{
+            if(!item) return null
             return(
                 <WishlistCard
                     name={item.name}
@@ -23,11 +28,12 @@ const Wishlist:React.FC = () => {
                     oldCost={item.oldCost}
                     stockStatus={item.stockStatus}
                     key={i}
-                    isLast={length ===i}
+                    isLast={filteredProducts.length ===i}
                 />
             )
         })
-    }
+        
+    },[filteredProducts])
 
     return (
         <div className={styles.Wishlist}>
@@ -49,7 +55,11 @@ const Wishlist:React.FC = () => {
             </div>
             <Divider type='horizontal' className={styles._divider}/>
                 <div className={styles._cardContainer}>
-                    {renderWishlistCard()}
+
+                    {filteredProducts.length ===0 ? <h1>Your Wishlist is Empty</h1> :null}
+
+                    {renderWishlistCard}
+
                 </div>
                 
             <Divider type='horizontal' className={styles._divider}/>

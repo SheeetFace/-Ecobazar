@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import useFilteredPromotedData from '../../../../../hooks/useFilteredPromotedData';
+import useFilteredPromotedData from '../../../../../hooks/products/useFilteredPromotedData';
 
 import TitleWithViewAll from '../../../../molecules/pages/mainPage/TitleWithViewAll/TitleWithViewAll';
 import BigProductCard from '../../../../molecules/card/BigProductCard/BigProductCard';

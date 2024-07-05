@@ -10,7 +10,7 @@ import type { UseQuery, BaseQueryFn, FetchBaseQueryError, FetchBaseQueryMeta } f
 import type { QueryDefinition, FetchArgs } from "@reduxjs/toolkit/query";
 
 interface UseApiResourceReturn<R>{
-  responseData: R|null;
+  responseData: R[]|null;
   content: JSX.Element|null;
 }
 
@@ -26,11 +26,11 @@ type QueryHook<R> =()=>UseQuery<
 
 type TypeResource = 'products'|'blogs';
 
-const useApiResource = <R,>(query: QueryHook<R>, typeResource: TypeResource): UseApiResourceReturn<R> => {
+const useApiResource = <R,>(query: QueryHook<{ map: Map<string, R>, list: R[] }>, typeResource: TypeResource): UseApiResourceReturn<R> => {
 
     const { data, isLoading, isError, error } = query();
 
-    const [responseData, setResponseData] = useState<R|null>(null);
+    const [responseData, setResponseData] = useState<R[]|null>(null);
 
     const isResponseError = useCallback((type: TypeResource)=>{
         switch(type){
@@ -44,8 +44,8 @@ const useApiResource = <R,>(query: QueryHook<R>, typeResource: TypeResource): Us
     },[typeResource]);
 
     useEffect(()=>{
-        if(data) setResponseData(data);
-        else if(isError) setResponseData(isResponseError(typeResource) as R|null);
+        if(data) setResponseData(data.list);
+        else if(isError) setResponseData(isResponseError(typeResource) as R[]|null);
     },[data, isError, typeResource, isResponseError]);
 
     let content: JSX.Element|null = null;
@@ -73,3 +73,4 @@ const useApiResource = <R,>(query: QueryHook<R>, typeResource: TypeResource): Us
 }
 
 export default useApiResource;
+
