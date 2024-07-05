@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import TitleWithViewAll from '../../../../molecules/pages/mainPage/TitleWithViewAll/TitleWithViewAll';
 import ProductsCard from '../../../../molecules/card/ProductCard/ProductCard';
 
-import useFilteredPromotedData from '../../../../../hooks/useFilteredPromotedData';
+import useFilteredPromotedData from '../../../../../hooks/products/useFilteredPromotedData';
 
 import { FilterPromotedTypes } from '../../../../../types/filterPromotedType';
 
