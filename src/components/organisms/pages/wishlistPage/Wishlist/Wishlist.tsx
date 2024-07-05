@@ -16,8 +16,8 @@ const Wishlist:React.FC = () => {
 
     const { filteredProducts } = useProductsByIds(productIDs)
 
-    const renderWishlistCard = useMemo(()=>{
-        return filteredProducts.map((item,i)=>{
+    const renderWishlistCard = useMemo(()=>{            //!BLOCK BUTTON IS OUT OF STOCK HERE AND PRODUCT CARD&&& how AND PRODUCT DETAIL
+        return filteredProducts.map((item,i)=>{         //! pictures is shit width
             if(!item) return null
             return(
                 <WishlistCard
