@@ -1,3 +1,6 @@
+import { useAppDispatch } from '../../../../store/store';
+import { toggleWishlistItem } from '../../../../store/slices/wishlistSlice';
+
 import Button from '../../../atoms/Button/Button';
 import Divider from '../../../atoms/Divider/Divider';
 import LabelBadge from '../../../atoms/LabelBadge/LabelBadge';
@@ -17,7 +20,13 @@ interface WishlistCardProps{
 
 const WishlistCard:React.FC<WishlistCardProps> = ({name,id,src,currentCost,oldCost,stockStatus,isLast}) => {
 
+    const dispatch = useAppDispatch();
+
     const isStockStatus = +stockStatus > 0;
+
+    const handleRemove =()=>{
+        dispatch(toggleWishlistItem(id));
+    }
 
     return (
         <>
@@ -44,11 +53,14 @@ const WishlistCard:React.FC<WishlistCardProps> = ({name,id,src,currentCost,oldCo
                 <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight'
                         text='Add to Cart'
                         type='button'
-                        disabled={!isStockStatus}/>
-                        
-                <CrossIcon/>
-            </div>
-            
+                        disabled={!isStockStatus}
+                />
+
+                <button className='defaultButtonStyle' onClick={handleRemove}>
+                    <CrossIcon/>
+                </button>
+            </div>  
+
         </div>
 
         {!isLast ? 
