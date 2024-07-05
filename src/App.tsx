@@ -30,16 +30,14 @@ function App() {
 
   return (
     <main className={styles.App}>
-
-        <Header/>
-        <Divider type='horizontal' className={styles._divider}/>
-        <Navigation/>
-        <Breadcrumb/>
-              <Outlet></Outlet>
-              <ProductModal/>
-        <Newsletter/>
-        <Footer/>
-
+      <Header/>
+      <Divider type='horizontal' className={styles._divider}/>
+      <Navigation/>
+      <Breadcrumb/>
+        <Outlet></Outlet>
+        <ProductModal/>
+      <Newsletter/>
+      <Footer/>
     </main>
   )
 }
