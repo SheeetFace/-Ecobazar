@@ -17,6 +17,8 @@ interface WishlistCardProps{
 
 const WishlistCard:React.FC<WishlistCardProps> = ({name,id,src,currentCost,oldCost,stockStatus,isLast}) => {
 
+    const isStockStatus = +stockStatus > 0;
+
     return (
         <>
         <div className={styles.WishlistCard}>
@@ -28,22 +30,22 @@ const WishlistCard:React.FC<WishlistCardProps> = ({name,id,src,currentCost,oldCo
             </div>
 
             <div className={styles._costContainer}>
-                <span>{currentCost}</span>
+                <span>${currentCost}</span>
                 <span className={styles._old}>{oldCost}</span>
             </div>
 
             <div className={styles._status}>
-                {+stockStatus >0 ? 
-                    <LabelBadge label='IN STOCK' className={styles._inStock}/>
-                :
-                    <LabelBadge label='OUT OF STOCK' className={styles._outOfStock}/>
-                }
+                <LabelBadge label={isStockStatus ? 'IN STOCK':'OUT OF STOCK'}
+                            className={isStockStatus ? styles._inStock : styles._outOfStock}
+                />
             </div>
 
             <div className={styles._buttonsContainer}>
                 <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight'
-                            text='Add to Cart'
-                            type='button'/>
+                        text='Add to Cart'
+                        type='button'
+                        disabled={!isStockStatus}/>
+                        
                 <CrossIcon/>
             </div>
             
