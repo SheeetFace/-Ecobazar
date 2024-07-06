@@ -21,9 +21,12 @@ const ProductDetailsHeader:React.FC<ProductDetailsHeaderProps> = ({name,currentC
         <div className={styles.ProductDetailsHeader}>
             <div className={styles._title}>
                 <h2>{name}</h2>
-                <LabelBadge label={stockStatusBoolean ? 'In Stock' :'Out of Stock'}
-                            className={stockStatusClass}
-                />
+                <div className={styles._label}>
+                    <LabelBadge label={stockStatusBoolean ? 'In Stock' :'Out of Stock'}
+                                className={stockStatusClass}
+                    />
+                </div>
+
             </div>
             
 
