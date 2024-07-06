@@ -40,10 +40,28 @@
             background-color:$primary-color;
         }
 
+         ._isOutOfStock {
+            opacity: 1;
+        }
     }
 
     ._imgAndSkeletonHeight{
         height: 185px;
+    }
+
+    ._isOutOfStock{
+        position: absolute;
+        top: 40%;
+        left: 20%;
+        opacity: 0;
+        transition: opacity .8s ease;
+        z-index: 5;
+
+        ._labelOutOfStock{
+            background-color: rgba($danger-color, .5);
+            color:rgba($white-color, .8);
+            font-size:$body-xl;
+        }
     }
 
     ._imgContainer{
@@ -71,7 +89,6 @@
     ._imgSkeleton{
         @extend ._imgAndSkeletonHeight;
     }
-
 
     ._label{
         position: absolute;
@@ -130,7 +147,8 @@
 
         ._buttonCart{
             @extend._button;
-            background-color:$grey-1;
+            background-color:$grey-1; 
+            position: relative;
 
             ._buttonCartIcon{
                 @extend ._buttonIcon;
