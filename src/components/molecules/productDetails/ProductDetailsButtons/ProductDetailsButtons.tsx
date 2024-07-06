@@ -11,9 +11,10 @@ import type { FormEvent } from 'react';
 
 interface ProductDetailsButtonsProps{
     id:string
+    isStockStatus:boolean
 }
 
-const ProductDetailsButtons:React.FC<ProductDetailsButtonsProps> = ({id}) => {
+const ProductDetailsButtons:React.FC<ProductDetailsButtonsProps> = ({id,isStockStatus}) => {
 
     // const countRef = useRef<number>(1)
 
@@ -30,7 +31,12 @@ const ProductDetailsButtons:React.FC<ProductDetailsButtonsProps> = ({id}) => {
                 />
                 <ButtonWishlist id={id} type='card'/>
 
-                <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxWidth buttonMaxHeight' type='submit' text=' Add to Cart' icon ={<CartIcon className={styles._icon}/>}/>
+                <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxWidth buttonMaxHeight'
+                        type='submit'
+                        text=' Add to Cart'
+                        icon ={<CartIcon className={styles._icon}/>}
+                        disabled={!isStockStatus}
+                />
             </form>
         </div>
     )

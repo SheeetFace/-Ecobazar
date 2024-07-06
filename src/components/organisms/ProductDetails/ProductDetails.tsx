@@ -24,6 +24,8 @@ const ProductDetails:React.FC<ProductDetailsProps> = ({forwardRef,data,viewMode}
 
     const classs = `${styles.ProductDetails} ${viewMode ==='page' ?styles._pageViewMode : styles._modalViewMode}`
 
+    const isStockStatus = +data.stockStatus > 0;
+
     return (
         <section className={classs} ref={forwardRef}>
 
@@ -53,14 +55,14 @@ const ProductDetails:React.FC<ProductDetailsProps> = ({forwardRef,data,viewMode}
                 </div>
 
                 <div>
-                    <ProductDetailsButtons id={data.id}/>
+                    <ProductDetailsButtons id={data.id} isStockStatus={isStockStatus}/>
 
                     <Divider type='horizontal' className={styles._divider}/>
                 </div>
 
                 <div>
-                    <ProductDetailsFooter category={data.category}
-                                        tag={data.tag}/>
+                    <ProductDetailsFooter   category={data.category}
+                                            tag={data.tag}/>
                 </div>
             </div>
         </section>
