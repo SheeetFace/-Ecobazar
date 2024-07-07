@@ -19,10 +19,12 @@
         font-size:$body-large;
         font-weight:$regular;
 
-        ._arrow{
-            margin-left: .55rem;
-            margin-right: .55rem;
+        ._cards{
+            display: flex;
+            ._arrow{
+                margin-left: .55rem;
+                margin-right: .55rem;
+            }
         }
-
     }
 }

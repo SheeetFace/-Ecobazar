@@ -33,18 +33,15 @@ const Breadcrumb:React.FC = ()=>{
                 const isLast = breadcrumb.length-1 === i;
 
                 return(
-                    <>
+                    <div key={item.pathBack}>
                         <BreadcrumbItem name={item.name} 
                                         pathBack={item.pathBack}
                                         key={item.pathBack}
                                         isLast={isLast}
                                         />
 
-                        {!isLast 
-                            ? 
-                                <span className={styles._arrow}>&gt;</span>
-                        :null}  
-                    </>              
+                        {!isLast && <span className={styles._arrow}>&gt;</span>} 
+                    </div>         
                 ) 
         })
     }
@@ -53,7 +50,9 @@ const Breadcrumb:React.FC = ()=>{
         <section className={styles.Breadcrumb}>
             <div className={styles._container}>
                 <div className='center'>
-                    {renderBreadcrumbItem()}
+                    <div className={styles._cards}>
+                        {renderBreadcrumbItem()}
+                    </div>
                 </div>
             </div>
         </section>
