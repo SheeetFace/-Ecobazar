@@ -22,7 +22,10 @@ export const store = configureStore({
     wishlist:wishlistSlice,
     [baseApi.reducerPath]: baseApi.reducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(baseApi.middleware),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+     serializableCheck: false
+    }
+  ).concat(baseApi.middleware),
     
 })
 
