@@ -12,7 +12,7 @@ const PopularCategories:React.FC = () => {
     const renderPopularCategories = ()=>{
         return categories.map((item,i)=>{
             return(
-                <NavLink to='/shop' state={{categoryFilter:item.categoryFilter}}>
+                <NavLink to='/shop' state={{categoryFilter:item.categoryFilter}} key={i}>
                     <PopularCategoriesCard  key={i}
                                             img={item.img}
                                             title={item.title}
