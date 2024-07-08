@@ -19,6 +19,24 @@ const cartSlice = createSlice({
       else state.items.set(itemId, 1);
     },
 
+    increaseQuantity(state, action: PayloadAction<string>){
+      const itemId = action.payload;
+
+      if(state.items.has(itemId)){
+        const currentQuantity = state.items.get(itemId) || 1;
+        state.items.set(itemId, currentQuantity + 1);
+      }
+    },
+
+    decreaseQuantity(state, action: PayloadAction<string>){
+      const itemId = action.payload;
+
+      if(state.items.has(itemId)){
+        const currentQuantity = state.items.get(itemId) || 1;
+        state.items.set(itemId, currentQuantity - 1);
+      }
+    },
+
     clearCart(state) {
       state.items.clear();
     }
@@ -33,6 +51,12 @@ export const selectIsItemInCart = createSelector(
   (items, itemId) => items.has(itemId)
 );
 
+export const selectQuantityCountByID = createSelector(
+  [selectItems, (_state:{ cart:CartState }, itemId:string) => itemId],
+  (items, itemId) => items.get(itemId)
+);
+
+
 export const selectCartItemIDs = createSelector(
   selectItems,(items) => Array.from(items.keys())
 );
@@ -42,6 +66,6 @@ export const selectCartItemsArray = createSelector(
 );
 
 
-export const { toggleCartItem, clearCart } = cartSlice.actions;
+export const { toggleCartItem, increaseQuantity, decreaseQuantity, clearCart } = cartSlice.actions;
 export default cartSlice.reducer;
 

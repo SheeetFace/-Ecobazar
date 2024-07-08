@@ -1,46 +1,53 @@
-import { useEffect, useState} from 'react';
+import { useAppSelector, useAppDispatch } from '../../../../../store/store';
+import { selectQuantityCountByID,increaseQuantity, decreaseQuantity } from '../../../../../store/slices/cartSlice';
 
+import Button from '../../../../atoms/Button/Button';
 import QuantityIcon from '../../../../atoms/icon/action/QuantityIcon/QuantityIcon';
 
 import styles from '../Quantity/Quantity.module.scss';
 
-import type { MutableRefObject } from 'react';
 
-// interface QuantityProps{
-//     countRef?:MutableRefObject<number>
-// }
+interface QuantityProps{
+    id:string
+}
 
-const Quantity:React.FC = (
-    // {countRef}
-) => {
+const Quantity:React.FC<QuantityProps> = ({id}) => {
 
-    const [count, setCount] = useState<number>(1);
+    const dispatch = useAppDispatch();
 
-    // useEffect(()=>{countRef.current = count},[count])
+    const count = useAppSelector((state)=> selectQuantityCountByID(state,id));
 
-    const DecreaseCount =()=>{
-        if(count < 50){
-            setCount((prev) => prev +1)
+    const isCount = !!count;
+
+    const decreaseCount =()=>{
+        if(isCount && count > 1){
+            dispatch(decreaseQuantity(id))
         }
     }
 
-    const IncreaseCount =()=>{
-        if(count > 1){
-            setCount((prev) => prev -1)
+    const increaseCount =()=>{
+        if(isCount && count < 50){
+            dispatch(increaseQuantity(id))
         }
     }
 
     return (
         <div className={styles.Quantity}>
-            <div onClick={IncreaseCount}>
-                <QuantityIcon symbol='-'/>
-            </div>
+            <Button className='defaultButtonStyle'
+                    onClick={decreaseCount}
+                    disabled={!isCount}
+                    icon={<QuantityIcon symbol='-' disabled={!isCount}/>}
+                    type='button'
+            />
 
-            <span className={styles._count}>{count}</span>
+            <span className={styles._count}>{isCount ? count: 1}</span>
 
-            <div onClick={DecreaseCount}>
-                <QuantityIcon symbol='+'/>
-            </div>
+            <Button className='defaultButtonStyle'
+                    onClick={increaseCount}
+                    disabled={!isCount}
+                    icon={<QuantityIcon symbol='+' disabled={!isCount}/>}
+                    type='button'
+            />
         </div>
     )
 }

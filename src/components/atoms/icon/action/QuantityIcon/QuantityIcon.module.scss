@@ -1,7 +1,7 @@
 @import '../../../../../styles/colors.scss';
 @import '../../../../../styles/typography.scss';
 
-.QuantityIcon{
+.Icon{
     width: 33px;
     height: 33px;
     border-radius:50%;
@@ -9,15 +9,25 @@
     display: flex;
     justify-content: center;
     align-items:center;
-    cursor: pointer;
 
     span{
         font-size: $body-large;
         font-weight: $medium;
     }
+}
+
+.QuantityIcon{
+    @extend .Icon;
+    cursor: pointer;
 
     &:active span{
         color:$grey-6;
         font-size: $body-xxl;
     }
+}
+
+.QuantityIconDisabled{
+    @extend .Icon;
+    cursor: not-allowed;
+
 }

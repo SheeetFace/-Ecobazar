@@ -14,7 +14,7 @@ const ProductDetailsButtons:React.FC<ProductDetailsButtonsProps> = ({id,isStockS
 
     return (
         <div className={styles.ProductDetailsButtons}>
-            <Quantity />
+            <Quantity id={id} />
             <ButtonWishlist id={id} type='card'/>
 
             <ButtonAddToCart id={id} isStockStatus={isStockStatus}/>
