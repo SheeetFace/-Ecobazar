@@ -44,7 +44,7 @@ const cartSlice = createSlice({
 });
 
 
-const selectItems = (state:{ cart:CartState }) => state.cart.items;
+export const selectItems = (state:{ cart:CartState }) => state.cart.items;
 
 export const selectIsItemInCart = createSelector(
   [selectItems, (_state:{ cart:CartState }, itemId:string) => itemId],
@@ -55,7 +55,6 @@ export const selectQuantityCountByID = createSelector(
   [selectItems, (_state:{ cart:CartState }, itemId:string) => itemId],
   (items, itemId) => items.get(itemId)
 );
-
 
 export const selectCartItemIDs = createSelector(
   selectItems,(items) => Array.from(items.keys())
