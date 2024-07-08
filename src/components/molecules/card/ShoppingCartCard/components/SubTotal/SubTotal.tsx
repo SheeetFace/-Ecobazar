@@ -7,6 +7,7 @@ interface SubTotalProps{
 const SubTotal:React.FC<SubTotalProps> = ({price}) => {
 
     //react query get .toFixed(2)
+
     return (
         <div className={styles.SubTotal}>
             <span>${price}</span>

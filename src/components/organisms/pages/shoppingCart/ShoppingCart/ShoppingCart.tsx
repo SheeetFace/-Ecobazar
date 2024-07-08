@@ -1,3 +1,8 @@
+import { useMemo } from 'react';
+
+import { useAppSelector } from '../../../../../store/store';
+import { useProductsByIds } from '../../../../../hooks/products/useProductsByIds';
+
 import { NavLink } from 'react-router-dom';
 
 import ShoppingCartCard from '../../../../molecules/card/ShoppingCartCard/ShoppingCartCard';
@@ -5,18 +10,19 @@ import Divider from '../../../../atoms/Divider/Divider';
 import Button from '../../../../atoms/Button/Button';
 
 
-import { shopProductData } from '../../../../../data/temp/shopProductData';
-
 import styles from '../ShoppingCart/ShoppingCart.module.scss';
+
 
 const ShoppingCart:React.FC = () => {
 
-    const popularProductsData = shopProductData.slice(0,10)
+    const productIDs = useAppSelector((state)=>state.cart.items);
 
-    const renderShoppingCartCard = ()=>{
-        const length = popularProductsData.length
+    const { filteredProducts } = useProductsByIds(productIDs)
 
-        return popularProductsData.map((item,i)=>{
+    const renderShoppingCartCard = useMemo(()=>{
+        const length = filteredProducts.length
+
+        return filteredProducts.map((item,i)=>{
             return(
                 <ShoppingCartCard
                             key={i}
@@ -29,7 +35,7 @@ const ShoppingCart:React.FC = () => {
                 />
             )
         })
-    }
+    },[filteredProducts])
 
     return (
         <section className={styles.ShoppingCart}>
@@ -52,12 +58,14 @@ const ShoppingCart:React.FC = () => {
             <Divider type='horizontal' className={styles._divider}/>
 
             <div className={styles._cardContainer}>
-                {renderShoppingCartCard()}
+                {filteredProducts.length ===0 ? <h1>Your Cart is Empty</h1> :null}
+
+                {renderShoppingCartCard}
             </div>
 
             <Divider type='horizontal' className={styles._divider}/>
 
-            <NavLink to='shop' className={styles._navLink}>
+            <NavLink to='/shop' className={styles._navLink}>
                 <Button className='ButtonFilledOval fillGrey1 colorTextGrey7 buttonMaxHeight'
                         text='Return to Shop'
                         type='button'

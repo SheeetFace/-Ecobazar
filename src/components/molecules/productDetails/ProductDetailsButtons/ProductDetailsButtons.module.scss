@@ -1,11 +1,5 @@
-@import '../../../../styles/colors.scss';
-
 .ProductDetailsButtons{
     display: flex;
     padding-top: 1rem;
     gap:1rem;
-
-    ._icon{
-        stroke: $green-05;
-    }
 }

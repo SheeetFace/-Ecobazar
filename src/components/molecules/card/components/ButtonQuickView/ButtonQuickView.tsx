@@ -14,19 +14,19 @@ const ButtonQuickView:React.FC<ButtonQuickViewProps> = (props) => {
 
     const dispatch = useAppDispatch();
 
-    const openQuickView =(id:string,e:MouseEvent)=>{
+    const openQuickView =(e:MouseEvent)=>{
         e.preventDefault()
         dispatch(openProductModal(props))
     }
 
     return (
-        <div className={styles.ButtonQuickView} 
-             onClick={(e)=>openQuickView(props.id,e)}>
-                        <div className={styles.ButtonQuickView}>
-                        <Button className='ButtonTransparent' 
-                                icon={<EyeIcon className={styles._buttonQuickViewIcon}/>}
-                                type='button'/>
-                </div>
+        <div className={styles.ButtonQuickView} >
+            <div className={styles.ButtonQuickView}>
+                <Button className='ButtonTransparent' 
+                        icon={<EyeIcon className={styles._buttonQuickViewIcon}/>}
+                        type='button'
+                        onClick={(e)=>openQuickView(e)}/>
+            </div>
         </div>
     )
 }

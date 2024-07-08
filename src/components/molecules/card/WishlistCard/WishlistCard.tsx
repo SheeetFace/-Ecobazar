@@ -1,7 +1,7 @@
 import { useAppDispatch } from '../../../../store/store';
 import { toggleWishlistItem } from '../../../../store/slices/wishlistSlice';
 
-import Button from '../../../atoms/Button/Button';
+import ButtonAddToCart from '../../button/ButtonAddToCart/ButtonAddToCart';
 import Divider from '../../../atoms/Divider/Divider';
 import LabelBadge from '../../../atoms/LabelBadge/LabelBadge';
 import CrossIcon from '../../../atoms/icon/action/CrossIcon/CrossIcon';
@@ -50,11 +50,10 @@ const WishlistCard:React.FC<WishlistCardProps> = ({name,id,src,currentCost,oldCo
             </div>
 
             <div className={styles._buttonsContainer}>
-                <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight'
-                        text='Add to Cart'
-                        type='button'
-                        disabled={!isStockStatus}
-                />
+
+                <div className={styles._toggle}>
+                    <ButtonAddToCart id={id} isStockStatus={isStockStatus}/>
+                </div>
 
                 <button className='defaultButtonStyle' onClick={handleRemove}>
                     <CrossIcon/>

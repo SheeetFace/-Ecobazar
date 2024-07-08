@@ -43,11 +43,11 @@ const ButtonWishlist:React.FC<ButtonWishlistProps> = ({id, type}) => {
     }
 
     return (
-        <div className={`${styles.ButtonWishlist} ${typeStyle}`}
-            onClick={(e)=>updateWishlist(id,e)}>
+        <div className={`${styles.ButtonWishlist} ${typeStyle}`}>
             <Button  className='ButtonTransparentWithoutHover'
                     icon={<WishlistIcon className={`${styles._buttonWishlistIcon} ${inWishlistStyleIcon}`}/>}
-                    type='button'/>
+                    type='button'
+                    onClick={(e)=>updateWishlist(id,e)}/>
         </div>
     )
 }
