@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 
 import { useAppSelector } from '../../../../../store/store';
 import { useProductsByIds } from '../../../../../hooks/products/useProductsByIds';
+import { selectCartItemIDs } from '../../../../../store/slices/cartSlice';
 
 import { NavLink } from 'react-router-dom';
 
@@ -15,7 +16,7 @@ import styles from '../ShoppingCart/ShoppingCart.module.scss';
 
 const ShoppingCart:React.FC = () => {
 
-    const productIDs = useAppSelector((state)=>state.cart.items);
+    const productIDs = useAppSelector((state)=>selectCartItemIDs(state));
 
     const { filteredProducts } = useProductsByIds(productIDs)
 
