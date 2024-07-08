@@ -11,6 +11,8 @@ import WishlistIcon from '../../../../atoms/icon/navigate/WishlistIcon';
 
 import styles from '../ButtonWishlist/ButtonWishlist.module.scss';
 
+import type { MouseEvent } from 'react';
+
 type TypeButtonStyle ='card'|'detail';
 interface ButtonWishlistProps{
     id:string,
@@ -35,7 +37,7 @@ const ButtonWishlist:React.FC<ButtonWishlistProps> = ({id, type}) => {
       return isItemInWishlist ? inWishlistStyle : notInWishlistStyle;
     },[isItemInWishlist, inWishlistStyle, notInWishlistStyle])
 
-    const updateWishlist =(id:string,e:React.MouseEvent)=>{
+    const updateWishlist =(id:string,e:MouseEvent)=>{
         e.preventDefault()
 
         if(isUser) dispatch(toggleWishlistItem(id))
@@ -44,7 +46,7 @@ const ButtonWishlist:React.FC<ButtonWishlistProps> = ({id, type}) => {
 
     return (
         <div className={`${styles.ButtonWishlist} ${typeStyle}`}>
-            <Button  className='ButtonTransparentWithoutHover'
+            <Button  className='ButtonTransparentWithoutHover buttonMaxWidth buttonMaxHeight'
                     icon={<WishlistIcon className={`${styles._buttonWishlistIcon} ${inWishlistStyleIcon}`}/>}
                     type='button'
                     onClick={(e)=>updateWishlist(id,e)}/>
