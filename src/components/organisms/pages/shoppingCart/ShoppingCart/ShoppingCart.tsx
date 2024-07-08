@@ -10,14 +10,13 @@ import ShoppingCartCard from '../../../../molecules/card/ShoppingCartCard/Shoppi
 import Divider from '../../../../atoms/Divider/Divider';
 import Button from '../../../../atoms/Button/Button';
 
-
 import styles from '../ShoppingCart/ShoppingCart.module.scss';
 
 
 const ShoppingCart:React.FC = () => {
 
     const productIDs = useAppSelector((state)=>selectCartItemIDs(state));
-
+    
     const { filteredProducts } = useProductsByIds(productIDs)
 
     const renderShoppingCartCard = useMemo(()=>{
@@ -36,7 +35,7 @@ const ShoppingCart:React.FC = () => {
                 />
             )
         })
-    },[filteredProducts])
+    },[JSON.stringify(filteredProducts)])
 
     return (
         <section className={styles.ShoppingCart}>

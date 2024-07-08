@@ -43,7 +43,7 @@ const ShoppingCartCard:React.FC<ShoppingCartCardProps> = ({name,id,src,currentCo
             </div>
 
             <div className={styles._quantity}>
-                <Quantity/>
+                <Quantity id={id}/>
             </div>
 
             <div className={styles._subtotal}>
