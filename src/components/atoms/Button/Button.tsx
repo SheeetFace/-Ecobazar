@@ -1,7 +1,9 @@
 type ButtonType = 'submit'|'button'
+
+
 interface ButtonProps{
     className:string
-    onClick?:()=>void
+    onClick?: ((event: React.MouseEvent<HTMLButtonElement>) => void) | (() => void);
     text?:string
     icon?: React.ReactNode
     type:ButtonType
@@ -9,8 +11,11 @@ interface ButtonProps{
 }
 
 const Button: React.FC<ButtonProps> = ({className,text,icon,onClick,type,disabled=false}) => {
+
     return (
-      <button className={className} onClick={onClick} type={type} disabled={disabled}>
+      <button className={className}
+        onClick={onClick} 
+        type={type} disabled={disabled}>
         {icon && <>{icon}</>}
         {text ? text:''}
       </button>

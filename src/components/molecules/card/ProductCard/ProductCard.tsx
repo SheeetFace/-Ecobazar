@@ -3,16 +3,13 @@ import { useInView } from 'react-intersection-observer';
 
 import LabelBadge from '../../../atoms/LabelBadge/LabelBadge';
 import RatingStars from '../../RatingStars/RatingStars';
-import Button from '../../../atoms/Button/Button';
+import ButtonAddToCart from '../../button/ButtonAddToCart/ButtonAddToCart';
 import ButtonWishlist from '../components/ButtonWishlist/ButtonWishlist';
 import ButtonQuickView from '../components/ButtonQuickView/ButtonQuickView';
-
-import CartIcon from '../../../atoms/icon/navigate/CartIcon';
 
 import styles from '../ProductCard/ProductCard.module.scss';
 
 import type { ProductDataType as ProductsCardProps} from '../../../../types/productDataTypes';
-import type { MouseEvent } from 'react';
 
 
 const ProductsCard:React.FC<ProductsCardProps> = (props) => {
@@ -26,11 +23,6 @@ const ProductsCard:React.FC<ProductsCardProps> = (props) => {
         triggerOnce:true
     });
 
-    const addToCart = (id:string,e:MouseEvent)=>{
-        e.preventDefault()
-        console.log(`${id} added to cart`)
-    }
-
     return (
         <NavLink to={`/shop/${name}`}
                  state={{data:props}} 
@@ -41,7 +33,6 @@ const ProductsCard:React.FC<ProductsCardProps> = (props) => {
             {!isStockStatus && (
                 <div className={styles._isOutOfStock}>
                     <LabelBadge className={styles._labelOutOfStock} label='Out of Stock'/>
-                    {/* <span>Out of Stock</span> */}
                 </div>
             )}
                 {sale &&  <LabelBadge className={styles._label} label={`Sale ${sale}`}/>}
@@ -84,15 +75,15 @@ const ProductsCard:React.FC<ProductsCardProps> = (props) => {
                         <RatingStars rating={+rating} type='small'/>
                     </div>
                     
-                    <div className={styles._buttonCart}
-                         onClick={(e)=>addToCart(id,e)}>
-
-                        <Button className='ButtonTransparent' 
-                                icon={<CartIcon className={styles._buttonCartIcon}/>}
-                                type='button'
-                                disabled={!isStockStatus}/>
+                    <div className={styles._buttonCart}>
+                        <ButtonAddToCart    id={id}
+                                            isStockStatus={isStockStatus}
+                                            isIcon={true}
+                                            isText={false}
+                                            isBadge={true}
+                                            classNameIcon={styles._buttonCartIcon}/>
                     </div>
-                    
+
                 </div>
             </div>
         </NavLink>

@@ -103,6 +103,13 @@
     background-color:$hard-primary-color;
   }
 }
+.fillSoftGreen{
+  background-color:$soft-primary-color;
+
+  &:hover{
+    background-color:$primary-color;
+  }
+}
 .fillWhite{
   background-color:$white-color;
 
@@ -150,6 +157,9 @@
 }
 .colorTextGrey7{
   color:$grey-7;
+}
+.colorTextGrey8{
+  color:$grey-8;
 }
 .colorTextGreenPrimary{
   color:$primary-color;

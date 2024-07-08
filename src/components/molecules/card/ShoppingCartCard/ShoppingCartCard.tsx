@@ -1,3 +1,7 @@
+import { useAppDispatch } from '../../../../store/store';
+
+import { toggleCartItem } from '../../../../store/slices/cartSlice';
+
 import Quantity from '../components/Quantity/Quantity';
 import SubTotal from './components/SubTotal/SubTotal';
 import CrossIcon from '../../../atoms/icon/action/CrossIcon/CrossIcon';
@@ -17,6 +21,11 @@ interface ShoppingCartCardProps{
 
 const ShoppingCartCard:React.FC<ShoppingCartCardProps> = ({name,id,src,currentCost,oldCost,isLast}) => {
     
+    const dispatch = useAppDispatch();
+
+    const handleRemove =()=>{
+        dispatch(toggleCartItem(id));
+    }
 
     return (
         <>
@@ -29,7 +38,7 @@ const ShoppingCartCard:React.FC<ShoppingCartCardProps> = ({name,id,src,currentCo
             </div>
 
             <div className={styles._costContainer}>
-                <span>{currentCost}</span>
+                <span>${currentCost}</span>
                 <span className={styles._old}>{oldCost}</span>
             </div>
 
@@ -38,12 +47,12 @@ const ShoppingCartCard:React.FC<ShoppingCartCardProps> = ({name,id,src,currentCo
             </div>
 
             <div className={styles._subtotal}>
-                <SubTotal price={+currentCost.slice(1)}/>
+                <SubTotal price={+currentCost}/>
             </div>
             
-            <div>
-                <CrossIcon/>
-            </div>
+            <button className='defaultButtonStyle' onClick={handleRemove}>
+                    <CrossIcon/>
+            </button>
 
         </div>
 

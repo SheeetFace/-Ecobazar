@@ -8,6 +8,7 @@ import mainSearchSlice from './slices/mainSearchSlice';
 import productFilterSlice from './slices/productFilterSlice';
 import blogFilterSlice from './slices/blogFilterSlice';
 import wishlistSlice from './slices/wishlistSlice';
+import cartSlice from './slices/cartSlice';
 
 import { baseApi } from '../api/baseApi';
 
@@ -20,6 +21,7 @@ export const store = configureStore({
     productFilter:productFilterSlice,
     blogFilter:blogFilterSlice,
     wishlist:wishlistSlice,
+    cart:cartSlice,
     [baseApi.reducerPath]: baseApi.reducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({
