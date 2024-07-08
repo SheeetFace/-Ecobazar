@@ -1,5 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
+
 import { useDispatch, useSelector } from "react-redux";
+
+import { enableMapSet } from 'immer';
 
 import checkoutFormSlice from './slices/checkoutFormSlice'
 import productModalSlice from './slices/productModalSlice';
@@ -11,6 +14,8 @@ import wishlistSlice from './slices/wishlistSlice';
 import cartSlice from './slices/cartSlice';
 
 import { baseApi } from '../api/baseApi';
+
+enableMapSet();
 
 export const store = configureStore({
   reducer: {

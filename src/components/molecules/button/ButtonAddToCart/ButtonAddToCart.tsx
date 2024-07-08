@@ -30,7 +30,7 @@ const ButtonAddToCart:React.FC<ButtonAddToCartProps> = ({
 
     const dispatch = useAppDispatch();
 
-    const isCartAlreadyAdded = useAppSelector((state) => selectIsItemInCart(state, id));
+    const isCartAlreadyAdded = useAppSelector((state) =>selectIsItemInCart(state,id));
 
     const buttonStyle = (isIcon ? isCartAlreadyAdded : !isCartAlreadyAdded) ? 'fillGreen colorTextGrey1':'fillSoftGreen colorTextGrey8';
     
