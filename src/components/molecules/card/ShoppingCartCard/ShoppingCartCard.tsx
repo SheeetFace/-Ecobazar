@@ -47,7 +47,7 @@ const ShoppingCartCard:React.FC<ShoppingCartCardProps> = ({name,id,src,currentCo
             </div>
 
             <div className={styles._subtotal}>
-                <SubTotal price={+currentCost}/>
+                <SubTotal price={+currentCost} id={id}/>
             </div>
             
             <button className='defaultButtonStyle' onClick={handleRemove}>
