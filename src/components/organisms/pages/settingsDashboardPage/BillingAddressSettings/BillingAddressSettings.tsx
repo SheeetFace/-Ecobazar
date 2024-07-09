@@ -12,6 +12,7 @@ import { firebaseUpdateUserDataService } from '../../../../../services/db/fireba
 import { getValidationOptions } from '../../../../../utils/getValidationOptions';
 import { hasFormValuesUpdated } from '../../../../../utils/hasFormValuesUpdated';
 import { firebaseErrorHandlingOperations } from '../../../../../utils/firebase/firebaseErrorHandlingOperations';
+import { getDefaultFormValues } from '../../../../../utils/getDefaultFormValues';
 
 import Button from '../../../../atoms/Button/Button';
 import BillingAddressInfo from '../../../formField/BillingAddressInfo/BillingAddressInfo';
@@ -45,24 +46,13 @@ const BillingAddressSettings:React.FC = () => {
 
     const { executeAsync, renderLoaderOrError, isLoading } = useLoadingAndError<UserDataType>();
 
-    const defaultValues= {
-        firstName: user?.billingAddress.firstName ||'',
-        lastName: user?.billingAddress.lastName ||'',
-        email: user?.billingAddress.email ||'',
-        phone: user?.billingAddress.phone ||'',
-        address: user?.billingAddress.address ||'',
-        country: user?.billingAddress.country || '' as UserDataCountryType,
-        region: user?.billingAddress.region ||'',
-        zipCode: user?.billingAddress.zipCode ||'',
-        company: user?.billingAddress.company ||'',
-    }
+    const defaultValues = getDefaultFormValues(user);
 
     const {register, formState:{errors},handleSubmit, watch} = useForm<FormValues>({
         defaultValues
     });
 
     const countryValueWatch = watch('country') as UserDataCountryType;
-
 
     const onSubmit: SubmitHandler<FormValues> =async(data)=>{
 

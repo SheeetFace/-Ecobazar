@@ -6,12 +6,14 @@ import { useAppDispatch,useAppSelector } from '../../../../../store/store';
 
 import { setBillingInfoValid } from '../../../../../store/slices/checkoutFormSlice';
 
+import { getValidationOptions } from '../../../../../utils/getValidationOptions';
+import { getDefaultFormValues } from '../../../../../utils/getDefaultFormValues';
+
 import BillingAddressInfo from '../../../formField/BillingAddressInfo/BillingAddressInfo';
 import TextAreaFormField from '../../../formField/TextAreaFormField/TextAreaFormField';
 import Button from '../../../../atoms/Button/Button';
 import Divider from '../../../../atoms/Divider/Divider';
 
-import { getValidationOptions } from '../../../../../utils/getValidationOptions';
 
 import styles from '../BillingInfo/BillingInfo.module.scss';
 
@@ -38,7 +40,13 @@ const BillingInfo:React.FC = () => {
 
     const dispatch = useAppDispatch()
     
-    const {register, formState,handleSubmit, watch,} = useForm<FormValues>();
+    const user = useAppSelector((state)=> state.auth.user)
+
+    const defaultValues = getDefaultFormValues(user);
+
+    const {register, formState,handleSubmit, watch,} = useForm<FormValues>({
+        defaultValues
+    });
     const { errors, isValid } = formState;
 
     const countryValueWatch = watch('country') as UserDataCountryType;
