@@ -51,6 +51,10 @@ export const selectIsItemInCart = createSelector(
   (items, itemId) => items.has(itemId)
 );
 
+export const selectItemsLength = createSelector(
+  selectItems,(items) => items.size
+);
+
 export const selectQuantityCountByID = createSelector(
   [selectItems, (_state:{ cart:CartState }, itemId:string) => itemId],
   (items, itemId) => items.get(itemId)
