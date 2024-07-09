@@ -5,9 +5,11 @@ import {useForm} from 'react-hook-form'
 import { useAppDispatch,useAppSelector } from '../../../../../store/store';
 
 import { setBillingInfoValid } from '../../../../../store/slices/checkoutFormSlice';
+import { setShippingInfo } from '../../../../../store/slices/checkoutFormSlice';
 
 import { getValidationOptions } from '../../../../../utils/getValidationOptions';
 import { getDefaultFormValues } from '../../../../../utils/getDefaultFormValues';
+import { areObjectsEqual } from '../../../../../utils/areObjectsEqual';
 
 import BillingAddressInfo from '../../../formField/BillingAddressInfo/BillingAddressInfo';
 import TextAreaFormField from '../../../formField/TextAreaFormField/TextAreaFormField';
@@ -18,7 +20,8 @@ import Divider from '../../../../atoms/Divider/Divider';
 import styles from '../BillingInfo/BillingInfo.module.scss';
 
 import type {SubmitHandler}from 'react-hook-form';
-import { UserDataCountryType } from '../../../../../types/userTypes';
+import type { UserDataCountryType } from '../../../../../types/userTypes';
+
 
 interface FormValues{
     firstName:string
@@ -31,7 +34,7 @@ interface FormValues{
     zipCode:string
     company:string
 
-    differentAddress:string
+    // differentAddress:string
     orderNotes:string
 }
 
@@ -51,14 +54,18 @@ const BillingInfo:React.FC = () => {
 
     const countryValueWatch = watch('country') as UserDataCountryType;
 
-    const isBillingInfoValid = useAppSelector((state)=> state.checkoutForm.isBillingInfoValid)
+    const isBillingInfoValid = useAppSelector((state)=> state.checkoutForm.isBillingInfoValid);
 
     useEffect(()=>{
         if(!isValid) dispatch(setBillingInfoValid(false))
     },[isValid])
 
     const onSubmit: SubmitHandler<FormValues> =(data)=>{
-        console.log(data)
+
+        const difFields = areObjectsEqual(data,defaultValues)
+
+        if(difFields.length>0) dispatch(setShippingInfo(difFields))
+
         dispatch(setBillingInfoValid(true))
     }
 

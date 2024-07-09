@@ -2,7 +2,7 @@ import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider} from 
 
 import { app } from "../../firebase/firebaseAuth"
 
-import { firebaseCheckIsUserAlreadyExistsService } from "../db/firebaseCheckIsUserAlreadyExistsService";
+import { firebaseCheckIsUserAlreadyExistsService } from "../db/user/firebaseCheckIsUserAlreadyExistsService";
 
 import { firebaseErrorHandlingOperations } from "../../utils/firebase/firebaseErrorHandlingOperations";
 

@@ -1,6 +1,6 @@
 import { getAuth, createUserWithEmailAndPassword} from "firebase/auth";
 
-import { firebaseCreateUserDataService } from "../db/firebaseCreateUserDataService";
+import { firebaseCreateUserDataService } from "../db/user/firebaseCreateUserDataService";
 
 import { firebaseErrorHandlingOperations } from "../../utils/firebase/firebaseErrorHandlingOperations";
 

@@ -2,26 +2,52 @@ import { useNavigate } from 'react-router-dom';
 
 import { useAppSelector, useAppDispatch } from '../../../../../../../store/store';
 
+import useTotalPrice from '../../../../../../../hooks/useTotalPrice';
+
 import { resetFormState } from '../../../../../../../store/slices/checkoutFormSlice';
+import { clearCart } from '../../../../../../../store/slices/cartSlice';
+import { selectShippingInfo, setShippingInfo } from '../../../../../../../store/slices/checkoutFormSlice';
+import { selectCartItemIDs } from '../../../../../../../store/slices/cartSlice';
+
+import { formatDate } from '../../../../../../../utils/formatDate';
 
 import Button from '../../../../../../atoms/Button/Button';
 import AlertMessage from '../../../../../../molecules/AlertMessage/AlertMessage';
 
 import styles from '../SubmitOrderForm/SubmitOrderForm.module.scss';
 
+import { firebaseAddOrderService } from '../../../../../../../services/db/order/firebaseAddOrderService';
+
 const SubmitOrderForm:React.FC = () => {
 
-    const isFormReady = useAppSelector((state)=> state.checkoutForm.isFormReady) 
+    const isFormReady = useAppSelector((state)=> state.checkoutForm.isFormReady);
+    const shippingInfo = useAppSelector((state)=>selectShippingInfo(state))
+    const userID = useAppSelector((state)=>state.auth.user?.uid)
+
+    const productIDs = useAppSelector((state)=>selectCartItemIDs(state))
+
+    const totalPrice = useTotalPrice()
+
 
     const dispatch = useAppDispatch()
 
     const navigate = useNavigate()
 
     const submitOrder =()=>{
-        if(isFormReady){
-            console.log('submitOrder')
-            dispatch(resetFormState())
+        if(isFormReady && userID){
+            //!
+            firebaseAddOrderService( userID,{
 
+                date:formatDate(new Date().toString(), 'normal'),
+                shipping:shippingInfo,
+                totalPrice,
+                productIDs,
+                method:'Pay Pal', //!
+                status:"Completed"
+            })
+            dispatch(resetFormState())
+            dispatch(clearCart())
+            dispatch(setShippingInfo([]))
             navigate('/dashboard/orderDetail', 
                 { state: 
                     {
