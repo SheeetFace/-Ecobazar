@@ -7,7 +7,7 @@ import { useAppSelector,useAppDispatch } from '../../../../../store/store';
 import { updateUserData } from '../../../../../store/slices/authSlice';
 
 
-import { firebaseUpdateUserDataService } from '../../../../../services/db/firebaseUpdateUserDataService';
+import { firebaseUpdateUserDataService } from '../../../../../services/db/user/firebaseUpdateUserDataService';
 
 import { getValidationOptions } from '../../../../../utils/getValidationOptions';
 import { hasFormValuesUpdated } from '../../../../../utils/hasFormValuesUpdated';

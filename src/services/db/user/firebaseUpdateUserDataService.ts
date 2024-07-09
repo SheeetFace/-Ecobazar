@@ -1,6 +1,6 @@
 import { getFirestore, doc, updateDoc, getDoc } from 'firebase/firestore';
 
-import type { UserDataType, UserDataSettingsOrAddressType } from '../../types/userTypes';
+import type { UserDataType, UserDataSettingsOrAddressType } from '../../../types/userTypes';
 
 type DataType = 'accountSettings'|'billingAddress'
 

@@ -1,7 +1,7 @@
 import {getAuth,signInWithEmailAndPassword } from "firebase/auth"
 import { app } from "../../../firebase/firebaseAuth";
 
-import { firebaseGetUserDataByUid } from "../../db/firebaseGetUserDataByUid";
+import { firebaseGetUserDataByUid } from "../../db/user/firebaseGetUserDataByUid";
 
 import { firebaseErrorHandlingOperations } from "../../../utils/firebase/firebaseErrorHandlingOperations";
 

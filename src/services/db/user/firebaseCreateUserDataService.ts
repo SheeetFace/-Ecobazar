@@ -1,6 +1,6 @@
 import { getFirestore, doc, setDoc } from "firebase/firestore";
 
-import { createUserData } from "../../utils/firebase/db/createUserData";
+import { createUserData } from "../../../utils/firebase/db/createUserData";
 
 import type { User } from "firebase/auth";
 

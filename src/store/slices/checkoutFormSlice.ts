@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice,createSelector } from '@reduxjs/toolkit';
 
 import type {PayloadAction} from '@reduxjs/toolkit';
 
@@ -6,12 +6,14 @@ interface CheckoutFormState {
     isBillingInfoValid: boolean;
     paymentMethodValid: string|null;
     isFormReady: boolean;
+    shippingInfo:Record<string,string>[]|[]
 }
 
 const initialState: CheckoutFormState ={
     isBillingInfoValid: false,
     paymentMethodValid: null,
     isFormReady: false,
+    shippingInfo:[]
 };
 
 const checkoutFormSlice = createSlice({
@@ -26,6 +28,9 @@ const checkoutFormSlice = createSlice({
             state.paymentMethodValid = action.payload;
             state.isFormReady = state.isBillingInfoValid && !!action.payload;
         },
+        setShippingInfo(state,action:PayloadAction<Record<string,string>[]|[]>){
+            state.shippingInfo = action.payload;
+        },
         resetFormState(state){
             state.isBillingInfoValid = false;
             state.paymentMethodValid = null;
@@ -34,5 +39,11 @@ const checkoutFormSlice = createSlice({
     },
 });
 
-export const { setBillingInfoValid, setPaymentMethodValid, resetFormState } = checkoutFormSlice.actions;
+const selectStateInfo = (state:{checkoutForm:CheckoutFormState}) => state.checkoutForm.shippingInfo;
+
+export const selectShippingInfo = createSelector(
+    selectStateInfo,(state) => state
+);
+
+export const { setBillingInfoValid, setPaymentMethodValid,setShippingInfo, resetFormState } = checkoutFormSlice.actions;
 export default checkoutFormSlice.reducer;

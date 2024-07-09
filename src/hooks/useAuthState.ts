@@ -8,8 +8,8 @@ import { setLoading, setError, updateUserData } from '../store/slices/authSlice'
 import { clearWishlist } from '../store/slices/wishlistSlice';
 import { clearCart } from '../store/slices/cartSlice';
 
-import { firebaseGetUserDataByUid } from '../services/db/firebaseGetUserDataByUid';
-import { firebaseCheckUserDataWithRetryService } from '../services/db/firebaseCheckUserDataWithRetryService';
+import { firebaseGetUserDataByUid } from '../services/db/user/firebaseGetUserDataByUid';
+import { firebaseCheckUserDataWithRetryService } from '../services/db/user/firebaseCheckUserDataWithRetryService';
 
 import { firebaseErrorHandlingOperations } from '../utils/firebase/firebaseErrorHandlingOperations';
 
