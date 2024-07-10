@@ -1,66 +1,71 @@
+import { useCallback } from 'react';
+
 import { useNavigate } from 'react-router-dom';
 
 import { useAppSelector, useAppDispatch } from '../../../../../../../store/store';
 
-import useTotalPrice from '../../../../../../../hooks/useTotalPrice';
+import { firebaseAddOrderService } from '../../../../../../../services/db/order/firebaseAddOrderService';
+
+import { useLoadingAndError} from '../../../../../../../hooks/useLoadingAndError';
+
+import useOrderData from '../../../../../../../hooks/db/useOrderData';
 
 import { resetFormState } from '../../../../../../../store/slices/checkoutFormSlice';
 import { clearCart } from '../../../../../../../store/slices/cartSlice';
-import { selectShippingInfo, setShippingInfo,selectPaymentMethod } from '../../../../../../../store/slices/checkoutFormSlice';
-import { selectCartItemsArray } from '../../../../../../../store/slices/cartSlice';
-
-import { formatDate } from '../../../../../../../utils/formatDate';
+import { setShippingInfo} from '../../../../../../../store/slices/checkoutFormSlice';
 
 import Button from '../../../../../../atoms/Button/Button';
 import AlertMessage from '../../../../../../molecules/AlertMessage/AlertMessage';
 
 import styles from '../SubmitOrderForm/SubmitOrderForm.module.scss';
 
-import { firebaseAddOrderService } from '../../../../../../../services/db/order/firebaseAddOrderService';
+import { SubmitOrderType } from '../../../../../../../types/db/order/submitOrderType';
+
+interface OrderData{
+    userID:string,
+    data:SubmitOrderType
+}
+type ResponseOrderData = SubmitOrderType & {id:string}
+
 
 const SubmitOrderForm:React.FC = () => {
 
+    const dispatch = useAppDispatch();
+
+    const navigate = useNavigate();
+
     const isFormReady = useAppSelector((state)=> state.checkoutForm.isFormReady);
-    const shippingInfo = useAppSelector((state)=>selectShippingInfo(state))
-    const paymentMethod = useAppSelector((state)=>selectPaymentMethod(state))
-    const userID = useAppSelector((state)=>state.auth.user?.uid)
 
-    const productIDs = useAppSelector((state)=>selectCartItemsArray(state))
+    const orderData:OrderData|Error = useOrderData();
 
-    const totalPrice = useTotalPrice()
+    const { executeAsync, renderLoaderOrError } = useLoadingAndError();
 
-
-    const dispatch = useAppDispatch()
-
-    const navigate = useNavigate()
-
-    const submitOrder =()=>{
-        if(isFormReady && userID){
-            //!
-            firebaseAddOrderService( userID,{
-
-                date:formatDate(new Date().toString(), 'normal'),
-                shipping:shippingInfo,
-                totalPrice,
-                productIDs,
-                paymentMethod:paymentMethod || 'PayPal',
-                status:"Completed"
-            })
-            dispatch(resetFormState())
-            dispatch(clearCart())
-            dispatch(setShippingInfo([]))
-            navigate('/dashboard/orderDetail', 
-                { state: 
-                    {
-                        id:"13",
-                        date:"9 Sep, 2024",
-                        price:"$135.00",
-                        productCount:"5",
-                        status:"Completed"
-                    }
-            });
+    const submitOrder = useCallback(async()=>{
+        if(isFormReady){
+            if(orderData instanceof Error){
+                console.error('Error: ', orderData.message);
+            }else{
+                const { userID, data } = orderData;
+                const res = await executeAsync(() => firebaseAddOrderService(userID, data)) as ResponseOrderData;
+                if(res){
+                    await Promise.all([
+                        dispatch(resetFormState()),
+                        dispatch(clearCart()),
+                        dispatch(setShippingInfo([]))
+                    ]);
+                    navigate('/dashboard/orderDetail',{
+                        state: {
+                            id: res.id,
+                            date: res.date,
+                            price: res.totalPrice,
+                            productCount: "5",
+                            status: "Completed"
+                        }
+                    });
+                }
+            }
         }
-    }
+    },[isFormReady, orderData, executeAsync, dispatch, navigate])
 
     return (
         <div className={styles.SubmitOrderForm}>
@@ -76,6 +81,7 @@ const SubmitOrderForm:React.FC = () => {
                             message={<>Fill in the <b>Billing Information</b> and select a <b>Payment method</b></>}
                             isCanClose={false}/>
             :null}
+            {renderLoaderOrError()}
         </div>
     )
 }
