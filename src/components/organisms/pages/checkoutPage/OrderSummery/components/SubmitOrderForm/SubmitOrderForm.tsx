@@ -19,12 +19,12 @@ import AlertMessage from '../../../../../../molecules/AlertMessage/AlertMessage'
 import styles from '../SubmitOrderForm/SubmitOrderForm.module.scss';
 
 import { SubmitOrderType } from '../../../../../../../types/db/order/submitOrderType';
+import { ResponseOrderDataType } from '../../../../../../../types/db/order/responseOrderDataType';
 
 interface OrderData{
     userID:string,
     data:SubmitOrderType
 }
-type ResponseOrderData = SubmitOrderType & {id:string}
 
 
 const SubmitOrderForm:React.FC = () => {
@@ -45,22 +45,15 @@ const SubmitOrderForm:React.FC = () => {
                 console.error('Error: ', orderData.message);
             }else{
                 const { userID, data } = orderData;
-                const res = await executeAsync(() => firebaseAddOrderService(userID, data)) as ResponseOrderData;
+                const res = await executeAsync(() => firebaseAddOrderService(userID, data)) as ResponseOrderDataType;
                 if(res){
                     await Promise.all([
                         dispatch(resetFormState()),
                         dispatch(clearCart()),
                         dispatch(setShippingInfo([]))
                     ]);
-                    navigate('/dashboard/orderDetail',{
-                        state: {
-                            id: res.id,
-                            date: res.date,
-                            price: res.totalPrice,
-                            productCount: "5",
-                            status: "Completed"
-                        }
-                    });
+                    
+                    navigate('/dashboard/orderDetail',{state: {res}});
                 }
             }
         }

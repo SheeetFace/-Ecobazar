@@ -9,19 +9,15 @@ import PaidProductsTable from '../../organisms/pages/orderDetailDashboardPage/Pa
 import styles from '../OrderDetailDashboardPage/OrderDetailDashboardPage.module.scss';
 
 import type { ILocation } from '../../../types/locationTypes';
+import { ResponseOrderDataType } from '../../../types/db/order/responseOrderDataType';
 
-interface State{
-    date: string;
-    id: string;
-    price: string;
-    productCount:string;
-    status: string;
-}
-
+type LocationResponseOrderDataType = {res:ResponseOrderDataType}
 
 const OrderDetailDashboardPage:React.FC = () => {
 
-    const data:ILocation<State> = useLocation()
+    const data:ILocation<LocationResponseOrderDataType> = useLocation();
+
+    const {date,productIDs,id,status,totalPrice,shipping,paymentMethod} = data.state.res;
 
     return (
         <section className={styles.OrderDetailDashboardPage}>
@@ -29,9 +25,9 @@ const OrderDetailDashboardPage:React.FC = () => {
                 <div className={styles._info}>
                     <h1>Order Detail</h1>
                     <span>&#8226;</span>
-                    <span>{data.state.date}</span>
+                    <span>{date}</span>
                     <span>&#8226;</span>
-                    <span>{data.state.productCount} Products</span>
+                    <span>{productIDs.length} Products</span>
                 </div>
                 <NavLink to='/dashboard/orderHistory' className='_navLinkGreenPrimaryLetterSpacing'>Back To List</NavLink>
             </div>
@@ -40,14 +36,14 @@ const OrderDetailDashboardPage:React.FC = () => {
             
             <div className={styles._container}>
                 <div className={styles._billingAndShipping}>
-                    <BillingAndShipping/>
+                    <BillingAndShipping shipping={shipping}/>
                 </div>
                 <div className={styles._summerPaid}>
-                    <SummaryPaid id={data.state.id}/>
+                    <SummaryPaid id={id} totalPrice={totalPrice} paymentMethod={paymentMethod}/>
                 </div>
             </div>
             <div className={styles._tracker}>
-                <ProgressTracker status={data.state.status}/>
+                <ProgressTracker status={status}/>
             </div>
 
             <div className={styles._table}>

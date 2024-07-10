@@ -1,66 +1,39 @@
-import Divider from '../../../../atoms/Divider/Divider';
+import { useMemo } from 'react';
+
+import { useAppSelector } from '../../../../../store/store';
+
+import AddressDetails from './AddressDetails/AddressDetails';
+
 
 import styles from '../BillingAndShipping/BillingAndShipping.module.scss';
 
-const BillingAndShipping:React.FC = () => {
+// import type { UserDataSettingsOrAddressType } from '../../../../../types/userTypes';
+import { UserDataType } from '../../../../../types/userTypes';
+
+
+interface BillingAndShippingProps {
+    shipping: Partial<UserDataType['billingAddress']>[];
+  }
+
+const BillingAndShipping:React.FC<BillingAndShippingProps> = ({shipping}) => {
+
+    const userBilling = useAppSelector((state)=>state.auth.user?.billingAddress)
+
+    const combinedAddress = useMemo(() => {
+
+        if(shipping.length ===0) return userBilling
+        if(!userBilling) return undefined
+
+        const shippingData = shipping.reduce((acc,item)=>({ ...acc, ...item }),{});
+
+        return{...userBilling,...shippingData}
+
+    },[userBilling, shipping]);
 
     return (
         <div className={styles.BillingAndShipping}>
-
-            <div className={styles._billing}>
-                <div className={styles._title}>BILLING ADDRESS</div>
-                <Divider type='horizontal' className={styles._divider}/>
-
-                <div className={styles._container}>
-                    <div className={styles._nameAndAddress}>
-                        <span className={styles._name}>
-                            Dainne Russell
-                        </span>
-                        <span className={styles._address}>
-                            4140 Parker Rd. Allentown, New Mexico 31134
-                        </span>
-                    </div>
-                    
-                    <div className={styles._wrapper}>
-                        <label>EMAIL</label>
-                        <span>dainne.ressell@gmail.com</span>
-                    </div>
-
-                    <div className={styles._wrapper}>
-                        <label>PHONE</label>
-                        <span>(671) 555-0110</span>
-                    </div>
-                </div>
-
-            </div>
-
-            <div className={styles._shipping}>
-                <div className={styles._title}>SHIPPING ADDRESS</div>
-                <Divider type='horizontal' className={styles._divider}/>
-
-                <div className={styles._container}>
-                    <div className={styles._nameAndAddress}>
-                        <span className={styles._name}>
-                            Dainne Russell
-                        </span>
-                        <span className={styles._address}>
-                            4140 Parker Rd. Allentown, New Mexico 31134
-                        </span>
-                    </div>
-                    
-                    <div className={styles._wrapper}>
-                        <label>EMAIL</label>
-                        <span>dainne.ressell@gmail.com</span>
-                    </div>
-
-                    <div className={styles._wrapper}>
-                        <label>PHONE</label>
-                        <span>(671) 555-0110</span>
-                    </div>
-                </div>
-
-            </div>
-
+            <AddressDetails title='BILLING' data={userBilling}/>
+            <AddressDetails title='SHIPPING' data={combinedAddress}/>
         </div>
     )
 }
