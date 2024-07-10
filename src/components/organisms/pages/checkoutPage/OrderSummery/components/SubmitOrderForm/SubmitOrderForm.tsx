@@ -10,9 +10,8 @@ import { useLoadingAndError} from '../../../../../../../hooks/useLoadingAndError
 
 import useOrderData from '../../../../../../../hooks/db/useOrderData';
 
-import { resetFormState } from '../../../../../../../store/slices/checkoutFormSlice';
+import { resetFormState,setShippingInfo } from '../../../../../../../store/slices/checkoutFormSlice';
 import { clearCart } from '../../../../../../../store/slices/cartSlice';
-import { setShippingInfo} from '../../../../../../../store/slices/checkoutFormSlice';
 
 import Button from '../../../../../../atoms/Button/Button';
 import AlertMessage from '../../../../../../molecules/AlertMessage/AlertMessage';
