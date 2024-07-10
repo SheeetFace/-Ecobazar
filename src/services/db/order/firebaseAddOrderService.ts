@@ -1,15 +1,9 @@
 import { getFirestore, setDoc, collection, addDoc } from "firebase/firestore";
 
-interface Order {
-    date:string,
-    shipping:Record<string,string>[]|[],
-    totalPrice:string,
-    productIDs:string[],
-    method:string,
-    status:string,
-}
+import type { SummitOrderType } from "../../../types/db/order/submitOrderType";
 
-export const firebaseAddOrderService = async (userUID: string, orderData:Order) => {
+
+export const firebaseAddOrderService = async (userUID: string, orderData:SummitOrderType) => {
   const db = getFirestore();
   
   const userOrdersCollectionRef = collection(db, 'orders', userUID, 'userOrders');
@@ -20,7 +14,8 @@ export const firebaseAddOrderService = async (userUID: string, orderData:Order) 
       totalPrice: orderData.totalPrice,
       status: orderData.status,
       productIDs: orderData.productIDs,
-      shipping:orderData.shipping
+      shipping:orderData.shipping,
+      paymentMethod:orderData.paymentMethod
     });
 
     const newOrderId = newOrderRef.id;

@@ -39,10 +39,13 @@ const checkoutFormSlice = createSlice({
     },
 });
 
-const selectStateInfo = (state:{checkoutForm:CheckoutFormState}) => state.checkoutForm.shippingInfo;
+const selectStateInfo = (state:{checkoutForm:CheckoutFormState}) => state.checkoutForm;
 
 export const selectShippingInfo = createSelector(
-    selectStateInfo,(state) => state
+    selectStateInfo,(state) => state.shippingInfo
+);
+export const selectPaymentMethod = createSelector(
+    selectStateInfo,(state) => state.paymentMethodValid
 );
 
 export const { setBillingInfoValid, setPaymentMethodValid,setShippingInfo, resetFormState } = checkoutFormSlice.actions;

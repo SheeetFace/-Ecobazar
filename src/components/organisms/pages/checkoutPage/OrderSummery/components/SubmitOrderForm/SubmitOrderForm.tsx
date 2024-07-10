@@ -6,8 +6,8 @@ import useTotalPrice from '../../../../../../../hooks/useTotalPrice';
 
 import { resetFormState } from '../../../../../../../store/slices/checkoutFormSlice';
 import { clearCart } from '../../../../../../../store/slices/cartSlice';
-import { selectShippingInfo, setShippingInfo } from '../../../../../../../store/slices/checkoutFormSlice';
-import { selectCartItemIDs } from '../../../../../../../store/slices/cartSlice';
+import { selectShippingInfo, setShippingInfo,selectPaymentMethod } from '../../../../../../../store/slices/checkoutFormSlice';
+import { selectCartItemsArray } from '../../../../../../../store/slices/cartSlice';
 
 import { formatDate } from '../../../../../../../utils/formatDate';
 
@@ -22,9 +22,10 @@ const SubmitOrderForm:React.FC = () => {
 
     const isFormReady = useAppSelector((state)=> state.checkoutForm.isFormReady);
     const shippingInfo = useAppSelector((state)=>selectShippingInfo(state))
+    const paymentMethod = useAppSelector((state)=>selectPaymentMethod(state))
     const userID = useAppSelector((state)=>state.auth.user?.uid)
 
-    const productIDs = useAppSelector((state)=>selectCartItemIDs(state))
+    const productIDs = useAppSelector((state)=>selectCartItemsArray(state))
 
     const totalPrice = useTotalPrice()
 
@@ -42,7 +43,7 @@ const SubmitOrderForm:React.FC = () => {
                 shipping:shippingInfo,
                 totalPrice,
                 productIDs,
-                method:'Pay Pal', //!
+                paymentMethod:paymentMethod || 'PayPal',
                 status:"Completed"
             })
             dispatch(resetFormState())
