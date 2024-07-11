@@ -1,24 +1,36 @@
+import usePagination from '../../../../../hooks/usePagination';
+import { useQueryDataByUserID } from '../../../../../hooks/useQueryDataByUserID';
+
+import { selectOrdersStatus,selectOrderHistory,updateStatus,updateAllOrderHistory } from '../../../../../store/slices/orderHistorySlice';
+
+import { firebaseGetUserOrdersService } from '../../../../../services/db/order/firebaseGetUserOrdersService';
+
 import HeaderOrderHistoryTable from '../../../../molecules/pages/components/HeaderOrderHistoryTable/HeaderOrderHistoryTable';
 import OrderHistoryItemTable from '../../../../molecules/pages/components/OrderHistoryItemTable/OrderHistoryItemTable';
 
 import PaginationButtons from '../../../PaginationButtons/PaginationButtons';
 
-import { orderHistoryData } from '../../../../../data/temp/orderHistoryData';
-
-import usePagination from '../../../../../hooks/usePagination';
-
 import styles from '../OrderHistoryTable/OrderHistoryTable.module.scss'
 
+import { ResponseOrderDataType } from '../../../../../types/db/order/responseOrderDataType';
 
 const OrderHistoryTable: React.FC = () => {
 
+  const { queryData, renderLoaderOrError} = useQueryDataByUserID<ResponseOrderDataType[]>(
+    selectOrdersStatus,
+    selectOrderHistory,
+    firebaseGetUserOrdersService,
+    updateStatus,
+    updateAllOrderHistory
+)
+
     const itemsPerPage= 18;
-    const totalItems = orderHistoryData.length;
+    const totalItems = queryData.length;
   
     const {displayedData,currentPage,goToNextPage,goToPrevPage,goToPage} = usePagination(
         totalItems,
         itemsPerPage,
-        orderHistoryData
+        queryData
     );
   
     const renderOrderHistoryItemTable = () => {
@@ -28,8 +40,8 @@ const OrderHistoryTable: React.FC = () => {
             key={i}
             id={item.id}
             date={item.date}
-            price={item.price}
-            productCount={item.productCount}
+            price={item.totalPrice}
+            productCount={(item.productIDs.length).toString()||'N/A'}
             status={item.status}
           />
         );
@@ -39,6 +51,7 @@ const OrderHistoryTable: React.FC = () => {
     return (
       <>
       <div className={styles.OrderHistoryTable}>
+        {renderLoaderOrError()}
         <table >
           <HeaderOrderHistoryTable />
           {renderOrderHistoryItemTable()}
