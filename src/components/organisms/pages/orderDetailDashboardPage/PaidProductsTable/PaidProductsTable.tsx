@@ -12,7 +12,7 @@ import type { ProductsID } from '../../../../../types/db/order/submitOrderType';
 interface PaidProductsTableProps{
     productIDs:ProductsID[]
 }
-type GetType = 'IDS'|string
+type GetType = 'IDS'|string;
 
 const PaidProductsTable:React.FC<PaidProductsTableProps> = ({productIDs}) => {
 
