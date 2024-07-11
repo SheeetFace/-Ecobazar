@@ -47,7 +47,7 @@ const OrderDetailDashboardPage:React.FC = () => {
             </div>
 
             <div className={styles._table}>
-                <PaidProductsTable/>
+                <PaidProductsTable productIDs={productIDs}/>
             </div>
         </section>
     )

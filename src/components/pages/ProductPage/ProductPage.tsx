@@ -25,9 +25,9 @@ const ProductPage:React.FC = () => {
 
     useScrollToTop(0,'instant')
 
-    const LocationState = useLocation();
+    const locationState = useLocation();
 
-    const data:ProductDataType = LocationState.state.data;
+    const data:ProductDataType = locationState.state.data;
     const dataCategory = data.category as CategoryProductValue;
 
     const productInfoData:ProductInfoData={

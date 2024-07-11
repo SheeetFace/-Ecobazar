@@ -1,4 +1,4 @@
-type ProductsID= { ID: string; quantity: number;}
+export type ProductsID= { ID: string; quantity: number;}
 
 export interface SubmitOrderType {
     date:string,

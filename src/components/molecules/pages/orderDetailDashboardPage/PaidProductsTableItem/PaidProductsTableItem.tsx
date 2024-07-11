@@ -1,24 +1,23 @@
 import { NavLink } from 'react-router-dom';
 
 import styles from '../PaidProductsTableItem/PaidProductsTableItem.module.scss';
+import { ProductDataType } from '../../../../../types/productDataTypes';
 
 interface PaidProductsTableItemProps{
-    id:string
-    name:string
-    category:string
-    currentCost:string
+    productData:ProductDataType
     quantity:string
     subtotal:string
 }
-const PaidProductsTableItem:React.FC<PaidProductsTableItemProps> = ({id,name,category,currentCost,quantity,subtotal}) => {
+const PaidProductsTableItem:React.FC<PaidProductsTableItemProps> = ({productData,quantity,subtotal}) => {
 
-    //! mb i have to full path push (/vegetable/123 or /meat/123)
+    const {name,currentCost} =  productData;
 
     return (
         <tr className={styles.PaidProductsTableItem}>
             <td>   
-                <NavLink    to={`/shop/${category}/${id}`}
-                            className='_navLinkGreenPrimary'>  
+                <NavLink to={`/shop/${name}`}
+                         state={{data: productData}} 
+                         className='_navLinkGreenPrimary'>  
                     {name}
                 </NavLink>
             </td>
