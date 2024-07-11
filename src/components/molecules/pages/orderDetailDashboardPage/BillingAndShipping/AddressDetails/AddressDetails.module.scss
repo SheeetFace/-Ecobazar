@@ -1,0 +1,56 @@
+@import '../../../../../../styles/colors.scss';
+@import '../../../../../../styles/typography.scss';
+
+._border{
+    border-left: 1px solid $grey-2;
+}
+.AddressDetails{
+    width: 50%;
+
+    ._divider{
+        background-color:$grey-2;
+    }
+    ._title{
+        padding: 1.2rem;
+        color:$grey-3;
+        font-weight: $medium;
+    }
+
+    ._container{
+        display: flex;
+        flex-direction: column;
+        padding:1.2rem;
+        gap:1rem;
+
+        ._nameAndAddress{
+            display: flex;
+            flex-direction: column;
+            gap:.3rem;
+
+            ._name{
+                font-size: $body-large;
+            }
+            ._address{
+                height:60px;
+                overflow: auto;
+                color:$grey-5;
+            }
+        }
+
+        ._wrapper{
+            display: flex;
+            flex-direction: column;
+            gap:.1rem;
+
+            label{
+                font-size: $body-small;
+                color:$grey-4;
+                font-weight: $medium;
+            }
+            span{
+                height:33px;
+                overflow: auto;
+            }
+        }
+    }
+}

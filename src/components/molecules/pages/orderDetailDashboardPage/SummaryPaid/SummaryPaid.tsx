@@ -5,9 +5,11 @@ import styles from '../SummaryPaid/SummaryPaid.module.scss';
 
 interface SummaryPaidProps{
     id:string
+    totalPrice:string
+    paymentMethod:string
 }
 
-const SummaryPaid:React.FC<SummaryPaidProps> = ({id}) => {
+const SummaryPaid:React.FC<SummaryPaidProps> = ({id,totalPrice,paymentMethod}) => {
 
     return (
         <section className={styles.SummaryPaid}>
@@ -18,17 +20,17 @@ const SummaryPaid:React.FC<SummaryPaidProps> = ({id}) => {
                     <span className={styles._idOrMethod}>#{id}</span>
                 </div>
 
-                <Divider type='vertical' className={styles._divider}/>
+                <Divider type='horizontal' className={styles._divider}/>
 
                 <div className={styles._container}>
                     <span>PAYMENT METHOD</span>
-                    <span className={styles._idOrMethod}>PayPal</span>
+                    <span className={styles._idOrMethod}>{paymentMethod}</span>
                 </div>
             </div>
 
             <Divider type='horizontal' className={styles._divider}/>
 
-            <PaymentSummary/>
+            <PaymentSummary type='detail' totalPriceProp={totalPrice} />
         </section>
     )
 }

@@ -6,9 +6,19 @@ import Divider from '../../../../atoms/Divider/Divider';
 
 import styles from '../PaymentSummary/PaymentSummary.module.scss';
 
-const PaymentSummary:React.FC = () => {
+interface PaymentSummaryProps{
+    type?:'detail'|'checkout'
+    totalPriceProp?:string
+}
 
-    const totalPrice = useTotalPrice()
+const PaymentSummary:React.FC<PaymentSummaryProps> = ({type='checkout',totalPriceProp}) => {
+
+    const totalPriceRedux = useTotalPrice()
+
+    let totalPrice;
+
+    if(type==='detail') totalPrice =totalPriceProp
+    else totalPrice = totalPriceRedux;
 
     return (
         <div className={styles.PaymentSummary}>
