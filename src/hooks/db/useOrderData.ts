@@ -18,7 +18,7 @@ const useOrderData = ():OrderData|Error=>{
 
     const shippingInfo = useAppSelector((state)=>selectShippingInfo(state))
     const paymentMethod = useAppSelector((state)=>selectPaymentMethod(state))
-    const userID = useAppSelector((state)=>state.auth.user?.uid)
+    const userID = useAppSelector((state)=>state.auth?.user?.uid)
 
     const productIDs = useAppSelector((state)=>selectCartItemsArray(state))
 
