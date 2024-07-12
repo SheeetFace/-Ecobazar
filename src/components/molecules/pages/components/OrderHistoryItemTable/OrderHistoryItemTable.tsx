@@ -2,28 +2,22 @@ import { NavLink } from 'react-router-dom';
 
 import styles from '../OrderHistoryItemTable/OrderHistoryItemTable.module.scss';
 
-interface OrderHistoryItemTableProps{
-    id:string
-    date:string
-    price:string
-    productCount:string
-    status:string
-}
+import type { ResponseOrderDataType } from '../../../../../types/db/order/responseOrderDataType';
 
-const OrderHistoryItemTable:React.FC<OrderHistoryItemTableProps> = ({id,date,price,productCount,status}) => {
 
+const OrderHistoryItemTable:React.FC<ResponseOrderDataType> = (item) => {
     return (
         <tr className={styles.OrderHistoryItemTable}>
-            <td>#{id}</td>
-            <td>{date}</td>
+            <td>#{item.id}</td>
+            <td>{item.date}</td>
             <td>
-                <span className={styles._price}>{price}</span> 
-                ({productCount} Products)
+                <span className={styles._price}>{item.totalPrice}</span> 
+                ({(item.productIDs.length).toString()||'N/A'} Products)
             </td>
-            <td>{status}</td>
+            <td>{item.status}</td>
             <td className={styles._tdNavlink}>
                 <NavLink    to='/dashboard/orderDetail'
-                            state={{id,date,price,productCount,status}} 
+                            state={{res:item}} 
                             className='_navLinkGreenPrimary'>  
                     View Details
                 </NavLink>
