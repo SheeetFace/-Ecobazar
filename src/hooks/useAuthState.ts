@@ -7,6 +7,7 @@ import { useAppDispatch } from '../store/store';
 import { setLoading, setError, updateUserData } from '../store/slices/authSlice';
 import { clearWishlist } from '../store/slices/wishlistSlice';
 import { clearCart } from '../store/slices/cartSlice';
+import { clearOrderHistory } from '../store/slices/orderHistorySlice';
 
 import { firebaseGetUserDataByUid } from '../services/db/user/firebaseGetUserDataByUid';
 import { firebaseCheckUserDataWithRetryService } from '../services/db/user/firebaseCheckUserDataWithRetryService';
@@ -50,6 +51,7 @@ export const useAuthState = () => {
         dispatch(clearWishlist())
         dispatch(clearCart())
         dispatch(setLoading(false))
+        dispatch(clearOrderHistory())
       }
     })
 
