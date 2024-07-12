@@ -9,6 +9,7 @@ import { NavLink } from 'react-router-dom';
 import ShoppingCartCard from '../../../../molecules/card/ShoppingCartCard/ShoppingCartCard';
 import Divider from '../../../../atoms/Divider/Divider';
 import Button from '../../../../atoms/Button/Button';
+import NotingFound from '../../../../atoms/NothingFound/NothingFound';
 
 import styles from '../ShoppingCart/ShoppingCart.module.scss';
 
@@ -58,7 +59,7 @@ const ShoppingCart:React.FC = () => {
             <Divider type='horizontal' className={styles._divider}/>
 
             <div className={styles._cardContainer}>
-                {filteredProducts.length ===0 ? <h1>Your Cart is Empty</h1> :null}
+                {filteredProducts.length ===0 ? <NotingFound message ='Your Cart is Empty'/> :null}
 
                 {renderShoppingCartCard}
             </div>
