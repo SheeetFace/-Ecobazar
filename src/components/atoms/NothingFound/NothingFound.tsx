@@ -1,11 +1,16 @@
 import styles from '../NothingFound/NothingFound.module.scss';
 
-const NotingFound:React.FC = () => {
+interface NotingFoundProps{
+    message?:string
+}
+
+const NotingFound:React.FC<NotingFoundProps> = ({message='Oops, nothing found.'}) => {
 
     return (
         <div className={styles.NothingFound}>
-                <h3>Oops, nothing found.</h3>
-                <span>🥦</span>
+            <span>⛅</span>
+            <h3>{message}</h3>
+            <span>🌱🌱🌱</span>
         </div>
     )
 }
