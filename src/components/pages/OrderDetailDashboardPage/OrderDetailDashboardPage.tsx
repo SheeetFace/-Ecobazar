@@ -1,6 +1,8 @@
 import { useLocation,NavLink } from 'react-router-dom';
 import useScrollToTop from '../../../hooks/useScrollToTop';
 
+import { formatDate } from '../../../utils/formatDate';
+
 import Divider from '../../atoms/Divider/Divider';
 import BillingAndShipping from '../../molecules/pages/orderDetailDashboardPage/BillingAndShipping/BillingAndShipping';
 import SummaryPaid from '../../molecules/pages/orderDetailDashboardPage/SummaryPaid/SummaryPaid';
@@ -27,7 +29,7 @@ const OrderDetailDashboardPage:React.FC = () => {
                 <div className={styles._info}>
                     <h1>Order Detail</h1>
                     <span>&#8226;</span>
-                    <span>{date}</span>
+                    <span>{formatDate(date, 'full')}</span>
                     <span>&#8226;</span>
                     <span>{productIDs.length} Products</span>
                 </div>

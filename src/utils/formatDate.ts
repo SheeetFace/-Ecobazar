@@ -1,14 +1,33 @@
-type Format = 'short'|'normal'
+type Format = 'short'|'normal'|'full'
 
-type FormatDate = (dateString:string, format:Format)=>string
+type FormatDate = (date:string|number, format:Format)=>string
 
-export const formatDate:FormatDate=(dateString, format)=>{
-    const date = new Date(dateString);
-    const day = date.getDate();
-    const month = date.toLocaleString('en-US',{ month: 'short' }).toUpperCase();
-    const year = date.getFullYear();
+export const formatDate:FormatDate=(date, format)=>{
 
-    if(format === 'short') return `${day} ${month}`
-    else if(format === 'normal')return `${day} ${month}, ${year}`
-    else return dateString
+    let typeDate:string;
+
+    if(typeof date === 'number') typeDate = new Date(date).toISOString();
+    else if (typeof date === 'string') typeDate = date;
+    else return 'Invalid Date';
+    
+    const newDate = new Date(typeDate);
+    
+    if(isNaN(newDate.getTime())) return 'Invalid Date';
+    
+    const day = newDate.getDate().toString().padStart(2, '0');
+    const month = newDate.toLocaleString('en-US', { month: 'short' }).toUpperCase();
+    const year = newDate.getFullYear();
+    const hours = newDate.getHours().toString().padStart(2, '0');
+    const minutes = newDate.getMinutes().toString().padStart(2, '0');
+
+    switch(format){
+        case 'short':
+            return `${day} ${month}`;
+        case 'normal':
+            return `${day} ${month}, ${year}`;
+        case 'full':
+            return `${day} ${month}, ${year} ${hours}:${minutes}`;
+        default:
+            return 'Invalid Date';
+    }
 }
