@@ -1,3 +1,5 @@
+import { useMemo } from 'react';
+
 import { NavLink } from 'react-router-dom';
 
 import { useQueryDataByUserID } from '../../../../../hooks/useQueryDataByUserID';
@@ -14,6 +16,7 @@ import styles from '../RecentOrderHistory/RecentOrderHistory.module.scss';
 
 import type { ResponseOrderDataType } from '../../../../../types/db/order/responseOrderDataType';
 
+
 const RecentOrderHistory:React.FC = () => {
 
     const { queryData, renderLoaderOrError} = useQueryDataByUserID<ResponseOrderDataType[]>(
@@ -24,15 +27,16 @@ const RecentOrderHistory:React.FC = () => {
         updateAllOrderHistory
     )
 
-    const renderOrderHistoryItemTable =()=>{
+    const renderOrderHistoryItemTable =useMemo(()=>{
+        console.log('renderOrderHistoryItemTable')
         return queryData.map((item,i)=>{
-            
+
             if(i<10) return <OrderHistoryItemTable  
                                         key={item.id}
                                         {...item}
                             />
         })
-    }
+    },[queryData])
 
     return (
         <section className={styles.RecentOrderHistory}>
@@ -46,7 +50,7 @@ const RecentOrderHistory:React.FC = () => {
             {renderLoaderOrError()}
             <table>
                 <HeaderOrderHistoryTable/>
-                {renderOrderHistoryItemTable()}
+                {renderOrderHistoryItemTable}
             </table>
         </section>
     )
