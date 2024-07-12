@@ -51,13 +51,17 @@ const PaidProductsTable:React.FC<PaidProductsTableProps> = ({productIDs}) => {
 
     return (
         <table className={styles.PaidProductsTable}>
-            <tr>
-                <td>PRODUCT</td>
-                <td>PRICE</td>
-                <td>QUANTITY</td>
-                <td>SUBTOTAL</td>
-            </tr>
-            {renderPaidProductsTableItem}
+            <thead>
+                <tr>
+                    <th>PRODUCT</th>
+                    <th>PRICE</th>
+                    <th>QUANTITY</th>
+                    <th>SUBTOTAL</th>
+                </tr>
+            </thead>
+            <tbody>
+                {renderPaidProductsTableItem}
+            </tbody>
         </table>
     )
 }
