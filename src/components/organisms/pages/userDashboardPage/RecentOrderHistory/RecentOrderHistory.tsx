@@ -49,10 +49,16 @@ const RecentOrderHistory:React.FC = () => {
                 </NavLink>
             </div>
             {renderLoaderOrError()}
+            
             <table>
-                <HeaderOrderHistoryTable/>
-                {renderOrderHistoryItemTable}
+                <thead>
+                    <HeaderOrderHistoryTable/>
+                </thead>
+                <tbody>
+                    {renderOrderHistoryItemTable}
+                </tbody>
             </table>
+
             {queryData.length ===0 ? <NotingFound message='Order History is Empty.'/> :null}
         </section>
     )
