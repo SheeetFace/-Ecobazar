@@ -12,6 +12,7 @@ import useOrderData from '../../../../../../../hooks/db/useOrderData';
 
 import { resetFormState,setShippingInfo } from '../../../../../../../store/slices/checkoutFormSlice';
 import { clearCart } from '../../../../../../../store/slices/cartSlice';
+import { updateOneOrderHistory } from '../../../../../../../store/slices/orderHistorySlice';
 
 import Button from '../../../../../../atoms/Button/Button';
 import AlertMessage from '../../../../../../molecules/AlertMessage/AlertMessage';
@@ -48,6 +49,7 @@ const SubmitOrderForm:React.FC = () => {
                 const res = await executeAsync(() => firebaseAddOrderService(userID, data)) as ResponseOrderDataType;
                 if(res){
                     await Promise.all([
+                        dispatch(updateOneOrderHistory(res)),
                         dispatch(resetFormState()),
                         dispatch(clearCart()),
                         dispatch(setShippingInfo([]))
