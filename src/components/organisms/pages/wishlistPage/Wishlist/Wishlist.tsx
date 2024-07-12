@@ -6,6 +6,7 @@ import { useProductsByIds } from '../../../../../hooks/products/useProductsByIds
 import Divider from '../../../../atoms/Divider/Divider';
 import SocialMediaIcons from '../../../../molecules/SocialMediaIcons/SocialMediaIcons';
 import WishlistCard from '../../../../molecules/card/WishlistCard/WishlistCard';
+import NotingFound from '../../../../atoms/NothingFound/NothingFound';
 
 import styles from '../Wishlist/Wishlist.module.scss';
 
@@ -56,7 +57,7 @@ const Wishlist:React.FC = () => {
             <Divider type='horizontal' className={styles._divider}/>
                 <div className={styles._cardContainer}>
 
-                    {filteredProducts.length ===0 ? <h1>Your Wishlist is Empty</h1> :null}
+                    {filteredProducts.length ===0 ? <NotingFound message ='Your Wishlist is Empty'/>:null}
 
                     {renderWishlistCard}
 
