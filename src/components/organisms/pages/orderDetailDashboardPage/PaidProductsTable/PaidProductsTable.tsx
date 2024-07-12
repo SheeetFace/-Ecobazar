@@ -35,7 +35,7 @@ const PaidProductsTable:React.FC<PaidProductsTableProps> = ({productIDs}) => {
             let subtotal:string;
 
             if(quantity && typeof quantity ==='number'){
-                subtotal =(quantity * (+item.currentCost)).toString()
+                subtotal =((quantity * (+item.currentCost)).toFixed(2)).toString()
             }else{
                 subtotal = 'N/A'
             }
