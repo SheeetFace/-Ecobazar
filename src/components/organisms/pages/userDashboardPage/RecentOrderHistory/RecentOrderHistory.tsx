@@ -10,7 +10,6 @@ import { firebaseGetUserOrdersService } from '../../../../../services/db/order/f
 
 import HeaderOrderHistoryTable from '../../../../molecules/pages/components/HeaderOrderHistoryTable/HeaderOrderHistoryTable';
 import OrderHistoryItemTable from '../../../../molecules/pages/components/OrderHistoryItemTable/OrderHistoryItemTable';
-
 import NotingFound from '../../../../atoms/NothingFound/NothingFound';
 
 import styles from '../RecentOrderHistory/RecentOrderHistory.module.scss';

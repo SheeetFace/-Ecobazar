@@ -1,3 +1,5 @@
+import useScrollToTop from '../../../hooks/useScrollToTop';
+
 import Profile from '../../molecules/pages/userDashboardPage/Profile/Profile';
 import BillingAddress from '../../molecules/pages/userDashboardPage/BillingAddress/BillingAddress';
 import RecentOrderHistory from '../../organisms/pages/userDashboardPage/RecentOrderHistory/RecentOrderHistory';
@@ -5,6 +7,8 @@ import RecentOrderHistory from '../../organisms/pages/userDashboardPage/RecentOr
 import styles from '../UserDashboardPage/UserDashboardPage.module.scss';
 
 const UserDashboardPage:React.FC = () => {
+
+    useScrollToTop(0,'smooth');
 
     return (
         <div className={styles.UserDashboardPage}>

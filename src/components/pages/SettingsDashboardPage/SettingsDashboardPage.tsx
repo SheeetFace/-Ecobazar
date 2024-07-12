@@ -1,3 +1,5 @@
+import useScrollToTop from '../../../hooks/useScrollToTop';
+
 import AccountSettings from '../../organisms/pages/settingsDashboardPage/AccountSettings/AccountSettings';
 import BillingAddressSettings from '../../organisms/pages/settingsDashboardPage/BillingAddressSettings/BillingAddressSettings';
 import ChangePasswordSettings from '../../organisms/pages/settingsDashboardPage/ChangePasswordSettings/ChangePasswordSettings';
@@ -5,6 +7,8 @@ import ChangePasswordSettings from '../../organisms/pages/settingsDashboardPage/
 import styles from '../SettingsDashboardPage/SettingsDashboardPage.module.scss';
 
 const SettingsDashboardPage:React.FC = () => {
+
+    useScrollToTop(0,'smooth');
 
     return (
         <section className={styles.SettingsDashboardPage}>

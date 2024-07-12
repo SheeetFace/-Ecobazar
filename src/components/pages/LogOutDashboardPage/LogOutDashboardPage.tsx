@@ -1,8 +1,10 @@
+import { useNavigate } from 'react-router-dom';
+
 import { useAppDispatch,useAppSelector } from '../../../store/store';
 
-import { logout } from '../../../store/slices/authSlice';
+import useScrollToTop from '../../../hooks/useScrollToTop';
 
-import { useNavigate } from 'react-router-dom';
+import { logout } from '../../../store/slices/authSlice';
 
 import Button from '../../atoms/Button/Button';
 import Loader from '../../molecules/Loader/Loader';
@@ -13,8 +15,10 @@ import styles from '../LogOutDashboardPage/LogOutDashboardPage.module.scss';
 
 const LogOutDashboardPage:React.FC = () => {
 
-    const loading = useAppSelector((state)=> state.auth.loading)
-    const error = useAppSelector((state)=> state.auth.error)
+    useScrollToTop(0,'smooth');
+
+    const loading = useAppSelector((state)=> state.auth?.loading)
+    const error = useAppSelector((state)=> state.auth?.error)
 
     const dispatch = useAppDispatch()
 
