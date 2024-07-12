@@ -1,3 +1,5 @@
+import { useMemo } from 'react';
+
 import usePagination from '../../../../../hooks/usePagination';
 import { useQueryDataByUserID } from '../../../../../hooks/useQueryDataByUserID';
 
@@ -13,6 +15,7 @@ import PaginationButtons from '../../../PaginationButtons/PaginationButtons';
 import styles from '../OrderHistoryTable/OrderHistoryTable.module.scss'
 
 import { ResponseOrderDataType } from '../../../../../types/db/order/responseOrderDataType';
+
 
 const OrderHistoryTable: React.FC = () => {
 
@@ -33,14 +36,14 @@ const OrderHistoryTable: React.FC = () => {
         queryData
     );
 
-    const renderOrderHistoryItemTable = () => {
+    const renderOrderHistoryItemTable = useMemo(() => {
       return displayedData.map((item) => {
         return <OrderHistoryItemTable
                         key={item.id}
                         {...item}
                 />
       });
-    };
+    },[queryData])
   
     return (
       <>
@@ -48,7 +51,7 @@ const OrderHistoryTable: React.FC = () => {
         {renderLoaderOrError()}
         <table >
           <HeaderOrderHistoryTable />
-          {renderOrderHistoryItemTable()}
+          {renderOrderHistoryItemTable}
         </table>
       </div>
 

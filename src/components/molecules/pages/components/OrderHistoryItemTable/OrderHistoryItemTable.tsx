@@ -8,10 +8,10 @@ import type { ResponseOrderDataType } from '../../../../../types/db/order/respon
 const OrderHistoryItemTable:React.FC<ResponseOrderDataType> = (item) => {
     return (
         <tr className={styles.OrderHistoryItemTable}>
-            <td>#{item.id}</td>
+            <td>#{`${(item.id).slice(0,6)}...`}</td>
             <td>{item.date}</td>
             <td>
-                <span className={styles._price}>{item.totalPrice}</span> 
+                <span className={styles._price}>${item.totalPrice}</span> 
                 ({(item.productIDs.length).toString()||'N/A'} Products)
             </td>
             <td>{item.status}</td>
