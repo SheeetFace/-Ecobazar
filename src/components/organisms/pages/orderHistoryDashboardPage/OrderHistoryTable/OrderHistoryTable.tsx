@@ -9,7 +9,7 @@ import { firebaseGetUserOrdersService } from '../../../../../services/db/order/f
 
 import HeaderOrderHistoryTable from '../../../../molecules/pages/components/HeaderOrderHistoryTable/HeaderOrderHistoryTable';
 import OrderHistoryItemTable from '../../../../molecules/pages/components/OrderHistoryItemTable/OrderHistoryItemTable';
-
+import NotingFound from '../../../../atoms/NothingFound/NothingFound';
 import PaginationButtons from '../../../PaginationButtons/PaginationButtons';
 
 import styles from '../OrderHistoryTable/OrderHistoryTable.module.scss'
@@ -48,13 +48,16 @@ const OrderHistoryTable: React.FC = () => {
     return (
       <>
       <div className={styles.OrderHistoryTable}>
-        {renderLoaderOrError()}
+        
         <table >
           <HeaderOrderHistoryTable />
           {renderOrderHistoryItemTable}
         </table>
-      </div>
+        {renderLoaderOrError()}
+        {queryData.length ===0 ? <NotingFound message='Order History is Empty.'/> :null}
 
+      </div>
+    
       <div className={styles._pagButtons}>
           <PaginationButtons
               totalItems={totalItems}

@@ -9,9 +9,14 @@
     justify-content: center;
     align-items: center;
 
-    padding: 3rem;
+    padding: 2rem;
 
-    font-size:$heading-03;
+    font-size:$heading-04;
     color:$soft-primary-color;
+
+    span{
+        opacity: .8;
+        font-size:$heading-05;
+    }
 
 }

@@ -11,8 +11,10 @@ import { firebaseGetUserOrdersService } from '../../../../../services/db/order/f
 import HeaderOrderHistoryTable from '../../../../molecules/pages/components/HeaderOrderHistoryTable/HeaderOrderHistoryTable';
 import OrderHistoryItemTable from '../../../../molecules/pages/components/OrderHistoryItemTable/OrderHistoryItemTable';
 
+import NotingFound from '../../../../atoms/NothingFound/NothingFound';
 
 import styles from '../RecentOrderHistory/RecentOrderHistory.module.scss';
+
 
 import type { ResponseOrderDataType } from '../../../../../types/db/order/responseOrderDataType';
 
@@ -28,7 +30,7 @@ const RecentOrderHistory:React.FC = () => {
     )
 
     const renderOrderHistoryItemTable =useMemo(()=>{
-        console.log('renderOrderHistoryItemTable')
+
         return queryData.map((item,i)=>{
 
             if(i<10) return <OrderHistoryItemTable  
@@ -52,6 +54,7 @@ const RecentOrderHistory:React.FC = () => {
                 <HeaderOrderHistoryTable/>
                 {renderOrderHistoryItemTable}
             </table>
+            {queryData.length ===0 ? <NotingFound message='Order History is Empty.'/> :null}
         </section>
     )
 }
