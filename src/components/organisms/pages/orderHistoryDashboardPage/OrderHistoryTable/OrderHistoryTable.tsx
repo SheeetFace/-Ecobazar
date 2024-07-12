@@ -49,10 +49,15 @@ const OrderHistoryTable: React.FC = () => {
       <>
       <div className={styles.OrderHistoryTable}>
         
-        <table >
-          <HeaderOrderHistoryTable />
-          {renderOrderHistoryItemTable}
+        <table>
+          <thead>
+              <HeaderOrderHistoryTable/>
+          </thead>
+          <tbody>
+              {renderOrderHistoryItemTable}
+          </tbody>
         </table>
+
         {renderLoaderOrError()}
         {queryData.length ===0 ? <NotingFound message='Order History is Empty.'/> :null}
 
