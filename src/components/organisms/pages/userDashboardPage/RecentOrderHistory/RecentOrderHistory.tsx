@@ -25,19 +25,12 @@ const RecentOrderHistory:React.FC = () => {
     )
 
     const renderOrderHistoryItemTable =()=>{
-        
-        const data =queryData.slice(0,10)
-
-        return data.map((item,i)=>{
-            return(
-                <OrderHistoryItemTable  key={i}
-                                        id={item.id}
-                                        date={item.date}
-                                        price={item.totalPrice}
-                                        productCount={(item.productIDs.length).toString()||'N/A'}
-                                        status={item.status}
-                />
-            )
+        return queryData.map((item,i)=>{
+            
+            if(i<10) return <OrderHistoryItemTable  
+                                        key={item.id}
+                                        {...item}
+                            />
         })
     }
 

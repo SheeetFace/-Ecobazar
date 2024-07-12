@@ -16,13 +16,13 @@ import { ResponseOrderDataType } from '../../../../../types/db/order/responseOrd
 
 const OrderHistoryTable: React.FC = () => {
 
-  const { queryData, renderLoaderOrError} = useQueryDataByUserID<ResponseOrderDataType[]>(
-    selectOrdersStatus,
-    selectOrderHistory,
-    firebaseGetUserOrdersService,
-    updateStatus,
-    updateAllOrderHistory
-)
+    const { queryData, renderLoaderOrError} = useQueryDataByUserID<ResponseOrderDataType[]>(
+      selectOrdersStatus,
+      selectOrderHistory,
+      firebaseGetUserOrdersService,
+      updateStatus,
+      updateAllOrderHistory
+    ) 
 
     const itemsPerPage= 18;
     const totalItems = queryData.length;
@@ -32,19 +32,13 @@ const OrderHistoryTable: React.FC = () => {
         itemsPerPage,
         queryData
     );
-  
+
     const renderOrderHistoryItemTable = () => {
-      return displayedData.map((item, i) => {
-        return (
-          <OrderHistoryItemTable
-            key={i}
-            id={item.id}
-            date={item.date}
-            price={item.totalPrice}
-            productCount={(item.productIDs.length).toString()||'N/A'}
-            status={item.status}
-          />
-        );
+      return displayedData.map((item) => {
+        return <OrderHistoryItemTable
+                        key={item.id}
+                        {...item}
+                />
       });
     };
   
@@ -56,7 +50,6 @@ const OrderHistoryTable: React.FC = () => {
           <HeaderOrderHistoryTable />
           {renderOrderHistoryItemTable()}
         </table>
-        
       </div>
 
       <div className={styles._pagButtons}>
