@@ -43,7 +43,7 @@ const OrderHistoryTable: React.FC = () => {
                         {...item}
                 />
       });
-    },[queryData])
+    },[displayedData])
   
     return (
       <>

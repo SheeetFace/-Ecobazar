@@ -5,7 +5,6 @@ import useTotalPrice from "../useTotalPrice";
 import { selectShippingInfo,selectPaymentMethod } from "../../store/slices/checkoutFormSlice";
 import { selectCartItemsArray } from "../../store/slices/cartSlice";
 
-import { formatDate } from "../../utils/formatDate";
 
 import type { SubmitOrderType } from "../../types/db/order/submitOrderType";
 
@@ -29,7 +28,7 @@ const useOrderData = ():OrderData|Error=>{
     return{
         userID,
         data:{
-            date:formatDate(new Date().toString(), 'normal'),
+            date:new Date().getTime(),
             shipping:shippingInfo,
             totalPrice,
             productIDs,

@@ -27,8 +27,7 @@ const orderHistorySlice = createSlice({
             state.orderHistory = newOrderHistory;
         },
         updateOneOrderHistory(state, action: PayloadAction<OrderHistory>){
-            const newOrderHistory = action.payload;
-            state.orderHistory.push(newOrderHistory);
+            state.orderHistory.unshift(action.payload);
         },
         clearOrderHistory(state){
             state.orderHistory=[]
