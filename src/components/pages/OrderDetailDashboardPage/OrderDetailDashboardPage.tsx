@@ -1,4 +1,5 @@
 import { useLocation,NavLink } from 'react-router-dom';
+import useScrollToTop from '../../../hooks/useScrollToTop';
 
 import Divider from '../../atoms/Divider/Divider';
 import BillingAndShipping from '../../molecules/pages/orderDetailDashboardPage/BillingAndShipping/BillingAndShipping';
@@ -15,6 +16,7 @@ type LocationResponseOrderDataType = {res:ResponseOrderDataType}
 
 const OrderDetailDashboardPage:React.FC = () => {
 
+    useScrollToTop(0,'smooth');
     const data:ILocation<LocationResponseOrderDataType> = useLocation();
 
     const {date,productIDs,id,status,totalPrice,shipping,paymentMethod} = data.state.res;
