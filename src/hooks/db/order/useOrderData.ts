@@ -1,12 +1,12 @@
-import { useAppSelector } from "../../store/store";
+import { useAppSelector } from "../../../store/store";
 
-import useTotalPrice from "../useTotalPrice";
+import useTotalPrice from "../../useTotalPrice";
 
-import { selectShippingInfo,selectPaymentMethod } from "../../store/slices/checkoutFormSlice";
-import { selectCartItemsArray } from "../../store/slices/cartSlice";
+import { selectShippingInfo,selectPaymentMethod } from "../../../store/slices/checkoutFormSlice";
+import { selectCartItemsArray } from "../../../store/slices/cartSlice";
 
 
-import type { SubmitOrderType } from "../../types/db/order/submitOrderType";
+import type { SubmitOrderType } from "../../../types/db/order/submitOrderType";
 
 interface OrderData{
     userID:string,
