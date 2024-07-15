@@ -20,7 +20,7 @@ import type { ResponseOrderDataType } from '../../../../../types/db/order/respon
 
 const RecentOrderHistory:React.FC = () => {
 
-    const { queryData, renderLoaderOrError} = useQueryDataByUserID<ResponseOrderDataType[]>(
+    const { queryData, renderLoaderOrError, isLoading} = useQueryDataByUserID<ResponseOrderDataType[]>(
         selectOrdersStatus,
         selectOrderHistory,
         firebaseGetUserOrdersService,
@@ -48,7 +48,7 @@ const RecentOrderHistory:React.FC = () => {
                     View All
                 </NavLink>
             </div>
-            {renderLoaderOrError()}
+
             
             <table>
                 <thead>
@@ -58,8 +58,8 @@ const RecentOrderHistory:React.FC = () => {
                     {renderOrderHistoryItemTable}
                 </tbody>
             </table>
-
-            {queryData.length ===0 ? <NotingFound message='Order History is Empty.'/> :null}
+            {renderLoaderOrError()}
+            {(queryData.length ===0 && !isLoading) ? <NotingFound message='Order History is Empty.'/> :null}
         </section>
     )
 }

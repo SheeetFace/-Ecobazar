@@ -9,8 +9,8 @@ import { firebaseGetUserOrdersService } from '../../../../../services/db/order/f
 
 import HeaderOrderHistoryTable from '../../../../molecules/pages/components/HeaderOrderHistoryTable/HeaderOrderHistoryTable';
 import OrderHistoryItemTable from '../../../../molecules/pages/components/OrderHistoryItemTable/OrderHistoryItemTable';
-import NotingFound from '../../../../atoms/NothingFound/NothingFound';
 import PaginationButtons from '../../../PaginationButtons/PaginationButtons';
+import NotingFound from '../../../../atoms/NothingFound/NothingFound';
 
 import styles from '../OrderHistoryTable/OrderHistoryTable.module.scss'
 
@@ -19,12 +19,12 @@ import { ResponseOrderDataType } from '../../../../../types/db/order/responseOrd
 
 const OrderHistoryTable: React.FC = () => {
 
-    const { queryData, renderLoaderOrError} = useQueryDataByUserID<ResponseOrderDataType[]>(
+    const { queryData, renderLoaderOrError,isLoading} = useQueryDataByUserID<ResponseOrderDataType[]>(
       selectOrdersStatus,
       selectOrderHistory,
       firebaseGetUserOrdersService,
       updateStatus,
-      updateAllOrderHistory
+      updateAllOrderHistory,
     ) 
 
     const itemsPerPage= 18;
@@ -48,7 +48,7 @@ const OrderHistoryTable: React.FC = () => {
     return (
       <>
       <div className={styles.OrderHistoryTable}>
-        
+
         <table>
           <thead>
               <HeaderOrderHistoryTable/>
@@ -57,9 +57,8 @@ const OrderHistoryTable: React.FC = () => {
               {renderOrderHistoryItemTable}
           </tbody>
         </table>
-
         {renderLoaderOrError()}
-        {queryData.length ===0 ? <NotingFound message='Order History is Empty.'/> :null}
+        {(queryData.length ===0 && !isLoading) ? <NotingFound message='Order History is Empty.'/> :null}
 
       </div>
     

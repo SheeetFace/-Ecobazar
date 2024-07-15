@@ -22,6 +22,7 @@ type ServiceFnError={
 type QueryReturn<Q>={
     queryData: Q
     renderLoaderOrError: ()=>JSX.Element|null
+    isLoading:boolean
 }
 
 export const useQueryDataByUserID = <Q,>(
@@ -29,7 +30,7 @@ export const useQueryDataByUserID = <Q,>(
     dataSelector:Selector<Q>,
     serviceFn:ServiceFn<Q>,
     statusDispatch:Dispatch<Status>,
-    writeDispatch:Dispatch<Q>
+    writeDispatch:Dispatch<Q>,
 ):QueryReturn<Q>=>{
 
     const dispatch = useAppDispatch()
@@ -38,7 +39,7 @@ export const useQueryDataByUserID = <Q,>(
     const status = useAppSelector(statusSelector)
     const queryData = useAppSelector(dataSelector)
 
-    const { executeAsync, renderLoaderOrError } = useLoadingAndError<Q>();
+    const { executeAsync, renderLoaderOrError, isLoading } = useLoadingAndError<Q>('block');
 
     const fetchDataRef = useRef<(()=>Promise<void>)|null>(null);
 
@@ -59,5 +60,5 @@ export const useQueryDataByUserID = <Q,>(
         if(fetchDataRef.current) fetchDataRef.current();
     },[])
 
-    return { queryData, renderLoaderOrError }
+    return {  queryData, renderLoaderOrError, isLoading }
 }
