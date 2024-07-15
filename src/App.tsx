@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom';
 
 import { useAuthState } from './hooks/useAuthState';
 import { useGetProductsQuery } from './api/products/productApi';
+import { useCartSync } from './hooks/db/useCartSync';
 
 import Divider from './components/atoms/Divider/Divider';
 import Header from './components/organisms/Header/Header';
@@ -27,6 +28,7 @@ function App() {
 
   useAuthState()
   useGetProductsQuery()
+  useCartSync()
 
   return (
     <main className={styles.App}>

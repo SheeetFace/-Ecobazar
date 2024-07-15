@@ -57,6 +57,7 @@ const OrderHistoryTable: React.FC = () => {
               {renderOrderHistoryItemTable}
           </tbody>
         </table>
+        
         {renderLoaderOrError()}
         {(queryData.length ===0 && !isLoading) ? <NotingFound message='Order History is Empty.'/> :null}
 
