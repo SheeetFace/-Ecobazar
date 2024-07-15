@@ -4,6 +4,7 @@ import useScrollLock from './useScrollLock';
 
 import FullScreenLoader from '../components/organisms/FullScreenLoader/FullScreenLoader';
 import FormValidationMessage from '../components/atoms/form/FormValidationMessage/FormValidationMessage';
+import Loader from '../components/molecules/Loader/Loader';
 
 interface Status{
     status:boolean
@@ -17,14 +18,16 @@ interface PromiseFunc<T>{
 
 type ExecuteAsync<T> = (asyncFunction: ()=>Promise<PromiseFunc<T>>) => Promise<T|null>
 
+type LoaderType = 'fullscreen'|'block'
+
 interface UseLoadingAndErrorResult<T>{
     isLoading: boolean
     errorMessage: string|null
     executeAsync: ExecuteAsync<T>
-    renderLoaderOrError: ()=>JSX.Element|null
+    renderLoaderOrError: (loaderType?:LoaderType)=>JSX.Element|null
 }
 
-export const useLoadingAndError=<T,>():UseLoadingAndErrorResult<T>=>{
+export const useLoadingAndError=<T,>(loaderType:LoaderType='fullscreen'):UseLoadingAndErrorResult<T>=>{
 
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [errorMessage, setErrorMessage] = useState<string|null>(null);
@@ -49,6 +52,7 @@ export const useLoadingAndError=<T,>():UseLoadingAndErrorResult<T>=>{
                 setError(result.error.message)
                 return null
             }
+
             return result.data;
 
         }catch(error){
@@ -63,9 +67,13 @@ export const useLoadingAndError=<T,>():UseLoadingAndErrorResult<T>=>{
 
 
     const renderLoaderOrError = useCallback(()=>{
+        if(isLoading){
+            if(loaderType ==='fullscreen') return <FullScreenLoader loadingRef={loadingRef} position='fixed'/>
 
-        if(isLoading) 
-            return <FullScreenLoader loadingRef={loadingRef} position='fixed'/>
+            else  return <div style={{width:'100%', height:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
+                            <Loader size='2.5rem'/>
+                         </div>
+        }
                
         if(errorMessage) 
             return  <div style={{width:'100%',height:'50px',display:'flex',justifyContent:'center',alignItems:'center'}}>
