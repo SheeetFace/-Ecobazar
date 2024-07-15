@@ -1,10 +1,10 @@
 import { useEffect, useCallback, useRef } from 'react';
 
-import { useAppSelector } from '../../store/store';
+import { useAppSelector } from '../../../store/store';
 
-import { selectCartItemsArray } from '../../store/slices/cartSlice';
+import { selectCartItemsArray } from '../../../store/slices/cartSlice';
 
-import { firebaseUpdateCartService } from '../../services/db/cart/firebaseUpdateCartService';
+import { firebaseUpdateCartService } from '../../../services/db/cart/firebaseUpdateCartService';
 
 import debounce from 'lodash.debounce';
 

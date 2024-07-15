@@ -8,7 +8,7 @@ import { firebaseAddOrderService } from '../../../../../../../services/db/order/
 
 import { useLoadingAndError} from '../../../../../../../hooks/useLoadingAndError';
 
-import useOrderData from '../../../../../../../hooks/db/useOrderData';
+import useOrderData from '../../../../../../../hooks/db/order/useOrderData';
 
 import { resetFormState,setShippingInfo } from '../../../../../../../store/slices/checkoutFormSlice';
 import { clearCart } from '../../../../../../../store/slices/cartSlice';
