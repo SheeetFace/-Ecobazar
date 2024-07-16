@@ -2,8 +2,7 @@ import { useEffect, useCallback, useRef, useState } from 'react';
 
 import { useAppSelector, useAppDispatch } from '../../../store/store';
 
-import { setCartItems } from '../../../store/slices/cartSlice';
-import { selectCartItemsArray } from '../../../store/slices/cartSlice';
+import { setCartItems,selectCartItemsArray } from '../../../store/slices/cartSlice';
 
 import { firebaseUpdateCartService } from '../../../services/db/cart/firebaseUpdateCartService';
 import { firebaseGetCartService } from '../../../services/db/cart/firebaseGetCartService';
