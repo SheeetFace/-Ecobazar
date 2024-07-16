@@ -47,6 +47,9 @@ export const selectShippingInfo = createSelector(
 export const selectPaymentMethod = createSelector(
     selectStateInfo,(state) => state.paymentMethodValid
 );
+export const selectBillingInfo = createSelector(
+    selectStateInfo,(state) => state.isBillingInfoValid
+);
 
 export const { setBillingInfoValid, setPaymentMethodValid,setShippingInfo, resetFormState } = checkoutFormSlice.actions;
 export default checkoutFormSlice.reducer;
