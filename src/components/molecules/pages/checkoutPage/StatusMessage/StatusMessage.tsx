@@ -11,9 +11,9 @@ interface StatusMessageProps{
 
 const StatusMessage:React.FC<StatusMessageProps> = ({message,statusSelect}) => {
 
-    const status = useAppSelector((state)=>statusSelect(state))
+    const status = useAppSelector((state)=>statusSelect(state));
 
-    const classs = !status ? styles._notConfirm : styles._confirm
+    const classs = !status ? styles._notConfirm : styles._confirm;
 
     return (
         <div className={`${styles.StatusMessage} ${classs}`}>
@@ -24,4 +24,3 @@ const StatusMessage:React.FC<StatusMessageProps> = ({message,statusSelect}) => {
 }
 
 export default StatusMessage;
-// ✖
