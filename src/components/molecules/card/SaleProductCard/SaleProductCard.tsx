@@ -4,19 +4,17 @@ import RatingStars from '../../RatingStars/RatingStars';
 
 import styles from '../SaleProductCard/SaleProductCard.module.scss';
 
-interface SaleProductCardProps{
-    name:string
-    id:string
-    src:string
-    currentCost:string
-    oldCost:string
-    rating:string
-}
+import type { ProductDataType as SaleProductCardProps } from '../../../../types/productDataTypes';
 
-const SaleProductCard:React.FC<SaleProductCardProps> = ({name,id,src,currentCost,oldCost,rating}) => {
-    console.log(id)
+const SaleProductCard:React.FC<SaleProductCardProps> = (props) => {
+
+    const {name,src,currentCost,oldCost,rating} = props
+
     return (
-        <NavLink to={`${name}`} className='_navLink'>
+        <NavLink to={`/shop/${name}`}
+                 state={{data:props}} 
+                 className="_navLink">
+
             <div className={styles.SaleProductCard}>
                 <img alt={name} src={src}/>
                 
