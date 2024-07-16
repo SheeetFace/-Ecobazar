@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { useAuthState } from './hooks/useAuthState';
 import { useGetProductsQuery } from './api/products/productApi';
 import { useCartSync } from './hooks/db/cart/useCartSync';
+import { useWishlistSync } from './hooks/db/wishlist/useWishlistSync';
 
 import Divider from './components/atoms/Divider/Divider';
 import Header from './components/organisms/Header/Header';
@@ -29,6 +30,7 @@ function App() {
   useAuthState()
   useGetProductsQuery()
   useCartSync()
+  useWishlistSync()
 
   return (
     <main className={styles.App}>
