@@ -49,7 +49,7 @@ export const useAuthState = () => {
       }else{
         dispatch(updateUserData(null))
         dispatch(clearWishlist())
-        dispatch(clearCart())
+        dispatch(clearCart())               
         dispatch(setLoading(false))
         dispatch(clearOrderHistory())
       }
