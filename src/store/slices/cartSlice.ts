@@ -12,6 +12,10 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
+    setCartItems(state, action: PayloadAction<{ ID:string; quantity:number }[]>){
+      state.items = new Map(action.payload.map(item=>[item.ID, item.quantity]));
+    },
+
     toggleCartItem(state, action: PayloadAction<string>){
       const itemId = action.payload;
 
@@ -69,6 +73,6 @@ export const selectCartItemsArray = createSelector(
 );
 
 
-export const { toggleCartItem, increaseQuantity, decreaseQuantity, clearCart } = cartSlice.actions;
+export const { setCartItems,toggleCartItem, increaseQuantity, decreaseQuantity, clearCart } = cartSlice.actions;
 export default cartSlice.reducer;
 
