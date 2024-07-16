@@ -13,7 +13,7 @@ interface SyncOptions<T>{
   updateService: (userID:string, items: T) => Promise<{items:T}>
 }
 
-export const useDataSync = <T,>({selectItems, setItems, getService, updateService}: SyncOptions<T>) => {
+export const useDataSync = <T,>({selectItems, setItems, getService, updateService}:SyncOptions<T>)=>{
 
     const dispatch = useAppDispatch();
     const items = useAppSelector(selectItems);
@@ -56,7 +56,7 @@ export const useDataSync = <T,>({selectItems, setItems, getService, updateServic
         }else if(userID !== prevUserID.current && !userID){ // user has logged out
             prevUserID.current = null;
             prevItemsJSON.current = '[]';
-        }else if (!isInitialized && userID){ // first render with a logged-in user
+        }else if(!isInitialized && userID){ // first render with a logged-in user
             fetchItems();
         }
 

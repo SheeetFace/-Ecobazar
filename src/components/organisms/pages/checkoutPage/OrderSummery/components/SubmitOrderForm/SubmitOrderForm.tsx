@@ -10,12 +10,13 @@ import { useLoadingAndError} from '../../../../../../../hooks/useLoadingAndError
 
 import useOrderData from '../../../../../../../hooks/db/order/useOrderData';
 
-import { resetFormState,setShippingInfo } from '../../../../../../../store/slices/checkoutFormSlice';
+import { resetFormState,setShippingInfo, selectBillingInfo,selectPaymentMethod } from '../../../../../../../store/slices/checkoutFormSlice';
 import { clearCart } from '../../../../../../../store/slices/cartSlice';
 import { updateOneOrderHistory } from '../../../../../../../store/slices/orderHistorySlice';
 
 import Button from '../../../../../../atoms/Button/Button';
 import AlertMessage from '../../../../../../molecules/AlertMessage/AlertMessage';
+import StatusMessage from '../../../../../../molecules/pages/checkoutPage/StatusMessage/StatusMessage';
 
 import styles from '../SubmitOrderForm/SubmitOrderForm.module.scss';
 
@@ -63,18 +64,23 @@ const SubmitOrderForm:React.FC = () => {
 
     return (
         <div className={styles.SubmitOrderForm}>
+            
+            {/* {!isFormReady ? */}
+                <AlertMessage type='warning'
+                            title='NOTE'
+                            message={<>Fill in the <b>Billing Information</b> and select a <b>Payment method</b></>}
+                            isCanClose={false}/>
+            {/* // :null} */}
+
+            <StatusMessage message='Confirm The Form ' statusSelect={selectPaymentMethod}/>
+            <StatusMessage message='Choose The PayMent' statusSelect={selectBillingInfo}/>
+
             <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight buttonMaxWidth'
                     text='Proceed to checkout'
                     type='button'
                     disabled={!isFormReady}
                     onClick={()=>submitOrder()}/>
 
-            {!isFormReady ?
-                <AlertMessage type='warning'
-                            title='NOTE'
-                            message={<>Fill in the <b>Billing Information</b> and select a <b>Payment method</b></>}
-                            isCanClose={false}/>
-            :null}
             {renderLoaderOrError()}
         </div>
     )

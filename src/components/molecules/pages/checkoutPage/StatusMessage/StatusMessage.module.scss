@@ -1,0 +1,18 @@
+@import '../../../../../styles/colors.scss';
+
+.StatusMessage{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: .2rem;
+    padding: .3rem;
+}
+
+._confirm{
+    background-color: rgb($soft-primary-color,.5);
+    color:$primary-color;
+}
+._notConfirm{
+    background-color: rgb($danger-color, .4);
+    color:$danger-color;
+}
