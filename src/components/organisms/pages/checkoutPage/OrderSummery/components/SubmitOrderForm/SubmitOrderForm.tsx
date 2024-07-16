@@ -65,12 +65,10 @@ const SubmitOrderForm:React.FC = () => {
     return (
         <div className={styles.SubmitOrderForm}>
             
-            {/* {!isFormReady ? */}
-                <AlertMessage type='warning'
-                            title='NOTE'
-                            message={<>Fill in the <b>Billing Information</b> and select a <b>Payment method</b></>}
-                            isCanClose={false}/>
-            {/* // :null} */}
+            <AlertMessage type='warning'
+                        title='NOTE'
+                        message={<>Fill in the <b>Billing Information</b> and select a <b>Payment method</b></>}
+                        isCanClose={false}/>
 
             <StatusMessage message='Confirm The Form ' statusSelect={selectPaymentMethod}/>
             <StatusMessage message='Choose The PayMent' statusSelect={selectBillingInfo}/>
