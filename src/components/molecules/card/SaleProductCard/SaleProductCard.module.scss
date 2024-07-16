@@ -4,15 +4,20 @@
 .SaleProductCard{
 
     display: flex;
+    align-items: center;
+    gap:1rem;
     padding: .3rem;
     border: 1px solid $grey-2;
     border-radius: 6px;
     background-color: $white-color;
     transition: border .3s ease;
+    min-height: 103px;
+    font-size: $body-small;
+
     cursor:pointer;
 
     img{
-        width: 100px;
+        width: 70px;
         height: 100%;
     }
 
