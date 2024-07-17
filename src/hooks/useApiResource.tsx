@@ -6,25 +6,15 @@ import NothingFound from "../components/atoms/NothingFound/NothingFound";
 
 import { shopProductData } from "../data/temp/shopProductData";
 
-import type { UseQuery, BaseQueryFn, FetchBaseQueryError, FetchBaseQueryMeta } from '@reduxjs/toolkit/query/react';
-import type { QueryDefinition, FetchArgs } from "@reduxjs/toolkit/query";
+import type { QueryHook } from "../types/queryHookTypes";
 
 interface UseApiResourceReturn<R>{
   responseData: R[]|null;
   content: JSX.Element|null;
 }
 
-type QueryHook<R> =()=>UseQuery<
-  QueryDefinition<
-    void,
-    BaseQueryFn<string|FetchArgs, unknown, FetchBaseQueryError, Record<string, unknown>, FetchBaseQueryMeta>,
-    never,
-    R,
-    "api"
-  >
->
-
 type TypeResource = 'products'|'blogs';
+
 
 const useApiResource = <R,>(query: QueryHook<{ map: Map<string, R>, list: R[] }>, typeResource: TypeResource): UseApiResourceReturn<R> => {
 

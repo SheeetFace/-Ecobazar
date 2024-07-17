@@ -19,9 +19,10 @@ import type { InitBlogFilter } from '../../../../../types/blogFilterTypes';
 
 interface CategoriesFilterProps{
     filter:InitProductFilter|InitBlogFilter
+    countCategory:Map<string,number>
 }
 
-const CategoriesFilter:React.FC<CategoriesFilterProps> = ({filter}) => {
+const CategoriesFilter:React.FC<CategoriesFilterProps> = ({filter,countCategory}) => {
 
     const [arrowClass, bodyClass,toggle] =useToggleFilter(styles._form)
 
@@ -45,6 +46,7 @@ const CategoriesFilter:React.FC<CategoriesFilterProps> = ({filter}) => {
                                 name={item.name}
                                 fn={()=>handleFilter(item.value)}
                                 isChecked={filter.categoryValue.includes(item.value)}
+                                countCategory={countCategory.get(item.value.toLocaleLowerCase())}
                 />
             )
         })
