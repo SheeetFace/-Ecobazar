@@ -5,9 +5,10 @@ interface CategoryItemProps{
     name:string
     fn:()=>void
     isChecked:boolean
+    countCategory:number|undefined
 }
 
-const CategoryItem:React.FC<CategoryItemProps> = ({value,name,fn,isChecked}) => {
+const CategoryItem:React.FC<CategoryItemProps> = ({value,name,fn,isChecked,countCategory}) => {
     return (
         <div className={styles.CategoryItem}>
 
@@ -22,7 +23,7 @@ const CategoryItem:React.FC<CategoryItemProps> = ({value,name,fn,isChecked}) => 
             
             <div className={styles._container}>
                 <span>{name}</span>
-                <span className={styles._count}>(999)</span>
+                <span className={styles._count}>({countCategory})</span>
             </div>
         </div>
 
