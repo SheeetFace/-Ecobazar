@@ -1,21 +1,19 @@
-
-import { blogPostData } from '../../../../../data/temp/blogPostData';
-
 import styles from '../BlogPostDetail/BlogPostDetail.module.scss';
+
+import type { BlogPostDataItem } from '../../../../../types/blogDataTypes';
 
 interface BlogPostDetailProps{
     id:string
+    post:BlogPostDataItem[]
 }
 
 
-const BlogPostDetail: React.FC<BlogPostDetailProps>=({id})=>{
-
-    console.log(id)
+const BlogPostDetail: React.FC<BlogPostDetailProps>=({id, post})=>{
 
     const renderBlogPost=()=>{
       return(
         <>
-          {blogPostData.map((item, i)=>{
+          {post.map((item, i)=>{
 
             switch (item.type){
               case 'header':

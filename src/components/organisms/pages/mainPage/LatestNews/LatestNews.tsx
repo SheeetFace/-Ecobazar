@@ -1,33 +1,23 @@
 import BlogCard from '../../../../molecules/card/BlogCard/BlogCard';
 
-import { latestNews } from '../../../../../data/temp/latestNews';
+import { subFilterDate } from '../../../../../utils/filter/subFilters/subFilterDate';
+
+import { blogsData } from '../../../../../data/temp/blogsData';
 
 import styles from '../LatestNews/LatestNews.module.scss';
 
-interface LatestNewsItem{
-    id:string,
-    category:string,
-    owner:string,
-    commentsCount:string,
-    title:string,
-    date:string,
-    src:string,
-}
+
+import type { BlogDataTypes } from '../../../../../types/blogDataTypes';
 
 const LatestNews:React.FC = () => {
+    
+    const renderLatesNews = ()=>{                       //!memo
+        const data = subFilterDate(blogsData, 'newest').slice(0,3) as BlogDataTypes[];
 
-    const renderLatesNews = ()=>{
-        return latestNews.map((item:LatestNewsItem,i)=>{
+        return data.map((item,i)=>{       //! data from api
             return(
                 <div className={styles._card} key={i}>
-                    <BlogCard  id={item.id}
-                                    category={item.category}
-                                    owner={item.owner}
-                                    commentsCount={item.commentsCount}
-                                    title={item.title}
-                                    date={item.date}
-                                    src={item.src}   
-                    />
+                    <BlogCard  key={item.id} {...item}/>
                 </div>
             )
         })

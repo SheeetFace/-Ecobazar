@@ -21,7 +21,8 @@ const BlogPostPage:React.FC = () => {
         <div className={styles.BlogPostPage}>
             <div className='center'>
                 <BlogPostHeader data={data}/>
-                <BlogPostDetail id={data.id}/>
+
+                <BlogPostDetail id={data.id} post={data.post}/>
 
                 <BlogPostBannerSummerSale/>
 

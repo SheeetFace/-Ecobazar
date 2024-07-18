@@ -1,14 +1,16 @@
 import { useMemo } from 'react';
 
 import useApiResource from './useApiResource';
-import { useGetProductsQuery } from '../api/products/productApi';
 
+
+import type { QueryHook } from '../types/queryHookTypes';
 
 type Type = 'products'|'blogs'
 
-export const useCountCategories=<T extends{ category: string }>(type:Type)=>{
 
-    const {responseData} = useApiResource<T>(useGetProductsQuery, type)
+export const useCountCategories=<T extends{ category: string }>(query:QueryHook<T>,type:Type)=>{
+
+    const {responseData} = useApiResource<T>(query, type)
 
     return useMemo(()=>{
         const countMap = new Map<string, number>()
