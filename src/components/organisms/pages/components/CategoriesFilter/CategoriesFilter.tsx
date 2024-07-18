@@ -50,7 +50,7 @@ const CategoriesFilter:React.FC<CategoriesFilterProps> = ({filter,countCategory}
                 />
             )
         })
-    },[filter])
+    },[filter,countCategory])
     
         return (
             <section className={styles.CategoriesFilter}>

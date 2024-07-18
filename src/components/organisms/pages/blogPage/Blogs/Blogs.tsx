@@ -52,17 +52,10 @@ const Blogs:React.FC = () => {
 
       if(filteredBlogs.length===0) return <NotingFound/>
 
-        return displayedData.map((item,i)=>{
+        return displayedData.map((item)=>{
             return(
-                    <div className={styles._card} key={i}>
-                        <BlogCard   id={item.id}
-                                    category={item.category}
-                                    owner={item.owner}
-                                    commentsCount={item.commentsCount}
-                                    title={item.title}
-                                    date={item.date}
-                                    src={item.src}
-                        />
+                    <div className={styles._card} key={item.id}>
+                        <BlogCard  key={item.id} {...item} />
                     </div>
             )
         })

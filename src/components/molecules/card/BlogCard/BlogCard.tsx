@@ -5,19 +5,11 @@ import Info from './components/Info/Info';
 
 import  styles from '../BlogCard/BlogCard.module.scss';
 
-interface BlogCardProps{
-    id:string,
-    category:string,
-    owner:string,
-    commentsCount:string,
-    title:string,
-    date:string,
-    src:string,
-}
+import type { BlogDataTypes as BlogCardProps} from '../../../../types/blogDataTypes';
 
-const BlogCard:React.FC<BlogCardProps> = ({id,category, owner,commentsCount,title,date,src}) => {
+const BlogCard:React.FC<BlogCardProps> = (props) => {
 
-    const data = {id,category, owner,commentsCount,title,date,src}
+    const {id,category, owner,commentsCount,title,date,src} =  props
 
     return (
         <div className={styles.BlogCard}>
@@ -34,7 +26,7 @@ const BlogCard:React.FC<BlogCardProps> = ({id,category, owner,commentsCount,titl
                 <span className={styles._title}>{title}</span>
                 <div className={styles._button}>
                     <NavLink    to={`/blog/${title}`}
-                                state={{data:data}}
+                                state={{data:props}}
                                 className='_navLinkGreenPrimaryLetterSpacing'>
                             Read More &#10132;
                     </NavLink>
