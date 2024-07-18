@@ -1,9 +1,12 @@
 import { useEffect, useMemo, useRef } from 'react';
 
+import { useGetBlogsQuery } from '../../../../../api/blogs/blogsApi';
+
 import usePagination from '../../../../../hooks/usePagination';
 import useScrollToTop from '../../../../../hooks/useScrollToTop';
 import useSmoothTransition from '../../../../../hooks/useSmoothTransition';
 import useEnsureValidPage from '../../../../../hooks/useEnsureValidPage';
+import useApiResource from '../../../../../hooks/useApiResource';
 
 import { useAppDispatch,useAppSelector } from '../../../../../store/store';
 import { changeFilter } from '../../../../../store/slices/blogFilterSlice';
@@ -15,18 +18,20 @@ import BlogCard from '../../../../molecules/card/BlogCard/BlogCard';
 import NotingFound from '../../../../atoms/NothingFound/NothingFound';
 import PaginationButtons from '../../../PaginationButtons/PaginationButtons';
 
-import { blogsData } from '../../../../../data/temp/blogsData';
-
-
 import styles from '../Blogs/Blogs.module.scss';
+
+import type { BlogDataTypes } from '../../../../../types/blogDataTypes';
+
 
 const Blogs:React.FC = () => {
 
     const dispatch = useAppDispatch();
 
+    const {responseData, content} = useApiResource<BlogDataTypes>(useGetBlogsQuery, 'blogs');
+
     const filter = useAppSelector((state)=> state.blogFilter);
 
-    const filteredBlogs = filterBlogs(blogsData, filter);
+    const filteredBlogs = filterBlogs(responseData || [], filter);
 
     const itemsPerPage= 6;
     const totalItems = filteredBlogs.length;
@@ -65,6 +70,7 @@ const Blogs:React.FC = () => {
         <section className={styles.Blogs}>
             <div className={styles._container}>
                   <div className={styles._cards} ref={blogsRef}>
+                    {content}
                     {renderBlogCards}
                   </div>
             </div>
