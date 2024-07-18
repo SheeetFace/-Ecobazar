@@ -4,7 +4,10 @@ import FullScreenLoader from "../components/organisms/FullScreenLoader/FullScree
 import AlertMessage from "../components/molecules/AlertMessage/AlertMessage";
 import NothingFound from "../components/atoms/NothingFound/NothingFound";
 
+import { subFilterDate } from "../utils/filter/subFilters/subFilterDate";
+
 import { shopProductData } from "../data/temp/shopProductData";
+import { blogsData } from "../data/temp/blogsData";
 
 import type { QueryHook } from "../types/queryHookTypes";
 
@@ -13,7 +16,7 @@ interface UseApiResourceReturn<R>{
   content: JSX.Element|null;
 }
 
-type TypeResource = 'products'|'blogs';
+type TypeResource = 'products'|'blogs'|'latestBlogs';
 
 
 const useApiResource = <R,>(query: QueryHook<{ map: Map<string, R>, list: R[] }>, typeResource: TypeResource): UseApiResourceReturn<R> => {
@@ -26,8 +29,10 @@ const useApiResource = <R,>(query: QueryHook<{ map: Map<string, R>, list: R[] }>
         switch(type){
         case "products":
             return shopProductData;
-        // case "blogs":
-        //   return
+        case "blogs":
+            return blogsData;
+        case "latestBlogs":  
+            return subFilterDate(blogsData, 'newest').slice(0,3) as R;
         default:
             return null;
         }

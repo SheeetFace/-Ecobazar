@@ -115,7 +115,7 @@ export const blogsData:BlogDataTypes[] = [
         id:'3',
         category:'Meat&Fish',
         owner:'Admin',
-        commentsCount:'65',
+        commentsCount:'63',
         title:"Honey Glazed Salmon",
         date: '2024-05-03',
         src:'https://www.acouplecooks.com/wp-content/uploads/2023/10/Honey-Glazed-Salmon-001.jpg',
