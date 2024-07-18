@@ -1,20 +1,19 @@
 import { useAppSelector } from '../../../../../../store/store';
 
-import CategoriesFilter from '../../../components/CategoriesFilter/CategoriesFilter';
+import { useGetBlogsQuery } from '../../../../../../api/blogs/blogsApi';
 
 import { useCountCategories } from '../../../../../../hooks/useCountCategories';
 
+import CategoriesFilter from '../../../components/CategoriesFilter/CategoriesFilter';
 
 
-
-import { useGetProductsQuery } from '../../../../../../api/products/productApi';
-import type { ProductDataType } from '../../../../../../types/productDataTypes';
+import type { BlogDataTypes } from '../../../../../../types/blogDataTypes';
 
 
 const BlogCatagoriesFilter:React.FC = () => {
 
     const filter =  useAppSelector((state)=>state.blogFilter)
-    const countCategory = useCountCategories<ProductDataType>(useGetProductsQuery,'products')
+    const countCategory = useCountCategories<BlogDataTypes>(useGetBlogsQuery,'blogs')
 
     return (<CategoriesFilter filter={filter} countCategory={countCategory}/>)
 }

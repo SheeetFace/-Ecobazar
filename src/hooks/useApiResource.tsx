@@ -27,14 +27,14 @@ const useApiResource = <R,>(query: QueryHook<{ map: Map<string, R>, list: R[] }>
 
     const isResponseError = useCallback((type: TypeResource)=>{
         switch(type){
-        case "products":
-            return shopProductData;
-        case "blogs":
-            return blogsData;
-        case "latestBlogs":  
-            return subFilterDate(blogsData, 'newest').slice(0,3) as R;
-        default:
-            return null;
+            case "products":
+                return shopProductData;
+            case "blogs":
+                return blogsData;
+            case "latestBlogs":  
+                return subFilterDate(blogsData, 'newest').slice(0,3) as R;
+            default:
+                return null;
         }
     },[typeResource]);
 
