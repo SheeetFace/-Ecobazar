@@ -1,8 +1,7 @@
 import { useMemo } from 'react';
-
 import { useGetLatestBlogsQuery } from '../../../../../api/blogs/latestBlogsApi';
 
-import useApiResource from '../../../../../hooks/useApiResource';
+import { useLazyLoadResource } from '../../../../../hooks/api/useLazyLoadResource';
 
 import BlogCard from '../../../../molecules/card/BlogCard/BlogCard';
 
@@ -10,14 +9,16 @@ import styles from '../LatestNews/LatestNews.module.scss';
 
 
 import type { BlogDataTypes } from '../../../../../types/blogDataTypes';
-//!intersection observer //! clear blogs filter  //! fix lidl recent blog card
+
 
 const LatestNews:React.FC = () => {
 
-    const {responseData, content} = useApiResource<BlogDataTypes>(useGetLatestBlogsQuery, 'latestBlogs');
+    const { ref, responseData, content } = useLazyLoadResource<BlogDataTypes>({
+        query: useGetLatestBlogsQuery,
+        typeResource: 'latestBlogs'
+    })
     
     const renderLatesNews = useMemo(()=>{ 
-
         if(responseData){
             return responseData.map((item,i)=>{
                 return(
@@ -31,7 +32,7 @@ const LatestNews:React.FC = () => {
     },[responseData])
 
     return (
-        <section className={styles.LatestNews}>
+        <section className={styles.LatestNews} ref={ref}>
             <div className='center'>
                 <span className={styles._title}>Latest News</span>
 
