@@ -10,6 +10,7 @@ import useApiResource from '../../../../../hooks/useApiResource';
 
 import { useAppDispatch,useAppSelector } from '../../../../../store/store';
 import { changeFilter } from '../../../../../store/slices/blogFilterSlice';
+import { clearFilter } from '../../../../../store/slices/blogFilterSlice';
 
 import { filterBlogs } from '../../../../../utils/filter/filterBlogs';
 
@@ -52,6 +53,9 @@ const Blogs:React.FC = () => {
       dispatch(changeFilter({key: 'blogsLength', value:totalItems}))
     },[totalItems])
 
+    useEffect(()=>{
+       return ()=>{ dispatch(clearFilter())} 
+    },[])
 
     const renderBlogCards = useMemo(()=>{
 
