@@ -4,7 +4,7 @@ import { useGetProductsQuery } from '../../api/products/productApi';
 
 import { shopProductData } from '../../data/temp/shopProductData';
 
-import type { ProductDataType } from '../../types/productDataTypes';
+import type { ProductDataType } from '../../types/product/productDataTypes';
 
 
 const getProductsByIds = (ids:string[], productMap:Map<string,ProductDataType>):ProductDataType[]=>{

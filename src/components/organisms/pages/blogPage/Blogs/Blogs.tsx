@@ -6,7 +6,7 @@ import usePagination from '../../../../../hooks/usePagination';
 import useScrollToTop from '../../../../../hooks/useScrollToTop';
 import useSmoothTransition from '../../../../../hooks/useSmoothTransition';
 import useEnsureValidPage from '../../../../../hooks/useEnsureValidPage';
-import useApiResource from '../../../../../hooks/useApiResource';
+import useApiResource from '../../../../../hooks/api/useApiResource';
 
 import { useAppDispatch,useAppSelector } from '../../../../../store/store';
 import { changeFilter,clearFilter } from '../../../../../store/slices/blogFilterSlice';
@@ -20,7 +20,7 @@ import PaginationButtons from '../../../PaginationButtons/PaginationButtons';
 
 import styles from '../Blogs/Blogs.module.scss';
 
-import type { BlogDataTypes } from '../../../../../types/blogDataTypes';
+import type { BlogDataTypes } from '../../../../../types/blog/blogDataTypes';
 
 
 const Blogs:React.FC = () => {

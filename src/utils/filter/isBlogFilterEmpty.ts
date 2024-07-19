@@ -1,4 +1,4 @@
-import type { InitBlogFilter } from "../../types/blogFilterTypes";
+import type { InitBlogFilter } from "../../types/blog/blogFilterTypes";
 
 export const isBlogFilterEmpty = (filter:InitBlogFilter) =>{
 

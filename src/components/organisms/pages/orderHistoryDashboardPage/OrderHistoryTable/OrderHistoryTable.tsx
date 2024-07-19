@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 
 import usePagination from '../../../../../hooks/usePagination';
-import { useQueryDataByUserID } from '../../../../../hooks/useQueryDataByUserID';
+import { useQueryDataByUserID } from '../../../../../hooks/db/order/useQueryDataByUserID';
 
 import { selectOrdersStatus,selectOrderHistory,updateStatus,updateAllOrderHistory } from '../../../../../store/slices/orderHistorySlice';
 

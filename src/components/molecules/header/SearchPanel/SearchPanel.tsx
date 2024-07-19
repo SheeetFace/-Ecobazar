@@ -21,7 +21,7 @@ import styles from '../SearchPanel/SearchPanel.module.scss'
 
 import { ValidateSearchOrSubscribeTypes } from '../../../../types/validateSearchOrSubscribeTypes';
 import type {FormEvent,ChangeEvent} from 'react';
-import type { InitProductFilter } from '../../../../types/productFilterType';
+import type { InitProductFilter } from '../../../../types/product/productFilterType';
 
 
 const SearchPanel =()=>{

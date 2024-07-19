@@ -11,7 +11,7 @@ import CartIcon from '../../../atoms/icon/navigate/CartIcon';
 
 import styles from '../BigProductCard/BigProductCard.module.scss';
 
-import type  { ProductDataType as BigProductCardProps } from '../../../../types/productDataTypes';
+import type  { ProductDataType as BigProductCardProps } from '../../../../types/product/productDataTypes';
 
 
 const BigProductCard:React.FC<BigProductCardProps> = (props) => {

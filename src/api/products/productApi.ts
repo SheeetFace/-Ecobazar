@@ -1,6 +1,6 @@
 import { baseApi } from "../baseApi";
 
-import type { ProductDataType } from "../../types/productDataTypes";
+import type { ProductDataType } from "../../types/product/productDataTypes";
 
 export const productsApi = baseApi.injectEndpoints({
     endpoints: (create) => ({

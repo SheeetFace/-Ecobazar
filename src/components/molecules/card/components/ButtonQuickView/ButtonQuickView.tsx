@@ -7,7 +7,7 @@ import EyeIcon from '../../../../atoms/icon/navigate/EyeIcon';
 
 import styles from '../ButtonQuickView/ButtonQuickView.module.scss';
 
-import type { ProductDataType as ButtonQuickViewProps} from '../../../../../types/productDataTypes';
+import type { ProductDataType as ButtonQuickViewProps} from '../../../../../types/product/productDataTypes';
 import type { MouseEvent } from 'react';
 
 const ButtonQuickView:React.FC<ButtonQuickViewProps> = (props) => {

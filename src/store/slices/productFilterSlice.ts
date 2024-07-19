@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { isProductFilterEmpty } from '../../utils/filter/isProductFilterEmpty';
-import type { InitProductFilter } from '../../types/productFilterType';
+import type { InitProductFilter } from '../../types/product/productFilterType';
 
 const createInitProductFilter = ():InitProductFilter => ({
   search: '',

@@ -5,7 +5,7 @@ import Info from './components/Info/Info';
 
 import  styles from '../BlogCard/BlogCard.module.scss';
 
-import type { BlogDataTypes as BlogCardProps} from '../../../../types/blogDataTypes';
+import type { BlogDataTypes as BlogCardProps} from '../../../../types/blog/blogDataTypes';
 
 const BlogCard:React.FC<BlogCardProps> = (props) => {
 

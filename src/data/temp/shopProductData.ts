@@ -1,4 +1,4 @@
-import type { ProductDataType as ShopProductData} from '../../types/productDataTypes';
+import type { ProductDataType as ShopProductData} from '../../types/product/productDataTypes';
 import { FilterPromotedTypes } from '../../types/filterPromotedType';
 
 export const shopProductData:ShopProductData[]=[

@@ -2,19 +2,19 @@ import { useEffect } from 'react';
 
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
-import { useAppDispatch } from '../store/store';
+import { useAppDispatch } from '../../../store/store';
 
-import { setLoading, setError, updateUserData } from '../store/slices/authSlice';
-import { clearWishlist } from '../store/slices/wishlistSlice';
-import { clearCart } from '../store/slices/cartSlice';
-import { clearOrderHistory } from '../store/slices/orderHistorySlice';
+import { setLoading, setError, updateUserData } from '../../../store/slices/authSlice';
+import { clearWishlist } from '../../../store/slices/wishlistSlice';
+import { clearCart } from '../../../store/slices/cartSlice';
+import { clearOrderHistory } from '../../../store/slices/orderHistorySlice';
 
-import { firebaseGetUserDataByUid } from '../services/db/user/firebaseGetUserDataByUid';
-import { firebaseCheckUserDataWithRetryService } from '../services/db/user/firebaseCheckUserDataWithRetryService';
+import { firebaseGetUserDataByUid } from '../../../services/db/user/firebaseGetUserDataByUid';
+import { firebaseCheckUserDataWithRetryService } from '../../../services/db/user/firebaseCheckUserDataWithRetryService';
 
-import { firebaseErrorHandlingOperations } from '../utils/firebase/firebaseErrorHandlingOperations';
+import { firebaseErrorHandlingOperations } from '../../../utils/firebase/firebaseErrorHandlingOperations';
 
-import type { UserDataType } from '../types/userTypes';
+import type { UserDataType } from '../../../types/userTypes';
 
 export const useAuthState = () => {
 

@@ -4,7 +4,7 @@ import LabelBadge from '../../../atoms/LabelBadge/LabelBadge';
 
 import styles from '../SuggestionSearchCard/SuggestionSearchCard.module.scss';
 
-import type { ProductDataType } from '../../../../types/productDataTypes';
+import type { ProductDataType } from '../../../../types/product/productDataTypes';
 
 type SuggestionSearchCardProps = ProductDataType;
 

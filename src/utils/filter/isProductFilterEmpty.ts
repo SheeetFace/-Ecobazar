@@ -1,4 +1,4 @@
-import type { InitProductFilter } from "../../types/productFilterType"
+import type { InitProductFilter } from "../../types/product/productFilterType"
 
 export const isProductFilterEmpty=(filter:InitProductFilter):boolean=>{
 

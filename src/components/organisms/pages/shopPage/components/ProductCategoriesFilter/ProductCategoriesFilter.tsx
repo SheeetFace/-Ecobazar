@@ -6,7 +6,7 @@ import { useCountCategories } from '../../../../../../hooks/useCountCategories';
 import { useGetProductsQuery } from '../../../../../../api/products/productApi';
 
 
-import type { ProductDataType } from '../../../../../../types/productDataTypes';
+import type { ProductDataType } from '../../../../../../types/product/productDataTypes';
 
 
 const ProductCategoriesFilter:React.FC = () => {

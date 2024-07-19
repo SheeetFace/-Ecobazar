@@ -1,10 +1,10 @@
 import { useEffect, useCallback, useRef } from "react";
-import { useAppDispatch, useAppSelector } from "../store/store";
-import { useLoadingAndError } from "./useLoadingAndError"
+import { useAppDispatch, useAppSelector } from "../../../store/store";
+import { useLoadingAndError } from "../../useLoadingAndError"
 
 import type { ActionCreatorWithPayload } from "@reduxjs/toolkit";
-import type { RootState } from "../store/store";
-import type { Status } from "../types/statusTypes";
+import type { RootState } from "../../../store/store";
+import type { Status } from "../../../types/statusTypes";
 
 
 type Selector<R> = (state:RootState)=>R;

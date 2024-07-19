@@ -12,8 +12,8 @@ import { tagsData } from '../../../../../data/filter/tagsData';
 
 import styles from '../TagFilter/TagFilter.module.scss';
 
-import type { InitProductFilter } from '../../../../../types/productFilterType';
-import type { InitBlogFilter} from '../../../../../types/blogFilterTypes';
+import type { InitProductFilter } from '../../../../../types/product/productFilterType';
+import type { InitBlogFilter} from '../../../../../types/blog/blogFilterTypes';
 
 interface TagFilterProps{
     filter:InitProductFilter|InitBlogFilter

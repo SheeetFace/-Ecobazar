@@ -9,7 +9,7 @@ import ButtonQuickView from '../components/ButtonQuickView/ButtonQuickView';
 
 import styles from '../ProductCard/ProductCard.module.scss';
 
-import type { ProductDataType as ProductsCardProps} from '../../../../types/productDataTypes';
+import type { ProductDataType as ProductsCardProps} from '../../../../types/product/productDataTypes';
 
 
 const ProductsCard:React.FC<ProductsCardProps> = (props) => {

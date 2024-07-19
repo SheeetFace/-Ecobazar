@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef } from 'react';
 
 import { useLocation } from 'react-router-dom';
 
-import useApiResource from '../../../../../hooks/useApiResource';
+import useApiResource from '../../../../../hooks/api/useApiResource';
 import { useGetProductsQuery } from '../../../../../api/products/productApi';
 
 import { useAppDispatch,useAppSelector } from '../../../../../store/store';
@@ -21,7 +21,7 @@ import PaginationButtons from '../../../PaginationButtons/PaginationButtons';
 
 import styles from '../Products/Products.module.scss';
 
-import type { ProductDataType } from '../../../../../types/productDataTypes';
+import type { ProductDataType } from '../../../../../types/product/productDataTypes';
 
 
 const Products:React.FC = () => {

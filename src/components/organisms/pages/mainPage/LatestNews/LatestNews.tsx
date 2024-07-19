@@ -8,7 +8,7 @@ import BlogCard from '../../../../molecules/card/BlogCard/BlogCard';
 import styles from '../LatestNews/LatestNews.module.scss';
 
 
-import type { BlogDataTypes } from '../../../../../types/blogDataTypes';
+import type { BlogDataTypes } from '../../../../../types/blog/blogDataTypes';
 
 
 const LatestNews:React.FC = () => {

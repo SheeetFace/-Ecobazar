@@ -9,7 +9,7 @@ import Divider from '../../atoms/Divider/Divider';
 
 import styles from '../ProductDetails/ProductDetails.module.scss';
 
-import type { ProductDataType } from '../../../types/productDataTypes';
+import type { ProductDataType } from '../../../types/product/productDataTypes';
 import type { RefObject } from 'react';
 
 type ProductDetailsViewMode = 'modal' | 'page';

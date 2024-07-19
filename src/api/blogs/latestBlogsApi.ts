@@ -1,6 +1,6 @@
 import { baseApi } from "../baseApi";
 
-import type { BlogDataTypes } from "../../types/blogDataTypes";
+import type { BlogDataTypes } from "../../types/blog/blogDataTypes";
 
 export const latestBlogsApi = baseApi.injectEndpoints({
     endpoints: (create) => ({

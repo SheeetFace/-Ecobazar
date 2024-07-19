@@ -1,13 +1,13 @@
-import type { InitProductFilter } from '../types/productFilterType';
-import type { InitBlogFilter } from '../types/blogFilterTypes';
+import type { InitProductFilter } from '../types/product/productFilterType';
+import type { InitBlogFilter } from '../types/blog/blogFilterTypes';
 
 import { changeFilter as changeProductFilter } from '../store/slices/productFilterSlice';
 import { changeFilter as changeBlogFilter} from '../store/slices/blogFilterSlice';
 
 
 import type { AppDispatch } from '../store/store';
-import type { ProductFilterAction } from '../types/productFilterType';
-import type { BlogFilterAction } from '../types/blogFilterTypes';
+import type { ProductFilterAction } from '../types/product/productFilterType';
+import type { BlogFilterAction } from '../types/blog/blogFilterTypes';
 
 type Filter = InitProductFilter | InitBlogFilter;
 

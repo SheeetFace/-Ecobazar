@@ -1,13 +1,13 @@
 import { useMemo } from 'react';
 
-import useApiResource from '../../../../../../hooks/useApiResource';
+import useApiResource from '../../../../../../hooks/api/useApiResource';
 import { useGetLatestBlogsQuery } from '../../../../../../api/blogs/latestBlogsApi';
 
 import RecentlyAddedBlogCard from '../../../../../molecules/card/RecentlyAddedBlogCard/RecentlyAddedBlogCard';
 
 import styles from '../RecentlyAdded/RecentlyAdded.module.scss';
 
-import type { BlogDataTypes } from '../../../../../../types/blogDataTypes';
+import type { BlogDataTypes } from '../../../../../../types/blog/blogDataTypes';
 
 
 const RecentlyAdded:React.FC = () => {

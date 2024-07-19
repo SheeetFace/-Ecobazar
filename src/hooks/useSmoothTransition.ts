@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
-import type { InitProductFilter } from '../types/productFilterType';
-import type { InitBlogFilter } from '../types/blogFilterTypes';
+import type { InitProductFilter } from '../types/product/productFilterType';
+import type { InitBlogFilter } from '../types/blog/blogFilterTypes';
 
 type Ref =React.RefObject<HTMLDivElement>
 

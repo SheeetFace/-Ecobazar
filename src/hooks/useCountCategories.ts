@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import useApiResource from './useApiResource';
+import useApiResource from './api/useApiResource';
 
 
 import type { QueryHook } from '../types/queryHookTypes';
