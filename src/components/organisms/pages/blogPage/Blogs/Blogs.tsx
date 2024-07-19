@@ -9,8 +9,7 @@ import useEnsureValidPage from '../../../../../hooks/useEnsureValidPage';
 import useApiResource from '../../../../../hooks/useApiResource';
 
 import { useAppDispatch,useAppSelector } from '../../../../../store/store';
-import { changeFilter } from '../../../../../store/slices/blogFilterSlice';
-import { clearFilter } from '../../../../../store/slices/blogFilterSlice';
+import { changeFilter,clearFilter } from '../../../../../store/slices/blogFilterSlice';
 
 import { filterBlogs } from '../../../../../utils/filter/filterBlogs';
 
