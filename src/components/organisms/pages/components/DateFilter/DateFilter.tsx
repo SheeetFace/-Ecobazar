@@ -6,8 +6,8 @@ import { filterTypeGuard } from '../../../../../utils/filterTypeGuard';
 
 import styles from '../DateFilter/DateFilter.module.scss';
 
-import type { TDate,InitProductFilter } from '../../../../../types/productFilterType';
-import type { InitBlogFilter } from '../../../../../types/blogFilterTypes';
+import type { TDate,InitProductFilter } from '../../../../../types/product/productFilterType';
+import type { InitBlogFilter } from '../../../../../types/blog/blogFilterTypes';
 
 interface DateFilterProps{
     filter: InitProductFilter|InitBlogFilter

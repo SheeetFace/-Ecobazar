@@ -1,6 +1,6 @@
 import { useInView } from "react-intersection-observer"
 
-import useApiResource from "../useApiResource"
+import useApiResource from "./useApiResource"
 
 import type { QueryHook } from "../../types/queryHookTypes"
 

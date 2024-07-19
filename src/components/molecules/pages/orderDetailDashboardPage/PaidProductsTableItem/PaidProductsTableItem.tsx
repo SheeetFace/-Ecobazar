@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
 import styles from '../PaidProductsTableItem/PaidProductsTableItem.module.scss';
-import { ProductDataType } from '../../../../../types/productDataTypes';
+import { ProductDataType } from '../../../../../types/product/productDataTypes';
 
 interface PaidProductsTableItemProps{
     productData:ProductDataType

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
-import type { ProductDataType } from "../types/productDataTypes";
-import type { BlogDataTypes } from "../types/blogDataTypes";
+import type { ProductDataType } from "../types/product/productDataTypes";
+import type { BlogDataTypes } from "../types/blog/blogDataTypes";
 
 type UseEnsureValidPage = (
     filteredProducts:ProductDataType[]|BlogDataTypes[],

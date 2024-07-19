@@ -13,7 +13,7 @@ import styles from '../SearchFilter/SearchFilter.module.scss';
 
 import { ValidateSearchOrSubscribeTypes } from '../../../../../../types/validateSearchOrSubscribeTypes';
 import type {ChangeEvent} from 'react'
-import type { InitBlogFilter } from '../../../../../../types/blogFilterTypes';
+import type { InitBlogFilter } from '../../../../../../types/blog/blogFilterTypes';
 
 
 const SearchFilter:React.FC = () => {

@@ -8,8 +8,8 @@ import RelatedProducts from '../../organisms/pages/productPage/RelatedProducts/R
 
 import styles from '../ProductPage/ProductPage.module.scss';
 
-import type { ProductDataType } from '../../../types/productDataTypes';
-import { CategoryProductValue } from '../../../types/categoryProductValueTypes';
+import type { ProductDataType } from '../../../types/product/productDataTypes';
+import { CategoryProductValue } from '../../../types/product/categoryProductValueTypes';
 
 interface ProductInfoData {
     weight: string

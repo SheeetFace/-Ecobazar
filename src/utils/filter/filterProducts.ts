@@ -3,8 +3,8 @@ import { subFilterTag } from "./subFilters/subFilterTag";
 import { subFilterDate } from "./subFilters/subFilterDate";
 import { subFilterSearch } from "./subFilters/subFilterSearch";
 
-import type { ProductDataType as ShopProduct } from "../../types/productDataTypes"
-import type { InitProductFilter } from "../../types/productFilterType";
+import type { ProductDataType as ShopProduct } from "../../types/product/productDataTypes"
+import type { InitProductFilter } from "../../types/product/productFilterType";
 
 export const filterProducts = (products: ShopProduct[], filter: InitProductFilter): ShopProduct[] => {
 

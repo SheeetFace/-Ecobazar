@@ -1,6 +1,6 @@
 import styles from '../BlogPostDetail/BlogPostDetail.module.scss';
 
-import type { BlogPostDataItem } from '../../../../../types/blogDataTypes';
+import type { BlogPostDataItem } from '../../../../../types/blog/blogDataTypes';
 
 interface BlogPostDetailProps{
     id:string

@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { isBlogFilterEmpty } from '../../utils/filter/isBlogFilterEmpty';
 
-import type { InitBlogFilter } from '../../types/blogFilterTypes';
+import type { InitBlogFilter } from '../../types/blog/blogFilterTypes';
 
 const createInitBlogFilter = ():InitBlogFilter=>({
   search: '',

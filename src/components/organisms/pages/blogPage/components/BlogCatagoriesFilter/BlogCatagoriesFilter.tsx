@@ -7,7 +7,7 @@ import { useCountCategories } from '../../../../../../hooks/useCountCategories';
 import CategoriesFilter from '../../../components/CategoriesFilter/CategoriesFilter';
 
 
-import type { BlogDataTypes } from '../../../../../../types/blogDataTypes';
+import type { BlogDataTypes } from '../../../../../../types/blog/blogDataTypes';
 
 
 const BlogCatagoriesFilter:React.FC = () => {

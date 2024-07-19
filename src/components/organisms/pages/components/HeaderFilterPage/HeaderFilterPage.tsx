@@ -2,8 +2,8 @@ import DateFilter from '../DateFilter/DateFilter';
 
 import styles from '../HeaderFilterPage/HeaderFilterPage.module.scss';
 
-import type { InitProductFilter } from '../../../../../types/productFilterType';
-import type { InitBlogFilter} from '../../../../../types/blogFilterTypes';
+import type { InitProductFilter } from '../../../../../types/product/productFilterType';
+import type { InitBlogFilter} from '../../../../../types/blog/blogFilterTypes';
 
 
 interface HeaderFilterPageProps{

@@ -1,15 +1,15 @@
 import { useMemo } from 'react';
 
 import useSlider from '../../../../../hooks/useSlider';
-import useApiResource from '../../../../../hooks/useApiResource';
+import useApiResource from '../../../../../hooks/api/useApiResource';
 import { useGetProductsQuery } from '../../../../../api/products/productApi';
 
 import ProductsCard from '../../../../molecules/card/ProductCard/ProductCard';
 
 import styles from '../RelatedProducts/RelatedProducts.module.scss';
 
-import { CategoryProductValue } from '../../../../../types/categoryProductValueTypes';
-import type { ProductDataType } from '../../../../../types/productDataTypes';
+import { CategoryProductValue } from '../../../../../types/product/categoryProductValueTypes';
+import type { ProductDataType } from '../../../../../types/product/productDataTypes';
 
 interface RelatedProductsProps{
     productCategory:  CategoryProductValue

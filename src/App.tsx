@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
-import { useAuthState } from './hooks/useAuthState';
+import { useAuthState } from './hooks/db/auth/useAuthState';
 import { useGetProductsQuery } from './api/products/productApi';
 import { useCartSync } from './hooks/db/cart/useCartSync';
 import { useWishlistSync } from './hooks/db/wishlist/useWishlistSync';

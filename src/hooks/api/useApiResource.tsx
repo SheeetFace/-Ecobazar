@@ -1,15 +1,15 @@
 import { useCallback, useEffect, useState } from "react";
 
-import FullScreenLoader from "../components/organisms/FullScreenLoader/FullScreenLoader";
-import AlertMessage from "../components/molecules/AlertMessage/AlertMessage";
-import NothingFound from "../components/atoms/NothingFound/NothingFound";
+import FullScreenLoader from "../../components/organisms/FullScreenLoader/FullScreenLoader";
+import AlertMessage from "../../components/molecules/AlertMessage/AlertMessage";
+import NothingFound from "../../components/atoms/NothingFound/NothingFound";
 
-import { subFilterDate } from "../utils/filter/subFilters/subFilterDate";
+import { subFilterDate } from "../../utils/filter/subFilters/subFilterDate";
 
-import { shopProductData } from "../data/temp/shopProductData";
-import { blogsData } from "../data/temp/blogsData";
+import { shopProductData } from "../../data/temp/shopProductData";
+import { blogsData } from "../../data/temp/blogsData";
 
-import type { QueryHook } from "../types/queryHookTypes";
+import type { QueryHook } from "../../types/queryHookTypes";
 
 interface UseApiResourceReturn<R>{
   responseData: R[]|null;

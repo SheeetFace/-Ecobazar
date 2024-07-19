@@ -10,7 +10,7 @@ import useCloseModal from '../../../../../hooks/useCloseModal';
 
 import styles from '../SuggestionsResult/SuggestionsResult.module.scss';
 
-import type { ProductDataType } from '../../../../../types/productDataTypes';
+import type { ProductDataType } from '../../../../../types/product/productDataTypes';
 
 interface  SuggestionsResultProps{
     suggestions:ProductDataType[]

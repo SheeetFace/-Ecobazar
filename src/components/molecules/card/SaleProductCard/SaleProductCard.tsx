@@ -4,7 +4,7 @@ import RatingStars from '../../RatingStars/RatingStars';
 
 import styles from '../SaleProductCard/SaleProductCard.module.scss';
 
-import type { ProductDataType as SaleProductCardProps } from '../../../../types/productDataTypes';
+import type { ProductDataType as SaleProductCardProps } from '../../../../types/product/productDataTypes';
 
 const SaleProductCard:React.FC<SaleProductCardProps> = (props) => {
 

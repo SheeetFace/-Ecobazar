@@ -3,8 +3,8 @@ import { subFilterTag } from "./subFilters/subFilterTag";
 import { subFilterDate } from "./subFilters/subFilterDate";
 import { subFilterSearch } from "./subFilters/subFilterSearch";
 
-import type { BlogDataTypes } from "../../types/blogDataTypes";
-import type { InitBlogFilter } from "../../types/blogFilterTypes";
+import type { BlogDataTypes } from "../../types/blog/blogDataTypes";
+import type { InitBlogFilter } from "../../types/blog/blogFilterTypes";
 
 export const filterBlogs = (blogs: BlogDataTypes[], filter: InitBlogFilter): BlogDataTypes[] => {
 

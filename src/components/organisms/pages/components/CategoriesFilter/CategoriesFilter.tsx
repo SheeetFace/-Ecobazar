@@ -14,8 +14,8 @@ import { allCategoriesData } from '../../../../../data/filter/allCategories';
 import styles from '../CategoriesFilter/CategoriesFilter.module.scss';
 
 
-import type { InitProductFilter } from '../../../../../types/productFilterType';
-import type { InitBlogFilter } from '../../../../../types/blogFilterTypes';
+import type { InitProductFilter } from '../../../../../types/product/productFilterType';
+import type { InitBlogFilter } from '../../../../../types/blog/blogFilterTypes';
 
 interface CategoriesFilterProps{
     filter:InitProductFilter|InitBlogFilter
