@@ -14,14 +14,15 @@ import type { QueryHook } from "../types/queryHookTypes";
 interface UseApiResourceReturn<R>{
   responseData: R[]|null;
   content: JSX.Element|null;
+  skip?: boolean
 }
 
 type TypeResource = 'products'|'blogs'|'latestBlogs';
 
 
-const useApiResource = <R,>(query: QueryHook<{ map: Map<string, R>, list: R[] }>, typeResource: TypeResource): UseApiResourceReturn<R> => {
+const useApiResource = <R,>(query: QueryHook<{ map: Map<string, R>, list: R[] }>, typeResource: TypeResource, skip=false): UseApiResourceReturn<R> => {
 
-    const { data, isLoading, isError, error } = query();
+    const { data, isLoading, isError, error } = query(undefined, { skip });
 
     const [responseData, setResponseData] = useState<R[]|null>(null);
 
