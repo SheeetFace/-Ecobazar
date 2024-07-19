@@ -10,7 +10,7 @@ import styles from '../LatestNews/LatestNews.module.scss';
 
 
 import type { BlogDataTypes } from '../../../../../types/blogDataTypes';
-
+//!intersection observer //! clear blogs filter  //! fix lidl recent blog card
 
 const LatestNews:React.FC = () => {
 
