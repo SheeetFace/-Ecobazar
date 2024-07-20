@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import type {PayloadAction} from '@reduxjs/toolkit';
-import { ProductDataType } from "../../types/product/productDataTypes";
+import type { ProductDataType } from "../../types/product/productDataTypes";
 
 interface ProductModalState {
     isShow:boolean

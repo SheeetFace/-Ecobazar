@@ -3,7 +3,7 @@ import { useMemo } from "react";
 import { useGetProductsQuery } from "../../api/products/productApi";
 import useApiResource from "../api/useApiResource";
 
-import { ProductDataType } from "../../types/product/productDataTypes";
+import type { ProductDataType } from "../../types/product/productDataTypes";
 
 import type { FilterPromotedTypes as FilterType } from "../../types/filterPromotedType";
 

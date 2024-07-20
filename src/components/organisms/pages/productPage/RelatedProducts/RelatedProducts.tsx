@@ -8,7 +8,7 @@ import ProductsCard from '../../../../molecules/card/ProductCard/ProductCard';
 
 import styles from '../RelatedProducts/RelatedProducts.module.scss';
 
-import { CategoryProductValue } from '../../../../../types/product/categoryProductValueTypes';
+import type { CategoryProductValue } from '../../../../../types/product/categoryProductValueTypes';
 import type { ProductDataType } from '../../../../../types/product/productDataTypes';
 
 interface RelatedProductsProps{
@@ -17,7 +17,7 @@ interface RelatedProductsProps{
 
 const RelatedProducts:React.FC<RelatedProductsProps> = ({productCategory}) => {
 
-    const { responseData, content } = useApiResource<ProductDataType[]>(useGetProductsQuery, 'products');
+    const { responseData, content } = useApiResource<ProductDataType>(useGetProductsQuery, 'products');
 
     const relatedData = useMemo(()=>{
         return responseData?.filter((item) => item.category.includes(productCategory)).slice(0, 6) || [];
