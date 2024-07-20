@@ -45,4 +45,4 @@ const LatestNews:React.FC = () => {
     )
 }
 
-export default LatestNews; //!FIX styles imports, look last push issues in pullrequest
+export default LatestNews;

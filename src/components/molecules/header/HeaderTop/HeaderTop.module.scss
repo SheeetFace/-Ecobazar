@@ -1,5 +1,6 @@
 @import '../../../../styles/colors.scss';
 @import '../../../../styles/typography.scss';
+@import '../../../../styles/skeleton.scss';
 
 .HeaderTop{
     width: 100%;
@@ -15,8 +16,11 @@
     }
 
     ._loading{
-        width: 100px;
+        @extend ._skeleton;
+        width: 120px;
         height: 35px;
+        border-radius:.3rem;
+        background-color:$grey-7;
     }
 
     ._error{

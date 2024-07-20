@@ -1,15 +1,13 @@
 @import '../../../../styles/colors.scss';
 @import '../../../../styles/typography.scss';
 @import '../styles/styles.module.scss';
+@import '../../../../styles/skeleton.scss';
+@import '../../../../styles/common.scss';
 
 
 .ProductsCard{
     position: relative;
-    // width: 20%;
-    // width: 100%;
     width: 260px;
-    // min-width: 200px;
-    // max-height: 310px;
     height: 310px;
     background-color:$white-color;
     display: flex;
@@ -20,7 +18,6 @@
     cursor: pointer;
     color:$grey-9;
     transition:border .4s ease;
-
 
     &:hover{
         border: 1px solid $primary-color;
@@ -47,6 +44,8 @@
 
     ._imgAndSkeletonHeight{
         height: 185px;
+        width: 100%;
+        background-color:$white-color;
     }
 
     ._isOutOfStock{
@@ -69,22 +68,18 @@
         align-items:center;
         justify-content: center;
 
-        img{
-            // width:185px;
-            @extend ._imgAndSkeletonHeight;
+        ._imgBackground{
+            @extend ._skeleton;
 
-            animation: appearImg 1s ease ;
-            
-            @keyframes appearImg {
-                0%{
-                    opacity: 0;
-                    filter: blur(3px);
-                }100%{
-                    opacity: 1;
-                    filter: blur(0px);
-                }
+            display: flex;
+            background-color: $white-color;
+
+            img{
+                @extend ._imgAndSkeletonHeight;
+                @extend .appearImg;
             }
         }
+
     }
     ._imgSkeleton{
         @extend ._imgAndSkeletonHeight;

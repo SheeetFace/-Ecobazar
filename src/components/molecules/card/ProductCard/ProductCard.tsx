@@ -48,7 +48,9 @@ const ProductsCard:React.FC<ProductsCardProps> = (props) => {
                 
                 {inView ? 
                     <div className={styles._imgContainer}>
-                        <img loading='lazy' src={src} alt={name}/>
+                        <div className={styles._imgBackground}>
+                            <img loading='lazy' src={src} alt={name}/>
+                        </div>
                     </div>
                 :
                     <div className={styles._imgSkeleton}></div>
