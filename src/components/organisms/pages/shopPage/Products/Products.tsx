@@ -7,8 +7,10 @@ import { useGetProductsQuery } from '../../../../../api/products/productApi';
 
 import { useAppDispatch,useAppSelector } from '../../../../../store/store';
 import { changeFilter } from '../../../../../store/slices/productFilterSlice';
+import { setPriceRange } from '../../../../../store/slices/priceRangeSlice';
 
 import { filterProducts } from '../../../../../utils/filter/filterProducts';
+import { calculatePriceRange } from '../../../../../utils/calculatePriceRange';
 
 import usePagination from '../../../../../hooks/usePagination';
 import useSmoothTransition from '../../../../../hooks/useSmoothTransition';
@@ -32,7 +34,7 @@ const Products:React.FC = () => {
     const filter = useAppSelector((state)=> state.productFilter)
 
     const filteredProducts = filterProducts((responseData ?? []), filter);
-    
+
     const location = useLocation();
 
     const itemsPerPage= 24;
@@ -65,6 +67,11 @@ const Products:React.FC = () => {
         dispatch(changeFilter({key:'categoryValue',value:location.state.categoryFilter}))
       }
     },[location.state])
+
+    useEffect(()=>{
+      const priceRange = calculatePriceRange(responseData?? [])
+      dispatch(setPriceRange(priceRange))
+    },[responseData])
     
     const renderProductCard = useMemo(() => {
       if(filteredProducts.length===0) return <NotingFound/>

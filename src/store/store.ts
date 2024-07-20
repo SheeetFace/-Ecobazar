@@ -13,6 +13,7 @@ import blogFilterSlice from './slices/blogFilterSlice';
 import wishlistSlice from './slices/wishlistSlice';
 import cartSlice from './slices/cartSlice';
 import orderHistorySlice from './slices/orderHistorySlice';
+import priceRangeSlice from './slices/priceRangeSlice';
 
 import { baseApi } from '../api/baseApi';
 
@@ -29,6 +30,7 @@ export const store = configureStore({
     wishlist:wishlistSlice,
     cart:cartSlice,
     orderHistory:orderHistorySlice,
+    priceRange:priceRangeSlice,
     [baseApi.reducerPath]: baseApi.reducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({
