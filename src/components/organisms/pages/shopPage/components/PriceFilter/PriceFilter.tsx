@@ -16,6 +16,10 @@ const PriceFilter:React.FC = () => {
     const [arrowClass, bodyClass,toggle] =useToggleFilter(styles._container)
 
     const filter = useAppSelector((state)=>state.productFilter)
+    const priceRange = useAppSelector((state)=>state.priceRange)
+
+    const priceRangeMin:number = +priceRange.minPrice.toFixed()
+    const priceRangeMax:number = +priceRange.maxPrice.toFixed()
 
     const handleFilter =(value:number[])=>{
         const newPrice = {  
@@ -41,10 +45,10 @@ const PriceFilter:React.FC = () => {
                 className={styles._horizontalSlider}
                 thumbClassName={styles._thumb}
                 trackClassName={styles._track}
-                min={0}
-                max={100}
-                defaultValue={filter.price.min ? [+filter.price.min, +filter.price.max] : [0, 100]}
-                value={filter.price.min ? [+filter.price.min, +filter.price.max] : [0, 100]}
+                min={priceRangeMin}
+                max={priceRangeMax}
+                defaultValue={filter.price.min ? [+filter.price.min, +filter.price.max] : [priceRangeMin, priceRangeMax]}
+                value={filter.price.min ? [+filter.price.min, +filter.price.max] : [priceRangeMin, priceRangeMax]}
                 ariaLabel={['Lower thumb', 'Upper thumb']}
                 ariaValuetext={state => `Thumb value ${state.valueNow}`}
                 pearling
@@ -60,15 +64,14 @@ const PriceFilter:React.FC = () => {
             />
                 <div>
                     <span>Price:&nbsp;
-                        {filter.price.min ? filter.price.min :0} 
+                        {filter.price.min ? filter.price.min :priceRangeMin} 
                         &nbsp;-&nbsp; 
-                        {filter.price.max ? filter.price.max :100}
+                        {filter.price.max ? filter.price.max :priceRangeMax}
                     </span>
                 </div>
 
                 <Divider type='horizontal' className={styles._divider}/>
             </div>
-
 
         </section>
     )
