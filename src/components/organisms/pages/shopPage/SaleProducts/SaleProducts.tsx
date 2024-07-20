@@ -1,3 +1,5 @@
+import { useMemo } from 'react';
+
 import useApiResource from '../../../../../hooks/api/useApiResource';
 
 import { useGetProductsQuery } from '../../../../../api/products/productApi';
@@ -7,7 +9,7 @@ import SaleProductCard from '../../../../molecules/card/SaleProductCard/SaleProd
 import styles from '../SaleProducts/SaleProducts.module.scss';
 
 import type { ProductDataType } from '../../../../../types/product/productDataTypes';
-import { useMemo } from 'react';
+
 
 const SaleProducts:React.FC = () => {
 
