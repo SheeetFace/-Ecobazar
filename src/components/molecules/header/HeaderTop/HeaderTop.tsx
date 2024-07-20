@@ -27,7 +27,7 @@ const HeaderTop:React.FC =()=>{
     const renderContent = ()=>{
 
         if(loading){
-            return <div className={`${styles._loading} _skeleton`}/>
+            return <div className={styles._loading}/>
     
         }else if(!loading && !user && !error){ 
             return renderButton()
