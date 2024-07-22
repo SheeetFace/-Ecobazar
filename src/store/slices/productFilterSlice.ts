@@ -1,5 +1,7 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, createSelector } from '@reduxjs/toolkit';
 import { isProductFilterEmpty } from '../../utils/filter/isProductFilterEmpty';
+
+import type { PayloadAction } from '@reduxjs/toolkit';
 import type { InitProductFilter } from '../../types/product/productFilterType';
 
 const createInitProductFilter = ():InitProductFilter => ({
@@ -31,6 +33,12 @@ const productFilterSlice = createSlice({
     },
   },
 });
+
+export const selectItems = (state:{ productFilter:InitProductFilter }) => state.productFilter
+
+export const selectProductFilter = createSelector(
+  selectItems,(items) => items
+);
 
 export const { changeFilter, clearFilter } = productFilterSlice.actions;
 export default productFilterSlice.reducer;
