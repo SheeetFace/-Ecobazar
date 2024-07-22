@@ -51,7 +51,9 @@ const ShoppingCartCard:React.FC<ShoppingCartCardProps> = ({name,id,src,currentCo
             </div>
             
             <button className='defaultButtonStyle' onClick={handleRemove}>
+                <div className={styles._cross}>
                     <CrossIcon/>
+                </div>                 
             </button>
 
         </div>

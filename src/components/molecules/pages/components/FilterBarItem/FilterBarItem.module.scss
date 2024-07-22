@@ -1,0 +1,27 @@
+@import '../../../../../styles/colors.scss';
+@import '../../../../../styles/typography.scss';
+@import '../../../../../styles/common.scss';
+
+
+.FilterBarItem{
+    @extend .animationAppear;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    width: max-content;
+    height: 100%;
+    padding: .3rem;
+
+    border-radius:.3rem;
+    background-color:rgba($soft-primary-color, .3);
+    color:$primary-color;
+    text-wrap: nowrap;
+
+    button{
+        padding-left: .3rem;
+        ._cross{
+            width: 18px;
+            height: 18px;
+        }
+    }
+}

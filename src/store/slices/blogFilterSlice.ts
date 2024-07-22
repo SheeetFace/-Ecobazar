@@ -1,7 +1,8 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, createSelector } from '@reduxjs/toolkit';
 
 import { isBlogFilterEmpty } from '../../utils/filter/isBlogFilterEmpty';
 
+import type { PayloadAction } from '@reduxjs/toolkit';
 import type { InitBlogFilter } from '../../types/blog/blogFilterTypes';
 
 const createInitBlogFilter = ():InitBlogFilter=>({
@@ -28,6 +29,12 @@ const blogFilterSlice = createSlice({
     },
   },
 });
+
+export const selectItems = (state:{ blogFilter:InitBlogFilter }) => state.blogFilter
+
+export const selectBlogFilter = createSelector(
+  selectItems,(items) => items
+);
 
 export const { changeFilter, clearFilter } = blogFilterSlice.actions;
 export default blogFilterSlice.reducer;

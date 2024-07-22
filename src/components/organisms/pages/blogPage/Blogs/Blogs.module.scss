@@ -3,13 +3,12 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding-top: 1rem;
 
     ._container{
         min-height: 1560px;
 
         ._cards{
-            padding: 1rem;
+            padding: 0 1rem;
             display: flex;
             flex-wrap: wrap;
             width: 100%;
