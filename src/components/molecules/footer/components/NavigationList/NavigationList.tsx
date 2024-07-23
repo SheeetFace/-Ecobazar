@@ -1,4 +1,4 @@
-import React from "react";
+import { NavLink } from 'react-router-dom'
 
 import styles from '../NavigationList/NavigationList.module.scss'
 
@@ -20,7 +20,7 @@ const NavigationList:React.FC<NavigationListProps>=({data,title})=>{
         return data.map((item,i)=>{
             return(
                 <li key={i}>
-                     <span>{item.name}</span>
+                    <NavLink to={item.path}>{item.name}</NavLink>
                 </li>
             )
         })

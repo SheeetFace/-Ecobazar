@@ -2,38 +2,38 @@
 export const MyAccountData=[
     {
         name:'Order History',
-        path:'/dashboard'
+        path:'dashboard/orderHistory'
     },
     {
         name:'Wishlist',
-        path:'/dashboard'
+        path:'wishlist'
     },
     {
         name:'Shopping Cart',
-        path:'/dashboard'
+        path:'shopping-cart'
     },
     {
         name:'Settings',
-        path:'/dashboard'
+        path:'dashboard/settings'
     },
 ]
 
 export const HelpsData=[
     {
         name:'Contacts',
-        path:'/dashboard'
+        path:'contacts'
     },
     {
         name:'Faqs',
-        path:'/dashboard'
+        path:'faq'
     },
     {
         name:'Terms & Condition',
-        path:'/dashboard'
+        path:'contacts'
     },
     {
         name:'Privacy Policy',
-        path:'/dashboard'
+        path:'contacts'
     },
 ]
 
