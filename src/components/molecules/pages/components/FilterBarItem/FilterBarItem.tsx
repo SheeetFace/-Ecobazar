@@ -11,16 +11,36 @@ interface FilterBarItemProps<T>{
 const FilterBarItem = <T,>({ filter,onChangeFilter }:FilterBarItemProps<T>)=>{
 
     const renderFilterContent =()=>{
-        const {value} = filter;
+        const {key,value} = filter;
 
         if(!value || (Array.isArray(value) && value.length === 0)) return null;
         
         if(typeof value === 'object' && 'min' in value && 'max' in value){
-            if(value.min && value.max) return `${value.min} - ${value.max}`;
+            if(value.min && value.max) return `💰 ${value.min} - ${value.max}`;
             return null;
         }
 
-        return value.toString().toUpperCase();
+        let prefix='';
+
+        switch(key){
+            case 'search':
+                prefix = '🔎'
+                break
+            case 'tag':
+                prefix = '🏷️'
+                break
+            case 'categoryValue':
+                prefix = '📂'
+                break
+            case 'rating':
+                prefix = '⭐'
+                break
+            case 'date':
+                prefix = '📅'
+                break
+        }
+
+        return prefix + value.toString().toUpperCase();
     }
 
     const handleRemove = ()=>{
@@ -28,21 +48,17 @@ const FilterBarItem = <T,>({ filter,onChangeFilter }:FilterBarItemProps<T>)=>{
         let initFilter;
 
         switch(filter.key){
-
             case 'search':
             case 'tag':
                 initFilter = ''
                 break
-
             case 'categoryValue':
             case 'rating':
                 initFilter = []
                 break
-            
             case 'price':
                 initFilter ={min:'',max:''}
                 break
-            
             case 'date':
                 initFilter = 'newest'
                 break

@@ -28,9 +28,9 @@ const FilterBar = <F,>({selectFilter,changeFilter}:FilterBarProps<F>) => {
         return createMap.map((item)=>{
             if(item.key !=='productsLength' && item.key !=='blogsLength' && item.value !== 'newest'){ 
                 return <FilterBarItem<F> 
-                key={item.key.toString()} 
-                filter={item} 
-                onChangeFilter={(key, value) => dispatch(changeFilter({ key, value }))}
+                        key={item.key.toString()} 
+                        filter={item} 
+                        onChangeFilter={(key, value) => dispatch(changeFilter({ key, value }))}
                 />
             }
         })
