@@ -50,7 +50,8 @@ jobs:
               'STYLE:': 'STYLE',
               'FIX:': 'FIX',
               'REFACTOR:': 'REFACTOR',
-              'FEAT:': 'FEAT'
+              'FEAT:': 'FEAT',
+              'TEST:': 'TEST'
             };
             
             let labels = [];
