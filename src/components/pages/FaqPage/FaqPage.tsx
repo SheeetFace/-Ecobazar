@@ -1,3 +1,5 @@
+import useScrollToTop from '../../../hooks/useScrollToTop';
+
 import Accordion from '../../organisms/pages/faqPage/Accordion/Accordion';
 
 import person1 from '../../../assets/persons/person1.webp';
@@ -5,6 +7,8 @@ import person1 from '../../../assets/persons/person1.webp';
 import styles from '../FaqPage/FaqPage.module.scss';
 
 const FaqPage:React.FC = () => {
+
+    useScrollToTop(0);
 
     return (
         <section className={styles.FaqPage}>
