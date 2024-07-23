@@ -1,3 +1,5 @@
+import useScrollToTop from '../../../hooks/useScrollToTop';
+
 import ShoppingCart from '../../organisms/pages/shoppingCart/ShoppingCart/ShoppingCart';
 import ShoppingCartTotal from '../../molecules/pages/shoppingCart/ShoppingCartTotal/ShoppingCartTotal';
 import CouponCodeField from '../../molecules/pages/shoppingCart/CouponCodeField/CouponCodeField';
@@ -5,6 +7,8 @@ import CouponCodeField from '../../molecules/pages/shoppingCart/CouponCodeField/
 import styles from '../ShoppingCartPage/ShoppingCartPage.module.scss';
 
 const ShoppingCartPage:React.FC = () => {
+
+    useScrollToTop(0);
 
     return (
         <section className={styles.ShoppingCartPage}>
