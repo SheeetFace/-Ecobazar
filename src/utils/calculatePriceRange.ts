@@ -10,7 +10,7 @@ export const calculatePriceRange = (products:ProductDataType[]) => {
     for(const product of products){
       const price = parseFloat(product.currentCost);
 
-      if(!isNaN(price)){
+      if(!isNaN(price) && price>=0){
         minPrice = Math.min(minPrice, price);
         maxPrice = Math.max(maxPrice, price);
       }
