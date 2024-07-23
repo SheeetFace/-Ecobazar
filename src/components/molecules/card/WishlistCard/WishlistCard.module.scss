@@ -30,7 +30,10 @@
         align-items:center;
         margin-right: .5rem;
         justify-content: space-between;
-
+        ._cross{
+            width: 20px;
+            height: 20px;
+        }
         ._toggle{
             width: 160px;
         }

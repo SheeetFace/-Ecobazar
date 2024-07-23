@@ -56,7 +56,9 @@ const WishlistCard:React.FC<WishlistCardProps> = ({name,id,src,currentCost,oldCo
                 </div>
 
                 <button className='defaultButtonStyle' onClick={handleRemove}>
-                    <CrossIcon/>
+                    <div className={styles._cross}>
+                        <CrossIcon/>
+                    </div>
                 </button>
             </div>  
 
