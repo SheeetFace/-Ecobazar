@@ -1,26 +1,25 @@
 type Format = 'short'|'normal'|'full'
-
 type FormatDate = (date:string|number, format:Format)=>string
 
-export const formatDate:FormatDate=(date, format)=>{
+export const formatDate: FormatDate = (date, format)=>{
 
-    let typeDate:string;
+    let newDate:Date;
 
-    if(typeof date === 'number') typeDate = new Date(date).toISOString();
-    else if (typeof date === 'string') typeDate = date;
+    if(typeof date === 'number'){
+        if(date < 0) return 'Invalid Date';
+        newDate = new Date(date);
+    }else if(typeof date === 'string') newDate = new Date(date);
     else return 'Invalid Date';
     
-    const newDate = new Date(typeDate);
-    
-    if(isNaN(newDate.getTime())) return 'Invalid Date';
-    
+    if (isNaN(newDate.getTime())) return 'Invalid Date';
+
     const day = newDate.getDate().toString().padStart(2, '0');
     const month = newDate.toLocaleString('en-US', { month: 'short' }).toUpperCase();
     const year = newDate.getFullYear();
     const hours = newDate.getHours().toString().padStart(2, '0');
     const minutes = newDate.getMinutes().toString().padStart(2, '0');
 
-    switch(format){
+    switch (format) {
         case 'short':
             return `${day} ${month}`;
         case 'normal':
