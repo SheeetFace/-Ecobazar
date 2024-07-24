@@ -12,4 +12,4 @@ export const getDefaultFormValues = (user: UserDataType|null) => {
       zipCode: user?.billingAddress.zipCode || '',
       company: user?.billingAddress.company || '',
     };
-  };
+};
