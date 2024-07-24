@@ -57,9 +57,8 @@ jobs:
             let labels = [];
             
             for (const [key, value] of Object.entries(labelMap)) {
-              if (commitMsg.startsWith(key)) {
+              if (commitMsg.includes(key)) {
                 labels.push(value);
-                break;
               }
             }
             
