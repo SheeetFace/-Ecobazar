@@ -31,6 +31,7 @@ function App() {
   useGetProductsQuery()
   useCartSync()
   useWishlistSync()
+  
 
   return (
     <main className={styles.App}>
