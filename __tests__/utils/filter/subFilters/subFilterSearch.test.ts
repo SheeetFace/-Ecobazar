@@ -15,15 +15,15 @@ describe('subFilterSearch', () => {
     });
 
     it('should return true if filterSearch is an empty string', () => {
-        expect(subFilterSearch('', 'This is a title')).toBe(true); // An empty search term should match any non-empty title
+        expect(subFilterSearch('', 'This is a title')).toBe(true);
     });
 
     it('should handle case where sharedTitle is an empty string', () => {
-        expect(subFilterSearch('test', '')).toBe(false); // No match if search term is present but title is empty
+        expect(subFilterSearch('test', '')).toBe(false); 
     });
 
     it('should return true if both filterSearch and sharedTitle are empty strings', () => {
-        expect(subFilterSearch('', '')).toBe(true); // An empty search term should match an empty title
+        expect(subFilterSearch('', '')).toBe(true);
     });
 
 });
