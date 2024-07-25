@@ -1,5 +1,3 @@
-
-
 export const formatAuthError =(error:string):string=>{
 
     if(!error.includes('/')) return error;
