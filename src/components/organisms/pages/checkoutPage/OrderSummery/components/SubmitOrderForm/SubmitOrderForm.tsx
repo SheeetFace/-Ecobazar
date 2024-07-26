@@ -70,8 +70,8 @@ const SubmitOrderForm:React.FC = () => {
                         message={<>Fill in the <b>Billing Information</b> and select a <b>Payment method</b></>}
                         isCanClose={false}/>
 
-            <StatusMessage message='Confirm The Form ' statusSelect={selectPaymentMethod}/>
-            <StatusMessage message='Choose The PayMent' statusSelect={selectBillingInfo}/>
+            <StatusMessage message='Confirm The Form ' statusSelect={selectBillingInfo}/>
+            <StatusMessage message='Select Payment Method' statusSelect={ selectPaymentMethod}/>
 
             <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight buttonMaxWidth'
                     text='Proceed to checkout'
