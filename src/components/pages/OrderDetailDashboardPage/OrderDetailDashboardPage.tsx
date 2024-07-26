@@ -33,7 +33,7 @@ const OrderDetailDashboardPage:React.FC = () => {
                     <span>&#8226;</span>
                     <span>{productIDs.length} Products</span>
                 </div>
-                <NavLink to='/dashboard/orderHistory' className='_navLinkGreenPrimaryLetterSpacing'>Back To List</NavLink>
+                <NavLink to='/dashboard/order-history' className='_navLinkGreenPrimaryLetterSpacing'>Back To List</NavLink>
             </div>
 
             <Divider type='horizontal' className={styles._divider}/>

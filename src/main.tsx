@@ -142,11 +142,11 @@ const router = createBrowserRouter([
                 element: <UserDashboardPage />,
               },
               {
-                path: 'orderHistory',
+                path: 'order-history',
                 element: <OrderHistoryDashboardPage />,
               },
               {
-                path: 'orderDetail',
+                path: 'order-detail',
                 element: <OrderDetailDashboardPage />,
               },
               {

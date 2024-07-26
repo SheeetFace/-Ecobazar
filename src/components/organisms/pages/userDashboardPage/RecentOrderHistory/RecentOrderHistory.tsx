@@ -44,7 +44,7 @@ const RecentOrderHistory:React.FC = () => {
             <div className={styles._header}>
                 <h1>Recent Order History</h1>
 
-                <NavLink to='orderHistory' className='_navLinkGreenPrimaryLetterSpacing'>
+                <NavLink to='order-history' className='_navLinkGreenPrimaryLetterSpacing'>
                     View All
                 </NavLink>
             </div>
