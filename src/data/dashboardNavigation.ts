@@ -12,7 +12,7 @@ export const dashboardNavigationData= [
     {
         icon:OrderHistoryIcon,
         name: 'Order History',
-        to:'orderHistory'
+        to:'order-history'
     },
     {
         icon:SettingsIcon,
