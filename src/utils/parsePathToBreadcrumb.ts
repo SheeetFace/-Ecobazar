@@ -15,12 +15,12 @@ export const parsePathToBreadcrumb = (str:string):Breadcrumb=>{
     if(str){
         if(str==='/') return [{name:'Home',pathBack:'/'}];
 
-        const arrStr=str.split('/');
+        const arrStr=str.split('/').filter(Boolean);
 
         breadcrumbPaths = arrStr.map((item)=>{
 
             let newItem = item;
-
+           
             if(item.includes('%20')) newItem = splitFn(item,'%20');
             else if(item.includes('-')) newItem = splitFn(item,'-');
 
@@ -33,6 +33,8 @@ export const parsePathToBreadcrumb = (str:string):Breadcrumb=>{
                 }
             )
         })
+
+        breadcrumbPaths.unshift({ name: 'Home', pathBack: '/' });
     }
 
     return breadcrumbPaths
