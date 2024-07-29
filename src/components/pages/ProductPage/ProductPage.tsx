@@ -1,58 +1,29 @@
-import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import useScrollToTop from '../../../hooks/useScrollToTop';
 
-import ProductDetails from '../../organisms/ProductDetails/ProductDetails';
-import ProductInfo from '../../organisms/pages/productPage/ProductInfo/ProductInfo';
-import RelatedProducts from '../../organisms/pages/productPage/RelatedProducts/RelatedProducts';
-
-import styles from '../ProductPage/ProductPage.module.scss';
-
-import type { ProductDataType } from '../../../types/product/productDataTypes';
-import { CategoryProductValue } from '../../../types/product/categoryProductValueTypes';
-
-interface ProductInfoData {
-    weight: string
-    color: string
-    type: string
-    category: string
-    stockStatus: string
-    tag: string[]
-}
+import ProductPageContent from '../../organisms/pages/productPage/ProductPageContent/ProductPageContent';
+import ProductPageWithHashData from '../../organisms/pages/productPage/ProductPageWithHashData/ProductPageWithHashData';
 
 
-const ProductPage:React.FC = () => {
+const ProductPage: React.FC = () => {
+    useScrollToTop(0, 'instant');
 
-    useScrollToTop(0,'instant')
+    const navigate = useNavigate()
 
     const locationState = useLocation();
+    const data = locationState.state?.data;
+    const hash = locationState.hash;
 
-    const data:ProductDataType = locationState.state.data;
-    const dataCategory = data.category as CategoryProductValue;
+    useEffect(()=>{
+        if(!data && !hash) return navigate('/shop')
+    },[data])
 
-    const productInfoData:ProductInfoData={
-        weight: data.weight,
-        color: data.color,
-        type: data.type,
-        category: data.category,
-        stockStatus: data.stockStatus,
-        tag: data.tag
-    }
-
-    const productCategory:CategoryProductValue = dataCategory ? dataCategory: CategoryProductValue.FRUIT
-
-    return (
-        <section className={styles.ProductPage}>
-            <div className='center'>
-                <div className={styles._container}>
-                    <ProductDetails data={data} viewMode='page'/>
-                    <ProductInfo data={productInfoData}/>
-                    <RelatedProducts productCategory={productCategory}/>
-                </div>
-            </div>
-            
-        </section>
-    )
+    if(data) return <ProductPageContent data={data}/>;
+    else if(!data && hash) return <ProductPageWithHashData hash={hash.slice(1)}/>;
+    else null
 }
 
 export default ProductPage;

@@ -24,7 +24,7 @@ const ProductsCard:React.FC<ProductsCardProps> = (props) => {
     });
 
     return (
-        <NavLink to={`/shop/${name}`}
+        <NavLink to={`/shop/${name}#${props.id}`}
                  state={{data:props}} 
                  className="_navLink">
 
