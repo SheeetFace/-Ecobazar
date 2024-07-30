@@ -18,8 +18,8 @@ const OrderHistoryItemTable:React.FC<ResponseOrderDataType> = (item) => {
             </td>
             <td>{item.status}</td>
             <td className={styles._tdNavlink}>
-                <NavLink    to='/dashboard/order-detail'
-                            state={{res:item}} 
+                <NavLink    to={`/dashboard/order-detail#${item.id}`}
+                            state={{data:item}} 
                             className='_navLinkGreenPrimary'>  
                     View Details
                 </NavLink>
