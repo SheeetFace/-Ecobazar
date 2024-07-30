@@ -56,7 +56,7 @@ const SubmitOrderForm:React.FC = () => {
                         dispatch(setShippingInfo([]))
                     ]);
                     
-                    navigate('/dashboard/order-detail',{state: {res}});
+                    navigate(`/dashboard/order-detail#${res.id}`,{state: {data:res}});
                 }
             }
         }
