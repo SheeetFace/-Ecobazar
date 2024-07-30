@@ -1,7 +1,5 @@
 import { useEffect } from "react";
-
 import { useNavigate,useLocation } from "react-router-dom";
-
 
 const useConditionalNavigation = (redirect:string) => {
     
@@ -9,8 +7,10 @@ const useConditionalNavigation = (redirect:string) => {
 
     const locationState = useLocation();
     const data = locationState.state?.data;
-    const hash = locationState.hash;
-    
+    const rawHash = locationState.hash;
+
+    const hash = rawHash ? rawHash.slice(1) : '';
+
     useEffect(()=>{
         if(!data && !hash) return navigate(redirect)
     },[data,hash,navigate])

@@ -25,7 +25,7 @@ const BlogCard:React.FC<BlogCardProps> = (props) => {
                 <Info count={commentsCount} category={category} owner={owner}/>
                 <span className={styles._title}>{title}</span>
                 <div className={styles._button}>
-                    <NavLink    to={`/blog/${title}`}
+                    <NavLink    to={`/blog/${title}#${id}`}
                                 state={{data:props}}
                                 className='_navLinkGreenPrimaryLetterSpacing'>
                             Read More &#10132;
