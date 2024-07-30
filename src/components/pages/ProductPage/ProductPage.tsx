@@ -26,4 +26,4 @@ const ProductPage: React.FC = () => {
     else null
 }
 
-export default ProductPage;
+export default ProductPage;//!BLOG CARD   LATEST BLOGS?   ORDER DETAIL
