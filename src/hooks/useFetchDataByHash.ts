@@ -4,12 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 import type { QueryHook } from "../types/queryHookTypes";
 
-// type Query<T> = QueryHook<{ map?: Map<string, T>, list?: T[] }>
-
-
-type QueryData<T> = { map?: Map<string, T>, list?: T[] };
-
 type Query<T> = QueryHook<QueryData<T>>;
+type QueryData<T> = { map?: Map<string, T>, list?: T[] };
 
 
 const isMap = <T,>(data:QueryData<T>): data is { map:Map<string,T> } => {
@@ -41,27 +37,3 @@ const useFetchDataByHash = <T extends { id:string}> (hash:string, query:Query<T>
 }
 
 export default useFetchDataByHash;
-
-
-// const useFetchDataByHash = <T,>(hash:string,query:Query<T>,redirect:string)=>{
-    
-//     const navigate = useNavigate();
-
-//     const { data, isLoading} = query();
-
-//     const hashData = useMemo((data,hash)=>{
-
-//         if(data){
-//             if(data instanceof Map) return data?.map?.get(hash);
-//             if(data instanceof Array) return data?.list?.find((blog)=>blog.id === hash);
-//         }
-
-//     },[data])
-
-
-//     useEffect(() => {
-//         if(!isLoading && !hashData) navigate(redirect);
-//     },[hashData,isLoading]);
-
-// }
-// export default useFetchDataByHash;
