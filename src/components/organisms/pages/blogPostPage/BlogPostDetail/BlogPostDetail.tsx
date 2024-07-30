@@ -9,7 +9,7 @@ interface BlogPostDetailProps{
 
 
 const BlogPostDetail: React.FC<BlogPostDetailProps>=({id, post})=>{
-
+  
     const renderBlogPost=()=>{
       return(
         <>

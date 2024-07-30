@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import useScrollToTop from '../../../hooks/useScrollToTop';
 
 import { useLocation } from 'react-router-dom';
 
@@ -11,11 +11,10 @@ import BlogPostComments from '../../organisms/pages/blogPostPage/BlogPostComment
 import styles from '../BlogPostPage/BlogPostPage.module.scss';
 
 const BlogPostPage:React.FC = () => {
+    useScrollToTop(0,'instant',70)
 
     const location  = useLocation()
     const data = location.state.data
-
-    useEffect(()=>{window.scrollTo({top: 0})},[data]);
 
     return (
         <div className={styles.BlogPostPage}>

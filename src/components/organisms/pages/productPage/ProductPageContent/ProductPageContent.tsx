@@ -19,7 +19,7 @@ interface ProductInfoData {
 
 const ProductPageContent: React.FC<{data:ProductDataType}>=({data})=>{
     const dataCategory = data.category as CategoryProductValue;
-    console.log('ProductPageContent')
+
     const productInfoData: ProductInfoData = {
         weight: data.weight,
         color: data.color,
