@@ -12,7 +12,7 @@ const ProductPage: React.FC = () => {
     const {data,hash} = useConditionalNavigation('/shop');
 
     if(data) return <ProductPageContent data={data}/>;
-    else if(!data && hash) return <ProductPageWithHashData hash={hash.slice(1)}/>;
+    else if(!data && hash) return <ProductPageWithHashData hash={hash}/>;
     else null
 }
 
