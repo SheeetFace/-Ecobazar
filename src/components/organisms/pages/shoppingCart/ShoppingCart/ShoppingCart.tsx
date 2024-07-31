@@ -70,6 +70,7 @@ const ShoppingCart:React.FC = () => {
                 <Button className='ButtonFilledOval fillGrey1 colorTextGrey7 buttonMaxHeight'
                         text='Return to Shop'
                         type='button'
+                        ariaLabel='Return to Shop button'
                         />
             </NavLink>
 

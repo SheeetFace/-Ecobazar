@@ -14,7 +14,7 @@ const InfoButton:React.FC<InfoButtonProps> = ({text,isSelected, changeFn}) => {
 
     return (
         <div className={styles.InfoButton} onClick={()=>changeFn()}>
-            <Button type='button' className={classs} text={text} />
+            <Button type='button' className={classs} text={text} ariaLabel={text}/>
         </div>
     )
 }

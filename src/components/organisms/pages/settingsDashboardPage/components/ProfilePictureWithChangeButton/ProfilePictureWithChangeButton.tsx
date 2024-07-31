@@ -89,6 +89,7 @@ const ProfilePictureWithChangeButton: React.FC<ProfilePictureWithChangeButtonPro
           type="button"
           text={isLoading ? "Uploading file.." : "Choose Image"}
           disabled={disabled || isLoading}
+          ariaLabel='Save Image button'
         />
         
         {isErrors ? <AlertMessage type='error' message='Something went wrong' title='Ops' isCanClose={false}/>:null}

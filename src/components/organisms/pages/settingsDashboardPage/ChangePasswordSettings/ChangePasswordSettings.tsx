@@ -118,6 +118,7 @@ const ChangePasswordSettings:React.FC = () => {
                             type='submit' 
                             text='Save Changes'
                             disabled={isUserCustomer1 || isLoading ||!isProviderPassword }
+                            ariaLabel='Save New Password button'
                     />
                 </div>
 

@@ -13,9 +13,18 @@ const BlogCard:React.FC<BlogCardProps> = (props) => {
 
     return (
         <div className={styles.BlogCard}>
-            <div className={styles._imgWrapper}>
-                <img loading='lazy' alt={title} src={src}/>
-
+            <div className={styles._imgWrapper}
+                 role="group"
+                 aria-labelledby={`blog-description-${title}`}>
+                <figure>
+                    <img src={src} 
+                        alt={title}
+                        loading='lazy'
+                        width='482'
+                        height='556'
+                    />
+                </figure>
+                
                 <div className={styles._date}>
                     <DateLabel date={date}/>
                 </div>
@@ -23,18 +32,16 @@ const BlogCard:React.FC<BlogCardProps> = (props) => {
 
             <div className={styles._info}>
                 <Info count={commentsCount} category={category} owner={owner}/>
-                <span className={styles._title}>{title}</span>
-                <div className={styles._button}>
+                <figcaption id={`blog-description-${title}`}>
+                    <span className={styles._title}>{title}</span>
+                </figcaption>
                     <NavLink    to={`/blog/${title}#${id}`}
                                 state={{data:props}}
-                                className='_navLinkGreenPrimaryLetterSpacing'>
+                                className='_navLinkGreenPrimaryLetterSpacing'
+                                aria-label={`Read more about ${title}`}>
                             Read More &#10132;
                     </NavLink>
-                    
-                </div>
             </div>
-            
-
         </div>
     )
 }

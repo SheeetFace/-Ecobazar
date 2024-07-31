@@ -19,7 +19,11 @@ const HeaderTop:React.FC =()=>{
     const renderButton = ()=>{
         return(
             <NavLink to="/login">
-                <Button className="ButtonFilledOval fillWhite colorTextGreenPrimary buttonMaxHeight buttonWidthMaxContent"  text="Sing in" type='button'/>
+                <Button className="ButtonFilledOval fillWhite colorTextGreenPrimary buttonMaxHeight buttonWidthMaxContent" 
+                        text="Sing in" 
+                        type='button'
+                        ariaLabel='Sing in button'
+                        />
             </NavLink>
         )
     }

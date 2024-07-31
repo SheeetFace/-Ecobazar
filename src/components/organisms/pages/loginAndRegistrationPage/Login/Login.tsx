@@ -78,7 +78,11 @@ const Login:React.FC = () => {
                     </div>
                 </div>
                 
-                <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxWidth buttonMaxHeight' type='submit' text='Log in'/>
+                <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxWidth buttonMaxHeight' 
+                        type='submit'
+                        text='Log in'
+                        ariaLabel='Log in button'
+                />
 
             </form>
 

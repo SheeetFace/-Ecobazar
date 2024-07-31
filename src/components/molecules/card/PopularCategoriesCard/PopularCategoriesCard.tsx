@@ -9,11 +9,20 @@ const PopularCategoriesCard:React.FC<PopularCategoriesCardProps> = ({img,title})
 
   return (
     <div className={styles.PopularCategoriesCard}>
+      <figure>
 
-        <img src={img} alt={title}/>
+        <img src={img} 
+             alt={title}
+             loading="lazy"
+             width='156'
+             height='106'
+            />
 
-        <span>{title}</span>
+        <figcaption>
+          <span>{title}</span>
+        </figcaption>
 
+      </figure>
     </div>
   )
 }

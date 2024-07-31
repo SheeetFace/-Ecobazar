@@ -40,6 +40,7 @@ const LogOutDashboardPage:React.FC = () => {
                         type='button' 
                         text='Log Out'
                         onClick={()=>logOut()}
+                        ariaLabel='Confirm Log Out button'
                 />
                 {error ? <AlertMessage type='error' title='Error' message={error} isCanClose={false}/> : null}
                 {loading ? <Loader/> :null}

@@ -11,25 +11,27 @@ interface RecentlyAddedBlogCardProps{
     id:string
 }
 
-const RecentlyAddedBlogCard:React.FC<RecentlyAddedBlogCardProps>=({date,src,title,id})=>{
+const RecentlyAddedBlogCard:React.FC<RecentlyAddedBlogCardProps>=({date,src,title})=>{
 
     const formattedDate = formatDate(date,'normal')
 
     return (
-        <div className={styles.RecentlyAddedBlogCard}>
-            <img src={src} 
-                 alt={title}
-            />
+        <div className={styles.RecentlyAddedBlogCard}
+             role="article"
+             aria-label={`Blog card: ${title}`}
+             style={{backgroundImage: `url(${src})`}}>
 
-            <div className={styles._container}>
-                <span className={styles._title}>{title}</span>
+            <div className={styles._overlay}>
+                <div className={styles._container}>
+                    <span className={styles._title}>{title}</span>
 
-                <div className={styles._date}>
-                    <CalendarIcon/>
-                    <span>{formattedDate}</span>
+                    <div className={styles._date}>
+                        <CalendarIcon />
+                        <span>{formattedDate}</span>
+                    </div>
                 </div>
             </div>
-
+            
         </div>
     )
 }

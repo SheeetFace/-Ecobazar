@@ -160,6 +160,7 @@ const AccountSettings:React.FC = () => {
                             type='submit'
                             text='Save Changes'
                             disabled={isUserCustomer1 || isLoading }
+                            ariaLabel='Save Changes Your Profile button'
                         />
                 </div>
                 

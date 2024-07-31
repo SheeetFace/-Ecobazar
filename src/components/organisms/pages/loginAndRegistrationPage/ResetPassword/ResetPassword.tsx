@@ -78,7 +78,11 @@ const ResetPassword:React.FC = () => {
                                 errorMessage={errors.confirmEmail?.message}
                 />
 
-                <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxWidth buttonMaxHeight' type='submit' text='Reset Password'/>
+                <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxWidth buttonMaxHeight' 
+                        type='submit' 
+                        text='Reset Password'
+                        ariaLabel='Reset Your Password button'
+                />
             </form>
             
             {renderLoaderOrError()}

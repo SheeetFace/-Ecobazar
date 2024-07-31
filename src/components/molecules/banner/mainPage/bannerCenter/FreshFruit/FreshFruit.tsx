@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router-dom';
+
 import Button from '../../../../../atoms/Button/Button';
 import LabelBadge from '../../../../../atoms/LabelBadge/LabelBadge';
 
@@ -6,7 +8,7 @@ import styles from '../FreshFruit/FreshFruit.module.scss';
 const FreshFruit:React.FC = () => {
 
     return (
-        <div className={styles.FreshFruit}>
+        <section className={styles.FreshFruit} aria-label="Summer Sale Banner - 100% Fresh Fruit">
             <div className={styles._container}>
 
                 <span className={styles._preTitle}>SUMMER SALE</span>
@@ -19,11 +21,13 @@ const FreshFruit:React.FC = () => {
                 </div>
 
                 <div className={styles._wrapperButton}>
-                    <Button className='ButtonFilledOval fillWhite colorTextGreenPrimary' type='button' text='Shop now &#10132;'/>
+                    <NavLink to={'/shop'} className='_navLink _navLinkWidthMaxContent' aria-label='Go to Shop for 100% Fresh Fruit'>
+                        <Button className='ButtonFilledOval fillWhite colorTextGreenPrimary' type='button' text='Shop now &#10132;'/>
+                    </NavLink>
                 </div>
 
             </div>
-        </div>
+        </section>
     )
 }
 

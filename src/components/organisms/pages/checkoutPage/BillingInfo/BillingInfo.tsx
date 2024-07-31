@@ -145,7 +145,9 @@ const BillingInfo:React.FC = () => {
             
                 <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight buttonMaxWidth'
                         type='submit'
-                        text={!isBillingInfoValid || !isValid ? 'Confirm Billing Information' :'Confirmed ✓'}/>
+                        text={!isBillingInfoValid || !isValid ? 'Confirm Billing Information' :'Confirmed ✓'}
+                        ariaLabel='Confirm Billing Information button'
+                        />
             </form>
 
         </section>

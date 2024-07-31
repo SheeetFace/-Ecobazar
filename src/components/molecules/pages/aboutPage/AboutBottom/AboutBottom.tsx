@@ -33,7 +33,10 @@ const AboutBottom:React.FC = () => {
                         </div>
 
                         <NavLink to='/shop' className={styles._navLink}>
-                            <Button className='ButtonFilledOval fillGreen colorTextGrey1' type='button' text='Shop now &#10132;'/>
+                            <Button className='ButtonFilledOval fillGreen colorTextGrey1'
+                                    type='button'
+                                    text='Shop now &#10132;'
+                                    ariaLabel='Go To Shop button'/>
                         </NavLink>
 
                     </div>

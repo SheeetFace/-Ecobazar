@@ -25,7 +25,8 @@ const ButtonQuickView:React.FC<ButtonQuickViewProps> = (props) => {
                 <Button className='ButtonTransparent' 
                         icon={<EyeIcon className={styles._buttonQuickViewIcon}/>}
                         type='button'
-                        onClick={(e)=>openQuickView(e)}/>
+                        onClick={(e)=>openQuickView(e)}
+                        ariaLabel={`Open ${props.name} in Quick View Mode`}/>
             </div>
         </div>
     )

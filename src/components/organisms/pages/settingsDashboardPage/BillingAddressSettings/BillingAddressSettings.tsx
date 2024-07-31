@@ -137,6 +137,7 @@ const BillingAddressSettings:React.FC = () => {
                             type='submit' 
                             text='Save Changes'
                             disabled={isUserCustomer1 || isLoading }
+                            ariaLabel='Save Billing Address Changes button'
                     />
                 </div>
 

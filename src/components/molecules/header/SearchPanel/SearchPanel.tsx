@@ -124,7 +124,8 @@ const SearchPanel =()=>{
             <Button className='Search'
                     icon={<SearchIcon/>}
                     type='submit'
-                    onClick={redirectToShop}/>
+                    onClick={redirectToShop}
+                    ariaLabel='Search button'/>
 
         </form>
 

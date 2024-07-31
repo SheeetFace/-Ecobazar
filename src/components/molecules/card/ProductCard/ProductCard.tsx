@@ -39,26 +39,30 @@ const ProductsCard:React.FC<ProductsCardProps> = (props) => {
 
                 {inView && 
                     <div className={styles._topButtonsContainer}>
-
-                        <ButtonWishlist type='card' id={id}/>
-
+                        <ButtonWishlist type='card' id={id} ariaLabel={`Add ${name} to Wishlist`}/>
                         <ButtonQuickView {...props}/>
                     </div>
                 }
                 
                 {inView ? 
-                    <div className={styles._imgContainer}>
+                    (<figure className={styles._imgContainer}>
                         <div className={styles._imgBackground}>
-                            <img loading='lazy' src={src} alt={name}/>
+                            <img
+                                loading="lazy"
+                                src={src}
+                                alt={name}
+                                width="185"
+                                height="185"
+                                className={styles.productImage}
+                            />
                         </div>
-                    </div>
-                :
-                    <div className={styles._imgSkeleton}></div>
+                        <figcaption className={styles._name}>
+                            <span>{name}</span>
+                        </figcaption>
+                    </figure>)
+                : 
+                    (<div className={styles._imgSkeleton}></div>)
                 }
-                
-                <div className={styles._name}>
-                    <span>{name}</span>
-                </div>
                 
                 <div className={styles._container}>
                     <div className={styles._containerCostAndRating}>
@@ -83,7 +87,8 @@ const ProductsCard:React.FC<ProductsCardProps> = (props) => {
                                             isIcon={true}
                                             isText={false}
                                             isBadge={true}
-                                            classNameIcon={styles._buttonCartIcon}/>
+                                            classNameIcon={styles._buttonCartIcon}
+                                            ariaLabel={`Add ${name} To Cart`}/>
                     </div>
 
                 </div>

@@ -38,8 +38,20 @@ const SocialAuth:React.FC = () => {
 
             {renderLoaderOrError()}
 
-            <Button className='ButtonFilledOval fillGoogle colorTextGrey1 buttonMaxWidth buttonMaxHeight' type='button' text='LOG IN WITH GOOGLE' icon={<GoogleIcon/>} onClick={()=>signInWithProvider('google')}/>
-            <Button className='ButtonFilledOval fillGithub colorTextGrey1 buttonMaxWidth buttonMaxHeight' type='button' text='LOG IN WITH GITHUB' icon={<GithubIcon/>} onClick={()=>signInWithProvider('github')}/>
+            <Button className='ButtonFilledOval fillGoogle colorTextGrey1 buttonMaxWidth buttonMaxHeight'
+                    type='button'
+                    text='LOG IN WITH GOOGLE'
+                    icon={<GoogleIcon/>} 
+                    onClick={()=>signInWithProvider('google')}
+                    ariaLabel='LOG IN WITH GOOGLE BUTTON'
+            />
+            <Button className='ButtonFilledOval fillGithub colorTextGrey1 buttonMaxWidth buttonMaxHeight' 
+                    type='button' 
+                    text='LOG IN WITH GITHUB' 
+                    icon={<GithubIcon/>} 
+                    onClick={()=>signInWithProvider('github')}
+                    ariaLabel='LOG IN WITH GITHUB BUTTON'
+            />
 
         </div>
     )

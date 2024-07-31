@@ -15,9 +15,9 @@ const ProductDetailsButtons:React.FC<ProductDetailsButtonsProps> = ({id,isStockS
     return (
         <div className={styles.ProductDetailsButtons}>
             <Quantity id={id} />
-            <ButtonWishlist id={id} type='card'/>
+            <ButtonWishlist id={id} type='card' ariaLabel='Add to Wishlist'/>
 
-            <ButtonAddToCart id={id} isStockStatus={isStockStatus}/>
+            <ButtonAddToCart id={id} isStockStatus={isStockStatus} ariaLabel='Add to Cart'/>
         </div>
     )
 }

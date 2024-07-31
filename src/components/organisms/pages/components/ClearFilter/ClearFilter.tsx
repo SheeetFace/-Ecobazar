@@ -19,6 +19,7 @@ const ClearFilter:React.FC<ClearFilterProps> = ({clearFilterFn}) => {
                 text="Clear All Filters"
                 type="button"
                 onClick={handleClearFilter}
+                ariaLabel='Clear Filter button'
             />
         </div>
     )

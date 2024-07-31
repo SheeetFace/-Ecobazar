@@ -17,9 +17,10 @@ type TypeButtonStyle ='card'|'detail';
 interface ButtonWishlistProps{
     id:string,
     type:TypeButtonStyle
+    ariaLabel:string
 }
 
-const ButtonWishlist:React.FC<ButtonWishlistProps> = ({id, type}) => {
+const ButtonWishlist:React.FC<ButtonWishlistProps> = ({id, type,ariaLabel=''}) => {
 
     const dispatch = useAppDispatch();
     const navigate = useNavigate()
@@ -49,6 +50,7 @@ const ButtonWishlist:React.FC<ButtonWishlistProps> = ({id, type}) => {
             <Button  className='ButtonTransparentWithoutHover buttonMaxWidth buttonMaxHeight'
                     icon={<WishlistIcon className={`${styles._buttonWishlistIcon} ${inWishlistStyleIcon}`}/>}
                     type='button'
+                    ariaLabel={ariaLabel}
                     onClick={(e)=>updateWishlist(id,e)}/>
         </div>
     )

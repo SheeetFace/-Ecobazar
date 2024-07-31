@@ -71,7 +71,11 @@ const ContactForm:React.FC = () => {
                   errorMessage={errors.subject?.message}
                 />
             
-                <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight' type='submit' text='Send Message'/>
+                <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight' 
+                        type='submit' 
+                        text='Send Message'
+                        ariaLabel='Send Message button'
+                />
             </form>
         </section>
     )

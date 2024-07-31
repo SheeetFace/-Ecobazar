@@ -46,7 +46,9 @@ const CouponCodeField:React.FC = () => {
                     <div className={styles._button}>
                         <Button className='ButtonFilledOval fillGrey7 colorTextGrey1'
                                 text='Apply Coupon'
-                                type='submit'/>
+                                type='submit'
+                                ariaLabel='Apply Coupon Code'
+                                />
                     </div>
                 </form>
             </div>

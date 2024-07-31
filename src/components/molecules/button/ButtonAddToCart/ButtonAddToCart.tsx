@@ -17,6 +17,7 @@ interface ButtonAddToCartProps{
     isText?:boolean
     isBadge?:boolean
     classNameIcon?:string
+    ariaLabel?:string
 }
 
 const ButtonAddToCart:React.FC<ButtonAddToCartProps> = ({
@@ -25,7 +26,8 @@ const ButtonAddToCart:React.FC<ButtonAddToCartProps> = ({
     isIcon=false,
     isText=true,
     isBadge=false,
-    classNameIcon=''
+    classNameIcon='',
+    ariaLabel=''
     }) => {
 
     const dispatch = useAppDispatch();
@@ -49,6 +51,7 @@ const ButtonAddToCart:React.FC<ButtonAddToCartProps> = ({
                     icon ={isIcon && <CartIcon className={`${classNameIcon} ${styles._icon}`}/>}
                     disabled={!isStockStatus}
                     onClick={(e:MouseEvent)=>handleToggleCart(e)}
+                    ariaLabel={ariaLabel}
             />
             {showBadge &&
                 <div className={styles._CheckCircleIcon}>

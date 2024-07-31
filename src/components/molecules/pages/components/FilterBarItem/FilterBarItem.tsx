@@ -74,7 +74,7 @@ const FilterBarItem = <T,>({ filter,onChangeFilter }:FilterBarItemProps<T>)=>{
     return(
         <div className={styles.FilterBarItem}>
             <span>{content}</span>
-            <button className='defaultButtonStyle' onClick={handleRemove}>
+            <button className='defaultButtonStyle' onClick={handleRemove}  aria-label={`Clear ${content} filter`}>
                 <div className={styles._cross}>
                     <CrossIcon/>
                 </div>

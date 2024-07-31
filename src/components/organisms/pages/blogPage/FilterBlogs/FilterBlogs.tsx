@@ -23,6 +23,7 @@ const FilterBlogs:React.FC = () => {
                 text="Filter"
                 type="button"
                 icon={<FilterIcon className="" />}
+                ariaLabel='Toggle show filters'
             />
             </div>
 

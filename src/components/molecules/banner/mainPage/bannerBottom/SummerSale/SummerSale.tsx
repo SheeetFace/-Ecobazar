@@ -7,7 +7,7 @@ import styles from '../SummerSale/SummerSale.module.scss';
 const SummerSale:React.FC = () => {
 
     return (
-        <section className={styles.SummerSale}>
+        <section className={styles.SummerSale} aria-label="Summer Sale Banner - 37% OFF">
             <div className={styles._container}>
                 <div className={styles._wrapper}>
 
@@ -22,7 +22,7 @@ const SummerSale:React.FC = () => {
                     </span>
 
                     <div className={styles._wrapperButton}>
-                        <NavLink to={'/shop'} className='_navLink _navLinkWidthMaxContent'>
+                        <NavLink to={'/shop'} className='_navLink _navLinkWidthMaxContent' aria-label='Go to Shop for 37% OFF'>
                             <Button className='ButtonFilledOval fillGreen colorTextGrey1' type='button' text='Shop now &#10132;'/>
                         </NavLink>
                     </div>
