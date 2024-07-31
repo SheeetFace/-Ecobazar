@@ -7,12 +7,12 @@ import styles from '../BlogPostBannerSummerSale/BlogPostBannerSummerSale.module.
 const BlogPostBannerSummerSale:React.FC = () => {
 
     return (
-        <div className={styles.BlogPostBannerSummerSale}>
+        <section className={styles.BlogPostBannerSummerSale} aria-label="Summer Sale Banner - Shop Fresh Fruit">
             
             <div className={styles._leftContainer}>   
                 <span className={styles._title}>SUMMER SALES</span>
                 <h1>Fresh Fruit</h1>
-                <NavLink to={'/shop'} className='_navLink _navLinkWidthMaxContent'>
+                <NavLink to={'/shop'} className='_navLink _navLinkWidthMaxContent' aria-label='Go to Shop for Fresh Fruit'>
                     <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight ' type='button' text='Shop now &#10132;'/>
                 </NavLink>
 
@@ -23,7 +23,7 @@ const BlogPostBannerSummerSale:React.FC = () => {
                 <span className={styles._percents}>56%</span>
                 <span>OFF</span>
             </div>
-        </div>
+        </section>
     )
 }
 

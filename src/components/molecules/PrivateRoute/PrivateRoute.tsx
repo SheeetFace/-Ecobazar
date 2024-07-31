@@ -29,6 +29,7 @@ const PrivateRoute: React.FC = () => {
                                     type='button' 
                                     text='Back Home'
                                     onClick={()=>dispatch(clearError())}
+                                    ariaLabel='Back Home button'
                             />
                         </NavLink>
                     </div>

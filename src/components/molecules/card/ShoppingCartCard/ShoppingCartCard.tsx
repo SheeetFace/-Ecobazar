@@ -29,40 +29,47 @@ const ShoppingCartCard:React.FC<ShoppingCartCardProps> = ({name,id,src,currentCo
 
     return (
         <>
-        <div className={styles.ShoppingCartCard}>
-            <div className={styles._product}>
-                <div className={styles._imgContainer}>
-                    <img alt={name} src={src}/>
+            <div className={styles.ShoppingCartCard}>
+                <figure className={styles._product}>
+                    <div className={styles._imgContainer}>
+                        <img src={src} 
+                            alt={name}
+                            width='90'
+                            height='90'
+                            loading="lazy"
+                        />
+                    </div>
+                    <figcaption>
+                        <span>{name}</span>
+                    </figcaption>
+                </figure>
+
+                <div className={styles._costContainer}>
+                    <span>${currentCost}</span>
+                    <span className={styles._old}>{oldCost}</span>
                 </div>
-                <span>{name}</span>
+
+                <div className={styles._quantity}>
+                    <Quantity id={id}/>
+                </div>
+
+                <div className={styles._subtotal}>
+                    <SubTotal price={+currentCost} id={id}/>
+                </div>
+                
+                <button className='defaultButtonStyle' onClick={handleRemove} aria-label={`Remove ${name} from cart`}>
+                    <div className={styles._cross}>
+                        <CrossIcon/>
+                    </div>                 
+                </button>
+
             </div>
 
-            <div className={styles._costContainer}>
-                <span>${currentCost}</span>
-                <span className={styles._old}>{oldCost}</span>
-            </div>
-
-            <div className={styles._quantity}>
-                <Quantity id={id}/>
-            </div>
-
-            <div className={styles._subtotal}>
-                <SubTotal price={+currentCost} id={id}/>
-            </div>
-            
-            <button className='defaultButtonStyle' onClick={handleRemove}>
-                <div className={styles._cross}>
-                    <CrossIcon/>
-                </div>                 
-            </button>
-
-        </div>
-
-        {!isLast ? 
-            <div className={styles._shoppingAndWishlist_dividerContainer}>
-                <Divider type='horizontal' className={styles._shoppingAndWishlist_divider}/>
-            </div>
-        :null}
+            {!isLast ? 
+                <div className={styles._shoppingAndWishlist_dividerContainer}>
+                    <Divider type='horizontal' className={styles._shoppingAndWishlist_divider}/>
+                </div>
+            :null}
         </>
     )
 }

@@ -8,14 +8,17 @@ interface ButtonProps{
     icon?: React.ReactNode
     type:ButtonType
     disabled?:boolean
+    ariaLabel?:string
 }
 
-const Button: React.FC<ButtonProps> = ({className,text,icon,onClick,type,disabled=false}) => {
+const Button: React.FC<ButtonProps> = ({className,text,icon,onClick,type,disabled=false,ariaLabel=''}) => {
 
     return (
       <button className={className}
-        onClick={onClick} 
-        type={type} disabled={disabled}>
+              onClick={onClick} 
+              type={type} 
+              disabled={disabled}
+              aria-label={ariaLabel}>
         {icon && <>{icon}</>}
         {text ? text:''}
       </button>

@@ -38,6 +38,7 @@ const Quantity:React.FC<QuantityProps> = ({id}) => {
                     disabled={!isCount}
                     icon={<QuantityIcon symbol='-' disabled={!isCount}/>}
                     type='button'
+                    ariaLabel='Decrease count'
             />
 
             <span className={styles._count}>{isCount ? count: 1}</span>
@@ -47,6 +48,7 @@ const Quantity:React.FC<QuantityProps> = ({id}) => {
                     disabled={!isCount}
                     icon={<QuantityIcon symbol='+' disabled={!isCount}/>}
                     type='button'
+                    ariaLabel='Increase count'
             />
         </div>
     )

@@ -77,7 +77,8 @@ const SubmitOrderForm:React.FC = () => {
                     text='Proceed to checkout'
                     type='button'
                     disabled={!isFormReady}
-                    onClick={()=>submitOrder()}/>
+                    onClick={()=>submitOrder()}
+                    ariaLabel='Proceed to checkout button'/>
 
             {renderLoaderOrError()}
         </div>

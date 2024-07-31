@@ -31,12 +31,18 @@ const WishlistCard:React.FC<WishlistCardProps> = ({name,id,src,currentCost,oldCo
     return (
         <>
         <div className={styles.WishlistCard}>
-            <div className={styles._product}>
+            <figure className={styles._product}>
                 <div className={styles._imgContainer}>
-                    <img alt={name} src={src}/>
+                    <img src={src} 
+                         alt={name}
+                         width='90'
+                         height='90'
+                         loading="lazy"/>
                 </div>
-                <span>{name}</span>
-            </div>
+                <figcaption>
+                    <span>{name}</span>
+                </figcaption>
+            </figure>
 
             <div className={styles._costContainer}>
                 <span>${currentCost}</span>
@@ -52,10 +58,10 @@ const WishlistCard:React.FC<WishlistCardProps> = ({name,id,src,currentCost,oldCo
             <div className={styles._buttonsContainer}>
 
                 <div className={styles._toggle}>
-                    <ButtonAddToCart id={id} isStockStatus={isStockStatus}/>
+                    <ButtonAddToCart id={id} isStockStatus={isStockStatus}  ariaLabel={`Add ${name} to cart`}/>
                 </div>
 
-                <button className='defaultButtonStyle' onClick={handleRemove}>
+                <button className='defaultButtonStyle' onClick={handleRemove}  aria-label={`Remove ${name} from wishlist`}>
                     <div className={styles._cross}>
                         <CrossIcon/>
                     </div>

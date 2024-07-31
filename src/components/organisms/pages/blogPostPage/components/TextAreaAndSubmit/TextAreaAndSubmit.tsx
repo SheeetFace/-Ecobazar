@@ -49,9 +49,11 @@ const TextAreaAndSubmit:React.FC = () => {
                                     errorMessage={errors.comment?.message}/>
 
                 <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight' 
-                type='submit' 
-                text='Post Comment'
-                disabled={!isUser}/>
+                        type='submit' 
+                        text='Post Comment'
+                        disabled={!isUser}
+                        ariaLabel='Submit Your Comment'
+                />
             </form>
         </section>
     )

@@ -49,7 +49,8 @@ const SubscribePanel = () =>{
             <div className={styles._button}>
                 <Button className='ButtonFilledOval fillGreen colorTextGrey1'
                         text='Subscribe'
-                        type='submit'/>
+                        type='submit'
+                        ariaLabel='Subscribe our Newsletter button'/>
             </div>
         </form>
     )

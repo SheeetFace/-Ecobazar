@@ -23,6 +23,7 @@ const FilterProducts: React.FC = () => {
             text="Filter"
             type="button"
             icon={<FilterIcon className="" />}
+            ariaLabel='Save Image button'
           />
         </div>
   

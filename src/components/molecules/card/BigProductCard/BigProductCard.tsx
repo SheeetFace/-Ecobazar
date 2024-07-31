@@ -20,23 +20,34 @@ const BigProductCard:React.FC<BigProductCardProps> = (props) => {
 
     return (
         <NavLink to={`/shop/${name}`} state={{data:props}} className="_navLink">
-            <div className={styles.BigProductCard}>
+            <div className={styles.BigProductCard}
+                  role="group" 
+                  aria-labelledby={`product-description-${name}`}>
                 <div className={styles._img}>
                     <div className={styles._wrapperLabels}>
                         <LabelBadge label='Best Sale' className={styles._bestSale}/>
                         <LabelBadge label={`Sale${sale}`} className={styles._saleDiscount}/>
                     </div>
-                    <img alt={name} src={src}/>
+                    <figure >
+                        <img alt={name} 
+                            src={src}
+                            loading='lazy'
+                            width='280'
+                            height='280'
+                        />
+                    </figure>
                 </div>
 
                 <div className={styles._buttonsWrapper}>
-                    <ButtonWishlist id={id} type='card'/>
+                    <ButtonWishlist id={id} type='card' ariaLabel={`Add ${name} to wishlist`}/>
                     <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxWidth' type='button' text=' Add to Cart' icon ={<CartIcon className={styles._icon}/>}/>
                     <ButtonQuickView {...props}/>
                 </div>
 
                 <div className={styles._wrapperInfo}>
-                    <span className={styles._name}>{name}</span>
+                    <figcaption id={`product-description-${name}`}>
+                        <span className={styles._name}>{name}</span>
+                    </figcaption>
                     <div className={styles._cost}>
                         <span>${currentCost}</span>
                         <span className={styles._old}>{oldCost}</span>

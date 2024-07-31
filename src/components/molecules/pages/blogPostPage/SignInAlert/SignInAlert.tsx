@@ -17,7 +17,11 @@ const SignInAlert:React.FC = () => {
 
             <span>You must be</span>
                 <NavLink to={'/login'} className='_navLink _navLinkWidthMaxContent'>
-                        <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight ' type='button' text='logged in'/>
+                        <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight' 
+                                type='button' 
+                                text='logged in'
+                                ariaLabel='Logged in button'
+                        />
                 </NavLink>
             <span>to post a comment.</span>
             

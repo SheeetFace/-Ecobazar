@@ -31,7 +31,11 @@ const ErrorBoundary:React.FC = () => {
                     <span>Ut consequat ac tortor eu vehicula. Aenean accumsan purus eros. Maecenas sagittis tortor at metus mollis</span>
                     
                     <NavLink className={styles._navLink} to='/'>
-                        <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight' type='button' text='Back To Home'/>
+                        <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight' 
+                                type='button' 
+                                text='Back To Home'
+                                ariaLabel='Back To Home button'
+                        />
                     </NavLink>
                 </div>
             </div>

@@ -113,7 +113,11 @@ const Registration:React.FC = () => {
 
                 {renderLoaderOrError()}
 
-                <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxWidth buttonMaxHeight' type='submit' text='Create Account'/>
+                <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxWidth buttonMaxHeight' 
+                        type='submit' 
+                        text='Create Account'
+                        ariaLabel='Create Account button'
+                />
 
             </form>
 

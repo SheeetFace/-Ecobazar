@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router-dom';
+
 import Timer from '../../../../pages/mainPage/Timer/Timer';
 import Button from '../../../../../atoms/Button/Button';
 
@@ -6,7 +8,7 @@ import styles from '../SaleOfTheMonth/SaleOfTheMonth.module.scss';
 const SaleOfTheMonth:React.FC = () => {
 
     return (
-        <div className={styles.SaleOfTheMonth}>
+        <section className={styles.SaleOfTheMonth} aria-label="BEST DEAL Banner - Sale of the Month">
             <div className={styles._container}>
 
                 <span className={styles._preTitle}>BEST DEAL</span>
@@ -16,11 +18,13 @@ const SaleOfTheMonth:React.FC = () => {
                 <div className='center'><Timer color='white'/></div>
                 
                 <div className={styles._wrapperButton}>
-                    <Button className='ButtonFilledOval fillWhite colorTextGreenPrimary' type='button' text='Shop now &#10132;'/>
+                    <NavLink to={'/shop'} className='_navLink _navLinkWidthMaxContent' aria-label='Go to Shop for Sale of the Month'>
+                        <Button className='ButtonFilledOval fillWhite colorTextGreenPrimary' type='button' text='Shop now &#10132;'/>
+                    </NavLink>
                 </div>
 
             </div>
-        </div>
+        </section>
     )
 }
 

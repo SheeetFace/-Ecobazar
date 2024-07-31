@@ -22,7 +22,10 @@ const ShoppingCartTotal:React.FC = () => {
                 <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight buttonMaxWidth'
                         text='Proceed to checkout'
                         type='button'
-                        disabled={!isItems}/>
+                        disabled={!isItems}
+                        ariaLabel='Proceed to checkout button'
+                        />
+                        
             </NavLink>
         </section>
     )
