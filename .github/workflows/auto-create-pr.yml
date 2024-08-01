@@ -51,7 +51,8 @@ jobs:
               'FIX:': 'FIX',
               'REFACTOR:': 'REFACTOR',
               'FEAT:': 'FEAT',
-              'TEST:': 'TEST'
+              'TEST:': 'TEST',
+              'CHORE': 'CHORE',
             };
             
             let labels = [];
