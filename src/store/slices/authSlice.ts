@@ -33,7 +33,6 @@ const authSlice = createSlice({
     initialState,
     reducers: {
         updateUserData(state, action: PayloadAction<UserDataType|null>){
-            console.log(state.user)
             state.user = action.payload;
             state.isCustomer1 = action.payload?.accountSettings.displayName === 'customer1' || false;
             state.isUser = action.payload !== null;
