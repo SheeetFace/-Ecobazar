@@ -17,6 +17,7 @@ const RatingItem:React.FC<RatingItemProps> = ({rating,fn, isChecked}) => {
                     name="ratings"
                     type='checkbox'
                     onClick={()=>fn()}
+                    onChange={() => {}}
                     checked={isChecked}
             />
             <div className={styles._rating}>

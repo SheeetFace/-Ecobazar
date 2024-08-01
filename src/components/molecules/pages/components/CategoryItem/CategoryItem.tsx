@@ -18,6 +18,7 @@ const CategoryItem:React.FC<CategoryItemProps> = ({value,name,fn,isChecked,count
                     type="checkbox"
                     value={value}
                     onClick={()=>fn()}
+                    onChange={() => {}}
                     checked={isChecked}
             />
             
