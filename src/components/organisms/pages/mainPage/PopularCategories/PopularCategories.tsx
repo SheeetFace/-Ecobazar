@@ -25,7 +25,7 @@ const PopularCategories:React.FC = () => {
   return (
     <section className={styles.PopularCategories}>
         <div className='center'>
-            <TitleWithViewAll title='Popular Categories' path='/'/>
+            <TitleWithViewAll title='Popular Categories' path='/shop'/>
 
             <div className={styles._center}>
                 <div className={styles._cards}>
