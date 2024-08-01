@@ -41,10 +41,10 @@ const BigProductCard:React.FC<BigProductCardProps> = (props) => {
 
                 <div className={styles._buttonsWrapper}>
                     <ButtonWishlist id={id} type='card' ariaLabel={`Add ${name} to wishlist`}/>
-                    <ButtonAddToCart    id={id}
-                                        isStockStatus={isStockStatus}
-                                        isText={true}
-                                        ariaLabel={`Add ${name} To Cart`}/>
+                    <ButtonAddToCart id={id}
+                                     isStockStatus={isStockStatus}
+                                     isText={true}
+                                     ariaLabel={`Add ${name} To Cart`}/>
                     <ButtonQuickView {...props}/>
                 </div>
 

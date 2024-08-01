@@ -17,7 +17,7 @@ export const uploadImageToCloudinaryService = async(base64:string):Promise<strin
       })
 
       const data = await response.json();
-
+      console.log(data)
       return data.secure_url||null;
 
     }catch(error){
