@@ -2,12 +2,11 @@ import { NavLink } from 'react-router-dom';
 
 import LabelBadge from '../../../atoms/LabelBadge/LabelBadge';
 import ButtonWishlist from '../components/ButtonWishlist/ButtonWishlist';
-import Button from '../../../atoms/Button/Button';
+import ButtonAddToCart from '../../button/ButtonAddToCart/ButtonAddToCart';
 import ButtonQuickView from '../components/ButtonQuickView/ButtonQuickView';
 import RatingStars from '../../RatingStars/RatingStars';
 import Timer from '../../pages/mainPage/Timer/Timer';
 
-import CartIcon from '../../../atoms/icon/navigate/CartIcon';
 
 import styles from '../BigProductCard/BigProductCard.module.scss';
 
@@ -16,7 +15,9 @@ import type  { ProductDataType as BigProductCardProps } from '../../../../types/
 
 const BigProductCard:React.FC<BigProductCardProps> = (props) => {
 
-    const {name, id, src, currentCost, oldCost, sale, rating} = props; 
+    const {name, id, src, currentCost, oldCost, sale, rating, stockStatus} = props; 
+
+    const isStockStatus = +stockStatus > 0;
 
     return (
         <NavLink to={`/shop/${name}`} state={{data:props}} className="_navLink">
@@ -40,7 +41,10 @@ const BigProductCard:React.FC<BigProductCardProps> = (props) => {
 
                 <div className={styles._buttonsWrapper}>
                     <ButtonWishlist id={id} type='card' ariaLabel={`Add ${name} to wishlist`}/>
-                    <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxWidth' type='button' text=' Add to Cart' icon ={<CartIcon className={styles._icon}/>}/>
+                    <ButtonAddToCart    id={id}
+                                        isStockStatus={isStockStatus}
+                                        isText={true}
+                                        ariaLabel={`Add ${name} To Cart`}/>
                     <ButtonQuickView {...props}/>
                 </div>
 
