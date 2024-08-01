@@ -2,15 +2,8 @@
 @import '../../../../styles/typography.scss';
 
 .BigProductCard{
-    // width: 34%;
-    // min-width: 400px;
-    // width: 529px;
-    // max-width: 100%;
     width: 100%;
-    // min-width: 529px;
     height: 620px;
-    // min-height: 310px;
-    // height: 100%;
     border: 1px solid $grey-1;
     padding: 1rem;
     border-radius:2px;
@@ -57,13 +50,6 @@
         align-items:center;
         padding-left: 1rem;
         padding-right: 1rem;
-
-        ._icon{
-            stroke:$grey-05;
-            stroke-width: 2;
-            width: 20px;
-            height: 20px;
-        }
     }
 
     ._wrapperInfo{
