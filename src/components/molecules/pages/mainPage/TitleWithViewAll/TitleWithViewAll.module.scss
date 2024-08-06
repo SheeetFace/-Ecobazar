@@ -13,3 +13,10 @@
         color:$grey-9;
     }
 }
+
+@media (max-width: 575.98px) {
+    .TitleWithViewAll{
+        flex-direction: column;
+        justify-content: center;
+    }
+}
