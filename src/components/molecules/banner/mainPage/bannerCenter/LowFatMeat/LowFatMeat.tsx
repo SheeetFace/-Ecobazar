@@ -21,7 +21,7 @@ const LowFatMeat:React.FC = () => {
 
                 <div className={styles._wrapperButton}>
                     <NavLink to={'/shop'} className='_navLink _navLinkWidthMaxContent' aria-label='Go to Shop for Low-Fat Meat 85% FAT FREE'>
-                        <Button className='ButtonFilledOval fillWhite colorTextGreenPrimary' type='button' text='Shop now &#10132;'/>
+                        <Button className='ButtonFilledOval fillWhite colorTextGreenPrimary buttonMaxHeight' type='button' text='Shop now &#10132;'/>
                     </NavLink>
                 </div>
 

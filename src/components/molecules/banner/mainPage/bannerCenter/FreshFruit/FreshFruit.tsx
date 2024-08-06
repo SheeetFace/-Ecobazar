@@ -22,7 +22,7 @@ const FreshFruit:React.FC = () => {
 
                 <div className={styles._wrapperButton}>
                     <NavLink to={'/shop'} className='_navLink _navLinkWidthMaxContent' aria-label='Go to Shop for 100% Fresh Fruit'>
-                        <Button className='ButtonFilledOval fillWhite colorTextGreenPrimary' type='button' text='Shop now &#10132;'/>
+                        <Button className='ButtonFilledOval fillWhite colorTextGreenPrimary buttonMaxHeight' type='button' text='Shop now &#10132;'/>
                     </NavLink>
                 </div>
 
