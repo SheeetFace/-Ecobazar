@@ -3,7 +3,6 @@
 
 .SaleUp{
     position: relative;
-    // width: 65%;
     height: inherit;
     background-image: url('../../../../../../assets/banner/banner-lg-03.webp');
     background-size: cover;
@@ -74,8 +73,24 @@
         height: 40px;
         width: max-content;
     }
-
-
-
 }
 
+@media (max-width: 575.98px) {
+    .SaleUp{
+        ._container{
+            ._wrapperFresh{
+                font-size: $heading-03;
+            }
+        }
+    }
+}
+
+@media (max-width: 359.98px) {
+    .SaleUp{
+        ._container{
+            ._wrapperFresh{
+                font-size: $heading-05;
+            }
+        }
+    }
+}
