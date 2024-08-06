@@ -10,15 +10,25 @@
         justify-content: center;
 
         ._cards{
-            // display: grid;
-            // grid-template-columns: repeat(4, 1fr);
-            // grid-gap: 2rem;
-            max-width: 790px;
             gap:10px;
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
         }
     }
+
+}
+
+@media (max-width: 767.98px) {
+    .PopularCategories{
+        ._center{
+            display: flex;
+            ._cards{
+                flex-direction: column;
+                width: 100%;
+            }
+        }
+    }
+
 
 }
