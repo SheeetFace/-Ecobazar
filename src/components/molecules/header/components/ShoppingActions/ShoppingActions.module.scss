@@ -2,20 +2,34 @@
 
 .ShoppingActions{
     display: flex;
-    align-items: center;
     gap:1rem;
 
-    ._wishlistIcon{
+    ._container{
         display: flex;
         align-items: center;
-        cursor: pointer;
+        gap:1rem;
 
-        &:hover ._iconHover{
-            stroke: $hard-primary-color;
+        ._wishlistIcon{
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+    
+            &:hover ._iconHover{
+                stroke: $hard-primary-color;
+            }
+        }
+    
+        ._divider{
+            background-color: $grey-1;
         }
     }
 
-    ._divider{
-        background-color: $grey-1;
+}
+
+@media (max-width: 767.98px) {
+    .ShoppingActions{
+        width: 100%;
+        justify-content: space-between;
+        padding: .3rem;
     }
 }

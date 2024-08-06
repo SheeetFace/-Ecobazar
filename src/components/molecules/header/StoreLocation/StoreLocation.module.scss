@@ -17,3 +17,9 @@
         color:$grey-3;
     }
 }
+
+@media (max-width: 767.98px) {
+    .StoreLocation{
+        display: none;
+    } 
+}

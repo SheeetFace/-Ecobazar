@@ -1,13 +1,25 @@
-._container{
+.SearchPanel{
     display: flex;
     flex-direction: column;
     width: 40%;
+
+    ._container{
+        position: relative;
+        z-index: 15 !important;
+        display: flex;
+        min-width: 150px;
+        height: 40px;
+    }
 }
-.SearchPanel{
-    position: relative;
-    z-index: 15 !important;
-    display: flex;
-    // width: 40%;
-    min-width: 150px;
-    height: 40px;
+
+
+@media (max-width: 1199.98px) {
+    .SearchPanel{
+        width: 55%;
+    }
+}
+@media (max-width: 767.98px) {
+    .SearchPanel{
+        width: 100%;
+    } 
 }
