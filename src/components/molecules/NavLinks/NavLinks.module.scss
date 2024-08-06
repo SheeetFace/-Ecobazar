@@ -1,5 +1,28 @@
+@import '../../../styles/typography.scss';
 
 .NavLinks{
     display: flex;
     gap:2rem;
+}
+
+@media (max-width: 767.98px) {
+    .NavLinks{
+        width: 100%;
+        justify-content: space-between;
+        font-size: $body-xl;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .NavLinks{
+        font-size: $body-medium;
+        gap: .5rem;
+    } 
+}
+
+@media (max-width: 359.98px) {
+    .NavLinks{
+        font-size: $body-small;
+    } 
 }
