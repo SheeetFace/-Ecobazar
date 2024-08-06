@@ -12,3 +12,9 @@
     font-weight:$regular;
     font-size:$body-small;
 }
+
+@media (max-width: 575.98px) {
+    .FooterBottom{
+        flex-direction: column;
+    } 
+}
