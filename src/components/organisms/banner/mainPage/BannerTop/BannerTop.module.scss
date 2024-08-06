@@ -23,3 +23,20 @@
         }
     }
 }
+
+@media (max-width: 767.98px) {
+    .BannerTop{
+        ._container{
+            flex-direction: column;
+            height: 1000px;
+    
+            ._bigBanner{
+                width: 100%;
+            }
+            ._wrapper{
+                width: 100%;
+            }
+        }
+    }
+
+}
