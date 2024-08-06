@@ -15,17 +15,19 @@ const ShoppingActions:React.FC = () =>{
 
     return(
         <div className={styles.ShoppingActions}>
-            <NavLink to={isUser ? 'wishlist' :'login'} className={styles._wishlistIcon}>
-                <WishListBadge/>
-            </NavLink>
-            
-            <Divider type='vertical' className={styles._divider}/>
+            <div className={styles._container}>
+                <NavLink to={isUser ? 'wishlist' :'login'} className={styles._wishlistIcon}>
+                    <WishListBadge/>
+                </NavLink>
+                
+                <Divider type='vertical' className={styles._divider}/>
 
-            <NavLink to={isUser ? 'shopping-cart' :'login'}>
-                <CartBadge/>
-            </NavLink>
-
+                <NavLink to={isUser ? 'shopping-cart' :'login'}>
+                    <CartBadge/>
+                </NavLink>
+            </div>
             <CartSummary/>
+            
         </div>
     )
 }

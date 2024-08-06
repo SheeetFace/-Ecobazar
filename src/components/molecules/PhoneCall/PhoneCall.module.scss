@@ -3,3 +3,9 @@
     display: flex;
     gap: .5rem;
 }
+
+@media (max-width: 767.98px) {
+    .PhoneCall{
+        display: none;
+    }   
+}

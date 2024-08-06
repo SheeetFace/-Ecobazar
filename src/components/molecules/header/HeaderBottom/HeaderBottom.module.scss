@@ -15,3 +15,11 @@
         }
     }
 }
+
+@media (max-width: 767.98px) {
+    .HeaderBottom{
+        ._container{
+            flex-direction: column;
+        }
+    }
+}
