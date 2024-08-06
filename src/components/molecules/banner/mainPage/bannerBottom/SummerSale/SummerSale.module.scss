@@ -69,3 +69,32 @@
         }
     }
 }
+
+@media (max-width: 767.98px) {
+    .SummerSale{
+        ._container{
+            ._wrapper{
+                width: 40%;
+            }
+        }
+    }
+}
+@media (max-width: 575.98px) {
+    .SummerSale{
+        ._container{
+            ._wrapper{
+                width: 60%;
+            }
+        }
+    }
+}
+@media (max-width: 359.98px) {
+    .SummerSale{
+        ._container{
+            ._wrapper{
+                padding: 2rem;
+                width: 100%;
+            }
+        }
+    }
+}
