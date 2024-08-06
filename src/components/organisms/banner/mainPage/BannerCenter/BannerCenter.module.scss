@@ -11,3 +11,13 @@
         flex-wrap: wrap;
     }
 }
+
+@media (max-width: 991.98px) {
+    .BannerCenter{
+        ._container{
+            gap:1rem;
+            flex-direction: column;
+            width: 100%;
+        }
+    }
+}

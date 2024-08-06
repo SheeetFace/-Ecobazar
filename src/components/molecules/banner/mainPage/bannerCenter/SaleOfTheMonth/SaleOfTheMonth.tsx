@@ -19,7 +19,7 @@ const SaleOfTheMonth:React.FC = () => {
                 
                 <div className={styles._wrapperButton}>
                     <NavLink to={'/shop'} className='_navLink _navLinkWidthMaxContent' aria-label='Go to Shop for Sale of the Month'>
-                        <Button className='ButtonFilledOval fillWhite colorTextGreenPrimary' type='button' text='Shop now &#10132;'/>
+                        <Button className='ButtonFilledOval fillWhite colorTextGreenPrimary buttonMaxHeight' type='button' text='Shop now &#10132;'/>
                     </NavLink>
                 </div>
 
