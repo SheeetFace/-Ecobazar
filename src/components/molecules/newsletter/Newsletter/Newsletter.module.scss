@@ -30,7 +30,17 @@
             }
         }
     }
+}
 
+@media (max-width: 991.98px) {
+    .Newsletter{
+        ._conatiner{
+            flex-direction: column;
 
-
+            ._SubcribeOurNewsletter{
+                max-width: 85%;
+                text-align: center;
+            }
+        }
+    }   
 }

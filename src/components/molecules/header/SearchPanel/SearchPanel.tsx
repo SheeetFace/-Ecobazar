@@ -110,9 +110,7 @@ const SearchPanel =()=>{
   }
 
   return(
-    // <div className={styles._container} >
-    //     <form className={styles.SearchPanel} 
-<div className={styles.SearchPanel} >
+  <div className={styles.SearchPanel} >
         <form className={styles._container} 
               onSubmit={handleSubmit}
               id='searchPanelForm'>
