@@ -1,6 +1,5 @@
 @import '../../../../../styles/colors.scss';
 
-
 .CheckCircleIcon{
     width: 23px;
     height: 23px;
@@ -10,4 +9,5 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0
 }

@@ -24,3 +24,24 @@
     }
 
 }
+
+@media (max-width: 767.98px) {
+    .OurTeam{
+        ._header{
+            ._title{
+                font-size: $heading-03;
+                text-align: center;
+            }
+        }
+    }
+}
+@media (max-width: 575.98px) {
+    .OurTeam{
+        ._header{
+            ._title{
+                font-size: $heading-05;
+                text-align: center;
+            }
+        }
+    }
+}

@@ -3,15 +3,11 @@ import AboutContent from '../../organisms/pages/aboutPage/AboutContent/AboutCont
 import ClientTestimonials from '../../organisms/ClientTestimonials/ClientTestimonials';
 import Brand from '../../molecules/pages/mainPage/Brand/Brand';
 
-import styles from '../AboutPage/AboutPage.module.scss';
-
 const AboutPage:React.FC = () => {
 
     return (
-        <section className={styles.AboutPage}>
+        <section>
             <AboutContent/>
-
-
             <ClientTestimonials/>
             <Brand/>
         </section>
