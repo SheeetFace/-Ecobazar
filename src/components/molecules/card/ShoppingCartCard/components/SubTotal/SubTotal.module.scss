@@ -5,3 +5,9 @@
         font-weight: $semiBold;
     }
 }
+
+@media (max-width: 991.98px) {
+    .SubTotal{
+        text-align: center;
+    } 
+}

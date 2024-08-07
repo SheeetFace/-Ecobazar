@@ -29,6 +29,12 @@ const ShoppingCartCard:React.FC<ShoppingCartCardProps> = ({name,id,src,currentCo
 
     return (
         <>
+            <button className={`defaultButtonStyle ${styles._removeButton}`}  onClick={handleRemove} aria-label={`Remove ${name} from cart`}>
+                <div className={styles._cross}>
+                    <CrossIcon/>
+                </div>                 
+            </button>
+
             <div className={styles.ShoppingCartCard}>
                 <figure className={styles._product}>
                     <div className={styles._imgContainer}>
@@ -56,13 +62,7 @@ const ShoppingCartCard:React.FC<ShoppingCartCardProps> = ({name,id,src,currentCo
                 <div className={styles._subtotal}>
                     <SubTotal price={+currentCost} id={id}/>
                 </div>
-                
-                <button className='defaultButtonStyle' onClick={handleRemove} aria-label={`Remove ${name} from cart`}>
-                    <div className={styles._cross}>
-                        <CrossIcon/>
-                    </div>                 
-                </button>
-
+            
             </div>
 
             {!isLast ? 
