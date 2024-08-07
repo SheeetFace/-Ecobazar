@@ -32,3 +32,33 @@
     }
 
 }
+
+@media (max-width: 1399.98px) {
+    .AboutTop{
+        ._containerText{
+            ._title{
+                font-size: $heading-03;
+            }
+        }
+    }
+}
+@media (max-width: 991.98px) {
+    .AboutTop{
+        flex-direction: column;
+        ._containerText{
+            width: 100%;
+            ._title{
+                text-align: center;
+            }
+        }
+    }
+}
+@media (max-width: 767.98px) {
+    .AboutTop{
+        ._containerText{
+            ._title{
+                font-size: $heading-05;
+            }
+        }
+    }
+}

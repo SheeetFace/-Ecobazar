@@ -2,7 +2,6 @@
 @import '../../../../../styles/typography.scss';
 
 .AboutBottom{
-
     ._content{
         display: flex;
         gap:2rem;
@@ -54,4 +53,45 @@
         }
     }
    
+}
+
+
+@media (max-width: 1599.98px) {
+    .AboutBottom{
+        margin-top: 2rem;
+        ._content{
+            flex-direction: column;
+            ._container{
+                width: 100%;
+                text-align: center;
+                ._wrapper{
+                    text-align: start;
+                }
+            }
+            ._img{
+                width: 100%;
+                align-items:center;
+                justify-content: center;
+                img{
+                    width: 50%;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 575.98px) {
+    .AboutBottom{
+        ._content{
+            ._container{
+                ._title{
+                    font-size: $heading-05;
+                }
+            }
+            ._img{
+                img{
+                    width: 80%;
+                }
+            }
+        }
+    }
 }

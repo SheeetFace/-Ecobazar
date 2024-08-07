@@ -27,3 +27,18 @@
         }
     }
 }
+
+@media (max-width: 575.98px) {
+    .FeatureCard{
+        width: 280px;
+    }
+}
+@media (max-width: 359.98px) {
+    .FeatureCard{
+        width: 200px;
+        flex-direction: column;
+        ._container{
+            text-align: center;
+        }
+    }
+}
