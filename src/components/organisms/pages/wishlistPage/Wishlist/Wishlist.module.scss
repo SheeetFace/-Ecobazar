@@ -46,3 +46,25 @@
         gap:1rem;
     }
 }
+
+@media (max-width: 1399.98px) {
+    .Wishlist{
+        ._header{
+            ._product{
+                width: 43%;
+            }
+            ._cost{
+                width: 20%;
+            }
+        }
+    }
+}
+
+@media (max-width: 991.98px) {
+    .Wishlist{
+        min-width: min-content;
+        ._header{
+            display: none;
+        }
+    }
+}

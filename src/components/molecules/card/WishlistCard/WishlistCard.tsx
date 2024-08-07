@@ -30,6 +30,14 @@ const WishlistCard:React.FC<WishlistCardProps> = ({name,id,src,currentCost,oldCo
 
     return (
         <>
+        <button className={`defaultButtonStyle ${styles._removeButton}`} 
+                onClick={handleRemove}  
+                aria-label={`Remove ${name} from wishlist`}>
+            <div className={styles._cross}>
+                <CrossIcon/>
+            </div>
+        </button>
+
         <div className={styles.WishlistCard}>
             <figure className={styles._product}>
                 <div className={styles._imgContainer}>
@@ -55,21 +63,11 @@ const WishlistCard:React.FC<WishlistCardProps> = ({name,id,src,currentCost,oldCo
                 />
             </div>
 
-            <div className={styles._buttonsContainer}>
+            <div className={styles._toggle}>
+                <ButtonAddToCart id={id} isStockStatus={isStockStatus}  ariaLabel={`Add ${name} to cart`}/>
+            </div>
 
-                <div className={styles._toggle}>
-                    <ButtonAddToCart id={id} isStockStatus={isStockStatus}  ariaLabel={`Add ${name} to cart`}/>
-                </div>
-
-                <button className='defaultButtonStyle' onClick={handleRemove}  aria-label={`Remove ${name} from wishlist`}>
-                    <div className={styles._cross}>
-                        <CrossIcon/>
-                    </div>
-                </button>
             </div>  
-
-        </div>
-
         {!isLast ? 
             <div className={styles._shoppingAndWishlist_dividerContainer}>
                 <Divider type='horizontal' className={styles._shoppingAndWishlist_divider}/>
@@ -78,5 +76,5 @@ const WishlistCard:React.FC<WishlistCardProps> = ({name,id,src,currentCost,oldCo
         </>
     )
 }
-
 export default WishlistCard;
+

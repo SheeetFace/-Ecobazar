@@ -2,6 +2,21 @@
 @import '../../../../styles/typography.scss';
 @import '../styles/styles.module.scss';
 
+._removeButton{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    position: relative;
+    ._cross{
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        top:45px;
+        right:30px;
+    }
+}
+
 .WishlistCard{
     @extend ._shoppingAndWishlist;
 
@@ -24,18 +39,51 @@
             color:$danger-color;
         }
     }
-    ._buttonsContainer{
-        width: 22%;
-        display: flex;
-        align-items:center;
-        margin-right: .5rem;
-        justify-content: space-between;
+    ._toggle{
+        width: 160px;
+    }
+}
+
+@media (max-width: 1399.98px) {
+    ._removeButton{
         ._cross{
-            width: 20px;
-            height: 20px;
+            right:16px;
         }
-        ._toggle{
-            width: 160px;
+    }
+    .WishlistCard{
+        ._costContainer{
+            width: 20%;
+        }
+        ._shoppingAndWishlist{
+            ._product{
+                width: 43%;
+            }
+        }
+    }
+}
+@media (max-width: 1199.98px) {
+    ._removeButton{
+        ._cross{
+            top:8px;
+            right:30px;
+        }
+    }
+}
+@media (max-width: 991.98px) {
+    .WishlistCard{
+        display: flex;
+        gap:.5rem;
+        ._costContainer{
+            width: 100%;
+            justify-content: center;
+        }
+        ._status{
+            width: 100%;
+            justify-content: center;
+        }
+        ._product{
+            display: flex;
+            flex-direction: column;
         }
     }
 }
