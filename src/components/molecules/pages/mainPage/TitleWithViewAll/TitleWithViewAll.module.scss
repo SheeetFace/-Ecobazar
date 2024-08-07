@@ -18,5 +18,8 @@
     .TitleWithViewAll{
         flex-direction: column;
         justify-content: center;
+        span{
+            text-align: center;
+        }
     }
 }
