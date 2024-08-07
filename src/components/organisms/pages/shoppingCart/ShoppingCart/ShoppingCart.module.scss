@@ -46,3 +46,21 @@
         font-size: $body-small;
     }
 }
+
+@media (max-width: 1399.98px) {
+    .ShoppingCart{
+        ._header{
+            ._product{
+                width: 43%;
+            }
+        }
+    }
+}
+@media (max-width: 991.98px) {
+    .ShoppingCart{
+        min-width: 0px;
+        ._header{
+            display: none;
+        }
+    }
+}

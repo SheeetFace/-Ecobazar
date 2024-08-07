@@ -19,7 +19,7 @@ const ShoppingCartTotal:React.FC = () => {
             <PaymentSummary/>
 
             <NavLink to='/checkout' className={styles._navLink}>
-                <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight buttonMaxWidth'
+                <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxWidth'
                         text='Proceed to checkout'
                         type='button'
                         disabled={!isItems}

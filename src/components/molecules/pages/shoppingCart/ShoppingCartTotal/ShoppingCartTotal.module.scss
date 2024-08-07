@@ -12,5 +12,21 @@
 
     ._navLink{
         text-decoration: none;
+        height: 40px;
+    }
+}
+
+@media (max-width: 1399.98px) {
+    .ShoppingCartTotal{
+        ._navLink{
+            height: 50px;
+        }
+    }
+}
+@media (max-width: 991.98px) {
+    .ShoppingCartTotal{
+        ._navLink{
+            height: 40px;
+        }
     }
 }

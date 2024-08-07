@@ -20,6 +20,21 @@
     height: 20px;
 }
 
+._removeButton{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    position: relative;
+    ._cross{
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        top:45px;
+        right:30px;
+    }
+}
+
 ._shoppingAndWishlist{
     display: flex;
     align-items:center;
@@ -76,6 +91,7 @@
         flex-direction: column;
         ._product{
             width: 100%;
+            flex-direction: column;
             text-align: center;
             ._imgContainer{
                 img{

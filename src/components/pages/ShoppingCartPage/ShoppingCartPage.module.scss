@@ -27,3 +27,17 @@
     }
 
 }
+
+@media (max-width: 1199.98px) {
+    .ShoppingCartPage{
+        ._container{
+            flex-direction: column;
+            ._contentRight{
+                width: 100%;
+            }
+            ._shoppingCartTotalContainer{
+                width: 100%
+            }
+        }
+    }
+}

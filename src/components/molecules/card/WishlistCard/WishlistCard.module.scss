@@ -2,21 +2,6 @@
 @import '../../../../styles/typography.scss';
 @import '../styles/styles.module.scss';
 
-._removeButton{
-    display: flex;
-    width: 100%;
-    justify-content: flex-end;
-    position: relative;
-    ._cross{
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        flex-shrink: 0;
-        top:45px;
-        right:30px;
-    }
-}
-
 .WishlistCard{
     @extend ._shoppingAndWishlist;
 
