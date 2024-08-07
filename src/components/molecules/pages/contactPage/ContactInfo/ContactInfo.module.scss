@@ -25,10 +25,13 @@
             height: 45px;
         }
     }
-
-
     ._divider{
         background-color:$grey-2;
     }
+}
 
+@media (max-width: 991.98px) {
+    .ContactInfo{
+        width: 100%;
+    }
 }
