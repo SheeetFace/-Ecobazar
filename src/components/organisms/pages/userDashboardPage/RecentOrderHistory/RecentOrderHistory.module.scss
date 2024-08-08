@@ -9,10 +9,12 @@
     border-radius: .3rem;
     border: 1px solid $grey-2;
     background-color:$white-color;
+    overflow-x: auto;
 
     ._header{
         display: flex;
         justify-content: space-between;
+        min-width: 575px;
 
         h1{
             color:$grey-8;
@@ -22,6 +24,7 @@
     table{
         width: 100%;
         border-collapse: collapse;
+        min-width: 575px;
         td{
             padding:.3rem;
         }
