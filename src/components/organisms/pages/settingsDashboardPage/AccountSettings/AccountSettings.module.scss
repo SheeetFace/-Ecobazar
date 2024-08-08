@@ -24,3 +24,16 @@
         }
     }
 }
+@media (max-width: 767.98px) {
+    .AccountSettings{
+        ._form{
+            ._container{
+                display: flex;
+                flex-direction: column;
+                ._info{
+                    width: 100%;
+                }
+            }
+        }
+    } 
+}
