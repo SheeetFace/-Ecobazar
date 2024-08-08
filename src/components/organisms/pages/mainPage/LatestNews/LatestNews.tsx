@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { useGetLatestBlogsQuery } from '../../../../../api/blogs/latestBlogsApi';
 
 import { useLazyLoadResource } from '../../../../../hooks/api/useLazyLoadResource';
+import useSlider from '../../../../../hooks/useSlider';
 
 import BlogCard from '../../../../molecules/card/BlogCard/BlogCard';
 
@@ -31,14 +32,21 @@ const LatestNews:React.FC = () => {
 
     },[responseData])
 
+    const Slider = useSlider({
+        cards:renderLatesNews,
+        styles:'',
+        slidesToShow:3,
+        dots:true,
+    })
+
     return (
         <section className={styles.LatestNews} ref={ref}>
             <div className='center'>
                 <span className={styles._title}>Latest News</span>
-
                 <div className={styles._cards}>
                     {content}
-                    {renderLatesNews}
+                    {/* {renderLatesNews} */}
+                    {responseData && Slider}
                 </div>
             </div>
         </section>
