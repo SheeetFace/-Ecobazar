@@ -85,7 +85,7 @@ const ProfilePictureWithChangeButton: React.FC<ProfilePictureWithChangeButtonPro
 
         <Button
           onClick={handleFileSelect}
-          className="ButtonFilledOval fillWhite buttonBorderGreenPrimary colorTextGreenPrimary buttonMaxHeight"
+          className="ButtonFilledOval fillWhite buttonBorderGreenPrimary colorTextGreenPrimary buttonMaxHeight "
           type="button"
           text={isLoading ? "Uploading file.." : "Choose Image"}
           disabled={disabled || isLoading}

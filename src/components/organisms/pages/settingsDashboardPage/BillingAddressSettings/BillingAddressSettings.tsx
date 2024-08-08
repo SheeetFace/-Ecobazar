@@ -133,7 +133,7 @@ const BillingAddressSettings:React.FC = () => {
                 {renderLoaderOrError()}
 
                 <div className={styles._buttonSubmit}>
-                    <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight' 
+                    <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight buttonMaxWidth' 
                             type='submit' 
                             text='Save Changes'
                             disabled={isUserCustomer1 || isLoading }

@@ -114,7 +114,7 @@ const ChangePasswordSettings:React.FC = () => {
                 {isPasswordUpdatedSuccess ? <AlertMessage type='success' title='Success' message='Password successfully updated' />:null}
 
                 <div className={styles._buttonSubmit}>
-                    <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight' 
+                    <Button className='ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight buttonMaxWidth' 
                             type='submit' 
                             text='Save Changes'
                             disabled={isUserCustomer1 || isLoading ||!isProviderPassword }

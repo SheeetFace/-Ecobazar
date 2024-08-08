@@ -3,18 +3,18 @@
     display: flex;
     flex-direction: column;
     height: 728px;
-    overflow-y: auto;
+    overflow: auto;
 
     table{
         width: 100%;
         border-collapse: collapse;
         height: max-content;
-    
+        min-width: 575px;
+        
         td{
             padding: .3rem;
         }
     }
-
 }
 ._pagButtons{
     width: 100%;
