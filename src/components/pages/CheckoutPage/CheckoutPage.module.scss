@@ -18,3 +18,17 @@
         }
     }
 }
+
+@media (max-width: 991.98px) {
+    .CheckoutPage{
+        ._container{
+            flex-direction: column;
+            ._billingInfo{
+                width: 100%;
+            }
+            ._orderSummery{
+                width: 100%;
+            }
+        }
+    }
+}
