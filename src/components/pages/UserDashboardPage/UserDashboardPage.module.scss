@@ -21,3 +21,17 @@
         }
     }
 }
+
+@media (max-width: 767.98px) {
+    .UserDashboardPage{
+        ._container{
+            flex-direction: column;
+            ._profile{
+                width: 100%;
+            }
+            ._billingAddress{
+                width: 100%;
+            }
+        }
+    }
+}
