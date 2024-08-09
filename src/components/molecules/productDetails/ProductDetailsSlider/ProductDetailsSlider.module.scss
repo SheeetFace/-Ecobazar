@@ -34,3 +34,20 @@
         }
     }
 }
+
+@media (max-width: 1399.98px) {
+    .ProductDetailsSlider{
+        display: inline;
+        ._imageItem{
+            border: none;
+            border-radius: 0;
+            ._image{
+                margin:auto ;
+                border: 1px solid $soft-primary-color;
+                border-radius: 5px;
+                width: 130px;
+                height: 130px;
+            }
+        }
+    }
+}

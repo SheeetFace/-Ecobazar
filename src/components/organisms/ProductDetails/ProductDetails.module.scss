@@ -14,11 +14,29 @@
     &._modalViewMode{
         padding: 2rem;
     }
+    ._slider{
+        order: 1;
+    }
 
-    ._img{
+    ._zoom{
         padding: .5rem;
-        img{
-            height: 400px;
+        order:2;
+    }
+    ._container{
+        order:3;
+    }
+}
+
+@media (max-width: 1399.98px) {
+    .ProductDetails{
+        flex-direction: column;
+        ._slider{
+            order: 2;
+        }
+        ._zoom{
+            order:1;
+            display: flex;
+            justify-content: center;
         }
     }
 }

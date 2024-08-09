@@ -38,10 +38,14 @@
         gap:.5rem;
         font-size: $body-small;
         color:$grey-5;
-
-        ._sku{
-            color:$grey-9;
+        ._statistic{
+            display: flex;
+            gap:.5rem;
+            ._sku{
+                color:$grey-9;
+            }
         }
+
     }
 
     ._price{
@@ -62,6 +66,30 @@
             background-color: rgb($danger-color, .2);
             border-radius: 1rem;
             font-size: $body-tiny;
+        }
+    }
+}
+@media (max-width: 1399.98px) {
+    .ProductDetailsHeader{
+        margin-top: 2rem;
+    }
+}
+@media (max-width: 575.98px) {
+    .ProductDetailsHeader{
+        ._title{
+            align-items:center;
+            flex-direction: column;
+            text-align: center;
+            h2{
+                max-width: 100%;
+            }
+        }
+        ._info{
+            align-items:center;
+            flex-direction: column;
+        }
+        ._price{
+            justify-content: center;
         }
     }
 }
