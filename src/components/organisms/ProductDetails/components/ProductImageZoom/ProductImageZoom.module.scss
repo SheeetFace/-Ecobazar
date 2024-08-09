@@ -1,0 +1,15 @@
+.ProductImageZoom {
+    ._img{
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .ProductImageZoom{
+        width: 100%;
+        display: flex;
+        align-items:center;
+        justify-content: center;
+    }
+}

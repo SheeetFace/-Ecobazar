@@ -1,10 +1,9 @@
-import Zoom from "react-img-zoom-gdn";
-
 import ProductDetailsHeader from '../../molecules/productDetails/ProductDetailsHeader/ProductModalHeader';
 import ProductDetailsDescription from '../../molecules/productDetails/ProductDetailsDescription/ProductDetailsDescription';
 import ProductDetailsButtons from '../../molecules/productDetails/ProductDetailsButtons/ProductDetailsButtons';
 import ProductDetailsFooter from '../../molecules/productDetails/ProductDetailsFooter/ProductModalFooter';
 import ProductDetailsSlider from '../../molecules/productDetails/ProductDetailsSlider/ProductDetailsSlider';
+import ProductImageZoom from './components/ProductImageZoom/ProductImageZoom';
 import Divider from '../../atoms/Divider/Divider';
 
 import styles from '../ProductDetails/ProductDetails.module.scss';
@@ -28,15 +27,18 @@ const ProductDetails:React.FC<ProductDetailsProps> = ({forwardRef,data,viewMode}
 
     return (
         <section className={classs} ref={forwardRef}>
-
-            <ProductDetailsSlider src={data.src}/>
-
-            <div className={styles._img}>
-                <Zoom img={data.src} zoomScale={1.5} width={400} height={400} alt={data.name} key={data.src}/>
+            
+            <div className={styles._slider}>
+                <ProductDetailsSlider src={data.src}/>
             </div>
 
-            <div>
-                <div>
+            <div className={styles._zoom}>
+                 <ProductImageZoom name={data.name} src={data.src}/>
+            </div>
+           
+
+            <div className={styles._container}>
+                <>
                     <ProductDetailsHeader name={data.name}
                                         currentCost={data.currentCost}
                                         oldCost={data.oldCost}
@@ -46,24 +48,24 @@ const ProductDetails:React.FC<ProductDetailsProps> = ({forwardRef,data,viewMode}
                                         />
                     
                     <Divider type='horizontal' className={styles._divider}/>
-                </div>
+                </>
 
-                <div>
+                <>
                     <ProductDetailsDescription description={data.description}/>
 
                     <Divider type='horizontal' className={styles._divider}/>
-                </div>
+                </>
 
-                <div>
+                <>
                     <ProductDetailsButtons id={data.id} isStockStatus={isStockStatus}/>
 
                     <Divider type='horizontal' className={styles._divider}/>
-                </div>
+                </>
 
-                <div>
+
                     <ProductDetailsFooter   category={data.category}
                                             tag={data.tag}/>
-                </div>
+
             </div>
         </section>
     )

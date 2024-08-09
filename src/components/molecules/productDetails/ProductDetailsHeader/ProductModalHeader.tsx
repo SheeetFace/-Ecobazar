@@ -26,16 +26,17 @@ const ProductDetailsHeader:React.FC<ProductDetailsHeaderProps> = ({name,currentC
                                 className={stockStatusClass}
                     />
                 </div>
-
             </div>
             
-
             <div className={styles._info}>
                 <RatingStars rating={+rating} type='big'/>
-                <span> 4 Review</span>
-                <span>•</span>
-                <span className={styles._sku}>SKU:</span>
-                <span>2,51,594</span>
+
+                <div className={styles._statistic}>
+                    <span> 4 Review</span>
+                    <span>•</span>
+                    <span className={styles._sku}>SKU:</span>
+                    <span>2,51,594</span>
+                </div>
             </div>
 
             <div className={styles._price}>

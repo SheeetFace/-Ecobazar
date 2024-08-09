@@ -21,3 +21,12 @@
         padding-top: 2rem;
     }
 }
+
+@media (max-width: 1399.98px) {
+    .ProductInfo{
+        margin-top: 2rem;
+        ._container{
+            flex-direction: column;
+        }
+    }
+}
