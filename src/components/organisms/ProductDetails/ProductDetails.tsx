@@ -62,9 +62,7 @@ const ProductDetails:React.FC<ProductDetailsProps> = ({forwardRef,data,viewMode}
                     <Divider type='horizontal' className={styles._divider}/>
                 </>
 
-
-                    <ProductDetailsFooter   category={data.category}
-                                            tag={data.tag}/>
+                <ProductDetailsFooter   category={data.category} tag={data.tag}/>
 
             </div>
         </section>

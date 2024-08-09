@@ -13,3 +13,9 @@
         @extend._buttonIcon;
     }
 }
+
+@media (max-width: 767.98px) {
+    .ButtonQuickView{
+        display: none;
+    }
+}

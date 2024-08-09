@@ -1,7 +1,6 @@
 import SocialMediaIcons from '../../SocialMediaIcons/SocialMediaIcons';
 import FoodCoIcon from '../../../atoms/icon/brand/FoodCoIcon';
 
-
 import styles from '../ProductDetailsDescription/ProductDetailsDescription.module.scss';
 
 interface ProductDetailsDescriptionProps{
