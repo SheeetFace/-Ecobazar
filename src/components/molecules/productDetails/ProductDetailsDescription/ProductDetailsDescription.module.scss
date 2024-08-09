@@ -6,7 +6,7 @@
     display: flex;
     flex-direction: column;
     max-width: 670px;
-    min-width: 600px;
+    min-width: 500px;
 
     ._header{
         display: flex;
@@ -39,9 +39,16 @@
     }
 }
 
+@media (max-width: 1399.98px) {
+    .ProductDetailsDescription{
+        max-width: 100%;
+        min-width: 100px;
+    }
+}
+
 @media (max-width: 575.98px) {
     .ProductDetailsDescription{
-        min-width: 100px;
+
         ._header{
             flex-direction: column;
             align-items: flex-start;

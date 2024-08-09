@@ -51,10 +51,12 @@ const ProductModal:React.FC = () => {
                     <div className={styles._closeModal}>
                         <span onClick={()=>closeProductModalFn}>✖</span>
                     </div>
-
+                    
+                    <div className={styles._productDetail}>
                     <ProductDetails forwardRef={modalCloseRef}
                                     data={dataProduct}
                                     viewMode='modal'/>
+                    </div>
 
                 </div>
             :

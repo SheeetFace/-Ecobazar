@@ -8,7 +8,7 @@ const ProductImageZoom: React.FC<{ src:string, name:string }> = ({ src,name }) =
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(()=>{
-        const mediaQuery = window.matchMedia('(max-width: 575.98px)');
+        const mediaQuery = window.matchMedia('(max-width: 1399.98px)');
 
         const handleResize =()=>{
             setIsMobile(mediaQuery.matches)
