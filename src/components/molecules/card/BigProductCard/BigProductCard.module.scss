@@ -38,6 +38,7 @@
             }
         }
         img{
+            width: 100%;
             object-fit:contain;
         }
     }
@@ -81,4 +82,24 @@
         justify-content: center;
         color:$grey-3;
     }
+}
+
+
+@media (max-width: 559.98px) {
+    .BigProductCard{
+        height: 720px;
+        flex-direction: column;
+        ._img{
+            height: min-content;
+        }
+        ._buttonsWrapper{
+            flex-direction: column;
+            height: max-content;
+        }
+        ._wrapperInfo{
+            height: 20%;
+            text-align: center;
+        }
+    }
+
 }
