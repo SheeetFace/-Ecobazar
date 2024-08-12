@@ -46,3 +46,23 @@
         font-size: $body-small;
     }
 }
+
+@media (max-width: 575.98px) {
+    .SuggestionSearchCard{
+        border-top: 1px solid $grey-3;
+        ._container{
+            width: 100%;
+            flex-direction: column;
+            align-items:center;
+            justify-content: center;
+            ._label{
+                margin-left: 0;
+            }
+        }
+
+        ._category{
+            transform: rotate(-90deg);
+            width: 1rem;
+        }
+    }
+}
