@@ -25,7 +25,9 @@ const ProductModal:React.FC = () => {
 
     const isFirstOpen = useRef<boolean>(false);
 
-    useScrollLock(isShow, {current:null});
+    const isBlockScroll = window.innerWidth < 992 ? false : isShow;
+
+    useScrollLock(isBlockScroll, {current:null});
 
     const closeProductModalFn =()=>{
         dispatch(closeProductModal())
