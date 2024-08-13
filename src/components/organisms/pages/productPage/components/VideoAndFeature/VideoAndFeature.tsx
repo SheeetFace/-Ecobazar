@@ -13,7 +13,7 @@ const VideoAndFeature:React.FC = () => {
         <section className={styles.VideoAndFeature}>
             <Video/>
             <Feature data={featureProductPageData} 
-                     className={styles._features} 
+                    className={styles._features} 
             />
         </section>
     )
