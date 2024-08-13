@@ -16,6 +16,7 @@ import usePagination from '../../../../../hooks/usePagination';
 import useSmoothTransition from '../../../../../hooks/useSmoothTransition';
 import useScrollToTop from '../../../../../hooks/useScrollToTop';
 import useEnsureValidPage from '../../../../../hooks/useEnsureValidPage';
+import useResponsivePagination  from '../../../../../hooks/useResponsivePagination';
 
 import ProductsCard from '../../../../molecules/card/ProductCard/ProductCard';
 import NotingFound from '../../../../atoms/NothingFound/NothingFound';
@@ -25,6 +26,13 @@ import styles from '../Products/Products.module.scss';
 
 import type { ProductDataType } from '../../../../../types/product/productDataTypes';
 
+type Breakpoint = {[key: number]:number}
+
+const paginationConfig: Breakpoint[] = [
+  { 1917: 21 },
+  { 1371: 12 },
+  { 920: 6 }
+]
 
 const Products:React.FC = () => {
 
@@ -34,10 +42,10 @@ const Products:React.FC = () => {
     const filter = useAppSelector((state)=> state.productFilter)
 
     const filteredProducts = filterProducts((responseData ?? []), filter);
+    const itemsPerPage= useResponsivePagination({ defaultItems: 24, breakpoints: paginationConfig });
 
     const location = useLocation();
 
-    const itemsPerPage= 24;
     const totalItems = filteredProducts.length;
 
     const productsRef = useRef<HTMLDivElement>(null);
