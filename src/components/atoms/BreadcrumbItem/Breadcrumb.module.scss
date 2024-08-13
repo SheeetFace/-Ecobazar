@@ -1,25 +1,54 @@
 @import '../../../styles/colors.scss';
+@import '../../../styles/typography.scss';
 
-.BreadcrumbItem{
-    cursor: pointer;
-    color:$grey-3 !important;
 
-    &:hover{
-        color:$primary-color !important;
+    .BreadcrumbItem{
+        cursor: pointer;
+        color:$grey-3 !important;
+
+        &:hover{
+            color:$primary-color !important;
+        }
+    }
+    
+    ._lastItem{
+        animation: fadeIn .5s ease;
+    }
+    
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            letter-spacing: 10px;
+        }
+        100% {
+            opacity: 1;
+            letter-spacing: 0px;
+        }
+    }
+
+
+
+@media (max-width: 991.98px) {
+    .BreadcrumbItem{
+        color:$grey-2 !important;
+        max-width: 480px; 
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    } 
+}
+@media (max-width: 767.98px) {
+    .BreadcrumbItem{
+        max-width: 400px; 
     }
 }
-
-._lastItem{
-    animation: fadeIn .5s ease;
+@media (max-width: 575.98px) {
+    .BreadcrumbItem{
+        max-width: 180px; 
+    }
 }
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        letter-spacing: 10px;
+@media (max-width: 359.98px) {
+    .BreadcrumbItem{
+        max-width: 100px; 
     }
-    100% {
-        opacity: 1;
-        letter-spacing: 0px;
-    }
-  }
+}
