@@ -18,9 +18,9 @@ const BreadcrumbItem:React.FC<BreadcrumbItemProps> =({name,pathBack,isLast})=>{
                     </span>
                 </NavLink>
             : 
-                <span className={`${styles.BreadcrumbItem} ${styles._lastItem}`}>
+                <div className={`${styles.BreadcrumbItem} ${styles._lastItem}`}>
                     {name}
-                </span>
+                </div>
             }
         </>     
     )
