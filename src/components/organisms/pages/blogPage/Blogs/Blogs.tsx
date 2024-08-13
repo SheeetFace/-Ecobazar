@@ -46,7 +46,7 @@ const Blogs:React.FC = () => {
 
     useSmoothTransition(blogsRef, filter, currentPage);
     useScrollToTop(currentPage);
-    useEnsureValidPage(filteredBlogs, currentPage, itemsPerPage, goToPage)
+    useEnsureValidPage(filteredBlogs, currentPage, itemsPerPage, goToPage, filter)
 
     useEffect(()=>{
       dispatch(changeFilter({key: 'blogsLength', value:totalItems}))
