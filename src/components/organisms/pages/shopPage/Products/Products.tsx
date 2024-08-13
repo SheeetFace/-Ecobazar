@@ -58,7 +58,7 @@ const Products:React.FC = () => {
 
     useSmoothTransition(productsRef, filter, currentPage);
     useScrollToTop(currentPage);
-    useEnsureValidPage(filteredProducts, currentPage, itemsPerPage, goToPage)
+    useEnsureValidPage(filteredProducts, currentPage, itemsPerPage, goToPage, filter)
 
     useEffect(()=>{
       dispatch(changeFilter({key:'productsLength', value:totalItems}))
