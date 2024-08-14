@@ -1,0 +1,11 @@
+.MobileFilters{
+    position: absolute;
+
+    ._button{
+        position:fixed;
+        z-index: 16;
+        top:50%;
+        left:-35px;
+        transform: rotate(-90deg);
+    }
+}

@@ -1,0 +1,20 @@
+._desktopFilters {
+    display: block;
+    margin-bottom: 2rem;
+    width: 100%;
+    height: max-content;
+}
+
+._mobileFilters {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    ._desktopFilters {
+        display: none;
+    }
+
+    ._mobileFilters {
+        display: block;
+    }
+}

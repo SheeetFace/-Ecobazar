@@ -17,3 +17,10 @@
         }
     }
 }
+
+@media (max-width: 575.98px) {
+    .HeaderFilterPage{
+        flex-direction: column;
+        justify-content: center;
+    }
+}

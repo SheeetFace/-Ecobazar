@@ -1,0 +1,50 @@
+@import '../../../../../../../styles/colors.scss';
+
+.MobileFilterModal{
+
+    position: fixed;
+    z-index: 16;
+    width: 100%;
+    height: 100dvh;
+    top: 0;
+    left:0;
+    background-color:rgba(0, 0, 0, 0.49);
+    backdrop-filter: blur(2px);
+
+    ._closeButton{
+        position: fixed;
+        z-index: 17;
+        top: 0;
+        right:0;
+        padding: .5rem;
+    }
+
+    ._filters{
+        position: fixed;
+        width: 290px;
+        height: 100dvh;
+        top: 0;
+        left:0;
+        padding: 1rem;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        background-color: $grey-1;
+        z-index: 17;
+    }
+}
+
+
+@media (max-width: 359.98px) {
+    .MobileFilters{
+        ._mobileFilterModal{
+            ._closeButton{
+                padding: .1rem;
+            }
+    
+            ._filters{
+                width: 260px;
+                padding: .1rem;
+            }
+        }
+    }
+}
