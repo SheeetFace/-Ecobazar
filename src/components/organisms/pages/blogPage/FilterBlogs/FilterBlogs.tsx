@@ -2,12 +2,9 @@ import SearchFilter from '../components/SearchFilter/SearchFilter';
 import BlogCatagoriesFilter from '../components/BlogCatagoriesFilter/BlogCatagoriesFilter';
 import BlogTagFilter from '../components/BlogTagFilter/BlogTagFilter';
 import BlogClearFilter from '../components/BlogClearFilter/BlogClearFilter';
-
-import Button from '../../../../atoms/Button/Button';
+import ButtonToggleFilter from '../../../../molecules/button/ButtonToggleFilter/ButtonToggleFilter';
 
 import useToggleFilter from '../../../../../hooks/useToggleFilter';
-
-import FilterIcon from '../../../../atoms/icon/navigate/FilterIcon';
 
 import styles from '../FilterBlogs/FilterBlogs.module.scss';
 
@@ -17,14 +14,8 @@ const FilterBlogs:React.FC = () => {
     return (
         <section className={styles.FilterBlogs}>
 
-            <div className={styles._button} onClick={toggle}>
-            <Button
-                className="ButtonFilledOval fillGreen colorTextGrey1 buttonMaxHeight"
-                text="Filter"
-                type="button"
-                icon={<FilterIcon className="" />}
-                ariaLabel='Toggle show filters'
-            />
+            <div className={styles._button}>
+                <ButtonToggleFilter toggle={toggle}/>
             </div>
 
             <div className={bodyClass}>

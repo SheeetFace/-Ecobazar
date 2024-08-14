@@ -5,6 +5,7 @@ import HeaderBlog from '../../organisms/pages/blogPage/HeaderBlog/HeaderBlog';
 import Blogs from '../../organisms/pages/blogPage/Blogs/Blogs';
 import RecentlyAdded from '../../organisms/pages/blogPage/components/RecentlyAdded/RecentlyAdded';
 import FilterBar from '../../organisms/pages/components/FilterBar/FilterBar';
+import ResponsiveFilters from '../../organisms/pages/components/ResponsiveFilters/ResponsiveFilters';
 
 import styles from '../BlogPage/BlogPage.module.scss';
 
@@ -17,10 +18,10 @@ const BlogPage:React.FC = () => {
             <div className='center'>
             <div className={styles._container}>
                     <div className={styles._wrapper}>
-                        <div className={styles._filters}>
-                            <FilterBlogs/>
+                        <ResponsiveFilters FilterComponent={FilterBlogs}/>
+                        <div className={styles._additionalInfo}>
+                            <RecentlyAdded/>
                         </div>
-                        <RecentlyAdded/>
                     </div>
 
                     <div className={styles._content}>

@@ -14,10 +14,10 @@
             flex-direction: column;
             gap:1rem; 
 
-            ._filters{
-                margin-bottom: 2rem;
-                width: 100%;
-                height: max-content;
+            ._additionalInfo{
+                display: flex;
+                flex-direction: column;
+                gap:1rem; 
             }
         }
 
@@ -25,4 +25,24 @@
             width: 80%;
         }
     }
+}
+
+@media (max-width: 767.98px) {
+    .ShopPage{
+        ._container{
+            width: 100%;
+            justify-content: center;
+            gap:0;
+            ._wrapper{
+                width: 0px;
+                min-width: 0px;
+                ._additionalInfo{
+                    display: none;
+                }
+            }
+            ._content{
+                width: 100%;
+            }
+        }
+    } 
 }

@@ -6,6 +6,7 @@ import SaleProducts from '../../organisms/pages/shopPage/SaleProducts/SaleProduc
 import HeaderShop from '../../organisms/pages/shopPage/HeaderShop/HeaderShop';
 import Products from '../../organisms/pages/shopPage/Products/Products';
 import FilterBar from '../../organisms/pages/components/FilterBar/FilterBar';
+import ResponsiveFilters from '../../organisms/pages/components/ResponsiveFilters/ResponsiveFilters';
 
 import styles from '../ShopPage/ShopPage.module.scss';
 
@@ -18,11 +19,11 @@ const ShopPage:React.FC = () => {
            <div className='center'>
                 <div className={styles._container}>
                     <div className={styles._wrapper}>
-                        <div className={styles._filters}>
-                            <FilterProducts/>
+                        <ResponsiveFilters FilterComponent={FilterProducts}/>
+                        <div className={styles._additionalInfo}>
+                            <DiscountBanner/>
+                            <SaleProducts/>
                         </div>
-                        <DiscountBanner/>
-                        <SaleProducts/>
                     </div>
                     
                     <div className={styles._content}>

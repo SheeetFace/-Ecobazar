@@ -93,6 +93,19 @@
   font-weight: $medium;
 }
 
+.ButtonToggleFilter{
+  @extend .ButtonFilledOval;
+  @extend .fillGreen;
+  @extend .colorTextGrey1;
+  @extend .buttonMaxHeight;
+}
+.ButtonToggleFilterRounded{
+  @extend .ButtonToggleFilter;
+  
+  border-top-left-radius: .1rem;
+  border-top-right-radius: .1rem;
+}
+
 
 
 
