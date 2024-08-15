@@ -4,3 +4,11 @@
     gap:.4rem;
     min-width: max-content;
 }
+
+@media (max-width: 400.98px) {
+    .Info{
+        flex-direction: column;
+        align-items:center;
+        margin-bottom: .3rem;
+    }
+}

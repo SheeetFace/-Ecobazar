@@ -1,4 +1,3 @@
-
 .Blogs{
     width: 100%;
     display: flex;
@@ -8,17 +7,11 @@
         min-height: 1560px;
 
         ._cards{
-            padding: 0 1rem;
             display: flex;
-            flex-wrap: wrap;
-            width: 100%;
-            overflow: hidden;
+            align-items: center;
             justify-content: space-around;
-
-            ._card{
-                width: 48%;
-                margin-bottom: 1.3rem;
-            }
+            flex-wrap: wrap;
+            overflow: hidden;
         }
     }
 
