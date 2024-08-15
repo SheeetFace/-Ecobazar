@@ -32,16 +32,38 @@
 
     }
 }
-
-@media (max-width: 991.98px) {
+@media (max-width: 1892.98px) {
     .HotDeals{
         ._container{
             display: flex;
             flex-direction: column;
             align-items:center;
+            ._bigCard{
+                width: 1040px;
+                min-width: none;
+    
+            }
+            ._cards{
+                justify-content: center;
+            }
         }
-        ._cards{
-            justify-content: center;
+    }
+}
+@media (max-width: 1397.98px) {
+    .HotDeals{
+        ._container{
+            ._bigCard{
+                width: 780px;
+            }
+        }
+    }
+}
+@media (max-width: 943.98px) {
+    .HotDeals{
+        ._container{
+            ._bigCard{
+                width: 520px;
+            }
         }
     }
 }

@@ -14,7 +14,28 @@
     ._label{
         font-weight: $tiny;
         font-size: $body-tiny;
-        // color:$grey-05 ;
     }
 
+}
+
+
+@media (max-width: 1892.98px) {
+    .TimerOne{
+        ._time{
+            font-size: $heading-05;
+        }
+        ._label{
+            font-size: $body-medium;
+        }
+    }
+}
+@media (max-width: 943.98px) {
+    .TimerOne{
+        ._time{
+            font-size: $body-xxl;
+        }
+        ._label{
+            font-size: $body-tiny;
+        }
+    }
 }
