@@ -31,7 +31,8 @@ type Breakpoint = {[key: number]:number}
 const paginationConfig: Breakpoint[] = [
   { 1917: 21 },
   { 1371: 12 },
-  { 920: 6 }
+  { 920: 6 },
+  { 767: 10 },
 ]
 
 const Products:React.FC = () => {

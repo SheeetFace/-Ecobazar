@@ -22,4 +22,12 @@
         justify-content: center;
     }
 }
+
+@media (max-width: 767.98px) {
+    .Products{
+        ._container{
+            min-height: 1000px;
+        }
+    }
+}
   
