@@ -84,7 +84,24 @@
     }
 }
 
-
+@media (max-width: 1892.98px) {
+    .BigProductCard{
+        ._wrapperInfo{
+            ._name{
+                font-size:$body-xxl;
+            }
+        }
+    }
+}
+@media (max-width: 943.98px) {
+    .BigProductCard{
+        ._wrapperInfo{
+            ._name{
+                font-size:$body-large;
+            }
+        }
+    }
+}
 @media (max-width: 559.98px) {
     .BigProductCard{
         height: 720px;
@@ -99,6 +116,9 @@
         ._wrapperInfo{
             height: 20%;
             text-align: center;
+            ._name{
+                font-size:$body-medium;
+            }
         }
     }
 
