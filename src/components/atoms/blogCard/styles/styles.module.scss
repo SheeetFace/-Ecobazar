@@ -8,3 +8,8 @@
     color:$grey-4;
     font-size: $body-small;
 }
+@media (max-width: 400.98px) {
+    .primaryClass{
+        font-size:$body-tiny;
+    }
+}

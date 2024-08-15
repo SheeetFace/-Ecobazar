@@ -7,6 +7,7 @@ import useScrollToTop from '../../../../../hooks/useScrollToTop';
 import useSmoothTransition from '../../../../../hooks/useSmoothTransition';
 import useEnsureValidPage from '../../../../../hooks/useEnsureValidPage';
 import useApiResource from '../../../../../hooks/api/useApiResource';
+import useResponsivePagination from '../../../../../hooks/useResponsivePagination';
 
 import { useAppDispatch,useAppSelector } from '../../../../../store/store';
 import { changeFilter,clearFilter } from '../../../../../store/slices/blogFilterSlice';
@@ -22,6 +23,7 @@ import styles from '../Blogs/Blogs.module.scss';
 
 import type { BlogDataTypes } from '../../../../../types/blog/blogDataTypes';
 
+const paginationConfig=[{ 1280 : 4 }]
 
 const Blogs:React.FC = () => {
 
@@ -32,8 +34,8 @@ const Blogs:React.FC = () => {
     const filter = useAppSelector((state)=> state.blogFilter);
 
     const filteredBlogs = filterBlogs(responseData || [], filter);
+    const itemsPerPage= useResponsivePagination({ defaultItems: 6, breakpoints: paginationConfig });
 
-    const itemsPerPage= 6;
     const totalItems = filteredBlogs.length;
 
     const blogsRef = useRef<HTMLDivElement>(null);
