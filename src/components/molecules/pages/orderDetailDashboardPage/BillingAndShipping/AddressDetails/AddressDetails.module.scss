@@ -54,3 +54,19 @@
         }
     }
 }
+
+@media (max-width: 575.98px) {
+    .AddressDetails{
+        width: 100%;
+        font-size: $body-small;
+        text-align: center;
+        ._title{
+            background-color:$grey-1;
+        }
+    }
+}
+@media (max-width: 359.98px) {
+    .AddressDetails{
+        font-size: $body-tiny;
+    }
+}
