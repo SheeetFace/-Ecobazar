@@ -57,5 +57,37 @@
     ._table{
         padding-top: 1rem;
         width: 100%;
+        overflow: auto;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    .OrderDetailDashboardPageContent{
+        ._container{
+            flex-direction: column;
+            ._billingAndShipping{
+                width: 100%;
+            }
+            ._summerPaid{
+                width:100%
+            }
+        }
+    }
+}
+@media (max-width: 575.98px) {
+    .OrderDetailDashboardPageContent{
+        ._headerContainer{
+            flex-direction: column;
+            ._info{
+                flex-direction: column;
+                gap: .1rem;
+            }
+        }
+        ._tracker{
+            padding: .5rem 0;
+        }
+        ._table{
+            font-size: $body-tiny;
+        }
     }
 }

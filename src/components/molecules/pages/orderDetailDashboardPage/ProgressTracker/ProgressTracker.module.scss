@@ -36,3 +36,34 @@
         justify-content: space-between;
     }
 }
+
+@media (max-width: 1399.98px) {
+    .ProgressTracker{
+        ._greyLine{
+            ._line{
+                width: 83%;
+            }
+        }
+    }
+}
+@media (max-width: 575.98px) {
+    .ProgressTracker{
+        width: 100%;
+        min-width: 0;
+    }
+}
+@media (max-width: 467.98px) {
+    .ProgressTrackerPoint{
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media (max-width: 432.98px) {
+    .ProgressTracker{
+        ._greyLine{
+            ._line{
+                width: 78%;
+            }
+        }
+    }
+}

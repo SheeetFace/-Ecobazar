@@ -39,3 +39,25 @@
         color:$hard-primary-color;
     }
 }
+
+@media (max-width: 575.98px) {
+    .ProgressTrackerPoint{
+        ._label{
+            font-size: $body-small;
+        } 
+    }
+}
+@media (max-width: 467.98px) {
+    .ProgressTrackerPoint{
+        ._label{
+            font-size: $body-tiny;
+            text-align: center;
+        } 
+        ._point{
+            margin-top: 5px;
+            width: 32px;
+            height: 32px;
+            flex-shrink: 0;
+        }
+    }
+}
