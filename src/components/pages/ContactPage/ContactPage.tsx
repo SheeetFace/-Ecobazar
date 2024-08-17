@@ -3,7 +3,7 @@ import useScrollToTop from '../../../hooks/useScrollToTop';
 import ContactInfo from '../../molecules/pages/contactPage/ContactInfo/ContactInfo';
 import ContactForm from '../../organisms/pages/contactPage/ContactForm/ContactForm';
 
-import MapLocation from '../../molecules/pages/contactPage/MapLocation/MapLocation';
+import { MapLocation } from 'react-google-map-location'
 
 import styles from '../ContactPage/ContactPage.module.scss';
 
@@ -20,9 +20,17 @@ const ContactPage:React.FC = () => {
                     <ContactForm/>
                 </div>
             </div>
-
-            <MapLocation/>
-        </section>
+            <div className={styles._mapLocation}>
+              <MapLocation
+                location="120 W Sioux Ave, Pierre, SD 57501, United States" 
+                zoom={17} 
+                height='400px'
+                mapType="satellite" 
+                loading="lazy" 
+              />
+            </div>
+            
+        </section> 
     )
 }
 
