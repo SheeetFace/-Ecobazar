@@ -32,11 +32,12 @@ const LatestNews:React.FC = () => {
 
     },[responseData])
 
-    const Slider = useSlider({
+    const slider = useSlider({
         cards:renderLatesNews,
         styles:'',
         slidesToShow:3,
         dots:true,
+        responsiveSetting:[]
     })
 
     return (
@@ -45,8 +46,7 @@ const LatestNews:React.FC = () => {
                 <span className={styles._title}>Latest News</span>
                 <div className={styles._cards}>
                     {content}
-                    {/* {renderLatesNews} */}
-                    {responseData && Slider}
+                    {responseData && slider}
                 </div>
             </div>
         </section>
