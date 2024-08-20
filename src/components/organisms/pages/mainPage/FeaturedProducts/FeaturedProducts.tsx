@@ -1,5 +1,7 @@
 import { useMemo } from 'react';
 
+import useSlider from '../../../../../hooks/useSlider';
+
 import TitleWithViewAll from '../../../../molecules/pages/mainPage/TitleWithViewAll/TitleWithViewAll';
 import ProductsCard from '../../../../molecules/card/ProductCard/ProductCard';
 
@@ -9,6 +11,7 @@ import styles from '../FeaturedProducts/FeaturedProducts.module.scss';
 
 import  { FilterPromotedTypes } from '../../../../../types/filterPromotedType';
 
+import { commonProductSliderConfig } from '../../../../../config/slider/commonProductSliderConfig';
 
 
 const FeaturedProducts:React.FC = () => {
@@ -20,6 +23,17 @@ const FeaturedProducts:React.FC = () => {
           return <ProductsCard key={item.id} {...item}/>
         })
     },[filteredData])
+
+    const slider = useSlider({
+      cards:renderFeaturedProducts,
+      styles:'defaultSlider',
+      slidesToShow:3,
+      dots:true,
+      responsiveSetting:commonProductSliderConfig,
+      isSliderShow:false,
+      sliderShowBreakpoint:991,
+      cardsWithoutSliderStyles:styles._cards
+    })
     
     return (
         <section className={styles.FeaturedProducts}>
@@ -28,7 +42,7 @@ const FeaturedProducts:React.FC = () => {
                 
                 <div className={styles._cards}>
                   {content}
-                  {renderFeaturedProducts}
+                  {slider}
               </div>
             </div>
 

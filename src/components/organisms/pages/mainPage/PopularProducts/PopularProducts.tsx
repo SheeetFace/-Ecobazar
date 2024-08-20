@@ -10,7 +10,8 @@ import { FilterPromotedTypes } from '../../../../../types/filterPromotedType';
 
 import styles from '../PopularProducts/PopularProducts.module.scss';
 
-import { popularProductSliderConfig } from '../../../../../config/slider/PopularProductSliderConfig';
+import { commonProductSliderConfig } from '../../../../../config/slider/commonProductSliderConfig';
+
 
 const PopularProducts:React.FC = () => {
 
@@ -29,10 +30,10 @@ const PopularProducts:React.FC = () => {
 
   const slider = useSlider({
     cards:renderPopularProducts,
-    styles:'defaultSlider',
+    styles:'',
     slidesToShow:3,
     dots:true,
-    responsiveSetting:popularProductSliderConfig,
+    responsiveSetting:commonProductSliderConfig,
     isSliderShow:false,
     sliderShowBreakpoint:991,
     cardsWithoutSliderStyles:styles._cards

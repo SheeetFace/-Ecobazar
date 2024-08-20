@@ -27,7 +27,6 @@
             height: max-content;
             display: flex;
             flex-wrap: wrap;
-
         }
 
     }
@@ -58,19 +57,21 @@
         }
     }
 }
-@media (max-width: 943.98px) {
+@media (max-width: 991.98px) {
     .HotDeals{
         ._container{
             ._bigCard{
-                width: 520px;
+                width: 100%;
+                margin-bottom: 1rem;
             }
         }
     }
 }
-@media (max-width: 559.98px) {
+@media (max-width: 611.98px) {
     .HotDeals{
         ._container{
             ._bigCard{
+                margin-bottom: 0;
                 max-width: 260px;
                 min-width: 260px;
             }
