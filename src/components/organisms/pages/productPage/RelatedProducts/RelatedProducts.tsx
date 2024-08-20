@@ -15,6 +15,8 @@ interface RelatedProductsProps{
     productCategory:  CategoryProductValue
 }
 
+import { relatedProductsSliderConfig } from '../../../../../config/slider/relatedProductsSliderConfig';
+
 const RelatedProducts:React.FC<RelatedProductsProps> = ({productCategory}) => {
 
     const { responseData, content } = useApiResource<ProductDataType>(useGetProductsQuery, 'products');
@@ -26,18 +28,21 @@ const RelatedProducts:React.FC<RelatedProductsProps> = ({productCategory}) => {
     const renderRelatedProducts = useMemo(()=>{
         return relatedData.map((item)=>(<ProductsCard key={item.id} {...item}/>))
     },[relatedData])
-
-    const useSlicer = useSlider({ cards: renderRelatedProducts,
-        styles: styles._settingSlider,
-        slidesToShow: 5,
-        dots:true
-    });
+    
+    const slider = useSlider({
+        cards:renderRelatedProducts,
+        styles:styles._settingSlider,
+        slidesToShow:5,
+        dots:true,
+        responsiveSetting:relatedProductsSliderConfig,
+        isSliderShow:true,
+      })
 
     return (
         <section className={styles.RelatedProducts}>
             <h2>Related Products</h2>
             {content}
-            {useSlicer}
+            {slider}
         </section>
     )
 }
