@@ -11,6 +11,7 @@ import styles from '../LatestNews/LatestNews.module.scss';
 
 import type { BlogDataTypes } from '../../../../../types/blog/blogDataTypes';
 
+import { latestNewsSliderConfig } from '../../../../../config/slider/latestNewsSliderConfig';
 
 const LatestNews:React.FC = () => {
 
@@ -37,7 +38,9 @@ const LatestNews:React.FC = () => {
         styles:'',
         slidesToShow:3,
         dots:true,
-        responsiveSetting:[]
+        responsiveSetting:latestNewsSliderConfig,
+        isSliderShow:true,
+        cardsWithoutSliderStyles:styles._cards
     })
 
     return (
@@ -46,7 +49,7 @@ const LatestNews:React.FC = () => {
                 <span className={styles._title}>Latest News</span>
                 <div className={styles._cards}>
                     {content}
-                    {responseData && slider}
+                    {slider}
                 </div>
             </div>
         </section>

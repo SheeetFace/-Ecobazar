@@ -26,7 +26,7 @@ const HotDeals:React.FC = () => {
 
     const slider = useSlider({
         cards:renderHotDeals,
-        styles:'defaultSlider',
+        styles:'',
         slidesToShow:3,
         dots:true,
         responsiveSetting:commonProductSliderConfig,

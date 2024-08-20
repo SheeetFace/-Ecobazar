@@ -26,7 +26,7 @@ const FeaturedProducts:React.FC = () => {
 
     const slider = useSlider({
       cards:renderFeaturedProducts,
-      styles:'defaultSlider',
+      styles:'',
       slidesToShow:3,
       dots:true,
       responsiveSetting:commonProductSliderConfig,
