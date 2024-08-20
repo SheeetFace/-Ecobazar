@@ -1,5 +1,5 @@
 
-export const popularProductSliderConfig= [
+export const commonProductSliderConfig= [
     {
       breakpoint: 991,
       settings: {
