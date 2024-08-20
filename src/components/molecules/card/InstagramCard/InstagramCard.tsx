@@ -11,14 +11,16 @@ interface InstagramCardProps{
 const InstagramCard:React.FC<InstagramCardProps> = ({src,alt}) => {
 
     return (
-        <a href='https://www.instagram.com/' target='_blank'>
-            <div className={styles.InstagramCard}>
-                <div className={styles._container}>
-                    <img loading="lazy" src={src} alt={alt}/>
-                    <InstagramIcon className={styles._instagramIcon}/>
+        <section className={styles.InstagramCard}>
+            <a href='https://www.instagram.com/' target='_blank'>
+                <div className={styles._containerCard}>
+                    <div className={styles._container}>
+                        <img loading="lazy" src={src} alt={alt}/>
+                        <InstagramIcon className={styles._instagramIcon}/>
+                    </div>
                 </div>
-            </div>
-        </a>
+            </a>
+        </section>
     )
 }
 

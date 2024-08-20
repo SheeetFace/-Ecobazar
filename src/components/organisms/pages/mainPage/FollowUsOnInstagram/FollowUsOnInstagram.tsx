@@ -6,6 +6,8 @@ import { instagramPostData } from '../../../../../data/instagramPost';
 
 import styles from '../FollowUsOnInstagram/FollowUsOnInstagram.module.scss';
 
+import { followInstagramSliderConfig } from '../../../../../config/slider/followInstagramSliderConfig';
+
 const FollowUsOnInstagram:React.FC = () => {
 
     const renderInstagramPost=()=>{
@@ -16,23 +18,24 @@ const FollowUsOnInstagram:React.FC = () => {
         })
     }
 
-    const Slider = useSlider({
+    const slider = useSlider({
         cards:renderInstagramPost(),
         styles:'',
         slidesToShow:5,
         dots:false,
+        responsiveSetting:followInstagramSliderConfig,
+        isSliderShow:true,
+        cardsWithoutSliderStyles:styles._cards
     })
 
     return (
         <section className={styles.FollowUsOnInstagram}>
 
             <div className='center'>
-                <span className={styles._title}>Follow us on Instagram</span>
-
-                {/* <div className={styles._container}>
-                    {renderInstagramPost()}
-                </div> */}
-                <div>{Slider}</div>
+                <div className={styles._title}>
+                    <span>Follow us on Instagram</span>
+                </div>
+                <div>{slider}</div>
             </div>
 
         </section>
