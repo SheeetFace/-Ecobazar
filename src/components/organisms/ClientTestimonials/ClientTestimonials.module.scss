@@ -6,16 +6,26 @@
     padding-bottom: 3rem;
     background-color: $grey-1;
   
-    ._title{
-      font-size: $heading-05;
-      font-weight: $semiBold;
-      color: $grey-9;
+    ._titleContainer{
+      ._title{
+        font-size: $heading-05;
+        font-weight: $semiBold;
+        color: $grey-9;
+      }
     }
+
     ._cardItem{
         padding: .5rem;
     }
     ._settingSlider{
         cursor:grab;
     }
-  }
+}
 
+@media (max-width: 575.98px) {
+  .ClientTestimonials{
+    ._titleContainer{
+      text-align: center;
+    }
+  } 
+}
