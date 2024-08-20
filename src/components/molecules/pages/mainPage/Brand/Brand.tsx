@@ -9,6 +9,8 @@ import GSeriesIcon from '../../../../atoms/icon/brand/GSeriesIcon';
 
 import styles from '../Brand/Brand.module.scss';
 
+import { brandSliderConfig } from '../../../../../config/slider/brandSliderConfig';
+
 const Brand:React.FC = () => {
 
     const icons =  [<StepsIcon/>,<MangoIcon/>,<FoodNetIcon/>,<FoodCoIcon/>,<BookOffIcon/>,<GSeriesIcon/>]
@@ -23,17 +25,20 @@ const Brand:React.FC = () => {
         })
     }
 
-    const Slider = useSlider({
+    const slider = useSlider({
         cards:renderBrandCards(),
         styles:'',
         slidesToShow:5,
         dots:false,
+        responsiveSetting:brandSliderConfig,
+        isSliderShow:true,
+        cardsWithoutSliderStyles:styles._cards
     })
 
     return (
         <section className={styles.Brand}>
             <div className='center'>
-                <div>{Slider}</div>
+                <div>{slider}</div>
             </div>
         </section>
     )
