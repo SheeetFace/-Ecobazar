@@ -6,6 +6,8 @@ import { ourTeamData } from '../../../../../data/ourTeam';
 
 import styles from '../OurTeam/OurTeam.module.scss';
 
+import { ourTeamSliderConfig } from '../../../../../config/slider/ourTeamSliderConfig';
+
 const OurTeam:React.FC = () => {
 
     const renderOurTeamCards =()=>{
@@ -21,11 +23,13 @@ const OurTeam:React.FC = () => {
         })
     }
 
-    const Slider = useSlider({
+    const slider = useSlider({
         cards:renderOurTeamCards(),
         styles:'',
         slidesToShow:4,
         dots:true,
+        responsiveSetting:ourTeamSliderConfig,
+        isSliderShow:true,
     })
 
     return (
@@ -38,7 +42,7 @@ const OurTeam:React.FC = () => {
                 </div>
 
                 <div >
-                    {Slider}
+                    {slider}
                 </div>
             </div>
         </section>
