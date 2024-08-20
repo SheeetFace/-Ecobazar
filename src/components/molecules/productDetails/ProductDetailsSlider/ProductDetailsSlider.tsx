@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react';
-
 import useSlider from '../../../../hooks/useSlider';
 
 import styles from '../ProductDetailsSlider/ProductDetailsSlider.module.scss';
@@ -8,23 +6,9 @@ interface ProductDetailsSliderProps{
     src:string
 }
 
+import { productDetailsSliderConfig } from '../../../../config/slider/productDetailsSliderConfig';
+
 const ProductDetailsSlider:React.FC<ProductDetailsSliderProps> = ({src}) => {
-
-    const [slicerPosition, setSlicerPosition] = useState<boolean>(true);
-
-    useEffect(() => {
-        const mediaQuery = window.matchMedia('(max-width: 1399.98px)');
-    
-        const handleResize=()=>{
-          setSlicerPosition(!mediaQuery.matches);
-        };
-    
-        handleResize();
-    
-        window.addEventListener('resize',handleResize);
-
-        return () => { window.removeEventListener('resize', handleResize) }
-    },[]);
 
     const images = Array.from({length:4}, ()=>src);
 
@@ -47,19 +31,21 @@ const ProductDetailsSlider:React.FC<ProductDetailsSliderProps> = ({src}) => {
         })
     }
 
-    const useSlicer = useSlider({ 
-                                cards: renderImages(),
-                                styles: '',
-                                slidesToShow: 3,
-                                vertical:slicerPosition,
-                                dots:false,
-                                pauseOnHover:false,
-                                swipe:false,
-    });
+    const slider = useSlider({
+        cards:renderImages(),
+        styles:'',
+        slidesToShow:3,
+        dots:true,
+        swipe:false,
+        vertical:true,
+        responsiveSetting:productDetailsSliderConfig,
+        isSliderShow:true,
+        cardsWithoutSliderStyles:styles._cards
+    })
 
     return (
         <div className={styles.ProductDetailsSlider}>
-            {useSlicer}
+            {slider}
         </div>
     )
 
