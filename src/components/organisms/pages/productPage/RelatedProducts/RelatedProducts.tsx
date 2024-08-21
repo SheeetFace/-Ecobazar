@@ -36,7 +36,7 @@ const RelatedProducts:React.FC<RelatedProductsProps> = ({productCategory}) => {
         dots:true,
         responsiveSetting:relatedProductsSliderConfig,
         isSliderShow:true,
-      })
+    })
 
     return (
         <section className={styles.RelatedProducts}>
