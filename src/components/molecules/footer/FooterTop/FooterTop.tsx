@@ -1,7 +1,7 @@
 import BrandInfo from '../components/BrandInfo/BrandInfo';
 import NavigationList from '../components/NavigationList/NavigationList';
 
-import {MyAccountData, HelpsData} from '../../../../data/footerNavigation';
+import { MyAccountData, HelpsData } from '../../../../config/footerNavigationConfig';
 
 import styles from '../FooterTop/FooterTop.module.scss';
 

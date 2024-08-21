@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import TitleWithViewAll from '../../../../molecules/pages/mainPage/TitleWithViewAll/TitleWithViewAll';
 import PopularCategoriesCard from '../../../../molecules/card/PopularCategoriesCard/PopularCategoriesCard';
 
-import { categories } from '../../../../../data/categories';
+import { categories } from '../../../../../config/categoriesConfig';
 
 import styles from '../PopularCategories/PopularCategories.module.scss';
 

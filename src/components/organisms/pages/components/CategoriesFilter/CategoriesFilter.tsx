@@ -9,7 +9,7 @@ import useToggleFilter from '../../../../../hooks/useToggleFilter';
 
 import { filterTypeGuard } from '../../../../../utils/filterTypeGuard';
 
-import { allCategoriesData } from '../../../../../data/filter/allCategories';
+import { allCategoriesData } from '../../../../../config/filter/allCategoriesConfig';
 
 import styles from '../CategoriesFilter/CategoriesFilter.module.scss';
 

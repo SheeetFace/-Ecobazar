@@ -8,7 +8,7 @@ import useToggleFilter from '../../../../../hooks/useToggleFilter';
 
 import { filterTypeGuard } from '../../../../../utils/filterTypeGuard';
 
-import { tagsData } from '../../../../../data/filter/tagsData';
+import { tagsData } from '../../../../../config/filter/tagsDataConfig';
 
 import styles from '../TagFilter/TagFilter.module.scss';
 
