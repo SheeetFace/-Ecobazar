@@ -1,6 +1,6 @@
 import NavLinkItem from "../../atoms/NavLinkItem/NavLinkItem";
 
-import { headerNavigation } from "../../../data/headerNavigation";
+import { headerNavigation } from "../../../config/headerNavigationConfig";
 
 import styles from '../NavLinks/NavLinks.module.scss'
 

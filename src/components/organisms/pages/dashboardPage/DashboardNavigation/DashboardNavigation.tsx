@@ -1,7 +1,7 @@
 import DashboardNavigationItem from '../../../../molecules/pages/dahsboardPage/DashboardNavigationItem/DashboardNavigationItem';
 import Divider from '../../../../atoms/Divider/Divider';
 
-import { dashboardNavigationData } from '../../../../../data/dashboardNavigation';
+import { dashboardNavigationData } from '../../../../../config/dashboardNavigationConfig';
 
 import styles from '../DashboardNavigation/DashboardNavigation.module.scss';
 
