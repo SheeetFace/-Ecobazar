@@ -23,7 +23,6 @@ const OurTeamCard:React.FC<OurTeamCardProps> = ({name,src,personnel}) => {
                 <div className={styles._container}>
                     <span className={styles._name}>{name}</span>
                     <span className={styles._personnel}>{personnel}</span>
-    
                 </div>
             </div>
 

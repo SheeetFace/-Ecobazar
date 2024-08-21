@@ -3,24 +3,17 @@
 ::selection{
     background-color:  rgb($soft-primary-color, .5);
 }
-
 ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px; 
-    background-color: rgba(255, 0, 0, 0);
-}
-::-webkit-scrollbar-track {
-    background-color: rgba(255, 0, 0, 0);
+    width: .375rem;
+    height: .375rem; 
 }
 ::-webkit-scrollbar-thumb {
+    border-radius: 0.5rem;
     background: linear-gradient(to bottom, $soft-primary-color, $primary-color, $hard-primary-color); 
 }
 
-
 .App{
-
     background-color:$grey-05;
-
     ._divider{
         background-color:$grey-1;
     }
