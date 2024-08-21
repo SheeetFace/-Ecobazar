@@ -1,38 +1,9 @@
+const createData = (status1:string, status2:string) => [
+    { status: "✔", label: 'Order Received' },
+    { status: "✔", label: 'Processing' },
+    { status: status1, label: 'One The Way' },
+    { status: status2, label: 'Delivered' }
+];
 
-export const completedData = [
-    {
-        status:"✔",
-        label:'Order Received'
-    },
-    {
-        status:"✔",
-        label:'Processing'
-    },
-    {
-        status:"✔",
-        label:'One The Way'
-    },
-    {
-        status:"✔",
-        label:'Delivered'
-    },
-]
-
-export const inProcessData =[
-    {
-        status:"✔",
-        label:'Order Received'
-    },
-    {
-        status:"✔",
-        label:'Processing'
-    },
-    {
-        status:"03",
-        label:'One The Way'
-    },
-    {
-        status:"04",
-        label:'Delivered'
-    },
-]
+export const completedData = createData("✔", "✔");
+export const inProcessData = createData("03", "04");
