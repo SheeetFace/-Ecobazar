@@ -6,6 +6,7 @@ import { useLoadingAndError } from '../../../../../hooks/useLoadingAndError';
 import { firebaseSignInWithEmailAndPasswordService } from '../../../../../services/auth/signInServices/firebaseSignInWithEmailAndPasswordService';
 
 import { getValidationOptions } from '../../../../../utils/getValidationOptions';
+import { isMobileDevice } from '../../../../../utils/isMobileDevice';
 
 import Input from '../../../../atoms/form/Input/Input';
 import InputFormField from '../../../formField/InputFormField/InputFormField';
@@ -88,7 +89,7 @@ const Login:React.FC = () => {
 
             {renderLoaderOrError()}
 
-            <SocialAuth/>
+            {!isMobileDevice() && (<SocialAuth/>)}
             
             <div className={styles._registerOrLoginOrReset}>
                 <span>Don’t have account?</span>

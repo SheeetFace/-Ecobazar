@@ -1,4 +1,4 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider} from "firebase/auth"
+import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider } from "firebase/auth"
 
 import { app } from "../../firebase/firebaseAuth"
 
@@ -23,7 +23,6 @@ export const firebaseSignInWithService = async (provider:AuthProvider) => {
         default:
             providerAuth =new GoogleAuthProvider()
     }
-
 
     return firebaseErrorHandlingOperations(async ()=>{
         const credentials = await signInWithPopup(auth, providerAuth);
