@@ -37,7 +37,7 @@ const SocialAuth:React.FC = () => {
             </div>
 
             {renderLoaderOrError()}
-
+            
             <Button className='ButtonFilledOval fillGoogle colorTextGrey1 buttonMaxWidth buttonMaxHeight'
                     type='button'
                     text='LOG IN WITH GOOGLE'

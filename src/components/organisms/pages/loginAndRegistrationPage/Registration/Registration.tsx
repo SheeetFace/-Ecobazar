@@ -7,6 +7,7 @@ import { firebaseCreateUserWithEmailAndPasswordService } from '../../../../../se
 
 import { getValidationOptions } from '../../../../../utils/getValidationOptions';
 import { checkIsInputsMatch } from '../../../../../utils/checkIsInputsMatch';
+import { isMobileDevice } from '../../../../../utils/isMobileDevice';
 
 import InputFormField from '../../../formField/InputFormField/InputFormField';
 import Button from '../../../../atoms/Button/Button';
@@ -121,7 +122,7 @@ const Registration:React.FC = () => {
 
             </form>
 
-            <SocialAuth/>
+            {!isMobileDevice() && (<SocialAuth/>)}
 
             <div className={styles._registerOrLoginOrReset}>
                 <span>Already have account?</span>
