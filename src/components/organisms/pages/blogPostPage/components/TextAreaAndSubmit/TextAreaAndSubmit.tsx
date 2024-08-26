@@ -5,8 +5,6 @@ import { useAppSelector } from '../../../../../../store/store';
 import TextAreaFormField from '../../../../formField/TextAreaFormField/TextAreaFormField';
 import Button from '../../../../../atoms/Button/Button';
 
-import styles from '../TextAreaAndSubmit/TextAreaAndSubmit.module.scss';
-
 
 import type {SubmitHandler}from 'react-hook-form';
 
@@ -32,7 +30,7 @@ const TextAreaAndSubmit:React.FC = () => {
     }
 
     return (
-        <section className={styles.TextAreaAndSubmit}>
+        <section>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <label>Message</label>
                 <TextAreaFormField  placeholder='Write your comment here…'

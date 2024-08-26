@@ -4,7 +4,6 @@
     justify-content: center;
     align-items: center;
 }
-
 ._fixed{
     @extend .FullScreenLoader;
     height: 100%;
@@ -17,7 +16,6 @@
     @extend .FullScreenLoader;
     height: 80dvh;
 }
-
 ._container{
     background-color:rgba(152,245,152,.6);
     border-radius:100%;

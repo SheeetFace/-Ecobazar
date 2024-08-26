@@ -1,4 +1,8 @@
-import type { UseQuery, BaseQueryFn, FetchBaseQueryError, FetchBaseQueryMeta } from '@reduxjs/toolkit/query/react';
+//eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import type { UseQuery } from '@reduxjs/toolkit/query/react';
+
+import type { BaseQueryFn, FetchBaseQueryError, FetchBaseQueryMeta } from '@reduxjs/toolkit/query/react';
 import type { QueryDefinition, FetchArgs } from "@reduxjs/toolkit/query";
 
 export type QueryHook<T> =(arg?: void, options?: { skip: boolean })=>UseQuery<
@@ -10,3 +14,4 @@ export type QueryHook<T> =(arg?: void, options?: { skip: boolean })=>UseQuery<
     "api"
   >
 >
+

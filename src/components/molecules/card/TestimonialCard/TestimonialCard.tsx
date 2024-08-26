@@ -12,7 +12,7 @@ interface TestimonialCardProps {
     rating:string
 }
 
-const TestimonialCard:React.FC<TestimonialCardProps> = ({id,name,avatar, testimonial,rating}) => {
+const TestimonialCard:React.FC<TestimonialCardProps> = ({name,avatar, testimonial,rating}) => {
 
     return (
         <div className={styles.TestimonialCard}>

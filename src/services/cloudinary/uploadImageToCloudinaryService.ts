@@ -1,5 +1,3 @@
-
-
 export const uploadImageToCloudinaryService = async(base64:string):Promise<string|null>=>{
 
     const CLOUD_NAME = import.meta.env.VITE_APP_CLOUDINARY_CLOUD_NAME;

@@ -24,7 +24,6 @@ const FoodCoIcon:React.FC<FoodCoIconProps> = ({className=''}) => {
             </svg>
         </div>
         </a>
-
     )
 }
 

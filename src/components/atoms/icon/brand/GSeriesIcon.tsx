@@ -11,7 +11,6 @@ const GSeriesIcon:React.FC = () => {
             </svg>
         </div>
         </a>
-
     )
 }
 

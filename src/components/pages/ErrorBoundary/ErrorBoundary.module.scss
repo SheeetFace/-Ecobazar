@@ -1,7 +1,6 @@
 @import '../../../styles/colors.scss';
 @import '../../../styles/typography.scss';
 
-
 .ErrorBoundary{
     display: flex;
     flex-direction: column;
@@ -30,7 +29,6 @@
             text-decoration: none;
         }
     }
-
 
     ._divider{
         background-color:$grey-1;

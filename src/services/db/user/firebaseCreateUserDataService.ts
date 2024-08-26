@@ -4,7 +4,6 @@ import { createUserData } from "../../../utils/firebase/db/createUserData";
 
 import type { User } from "firebase/auth";
 
-
 export const firebaseCreateUserDataService = async(user:User, displayName:string) => {
 
     const db = getFirestore();

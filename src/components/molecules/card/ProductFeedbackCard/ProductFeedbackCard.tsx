@@ -14,7 +14,7 @@ interface ProductFeedbackCardProps{
     feedback:string
 }
 
-const ProductFeedbackCard:React.FC<ProductFeedbackCardProps> = ({id,name,avatar,rating,date,feedback}) => {
+const ProductFeedbackCard:React.FC<ProductFeedbackCardProps> = ({name,avatar,rating,date,feedback}) => {
 
     const newDate = formatDate(date,'normal')
 
