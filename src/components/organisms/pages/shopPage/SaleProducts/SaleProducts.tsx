@@ -34,7 +34,6 @@ const SaleProducts:React.FC = () => {
             <div className={styles._container}>
                 {content}
                 {responseData ? renderSaleProductsCard :null}
-                {/* {renderSaleProductsCard()} */}
             </div>
 
         </section>

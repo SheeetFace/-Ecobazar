@@ -12,8 +12,6 @@ export const firebaseCheckIsUserAlreadyExistsService = async(user:User,displayNa
     const userDoc = await getDoc(userRef);
     const docData = userDoc.data()
 
-    // if(!docData) throw new Error('User not found in the DB');
-
     if(userDoc.exists()) return docData;
 
     return await firebaseCreateUserDataService(user, displayName)

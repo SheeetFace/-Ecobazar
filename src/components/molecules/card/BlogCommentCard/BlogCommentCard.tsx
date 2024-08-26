@@ -10,7 +10,7 @@ interface BlogCommentCardProps{
     src:string
 }
 
-const BlogCommentCard:React.FC<BlogCommentCardProps> = ({id,name,date,message,src}) => {
+const BlogCommentCard:React.FC<BlogCommentCardProps> = ({name,date,message,src}) => {
 
     const formattedDate = formatDate(date,'normal')
 

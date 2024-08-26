@@ -1,32 +1,29 @@
 @import '../../../styles/colors.scss';
 @import '../../../styles/typography.scss';
 
+.BreadcrumbItem{
+    cursor: pointer;
+    color:$grey-3 !important;
 
-    .BreadcrumbItem{
-        cursor: pointer;
-        color:$grey-3 !important;
-
-        &:hover{
-            color:$primary-color !important;
-        }
+    &:hover{
+        color:$primary-color !important;
     }
-    
-    ._lastItem{
-        animation: fadeIn .5s ease;
-    }
-    
-    @keyframes fadeIn {
-        0% {
-            opacity: 0;
-            letter-spacing: 10px;
-        }
-        100% {
-            opacity: 1;
-            letter-spacing: 0px;
-        }
-    }
+}
 
+._lastItem{
+    animation: fadeIn .5s ease;
+}
 
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        letter-spacing: 10px;
+    }
+    100% {
+        opacity: 1;
+        letter-spacing: 0px;
+    }
+}
 
 @media (max-width: 991.98px) {
     .BreadcrumbItem{

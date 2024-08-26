@@ -34,7 +34,6 @@ interface FormValues{
     zipCode:string
     company:string
 
-    // differentAddress:string
     orderNotes:string
 }
 

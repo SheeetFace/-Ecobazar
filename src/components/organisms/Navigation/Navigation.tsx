@@ -4,7 +4,6 @@ import PhoneCall from '../../molecules/PhoneCall/PhoneCall';
 import styles from '../Navigation/Navigation.module.scss';
 
 
-
 const Navigation:React.FC = ()=>{
 
     return(

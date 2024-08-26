@@ -104,7 +104,6 @@ const BillingAddressInfo:React.FC<BillingAddressInfoProps> = ({options,disabled=
                                         register={options.country.register}
                                         isErrors={options.country.isErrors}
                                         errorMessage={options.country.errorMessage}
-                                        // disabled={disabled}
                     />
                 </div>
 
@@ -114,7 +113,6 @@ const BillingAddressInfo:React.FC<BillingAddressInfoProps> = ({options,disabled=
                                         register={options.region.register}
                                         isErrors={options.region.isErrors}
                                         errorMessage={options.region.errorMessage}
-                                        // disabled={disabled}
                     />
                 </div>
                 

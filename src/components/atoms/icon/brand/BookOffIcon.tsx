@@ -17,7 +17,6 @@ const BookOffIcon:React.FC = () => {
             </svg>
         </div>
         </a>
-
     )
 }
 
