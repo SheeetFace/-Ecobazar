@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 import { useAppDispatch,useAppSelector } from '../../../../store/store';
 
 import { toggleCartItem } from '../../../../store/slices/cartSlice';
@@ -31,8 +33,11 @@ const ButtonAddToCart:React.FC<ButtonAddToCartProps> = ({
     }) => {
 
     const dispatch = useAppDispatch();
+    const navigate = useNavigate()
 
     const isCartAlreadyAdded = useAppSelector((state) =>selectIsItemInCart(state,id));
+
+    const isUser = useAppSelector((state)=> state.auth.isUser)
 
     const buttonStyle = (isIcon ? isCartAlreadyAdded : !isCartAlreadyAdded) ? 'fillGreen colorTextGrey1':'fillSoftGreen colorTextGrey8';
     
@@ -40,7 +45,9 @@ const ButtonAddToCart:React.FC<ButtonAddToCartProps> = ({
 
     const handleToggleCart = (e:MouseEvent)=>{
         e.preventDefault()
-        dispatch(toggleCartItem(id))
+
+        if(isUser) dispatch(toggleCartItem(id))
+        else navigate('/login')
     }
 
     return (
